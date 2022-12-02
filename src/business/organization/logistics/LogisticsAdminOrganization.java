@@ -18,5 +18,10 @@ public class LogisticsAdminOrganization extends Organization{
     public LogisticsAdminOrganization() {
         super(Type.LogisticsAdmin.getValue());
     }
-    
+        @Override
+    public ArrayList<Role> getSupportedRole() {
+        ArrayList<Role> roles = new ArrayList();
+        roles.add(new LogisticsAdminRole());
+        return roles;
+    }
 }
