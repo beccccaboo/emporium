@@ -20,7 +20,7 @@ public class ConsumerWorkerRole extends Role {
 
     public ConsumerWorkerRole() {
         super(RoleType.NGOWorker);
-    }
+    }   
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
