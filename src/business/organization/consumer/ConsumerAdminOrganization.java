@@ -4,21 +4,26 @@
  */
 package business.organization.consumer;
 
+import business.organization.Organization;
+import business.role.Role;
+import business.role.consumer.ConsumerAdminRole;
 import java.util.ArrayList;
 
 /**
  *
- * @author swarag
+ * @author indap.n
  */
-public class ConsumerAdminOrganization {
-    public NGOAdminOrganization() {
+public class ConsumerAdminOrganization extends Organization {
+
+    public ConsumerAdminOrganization() {
         super(Type.NGOAdmin.getValue());
     }
 
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList();
-        roles.add(new NGOAdminRole());
+        roles.add(new ConsumerAdminRole());
         return roles;
     }
+
 }
