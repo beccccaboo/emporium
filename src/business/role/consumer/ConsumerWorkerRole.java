@@ -16,6 +16,15 @@ import userInterface.ngo.ngoWorker.NGOWorkerWorkAreaJPanel;
  *
  * @author swarag
  */
-public class ConsumerWorkerRole {
-    
+public class ConsumerWorkerRole extends Role {
+
+    public ConsumerWorkerRole() {
+        super(RoleType.NGOWorker);
+    }
+
+    @Override
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
+      return new NGOWorkerWorkAreaJPanel(userProcessContainer, account, organization, enterprise, business);
+    }
+
 }
