@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author indap.n
+ * @author swarag
  */
 public class ConsumerAdminOrganization extends Organization {
 

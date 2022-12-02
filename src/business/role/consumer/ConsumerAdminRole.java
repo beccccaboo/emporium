@@ -11,7 +11,7 @@ import userInterface.ngo.ngoAdmin.NGOAdminWorkAreaJPanel;
 
 /**
  *
- * @author indap.n
+ * @author swarag
  */
 public class ConsumerAdminRole extends Role {
 
