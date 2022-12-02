@@ -5,6 +5,8 @@
 package business.organization.supplier;
 
 import business.organization.Organization;
+import business.role.Role;
+import business.role.supplier.SupplierWorkerRole;
 import java.util.ArrayList;
 
 /**

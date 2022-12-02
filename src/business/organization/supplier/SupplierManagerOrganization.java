@@ -5,6 +5,8 @@
 package business.organization.supplier;
 
 import business.organization.Organization;
+import business.role.Role;
+import business.role.supplier.SupplierManagerRole;
 import java.util.ArrayList;
 
 /**
@@ -20,7 +22,7 @@ public class SupplierManagerOrganization extends Organization {
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList();
-        roles.add(new SupplierManagerOrganizationRole());
+        roles.add(new SupplierManagerRole());
         return roles;
     }
 
