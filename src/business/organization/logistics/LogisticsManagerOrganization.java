@@ -4,10 +4,24 @@
  */
 package business.organization.logistics;
 
+import business.organization.Organization;
+import business.role.Role;
+import business.role.logistics.LogisticsManagerRole;
+import java.util.ArrayList;
 /**
  *
  * @author Arpit
  */
 public class LogisticsManagerOrganization {
     
+    public LogisticsManagerOrganization() {
+        super(Type.LogisticsManager.getValue());
+    }
+
+    @Override
+    public ArrayList<Role> getSupportedRole() {
+        ArrayList<Role> roles = new ArrayList();
+        roles.add(new LogisticsManagerRole());
+        return roles;
+    }
 }
