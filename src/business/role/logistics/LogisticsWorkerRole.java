@@ -17,6 +17,15 @@ import userInterface.logistics.logisticsWorker.LogisticsWorkerWorkAreaJPanel;
  *
  * @author Arpit
  */
-public class LogisticsWorkerRole {
-    
+public class LogisticsWorkerRole extends Role {
+
+    public LogisticsWorkerRole() {
+        super(RoleType.LogisticsWorker);
+    }
+
+    @Override
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
+        return new LogisticsWorkerWorkAreaJPanel(userProcessContainer, account, enterprise, network);
+    }
+
 }
