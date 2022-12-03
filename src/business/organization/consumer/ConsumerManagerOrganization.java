@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class ConsumerManagerOrganization extends Organization {
 
     public ConsumerManagerOrganization() {
-        super(Type.ConsumerManager.getValue());
+        super(Organization.Type.ConsumerManager.getValue());
     }
 
     @Override
