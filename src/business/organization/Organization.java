@@ -4,11 +4,16 @@
  */
 package business.organization;
 
+import business.employee.EmployeeDirectory;
+import business.role.Role;
+import business.userAccount.UserAccountDirectory;
+import java.util.ArrayList;
+
 /**
  *
  * @author rebeccabiju
  */
-public class Organization {
+public abstract class Organization {
     private static int counter = 0;
     private String name;
     private WorkQueue workQueue;

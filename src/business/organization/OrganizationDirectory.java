@@ -4,6 +4,9 @@
  */
 package business.organization;
 
+import business.organization.supplier.SupplierAdminOrganization;
+import business.organization.supplier.SupplierManagerOrganization;
+import business.organization.supplier.SupplierWorkerOrganization;
 import java.util.ArrayList;
 
 /**
