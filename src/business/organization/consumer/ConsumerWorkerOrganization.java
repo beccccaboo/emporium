@@ -3,24 +3,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package business.organization.consumer;
+
 import business.organization.Organization;
 import business.role.Role;
-import business.role.consumer.ConsumerManagerRole;
+import business.role.consumer.ConsumerWorkerRole;
 import java.util.ArrayList;
 /**
  *
  * @author swarag
  */
-public class ConsumerManagerOrganization extends Organization {
+public class ConsumerWorkerOrganization extends Organization {
 
-    public ConsumerManagerOrganization() {
-        super(Type.NGOManager.getValue());
+    public ConsumerWorkerOrganization() {
+        super(Type.NGOWorker.getValue());
     }
 
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList();
-        roles.add(new ConsumerManagerRole());
+        roles.add(new ConsumerWorkerRole());
         return roles;
     }
 
