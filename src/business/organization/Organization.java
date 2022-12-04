@@ -7,6 +7,7 @@ package business.organization;
 import business.employee.EmployeeDirectory;
 import business.role.Role;
 import business.userAccount.UserAccountDirectory;
+import business.workQueue.WorkQueue;
 import java.util.ArrayList;
 
 /**
@@ -31,9 +32,8 @@ public abstract class Organization {
         SupplierAdmin("Restaurant Admin Organization"),
         SupplierManager("Restaurant Manager Organization"),
         SupplierWorker("Restaurant Worker Organization"),
-        InventoryAdmin("Inventory Admin Organization"),
-        InventoryManager("Inventory Manager Organization"),
-        InventoryWorker("Inventory Worker Organization");
+        SupervisionAdmin("Supervision Admin Organization"),
+        SupervisionManager("Supervision Manager Organization");
 
         private String value;
 

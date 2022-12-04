@@ -5,6 +5,9 @@
 package business.enterprise;
 
 import business.role.Role;
+import business.util.inventory.Distributed;
+import business.util.inventory.Inventory;
+import business.util.request.RequestItem;
 import java.util.ArrayList;
 
 /**
@@ -18,7 +21,7 @@ public class ConsumerEnterprise extends Enterprise {
     private ArrayList<Distributed> distributedList;
 
     public ConsumerEnterprise(String name) {
-        super(name, EnterpriseType.NGO);
+        super(name, EnterpriseType.Consumer);
         inventory = new Inventory();
         wasteInventory = new Inventory();
         distributedList = new ArrayList();
