@@ -28,21 +28,195 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
+        jScrollPane = new javax.swing.JScrollPane();
+        tblRestaurantRequests = new javax.swing.JTable();
+        jPanelRedirectToNGO = new javax.swing.JPanel();
+        btnAssignNGO = new javax.swing.JButton();
+        lblMessageRedirect = new javax.swing.JLabel();
+        txtMessageRedirect = new javax.swing.JTextField();
+        lblHeader = new javax.swing.JLabel();
+        btnView = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jPanelAssignToEmployee = new javax.swing.JPanel();
+        lblMessage = new javax.swing.JLabel();
+        txtMessage = new javax.swing.JTextField();
+        lblWorker = new javax.swing.JLabel();
+        cmbWorker = new javax.swing.JComboBox();
+        btnApprove = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
 
         setMinimumSize(new java.awt.Dimension(1000, 1000));
 
+        tblRestaurantRequests.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Restaurant Name", "Recieved Date", "Message", "Status"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane.setViewportView(tblRestaurantRequests);
+
+        jPanelRedirectToNGO.setBackground(new java.awt.Color(204, 255, 204));
+        jPanelRedirectToNGO.setBorder(javax.swing.BorderFactory.createTitledBorder("Redirect to other NGO"));
+
+        btnAssignNGO.setText("Redirect");
+        btnAssignNGO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAssignNGOActionPerformed(evt);
+            }
+        });
+
+        lblMessageRedirect.setText("Message:");
+
+        javax.swing.GroupLayout jPanelRedirectToNGOLayout = new javax.swing.GroupLayout(jPanelRedirectToNGO);
+        jPanelRedirectToNGO.setLayout(jPanelRedirectToNGOLayout);
+        jPanelRedirectToNGOLayout.setHorizontalGroup(
+            jPanelRedirectToNGOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelRedirectToNGOLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelRedirectToNGOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRedirectToNGOLayout.createSequentialGroup()
+                        .addGap(179, 179, 179)
+                        .addComponent(btnAssignNGO))
+                    .addGroup(jPanelRedirectToNGOLayout.createSequentialGroup()
+                        .addComponent(lblMessageRedirect)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtMessageRedirect)))
+                .addContainerGap())
+        );
+        jPanelRedirectToNGOLayout.setVerticalGroup(
+            jPanelRedirectToNGOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRedirectToNGOLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelRedirectToNGOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtMessageRedirect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMessageRedirect))
+                .addGap(59, 59, 59)
+                .addComponent(btnAssignNGO)
+                .addGap(16, 16, 16))
+        );
+
+        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblHeader.setText("NGO Manager- Restaurant Requests");
+
+        btnView.setText("View Details");
+        btnView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewActionPerformed(evt);
+            }
+        });
+
+        jPanelAssignToEmployee.setBackground(new java.awt.Color(204, 255, 204));
+        jPanelAssignToEmployee.setBorder(javax.swing.BorderFactory.createTitledBorder("Assign to Employee"));
+
+        lblMessage.setText("Message:");
+
+        lblWorker.setText("Worker:");
+
+        cmbWorker.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbWorkerActionPerformed(evt);
+            }
+        });
+
+        btnApprove.setText("Assign");
+        btnApprove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnApproveActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelAssignToEmployeeLayout = new javax.swing.GroupLayout(jPanelAssignToEmployee);
+        jPanelAssignToEmployee.setLayout(jPanelAssignToEmployeeLayout);
+        jPanelAssignToEmployeeLayout.setHorizontalGroup(
+            jPanelAssignToEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAssignToEmployeeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelAssignToEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAssignToEmployeeLayout.createSequentialGroup()
+                        .addComponent(lblMessage)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(jPanelAssignToEmployeeLayout.createSequentialGroup()
+                        .addComponent(lblWorker)
+                        .addGap(17, 17, 17)))
+                .addGroup(jPanelAssignToEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cmbWorker, 0, 176, Short.MAX_VALUE)
+                    .addComponent(txtMessage))
+                .addGap(10, 10, 10))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAssignToEmployeeLayout.createSequentialGroup()
+                .addGap(179, 179, 179)
+                .addComponent(btnApprove)
+                .addContainerGap())
+        );
+        jPanelAssignToEmployeeLayout.setVerticalGroup(
+            jPanelAssignToEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAssignToEmployeeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelAssignToEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbWorker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblWorker))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelAssignToEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMessage))
+                .addGap(38, 38, 38)
+                .addComponent(btnApprove)
+                .addGap(11, 11, 11))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 994, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addComponent(jPanelRedirectToNGO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jPanelAssignToEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(117, 117, 117)
+                                .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)))
+                .addGap(314, 314, 314))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 963, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(lblHeader)
+                .addGap(50, 50, 50)
+                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(btnView)
+                .addGap(27, 27, 27)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelAssignToEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelRedirectToNGO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(404, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Inventory Request", jPanel1);
@@ -102,12 +276,130 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAssignNGOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignNGOActionPerformed
+        // TODO add your handling code here:
+
+        int selectedRow = tblRestaurantRequests.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null,
+                "Please select a request item to view details",
+                "Warning",
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        } else {
+            CollectionWorkRequest request = (CollectionWorkRequest) tblRestaurantRequests.getValueAt(selectedRow, 3);
+            String message = txtMessageRedirect.getText();
+
+            NGOOtherRegionsRequestJPanel ngoOtherRegionsRequestJPanel = new NGOOtherRegionsRequestJPanel(userProcessContainer, request, organization, account, network, message);
+            userProcessContainer.add("NGOOtherRegionsRequestJPanel", ngoOtherRegionsRequestJPanel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+            txtMessageRedirect.setText("");
+        }
+
+    }//GEN-LAST:event_btnAssignNGOActionPerformed
+
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblRestaurantRequests.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null,
+                "Please select a request item to view details",
+                "Information",
+                JOptionPane.INFORMATION_MESSAGE);
+            return;
+        } else {
+            CollectionWorkRequest cwr = (CollectionWorkRequest) tblRestaurantRequests.getValueAt(selectedRow, 3);
+
+            NGORestaurantRequestViewJPanel restaurantWorkerViewLogItemJPanel = new NGORestaurantRequestViewJPanel(userProcessContainer, cwr);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            userProcessContainer.add("RestaurantWorkerViewLogItemJPanel", restaurantWorkerViewLogItemJPanel);
+            layout.next(userProcessContainer);
+        }
+    }//GEN-LAST:event_btnViewActionPerformed
+
+    private void cmbWorkerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbWorkerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbWorkerActionPerformed
+
+    private void btnApproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveActionPerformed
+        // TODO add your handling code here:
+
+        int selectedRow = tblRestaurantRequests.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null,
+                "Please select a request item to view details",
+                "Warning",
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        } else {
+            CollectionWorkRequest request = (CollectionWorkRequest) tblRestaurantRequests.getValueAt(selectedRow, 3);
+            if (request.getStatus().equals(RequestStatus.getPickupStatusMessage(1))) {
+
+                int selectedEmployee = cmbWorker.getSelectedIndex();
+                if (selectedEmployee < 0) {
+                    JOptionPane.showMessageDialog(null,
+                        "Please select an employee to assign the request to",
+                        "Warning",
+                        JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+
+                request.setSender(account);
+                request.setStatus(RequestStatus.getPickupStatusMessage(2));
+                request.setMessage(txtMessage.getText());
+                request.setDeliverToNGO(enterprise.getName());
+
+                UserAccount acc = (UserAccount) cmbWorker.getSelectedItem();
+                request.setDeliverTo(acc);
+
+                // Adding to own queue
+                account.getWorkQueue().getWorkRequestList().add(request);
+
+                // Adding to Logistics Manager Organization queue
+                for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
+                    for (Organization o : e.getOrganizationDirectory().getOrganizationList()) {
+                        if (o instanceof LogisticsManagerOrganization) {
+                            o.getWorkQueue().getWorkRequestList().add(request);
+                            break;
+                        }
+                    }
+                }
+
+                JOptionPane.showMessageDialog(null, "Request approved and forwarded to logistics", "Information", JOptionPane.INFORMATION_MESSAGE);
+                populateTable();
+                txtMessage.setText("");
+            } else {
+                JOptionPane.showMessageDialog(null,
+                    "Request already processed by you",
+                    "Warning",
+                    JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+        }
+    }//GEN-LAST:event_btnApproveActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnApprove;
+    private javax.swing.JButton btnAssignNGO;
+    private javax.swing.JButton btnView;
+    private javax.swing.JComboBox cmbWorker;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanelAssignToEmployee;
+    private javax.swing.JPanel jPanelRedirectToNGO;
+    private javax.swing.JScrollPane jScrollPane;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel lblHeader;
+    private javax.swing.JLabel lblMessage;
+    private javax.swing.JLabel lblMessageRedirect;
+    private javax.swing.JLabel lblWorker;
+    private javax.swing.JTable tblRestaurantRequests;
+    private javax.swing.JTextField txtMessage;
+    private javax.swing.JTextField txtMessageRedirect;
     // End of variables declaration//GEN-END:variables
 }
