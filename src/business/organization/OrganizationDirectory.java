@@ -10,6 +10,8 @@ import business.organization.consumer.ConsumerWorkerOrganization;
 import business.organization.logistics.LogisticsAdminOrganization;
 import business.organization.logistics.LogisticsManagerOrganization;
 import business.organization.logistics.LogisticsWorkerOrganization;
+import business.organization.supervision.SupervisionAdminOrganization;
+import business.organization.supervision.SupervisionManagerOrganization;
 import business.organization.supplier.SupplierAdminOrganization;
 import business.organization.supplier.SupplierManagerOrganization;
 import business.organization.supplier.SupplierWorkerOrganization;
