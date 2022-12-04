@@ -49,7 +49,12 @@ public class ConsumerWorkerWorkAreaJPanel extends javax.swing.JPanel {
         spnQuantity = new javax.swing.JSpinner();
         btnAdd = new javax.swing.JButton();
         jSeparator = new javax.swing.JSeparator();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblInventory1 = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        lblQuantity1 = new javax.swing.JLabel();
+        lblQuantityVal = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(1000, 1000));
 
@@ -92,7 +97,7 @@ public class ConsumerWorkerWorkAreaJPanel extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 817, Short.MAX_VALUE)
+            .addGap(0, 1020, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(193, 193, 193)
@@ -106,11 +111,11 @@ public class ConsumerWorkerWorkAreaJPanel extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(20, 20, 20)
                             .addComponent(jLabel1)))
-                    .addContainerGap(193, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 598, Short.MAX_VALUE)
+            .addGap(0, 820, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(142, 142, 142)
@@ -121,7 +126,7 @@ public class ConsumerWorkerWorkAreaJPanel extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnCollect)
                         .addComponent(btnView))
-                    .addContainerGap(143, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Pickup Delivery", jPanel1);
@@ -204,7 +209,7 @@ public class ConsumerWorkerWorkAreaJPanel extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 817, Short.MAX_VALUE)
+            .addGap(0, 1020, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addContainerGap()
@@ -245,7 +250,7 @@ public class ConsumerWorkerWorkAreaJPanel extends javax.swing.JPanel {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 598, Short.MAX_VALUE)
+            .addGap(0, 820, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -277,7 +282,68 @@ public class ConsumerWorkerWorkAreaJPanel extends javax.swing.JPanel {
         );
 
         jTabbedPane1.addTab("Distribute Item", jPanel2);
-        jTabbedPane1.addTab("View Inventory", jTabbedPane2);
+
+        tblInventory1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Type", "Quantity", "Hours to perish"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tblInventory1);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setText("NGO Worker Inventory Panel");
+
+        lblQuantity1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblQuantity1.setText("Total Quantity :");
+
+        lblQuantityVal.setText("<quantity>");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1020, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(lblQuantity1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblQuantityVal, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 820, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(17, 17, 17)
+                    .addComponent(jLabel2)
+                    .addGap(43, 43, 43)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblQuantity1)
+                        .addComponent(lblQuantityVal))
+                    .addGap(35, 35, 35)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(511, Short.MAX_VALUE)))
+        );
+
+        jTabbedPane1.addTab("Inventory", jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -468,23 +534,28 @@ public class ConsumerWorkerWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnRemove;
     private javax.swing.JButton btnView;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPaneTblListItem;
     private javax.swing.JSeparator jSeparator;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JLabel lblHeader;
     private javax.swing.JLabel lblPeopleFed;
     private javax.swing.JLabel lblQuantity;
+    private javax.swing.JLabel lblQuantity1;
+    private javax.swing.JLabel lblQuantityVal;
     private javax.swing.JLabel lblWastageAvoided;
     private javax.swing.JLabel lblWastageAvoidedValue;
     private javax.swing.JSpinner spnPeopleFed;
     private javax.swing.JSpinner spnQuantity;
     private javax.swing.JTable tblDetails;
     private javax.swing.JTable tblInventory;
+    private javax.swing.JTable tblInventory1;
     private javax.swing.JTable tblListItem;
     // End of variables declaration//GEN-END:variables
 }
