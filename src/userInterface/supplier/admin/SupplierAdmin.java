@@ -38,8 +38,30 @@ public class SupplierAdmin extends javax.swing.JPanel {
         cmbOrgCreate = new javax.swing.JComboBox();
         lblName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
-        manageOrganization = new javax.swing.JPanel();
         manageUserAccount = new javax.swing.JPanel();
+        lblPassword = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JPasswordField();
+        jSeparator2 = new javax.swing.JSeparator();
+        lblOrganization = new javax.swing.JLabel();
+        btnCreate = new javax.swing.JButton();
+        cmbOrganiztion = new javax.swing.JComboBox();
+        lblEmployee = new javax.swing.JLabel();
+        cmbEmployee = new javax.swing.JComboBox();
+        lblRole = new javax.swing.JLabel();
+        cmbRole = new javax.swing.JComboBox();
+        lblUserName = new javax.swing.JLabel();
+        lblHeader2 = new javax.swing.JLabel();
+        txtUserName = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblUsers = new javax.swing.JTable();
+        manageOrganization = new javax.swing.JPanel();
+        lblHeader1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblOrganization1 = new javax.swing.JTable();
+        jSeparator1 = new javax.swing.JSeparator();
+        lblOrg1 = new javax.swing.JLabel();
+        cmbOrganization = new javax.swing.JComboBox();
+        btnAddOrganization = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setMinimumSize(new java.awt.Dimension(1000, 1000));
@@ -47,7 +69,7 @@ public class SupplierAdmin extends javax.swing.JPanel {
         manageEmployee.setBackground(new java.awt.Color(102, 102, 255));
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblHeader.setText("Restaurant Adminstrative Work Area - Manage Employee");
+        lblHeader.setText("Supplier Adminstrative Work Area - Manage Employee");
 
         lblOrg.setText("Organization");
 
@@ -145,31 +167,219 @@ public class SupplierAdmin extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Manage Employee", manageEmployee);
 
-        javax.swing.GroupLayout manageOrganizationLayout = new javax.swing.GroupLayout(manageOrganization);
-        manageOrganization.setLayout(manageOrganizationLayout);
-        manageOrganizationLayout.setHorizontalGroup(
-            manageOrganizationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
-        );
-        manageOrganizationLayout.setVerticalGroup(
-            manageOrganizationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 869, Short.MAX_VALUE)
-        );
+        lblPassword.setText("Password");
 
-        jTabbedPane1.addTab("Manage Organization", manageOrganization);
+        lblOrganization.setText("Organization");
+
+        btnCreate.setText("Create");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateActionPerformed(evt);
+            }
+        });
+
+        cmbOrganiztion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbOrganiztionActionPerformed(evt);
+            }
+        });
+
+        lblEmployee.setText("Employee");
+
+        lblRole.setText("Role");
+
+        lblUserName.setText("User Name");
+
+        lblHeader2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblHeader2.setText("Restaurant Adminstrative Work Area - Manage Users");
+
+        tblUsers.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "User Name", "Role"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tblUsers);
 
         javax.swing.GroupLayout manageUserAccountLayout = new javax.swing.GroupLayout(manageUserAccount);
         manageUserAccount.setLayout(manageUserAccountLayout);
         manageUserAccountLayout.setHorizontalGroup(
             manageUserAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
+            .addGroup(manageUserAccountLayout.createSequentialGroup()
+                .addGap(92, 92, 92)
+                .addGroup(manageUserAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator2)
+                    .addGroup(manageUserAccountLayout.createSequentialGroup()
+                        .addGroup(manageUserAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(manageUserAccountLayout.createSequentialGroup()
+                                .addGap(461, 461, 461)
+                                .addComponent(btnCreate))
+                            .addGroup(manageUserAccountLayout.createSequentialGroup()
+                                .addGap(149, 149, 149)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(manageUserAccountLayout.createSequentialGroup()
+                                .addGap(195, 195, 195)
+                                .addGroup(manageUserAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(manageUserAccountLayout.createSequentialGroup()
+                                        .addComponent(lblOrganization)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cmbOrganiztion, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(manageUserAccountLayout.createSequentialGroup()
+                                        .addGroup(manageUserAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(lblUserName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lblRole, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lblEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(manageUserAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(cmbRole, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtUserName)
+                                            .addComponent(txtPassword)
+                                            .addComponent(cmbEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(manageUserAccountLayout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(lblHeader2)))
+                        .addGap(76, 76, 76)))
+                .addGap(161, 161, 161))
         );
         manageUserAccountLayout.setVerticalGroup(
             manageUserAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 869, Short.MAX_VALUE)
+            .addGroup(manageUserAccountLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(lblHeader2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addGroup(manageUserAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbOrganiztion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblOrganization))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(manageUserAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEmployee)
+                    .addComponent(cmbEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(manageUserAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRole)
+                    .addComponent(cmbRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(manageUserAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUserName)
+                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(manageUserAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPassword)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnCreate)
+                .addContainerGap(333, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Manage User Account", manageUserAccount);
+
+        lblHeader1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblHeader1.setText("Supplier Adminstrative Work Area - Manage Organization");
+
+        tblOrganization1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Name"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblOrganization1);
+
+        lblOrg1.setText("Organization Type ");
+
+        cmbOrganization.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbOrganizationActionPerformed(evt);
+            }
+        });
+
+        btnAddOrganization.setText("Add Organization");
+        btnAddOrganization.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddOrganizationActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout manageOrganizationLayout = new javax.swing.GroupLayout(manageOrganization);
+        manageOrganization.setLayout(manageOrganizationLayout);
+        manageOrganizationLayout.setHorizontalGroup(
+            manageOrganizationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
+            .addGroup(manageOrganizationLayout.createSequentialGroup()
+                .addGroup(manageOrganizationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(manageOrganizationLayout.createSequentialGroup()
+                        .addGap(165, 165, 165)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(manageOrganizationLayout.createSequentialGroup()
+                        .addGap(253, 253, 253)
+                        .addComponent(lblOrg1)
+                        .addGap(18, 18, 18)
+                        .addComponent(cmbOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(manageOrganizationLayout.createSequentialGroup()
+                        .addGap(539, 539, 539)
+                        .addComponent(btnAddOrganization))
+                    .addGroup(manageOrganizationLayout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(lblHeader1, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        manageOrganizationLayout.setVerticalGroup(
+            manageOrganizationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageOrganizationLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(lblHeader1)
+                .addGap(42, 42, 42)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addGroup(manageOrganizationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblOrg1))
+                .addGap(53, 53, 53)
+                .addComponent(btnAddOrganization)
+                .addGap(62, 62, 62))
+        );
+
+        jTabbedPane1.addTab("Manage Organization", manageOrganization);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -192,21 +402,117 @@ public class SupplierAdmin extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_cmbOrgActionPerformed
 
+    private void cmbOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbOrganizationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbOrganizationActionPerformed
+
+    private void btnAddOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddOrganizationActionPerformed
+
+        int selectedItem = cmbOrganization.getSelectedIndex();
+        if (selectedItem == -1) {
+            JOptionPane.showMessageDialog(null, "Please select the organization to create", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        Type type = (Type) cmbOrganization.getSelectedItem();
+        directory.addOrganization(type);
+        JOptionPane.showMessageDialog(null, "Organization added successfully", "Information", JOptionPane.INFORMATION_MESSAGE);
+        populateTable();
+    }//GEN-LAST:event_btnAddOrganizationActionPerformed
+
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+
+        String userName = null;
+        if (Validation.validateStringInput(txtUserName)) {
+            userName = txtUserName.getText();
+        } else {
+            return;
+        }
+
+        char[] passChar = txtPassword.getPassword();
+        if (passChar == null || passChar.length == 0) {
+            JOptionPane.showMessageDialog(null,
+                "Password cannot be blank",
+                "Warning",
+                JOptionPane.WARNING_MESSAGE);
+            txtPassword.setBackground(Color.RED);
+            return;
+        }
+        else{
+            txtPassword.setBackground(Color.WHITE);
+        }
+
+        UserAccount ua = new UserAccount();
+        String password = ua.encodePassword(String.valueOf(passChar));
+
+        Organization organization = (Organization) cmbOrganiztion.getSelectedItem();
+
+        if (business.checkIfUserNameIsUnique(userName)) {
+            JOptionPane.showMessageDialog(null, "User name already exists. Please select a different one.");
+            return;
+        }
+
+        Employee employee = (Employee) cmbEmployee.getSelectedItem();
+        Role role = (Role) cmbRole.getSelectedItem();
+
+        if (organization == null || employee == null || role == null) {
+            JOptionPane.showMessageDialog(null, "Invalid input!");
+            return;
+        }
+
+        organization.getUserAccountDirectory().addUserAccount(userName, password, employee, role);
+        JOptionPane.showMessageDialog(null, "User account created successfully", "Information", JOptionPane.INFORMATION_MESSAGE);
+
+        txtUserName.setText("");
+        txtPassword.setText("");
+        populateEmployeeComboBox(organization);
+        populateData();
+    }//GEN-LAST:event_btnCreateActionPerformed
+
+    private void cmbOrganiztionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbOrganiztionActionPerformed
+        Organization organization = (Organization) cmbOrganiztion.getSelectedItem();
+        if (organization != null) {
+            populateEmployeeComboBox(organization);
+            populateRoleComboBox(organization);
+        }
+    }//GEN-LAST:event_cmbOrganiztionActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddOrganization;
+    private javax.swing.JButton btnCreate;
+    private javax.swing.JComboBox cmbEmployee;
     private javax.swing.JComboBox cmbOrg;
     private javax.swing.JComboBox cmbOrgCreate;
+    private javax.swing.JComboBox cmbOrganization;
+    private javax.swing.JComboBox cmbOrganiztion;
+    private javax.swing.JComboBox cmbRole;
     private javax.swing.JScrollPane jScrollPane;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel lblEmployee;
     private javax.swing.JLabel lblHeader;
+    private javax.swing.JLabel lblHeader1;
+    private javax.swing.JLabel lblHeader2;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblOrg;
+    private javax.swing.JLabel lblOrg1;
     private javax.swing.JLabel lblOrgCreate;
+    private javax.swing.JLabel lblOrganization;
+    private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblRole;
+    private javax.swing.JLabel lblUserName;
     private javax.swing.JPanel manageEmployee;
     private javax.swing.JPanel manageOrganization;
     private javax.swing.JPanel manageUserAccount;
     private javax.swing.JTable tblOrganization;
+    private javax.swing.JTable tblOrganization1;
+    private javax.swing.JTable tblUsers;
     private javax.swing.JTextField txtName;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 }
