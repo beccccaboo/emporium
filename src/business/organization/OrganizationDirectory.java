@@ -57,16 +57,13 @@ public class OrganizationDirectory {
         } else if (type.getValue().equals(Organization.Type.SupplierWorker.getValue())) {
             organization = new SupplierWorkerOrganization();
             organizationList.add(organization);
-        } else if (type.getValue().equals(Organization.Type.InventoryAdmin.getValue())) {
-            organization = new InventoryAdminOrganization();
+        } else if (type.getValue().equals(Organization.Type.SupervisionAdmin.getValue())) {
+            organization = new SupervisionAdminOrganization();
             organizationList.add(organization);
-        } else if (type.getValue().equals(Organization.Type.InventoryManager.getValue())) {
-            organization = new InventoryManagerOrganization();
+        } else if (type.getValue().equals(Organization.Type.SupervisionManager.getValue())) {
+            organization = new SupervisionManagerOrganization();
             organizationList.add(organization);
-        } else if (type.getValue().equals(Organization.Type.InventoryWorker.getValue())) {
-            organization = new InventoryWorkerOrganization();
-            organizationList.add(organization);
-        }
+        } 
         return organization;
     }
     
