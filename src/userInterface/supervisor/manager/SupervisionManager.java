@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package userInterface.supervisor.admin;
+package userInterface.supervisor.manager;
 
 /**
  *
  * @author Arpit
  */
-public class SupervisorAdmin extends javax.swing.JPanel {
+public class SupervisionManager extends javax.swing.JPanel {
 
     /**
      * Creates new form SupervisorAdmin
      */
-    public SupervisorAdmin() {
+    public SupervisionManager() {
         initComponents();
     }
 
