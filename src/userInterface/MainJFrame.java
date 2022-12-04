@@ -4,6 +4,8 @@
  */
 package userInterface;
 
+import business.DB4OUtil.DB4OUtil;
+import business.EcoSystem;
 import java.awt.CardLayout;
 
 /**
@@ -15,6 +17,7 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFramw
      */
+    
     public MainJFrame() {
         initComponents();
         setLoginScreen();

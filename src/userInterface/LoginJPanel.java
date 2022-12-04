@@ -4,7 +4,15 @@
  */
 package userInterface;
 
+import business.DB4OUtil.DB4OUtil;
+import business.EcoSystem;
+import business.organization.Organization;
+import business.userAccount.UserAccount;
+import java.awt.CardLayout;
+import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import userInterface.supplier.admin.SupplierAdmin;
 
 /**
  *
@@ -16,9 +24,17 @@ public class LoginJPanel extends javax.swing.JPanel {
      * Creates new form LoginJPanel
      */
     JPanel mainPanel;
+    public EcoSystem system;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    
     public LoginJPanel(JPanel mainPanel) {
         initComponents();
         this.mainPanel = mainPanel;
+//        system = dB4OUtil.retrieveSystem();
+//        RequestStatus.initalizePickupRequestStatusMap();
+//        RequestStatus.initializeInvoiceStatusMap();
+//        RequestStatus.initializeShortageStatusListMap();
+//        Food.initializeFood();
     }
 
     /**
@@ -30,32 +46,18 @@ public class LoginJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblUsername = new javax.swing.JLabel();
-        txtUsername = new javax.swing.JTextField();
-        lblPassword = new javax.swing.JLabel();
-        pwdPassword = new javax.swing.JPasswordField();
         lblRole = new javax.swing.JLabel();
         cbRole = new javax.swing.JComboBox<>();
-        btnSubmitLogin = new javax.swing.JButton();
         lblTitle1 = new javax.swing.JLabel();
         lblTitle = new javax.swing.JLabel();
+        lblUserName = new javax.swing.JLabel();
+        txtUserName = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
+        lblPassword = new javax.swing.JLabel();
+        btnLogin = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(153, 0, 0));
         setMinimumSize(new java.awt.Dimension(1000, 1000));
-
-        lblUsername.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        lblUsername.setForeground(new java.awt.Color(255, 255, 255));
-        lblUsername.setText("Username :");
-
-        txtUsername.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsernameActionPerformed(evt);
-            }
-        });
-
-        lblPassword.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
-        lblPassword.setText("Password :");
 
         lblRole.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         lblRole.setForeground(new java.awt.Color(255, 255, 255));
@@ -65,14 +67,6 @@ public class LoginJPanel extends javax.swing.JPanel {
         cbRole.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbRoleActionPerformed(evt);
-            }
-        });
-
-        btnSubmitLogin.setFont(new java.awt.Font("Apple Braille", 0, 14)); // NOI18N
-        btnSubmitLogin.setText("Submit");
-        btnSubmitLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSubmitLoginActionPerformed(evt);
             }
         });
 
@@ -87,6 +81,21 @@ public class LoginJPanel extends javax.swing.JPanel {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Login to Your Account");
 
+        lblUserName.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblUserName.setForeground(new java.awt.Color(255, 255, 255));
+        lblUserName.setText("User Name:");
+
+        lblPassword.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
+        lblPassword.setText("Password:");
+
+        btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -95,20 +104,21 @@ public class LoginJPanel extends javax.swing.JPanel {
                 .addGap(287, 287, 287)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblPassword)
-                                .addComponent(lblUsername))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblRole)
-                                .addGap(4, 4, 4)))
+                        .addGap(67, 67, 67)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPassword)
+                            .addComponent(lblUserName))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(pwdPassword)
-                            .addComponent(txtUsername)
-                            .addComponent(cbRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtUserName, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                            .addComponent(txtPassword)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(165, 165, 165)
-                        .addComponent(btnSubmitLogin))
+                        .addComponent(lblRole)
+                        .addGap(4, 4, 4)
+                        .addComponent(cbRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(159, 159, 159)
+                        .addComponent(btnLogin))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(73, 73, 73)
                         .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -122,94 +132,115 @@ public class LoginJPanel extends javax.swing.JPanel {
                 .addComponent(lblTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53)
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUsername)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPassword)
-                    .addComponent(pwdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblUserName)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblPassword)))
+                .addGap(84, 84, 84)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRole)
                     .addComponent(cbRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
-                .addComponent(btnSubmitLogin)
-                .addContainerGap(474, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addComponent(btnLogin)
+                .addContainerGap(479, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsernameActionPerformed
 
     private void cbRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRoleActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbRoleActionPerformed
 
-    private void btnSubmitLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitLoginActionPerformed
-        // TODO add your handling code here:
-        String userRole = cbRole.getSelectedItem().toString().replaceAll("\\s", "").toLowerCase();
-        String username = txtUsername.getText();
-        String password = pwdPassword.getText();
-//        User user = userDir.getUserByUsername(username);
-        //        System.out.println(user.getRole());
-        //        System.out.println(userRole);
-//        if(user!=null && user.getPassword().equals(password) && user.getRole().toLowerCase().equals(userRole)){
-//
-//            JOptionPane.showMessageDialog(this,
-//                "Successful Login for: "+username,
-//                "Success",
-//                JOptionPane.INFORMATION_MESSAGE);
-//            if(userRole.equals("superadmin")){
-//                SuperAdminPanel superAdminPanel = new SuperAdminPanel(mainPanel, userDir, personDir, patientDir, doctorDir, hospitalDir, user, encounterHistory);
-//                mainPanel.add("SuperAdminPanel",superAdminPanel);
-//                CardLayout layout = (CardLayout) mainPanel.getLayout();
-//                layout.next(mainPanel);
-//            }
-//            if(userRole.equals("doctor")){
-//                DoctorPanel doctorPanel = new DoctorPanel(mainPanel, userDir, personDir, patientDir, doctorDir, hospitalDir, user, encounterHistory);
-//                mainPanel.add("DoctorPanel",doctorPanel);
-//                CardLayout layout = (CardLayout) mainPanel.getLayout();
-//                layout.next(mainPanel);
-//            }
-//            if(userRole.equals("hospitaladmin")){
-//                HospitalPanel hospitalPanel = new HospitalPanel(mainPanel, userDir, personDir, patientDir, doctorDir, hospitalDir, user, encounterHistory);
-//                mainPanel.add("DoctorPanel",hospitalPanel);
-//                CardLayout layout = (CardLayout) mainPanel.getLayout();
-//                layout.next(mainPanel);
-//            }
-//            if(userRole.equals("patient")){
-//                PatientPanel patientPanel = new PatientPanel(mainPanel, userDir, personDir, patientDir, doctorDir, hospitalDir, user, encounterHistory);
-//                mainPanel.add("DoctorPanel",patientPanel);
-//                CardLayout layout = (CardLayout) mainPanel.getLayout();
-//                layout.next(mainPanel);
-//            }
-//            if(userRole.equals("communityadmin")){
-//                CommunityPanel communityPanel = new CommunityPanel(mainPanel, userDir, personDir, patientDir, doctorDir, hospitalDir, user, encounterHistory);
-//                mainPanel.add("DoctorPanel",communityPanel);
-//                CardLayout layout = (CardLayout) mainPanel.getLayout();
-//                layout.next(mainPanel);
-//            }
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+
+//        String userName = null;
+//        if (Validation.validateStringInput(txtUserName)) {
+//            userName = txtUserName.getText();
 //        } else {
-//            JOptionPane.showMessageDialog(this,
-//                "User Doesn't Exist. Check Credentials and Role selected.",
-//                "Failure",
-//                JOptionPane.ERROR_MESSAGE);
+//            return;
 //        }
-    }//GEN-LAST:event_btnSubmitLoginActionPerformed
+//
+//        char[] passChar = txtPassword.getPassword();
+//        if (passChar == null) {
+//            JOptionPane.showMessageDialog(null,
+//                "Input cannot be blank",
+//                "Warning",
+//                JOptionPane.WARNING_MESSAGE);
+//            txtPassword.setBackground(Color.RED);
+//            return;
+//        }
+//
+//        UserAccount ua = new UserAccount();
+//        String password = ua.encodePassword(String.valueOf(passChar));
+//
+//        Enterprise inEnterprise = null;
+//        Organization inOrganization = null;
+//
+//        Network network = null;
+//
+//        ua = system.getUserAccountDirectory().searchUser(userName, password);
+//
+//        if (ua == null) {
+//            for (Network n : system.getNetworkList()) {
+//                for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+//                    ua = e.getUserAccountDirectory().searchUser(userName, password);
+//                    if (ua == null) {
+//                        for (Organization o : e.getOrganizationDirectory().getOrganizationList()) {
+//                            ua = o.getUserAccountDirectory().searchUser(userName, password);
+//                            if (ua != null) {
+//                                inEnterprise = e;
+//                                inOrganization = o;
+//                                network = n;
+//                                break;
+//                            }
+//                        }
+//                    } else {
+//                        inEnterprise = e;
+//                        network = n;
+//                        break;
+//                    }
+//                    if (inOrganization != null) {
+//                        break;
+//                    }
+//                }
+//                if (network != null) {
+//                    break;
+//                }
+//            }
+//        }
+//
+//        if (ua == null) {
+//            JOptionPane.showMessageDialog(null, "Invalid credentials");
+//            return;
+//        } else {
+            CardLayout layout = (CardLayout) mainPanel.getLayout();
+            SupplierAdmin supplierAdmin = new SupplierAdmin();
+            mainPanel.add("Supplier Admin", supplierAdmin);
+//            mainPanel.add("Supplier Admin", ua.getRole().createWorkArea(userProcessContainer, ua, inOrganization, inEnterprise, system, network));
+            layout.next(mainPanel);
+
+//        }
+        btnLogin.setEnabled(false);
+//        btnLogout.setEnabled(true);
+        txtUserName.setEnabled(false);
+        txtPassword.setEnabled(false);
+    }//GEN-LAST:event_btnLoginActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSubmitLogin;
+    private javax.swing.JButton btnLogin;
     private javax.swing.JComboBox<String> cbRole;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblRole;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblTitle1;
-    private javax.swing.JLabel lblUsername;
-    private javax.swing.JPasswordField pwdPassword;
-    private javax.swing.JTextField txtUsername;
+    private javax.swing.JLabel lblUserName;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 }
