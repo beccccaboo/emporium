@@ -71,7 +71,7 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
             .addGap(0, 907, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab3", jPanel3);
+        jTabbedPane1.addTab("View wastage Inventory", jPanel3);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -84,7 +84,7 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
             .addGap(0, 907, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab4", jPanel4);
+        jTabbedPane1.addTab("Pay Invoice", jPanel4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
