@@ -45,7 +45,7 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
             .addGap(0, 907, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab1", jPanel1);
+        jTabbedPane1.addTab("Inventory Request", jPanel1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
