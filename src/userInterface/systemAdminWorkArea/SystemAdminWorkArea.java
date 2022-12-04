@@ -12,6 +12,7 @@ import business.network.Network;
 import business.role.Role;
 import business.role.consumer.ConsumerAdminRole;
 import business.role.logistics.LogisticsAdminRole;
+import business.role.supervision.SupervisionAdminRole;
 import business.role.supplier.SupplierAdminRole;
 import business.userAccount.UserAccount;
 import business.util.validation.Validation;
