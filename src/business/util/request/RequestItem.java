@@ -13,12 +13,12 @@ import java.util.Date;
 public class RequestItem {
     private String itemName; //itemName
     private int quantity;
-    private Date postedDate; //postedDate
+    private double daysBeforeDonation; //daysBeforeDonation
 
-    public RequestItem(String itemName, int quantity, Date postedDate) {
+    public RequestItem(String itemName, int quantity, double daysBeforeDonation) {
         this.itemName = itemName;
         this.quantity = quantity;
-        this.postedDate = postedDate;
+        this.daysBeforeDonation = daysBeforeDonation;
     }
 
     public String getItemName() {
@@ -37,13 +37,15 @@ public class RequestItem {
         this.quantity = quantity;
     }
 
-    public Date getPostedDate() {
-        return postedDate;
+    public double getDaysBeforeDonation() {
+        return daysBeforeDonation;
     }
 
-    public void setPostedDate(Date postedDate) {
-        this.postedDate = postedDate;
+    public void setDaysBeforeDonation(double daysBeforeDonation) {
+        this.daysBeforeDonation = daysBeforeDonation;
     }
+
+  
     
    
     
