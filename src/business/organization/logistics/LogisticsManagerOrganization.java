@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author Arpit
  */
-public class LogisticsManagerOrganization {
+public class LogisticsManagerOrganization extends Organization{
     
     public LogisticsManagerOrganization() {
         super(Type.LogisticsManager.getValue());
