@@ -12,6 +12,7 @@ import business.role.Role;
 import business.userAccount.UserAccount;
 import javax.swing.JPanel;
 
+
 /**
  *
  * @author Arpit
@@ -21,6 +22,7 @@ public class LogisticsAdminRole extends Role {
     public LogisticsAdminRole() {
         super(RoleType.LogisticsAdmin);
     }
+
 
 //    @Override
 //    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
