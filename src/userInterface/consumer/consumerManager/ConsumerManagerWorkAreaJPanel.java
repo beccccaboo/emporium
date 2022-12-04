@@ -42,7 +42,7 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 907, Short.MAX_VALUE)
+            .addGap(0, 963, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Inventory Request", jPanel1);
@@ -55,7 +55,7 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 907, Short.MAX_VALUE)
+            .addGap(0, 963, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("View Inventory", jPanel2);
@@ -68,7 +68,7 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 907, Short.MAX_VALUE)
+            .addGap(0, 963, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("View wastage Inventory", jPanel3);
@@ -81,7 +81,7 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 907, Short.MAX_VALUE)
+            .addGap(0, 963, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Pay Invoice", jPanel4);
@@ -97,8 +97,7 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(56, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 938, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 994, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
