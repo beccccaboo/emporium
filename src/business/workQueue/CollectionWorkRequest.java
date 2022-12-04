@@ -125,11 +125,11 @@ public class CollectionWorkRequest extends WorkRequest {
         requestItems.add(ri);
     }
 
-    public void updatePerishable() {
+    public void updateDonation() {
         for (RequestItem ri : requestItems) {
             if (ri.getDaysBeforeDonation()> 0 && ri.getQuantity() > 0) {
                 ri.setDaysBeforeDonation(ri.getDaysBeforeDonation()- 0.25);
-                System.out.println(ri.getFoodName() + " " + ri.getDaysBeforeDonation());
+                System.out.println(ri.getItemName() + " " + ri.getDaysBeforeDonation());
             }
         }
     }

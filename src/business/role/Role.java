@@ -25,9 +25,8 @@ public abstract class Role {
         SupplierAdmin("Supplier Admin"),
         SupplierManager("Supplier Manager"),
         SupplierWorker("Supplier Worker"),
-        InventoryAdmin("Inventory Admin"),
-        InventoryManager("Inventory Manager"),
-        InventoryWorker("Inventory Worker");
+        SupervisionAdmin("Supervision Admin"),
+        SupervisionManager("Supervision Manager");
 
         private String value;
 

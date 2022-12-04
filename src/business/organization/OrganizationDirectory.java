@@ -4,6 +4,9 @@
  */
 package business.organization;
 
+import business.organization.consumer.ConsumerAdminOrganization;
+import business.organization.consumer.ConsumerManagerOrganization;
+import business.organization.consumer.ConsumerWorkerOrganization;
 import business.organization.logistics.LogisticsAdminOrganization;
 import business.organization.logistics.LogisticsManagerOrganization;
 import business.organization.logistics.LogisticsWorkerOrganization;
