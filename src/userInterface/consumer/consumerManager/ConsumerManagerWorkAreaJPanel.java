@@ -57,6 +57,10 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
         tblInventory1 = new javax.swing.JTable();
         lblHeader2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
+        btnPay = new javax.swing.JButton();
+        lblHeader3 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblDetails = new javax.swing.JTable();
 
         setMinimumSize(new java.awt.Dimension(1000, 1000));
 
@@ -366,15 +370,60 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("View wastage Inventory", jPanel3);
 
+        btnPay.setText("Pay Invoice");
+        btnPay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPayActionPerformed(evt);
+            }
+        });
+
+        lblHeader3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblHeader3.setText("consumer Manager - Pay Invoices");
+
+        tblDetails.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Logistics Company", "Job Completion Date", "Request Status", "Cost", "Paid"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(tblDetails);
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 994, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(592, 592, 592)
+                        .addComponent(btnPay))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(126, 126, 126)
+                        .addComponent(lblHeader3, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(260, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 963, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(111, 111, 111)
+                .addComponent(lblHeader3)
+                .addGap(56, 56, 56)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(109, 109, 109)
+                .addComponent(btnPay)
+                .addContainerGap(475, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Pay Invoice", jPanel4);
@@ -505,10 +554,42 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnShortageActionPerformed
 
+    private void btnPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblDetails.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null,
+                "Please select an invoice to pay",
+                "Warning",
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        } else {
+
+            PaymentWorkRequest pwr = (PaymentWorkRequest) tblDetails.getValueAt(selectedRow, 0);
+            if (pwr.getCollectionWorkRequest().getPaid()) {
+                JOptionPane.showMessageDialog(null,
+                    "Invoice has already been paid",
+                    "Warning",
+                    JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            pwr.setStatus(RequestStatus.getInvoiceStatusMessage(2));
+            pwr.getCollectionWorkRequest().setPaid(true);
+
+            //Assign to own queue
+            account.getWorkQueue().getWorkRequestList().add(pwr);
+
+            JOptionPane.showMessageDialog(null, "Invoice Paid", "Information", JOptionPane.INFORMATION_MESSAGE);
+            populateTable();
+
+        }
+    }//GEN-LAST:event_btnPayActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnApprove;
     private javax.swing.JButton btnAssignNGO;
+    private javax.swing.JButton btnPay;
     private javax.swing.JButton btnShortage;
     private javax.swing.JButton btnView;
     private javax.swing.JComboBox cmbWorker;
@@ -521,11 +602,13 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblHeader;
     private javax.swing.JLabel lblHeader1;
     private javax.swing.JLabel lblHeader2;
+    private javax.swing.JLabel lblHeader3;
     private javax.swing.JLabel lblMessage;
     private javax.swing.JLabel lblMessageRedirect;
     private javax.swing.JLabel lblQuantity;
@@ -533,6 +616,7 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblQuantityVal;
     private javax.swing.JLabel lblQuantityVal1;
     private javax.swing.JLabel lblWorker;
+    private javax.swing.JTable tblDetails;
     private javax.swing.JTable tblInventory;
     private javax.swing.JTable tblInventory1;
     private javax.swing.JTable tblRestaurantRequests;
