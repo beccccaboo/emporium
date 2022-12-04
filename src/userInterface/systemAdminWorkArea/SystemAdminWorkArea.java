@@ -4,6 +4,22 @@
  */
 package userInterface.systemAdminWorkArea;
 
+import business.EcoSystem;
+import business.employee.Employee;
+import business.enterprise.Enterprise;
+import business.enterprise.Enterprise.EnterpriseType;
+import business.network.Network;
+import business.role.Role;
+import business.role.consumer.ConsumerAdminRole;
+import business.role.logistics.LogisticsAdminRole;
+import business.role.supplier.SupplierAdminRole;
+import business.userAccount.UserAccount;
+import business.util.validation.Validation;
+import java.awt.Color;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Arpit
@@ -13,8 +29,16 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
     /**
      * Creates new form SystemAdminWorkArea
      */
-    public SystemAdminWorkArea() {
+    private JPanel mainPanel;
+    private EcoSystem business;
+    public SystemAdminWorkArea(JPanel mainPanel, EcoSystem business) {
         initComponents();
+        this.mainPanel = mainPanel;
+        this.business = business;
+        populateNetworkTable();
+        populateEnterpriseTable();
+        populateComboBox();
+        populateNetworkComboBox();
     }
 
     /**
@@ -174,6 +198,12 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
 
         lblNetwork.setText("Network");
 
+        cmbNetwork.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbNetworkActionPerformed(evt);
+            }
+        });
+
         lblEnterpriseType.setText("Enterprise Type");
 
         lblEnterpriseName.setText("Name");
@@ -286,6 +316,11 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
         lblNetworkList2.setText("Enterprise admin list:");
 
         cmbEnterprise1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbEnterprise1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbEnterprise1ActionPerformed(evt);
+            }
+        });
 
         lblCreateNetwork2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblCreateNetwork2.setText("Create New Enterprise:");
@@ -491,7 +526,7 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
         network.getEnterpriseDirectory().addEnterprise(name, type);
         JOptionPane.showMessageDialog(null, "Enterprise added successfully", "Information", JOptionPane.INFORMATION_MESSAGE);
         txtEnterpriseName.setText("");
-        populateTable();
+        populateEnterpriseTable();
     }//GEN-LAST:event_btnAddEnterpriseActionPerformed
 
     private void btnAddEnterprise1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEnterprise1ActionPerformed
@@ -541,14 +576,14 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
                 case Logistics:
                 account = enterprise.getUserAccountDirectory().addUserAccount(userName, password, employee, (Role) new LogisticsAdminRole());
                 break;
-                case NGO:
-                account = enterprise.getUserAccountDirectory().addUserAccount(userName, password, employee, (Role) new NGOAdminRole());
+                case Consumer:
+                account = enterprise.getUserAccountDirectory().addUserAccount(userName, password, employee, (Role) new ConsumerAdminRole());
                 break;
-                case Restaurant:
-                account = enterprise.getUserAccountDirectory().addUserAccount(userName, password, employee, (Role) new RestaurantAdminRole());
+                case Supplier:
+                account = enterprise.getUserAccountDirectory().addUserAccount(userName, password, employee, (Role) new SupplierAdminRole());
                 break;
-                case Government:
-                account = enterprise.getUserAccountDirectory().addUserAccount(userName, password, employee, (Role) new GovernmentAdminRole());
+                case Supervision:
+                account = enterprise.getUserAccountDirectory().addUserAccount(userName, password, employee, (Role) new SupervisionAdminRole());
                 break;
                 default:
                 break;
@@ -561,16 +596,24 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
         txtName.setText("");
         txtPassword.setText("");
 
-        populateTable();
+        populateEnterpriseAdminTable();
     }//GEN-LAST:event_btnAddEnterprise1ActionPerformed
 
     private void cmbNetwork1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNetwork1ActionPerformed
 
-        Network network = (Network) cmbNetwork.getSelectedItem();
+        Network network = (Network) cmbNetwork1.getSelectedItem();
         if (network != null) {
             populateEnterpriseComboBox(network);
         }
     }//GEN-LAST:event_cmbNetwork1ActionPerformed
+
+    private void cmbNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNetworkActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbNetworkActionPerformed
+
+    private void cmbEnterprise1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEnterprise1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbEnterprise1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -618,4 +661,76 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
+
+    public void populateNetworkTable() {
+        DefaultTableModel dtm = (DefaultTableModel) tblNetwork.getModel();
+        dtm.setRowCount(0);
+        for (Network n : business.getNetworkList()) {
+            Object row[] = new Object[1];
+            row[0] = n;
+            dtm.addRow(row);
+        }
+    }
+    
+    public void populateEnterpriseTable() {
+        DefaultTableModel dtm = (DefaultTableModel) tblEnterprise.getModel();
+        dtm.setRowCount(0);
+        for (Network n : business.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                Object row[] = new Object[3];
+                row[0] = e;
+                row[1] = n;
+                row[2] = e.getEnterpriseType();
+                dtm.addRow(row);
+            }
+        }
+    }
+    
+    private void populateEnterpriseAdminTable() {
+        DefaultTableModel dtm = (DefaultTableModel) tblEnterprise1.getModel();
+        dtm.setRowCount(0);
+        for (Network network : business.getNetworkList()) {
+            for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+                for (UserAccount userAccount : enterprise.getUserAccountDirectory().getUserAccountList()) {
+                    Object[] row = new Object[3];
+                    row[0] = enterprise.getName();
+                    row[1] = network.getName();
+                    row[2] = userAccount.getUsername();
+
+                    dtm.addRow(row);
+                }
+            }
+        }
+    }
+
+    private void populateNetworkComboBox() {
+        cmbNetwork1.removeAllItems();
+
+        for (Network network : business.getNetworkList()) {
+            cmbNetwork1.addItem(network);
+        }
+    }
+
+    private void populateEnterpriseComboBox(Network network) {
+        cmbEnterprise1.removeAllItems();
+
+        for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+            cmbEnterprise1.addItem(enterprise);
+        }
+
+    }
+    
+    private void populateComboBox() {
+        cmbNetwork.removeAllItems();
+        cmbEnterprise.removeAllItems();
+
+        for (Network network : business.getNetworkList()) {
+            cmbNetwork.addItem(network);
+        }
+
+        for (Enterprise.EnterpriseType type : Enterprise.EnterpriseType.values()) {
+            cmbEnterprise.addItem(type);
+        }
+
+    }
 }
