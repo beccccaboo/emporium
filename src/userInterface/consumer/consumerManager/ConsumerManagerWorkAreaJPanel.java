@@ -119,7 +119,7 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
         );
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblHeader.setText("NGO Manager- Restaurant Requests");
+        lblHeader.setText("Consumer Manager- Restaurant Requests");
 
         btnView.setText("View Details");
         btnView.addActionListener(new java.awt.event.ActionListener() {
@@ -252,7 +252,7 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblInventory);
 
         lblHeader1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblHeader1.setText("NGO Manager - View Inventory");
+        lblHeader1.setText("Consumer Manager - View Inventory");
 
         lblQuantity.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblQuantity.setText("Total Quantity :");
@@ -330,7 +330,7 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tblInventory1);
 
         lblHeader2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblHeader2.setText("NGO Manager - Wastage Records");
+        lblHeader2.setText("Consumer Manager - Wastage Records");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);

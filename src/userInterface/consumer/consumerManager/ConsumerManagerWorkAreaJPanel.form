@@ -200,7 +200,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="24" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="NGO Manager- Restaurant Requests"/>
+                <Property name="text" type="java.lang.String" value="Consumer Manager- Restaurant Requests"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnView">
@@ -395,7 +395,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="24" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="NGO Manager - View Inventory"/>
+                <Property name="text" type="java.lang.String" value="Consumer Manager - View Inventory"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblQuantity">
@@ -512,7 +512,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="24" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="NGO Manager - Wastage Records"/>
+                <Property name="text" type="java.lang.String" value="Consumer Manager - Wastage Records"/>
               </Properties>
             </Component>
           </SubComponents>
