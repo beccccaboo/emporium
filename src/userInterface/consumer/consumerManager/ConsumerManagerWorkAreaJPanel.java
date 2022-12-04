@@ -51,6 +51,11 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
         lblQuantityVal = new javax.swing.JLabel();
         btnShortage = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        lblQuantity1 = new javax.swing.JLabel();
+        lblQuantityVal1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblInventory1 = new javax.swing.JTable();
+        lblHeader2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
 
         setMinimumSize(new java.awt.Dimension(1000, 1000));
@@ -300,15 +305,63 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("View Inventory", jPanel2);
 
+        lblQuantity1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblQuantity1.setText("Total Quantity :");
+
+        lblQuantityVal1.setText("<quantity>");
+
+        tblInventory1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Food", "Quantity", "Wastage Amount(In pounds)"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblInventory1.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(tblInventory1);
+
+        lblHeader2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblHeader2.setText("NGO Manager - Wastage Records");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 994, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(lblQuantity1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblQuantityVal1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblHeader2, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(477, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 963, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(lblHeader2)
+                .addGap(43, 43, 43)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblQuantity1)
+                    .addComponent(lblQuantityVal1))
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(469, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("View wastage Inventory", jPanel3);
@@ -467,16 +520,21 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanelRedirectToNGO;
     private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblHeader;
     private javax.swing.JLabel lblHeader1;
+    private javax.swing.JLabel lblHeader2;
     private javax.swing.JLabel lblMessage;
     private javax.swing.JLabel lblMessageRedirect;
     private javax.swing.JLabel lblQuantity;
+    private javax.swing.JLabel lblQuantity1;
     private javax.swing.JLabel lblQuantityVal;
+    private javax.swing.JLabel lblQuantityVal1;
     private javax.swing.JLabel lblWorker;
     private javax.swing.JTable tblInventory;
+    private javax.swing.JTable tblInventory1;
     private javax.swing.JTable tblRestaurantRequests;
     private javax.swing.JTextField txtMessage;
     private javax.swing.JTextField txtMessageRedirect;
