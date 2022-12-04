@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package userInterface.consumer.consumerManager;
+package userInterface.consumer.manager;
 
 /**
  *
  * @author swarag
  */
-public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
+public class ConsumerManager extends javax.swing.JPanel {
 
     /**
      * Creates new form ConsumerManagerWorkAreaJPanel
      */
-    public ConsumerManagerWorkAreaJPanel() {
+    public ConsumerManager() {
         initComponents();
     }
 

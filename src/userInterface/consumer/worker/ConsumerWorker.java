@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package userInterface.consumer.consumerWorker;
+package userInterface.consumer.worker;
 
 /**
  *
  * @author swarag
  */
-public class ConsumerWorkerWorkAreaJPanel extends javax.swing.JPanel {
+public class ConsumerWorker extends javax.swing.JPanel {
 
     /**
      * Creates new form NGOWorkerWorkAreaJPanel
      */
-    public ConsumerWorkerWorkAreaJPanel() {
+    public ConsumerWorker() {
         initComponents();
     }
 
@@ -77,7 +77,7 @@ public class ConsumerWorkerWorkAreaJPanel extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tblInventory1);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel2.setText("NGO Worker Inventory Panel");
+        jLabel2.setText("Consumer Worker Inventory Panel");
 
         lblQuantity1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblQuantity1.setText("Total Quantity :");
