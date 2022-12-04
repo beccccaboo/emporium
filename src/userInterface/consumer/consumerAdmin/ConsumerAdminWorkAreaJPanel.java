@@ -28,8 +28,19 @@ public class ConsumerAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane = new javax.swing.JScrollPane();
+        tblOrganization = new javax.swing.JTable();
+        jSeparator = new javax.swing.JSeparator();
+        lblOrgCreate = new javax.swing.JLabel();
+        cmbOrgCreate = new javax.swing.JComboBox();
+        lblName = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
+        lblHeader = new javax.swing.JLabel();
+        lblOrg = new javax.swing.JLabel();
+        btnCreateEmployee = new javax.swing.JButton();
+        cmbOrg = new javax.swing.JComboBox();
 
         setMinimumSize(new java.awt.Dimension(1000, 1000));
 
@@ -46,19 +57,6 @@ public class ConsumerAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Manage Organization", jPanel1);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1087, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 765, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("tab2", jPanel2);
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -70,7 +68,122 @@ public class ConsumerAdminWorkAreaJPanel extends javax.swing.JPanel {
             .addGap(0, 765, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab3", jPanel3);
+        jTabbedPane1.addTab("Manage User", jPanel3);
+
+        tblOrganization.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Name"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane.setViewportView(tblOrganization);
+
+        lblOrgCreate.setText("Organization");
+
+        lblName.setText("Name");
+
+        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblHeader.setText("NGO Adminstrative Work Area - Manage Employee");
+
+        lblOrg.setText("Organization");
+
+        btnCreateEmployee.setText("Create Employee");
+        btnCreateEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateEmployeeActionPerformed(evt);
+            }
+        });
+
+        cmbOrg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbOrgActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1087, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(231, 231, 231)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jSeparator)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGap(117, 117, 117)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addComponent(lblOrg)
+                                            .addGap(48, 48, 48)
+                                            .addComponent(cmbOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGap(221, 221, 221)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblOrgCreate)
+                                        .addComponent(lblName))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(cmbOrgCreate, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(481, 481, 481)
+                                .addComponent(btnCreateEmployee)
+                                .addGap(8, 8, 8)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                            .addGap(0, 0, Short.MAX_VALUE)
+                            .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 602, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(231, 231, 231)))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 765, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(150, 150, 150)
+                    .addComponent(lblHeader)
+                    .addGap(48, 48, 48)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cmbOrg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblOrg))
+                    .addGap(21, 21, 21)
+                    .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(31, 31, 31)
+                    .addComponent(jSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(26, 26, 26)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblOrgCreate)
+                        .addComponent(cmbOrgCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(26, 26, 26)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblName)
+                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(89, 89, 89)
+                    .addComponent(btnCreateEmployee)
+                    .addContainerGap(151, Short.MAX_VALUE)))
+        );
+
+        jTabbedPane1.addTab("Manage Employee", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -89,11 +202,51 @@ public class ConsumerAdminWorkAreaJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCreateEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateEmployeeActionPerformed
+
+        Organization organization = (Organization) cmbOrgCreate.getSelectedItem();
+        if (organization == null) {
+            JOptionPane.showMessageDialog(null, "Invalid input");
+            return;
+        }
+
+        String name = txtName.getText();;
+        if (Validation.validateStringInput(txtName)) {
+            name = txtName.getText();
+        } else {
+            return;
+        }
+
+        organization.getEmployeeDirectory().addEmployee(name);
+        populateTable((Organization)cmbOrg.getSelectedItem());
+        txtName.setText("");
+
+        JOptionPane.showMessageDialog(null, "Employee created successfully!");
+    }//GEN-LAST:event_btnCreateEmployeeActionPerformed
+
+    private void cmbOrgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbOrgActionPerformed
+        Organization organization = (Organization) cmbOrg.getSelectedItem();
+        if (organization != null) {
+            populateTable(organization);
+        }
+    }//GEN-LAST:event_cmbOrgActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCreateEmployee;
+    private javax.swing.JComboBox cmbOrg;
+    private javax.swing.JComboBox cmbOrgCreate;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane;
+    private javax.swing.JSeparator jSeparator;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel lblHeader;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblOrg;
+    private javax.swing.JLabel lblOrgCreate;
+    private javax.swing.JTable tblOrganization;
+    private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 }
