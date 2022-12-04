@@ -44,6 +44,12 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
         cmbWorker = new javax.swing.JComboBox();
         btnApprove = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblInventory = new javax.swing.JTable();
+        lblHeader1 = new javax.swing.JLabel();
+        lblQuantity = new javax.swing.JLabel();
+        lblQuantityVal = new javax.swing.JLabel();
+        btnShortage = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
 
@@ -221,15 +227,75 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Inventory Request", jPanel1);
 
+        tblInventory.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Food", "Quantity", "Hours to perish"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblInventory.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tblInventory);
+
+        lblHeader1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblHeader1.setText("NGO Manager - View Inventory");
+
+        lblQuantity.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblQuantity.setText("Total Quantity :");
+
+        lblQuantityVal.setText("<quantity>");
+
+        btnShortage.setText("Raise Shortage Request");
+        btnShortage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShortageActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 994, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(379, 379, 379)
+                        .addComponent(btnShortage))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(lblQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblQuantityVal, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblHeader1, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(387, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 963, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(lblHeader1)
+                .addGap(53, 53, 53)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblQuantity)
+                    .addComponent(lblQuantityVal))
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(btnShortage)
+                .addContainerGap(424, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("View Inventory", jPanel2);
@@ -379,10 +445,18 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnApproveActionPerformed
 
+    private void btnShortageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShortageActionPerformed
+        NGOManagerRaiseShortageRequestJPanel ngoRequestJPanel = new NGOManagerRaiseShortageRequestJPanel(userProcessContainer, account, enterprise, network);
+        userProcessContainer.add("NGORequestJPanel", ngoRequestJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnShortageActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnApprove;
     private javax.swing.JButton btnAssignNGO;
+    private javax.swing.JButton btnShortage;
     private javax.swing.JButton btnView;
     private javax.swing.JComboBox cmbWorker;
     private javax.swing.JPanel jPanel1;
@@ -392,12 +466,17 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanelAssignToEmployee;
     private javax.swing.JPanel jPanelRedirectToNGO;
     private javax.swing.JScrollPane jScrollPane;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblHeader;
+    private javax.swing.JLabel lblHeader1;
     private javax.swing.JLabel lblMessage;
     private javax.swing.JLabel lblMessageRedirect;
+    private javax.swing.JLabel lblQuantity;
+    private javax.swing.JLabel lblQuantityVal;
     private javax.swing.JLabel lblWorker;
+    private javax.swing.JTable tblInventory;
     private javax.swing.JTable tblRestaurantRequests;
     private javax.swing.JTextField txtMessage;
     private javax.swing.JTextField txtMessageRedirect;
