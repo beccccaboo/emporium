@@ -4,6 +4,8 @@
  */
 package userInterface.logistics.worker;
 
+import business.DB4OUtil.DB4OUtil;
+import business.EcoSystem;
 import business.userAccount.UserAccount;
 import business.util.request.RequestItem;
 import business.util.request.RequestStatus;
@@ -27,8 +29,11 @@ public class PickUpDetails extends javax.swing.JPanel {
     private UserAccount account;
     private CollectionWorkRequest request;
     private Date date;
-    public PickUpDetails(JPanel mainPanel, UserAccount account, CollectionWorkRequest request) {
+    private EcoSystem business;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    public PickUpDetails(JPanel mainPanel, UserAccount account, CollectionWorkRequest request, EcoSystem business) {
         initComponents();
+        business = dB4OUtil.retrieveSystem();
         this.mainPanel = mainPanel;
         this.account = account;
         this.request = request;

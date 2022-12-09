@@ -17,9 +17,9 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFramw
      */
-    
     public MainJFrame() {
         initComponents();
+        
         setLoginScreen();
         
     }

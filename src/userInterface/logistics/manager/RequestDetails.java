@@ -4,6 +4,8 @@
  */
 package userInterface.logistics.manager;
 
+import business.DB4OUtil.DB4OUtil;
+import business.EcoSystem;
 import business.util.request.RequestItem;
 import business.workQueue.CollectionWorkRequest;
 import java.awt.CardLayout;
@@ -21,9 +23,11 @@ public class RequestDetails extends javax.swing.JPanel {
      */
     private JPanel mainJPanel;
     private CollectionWorkRequest cwr;
-
-    public RequestDetails(JPanel mainJPanel, CollectionWorkRequest cwr) {
+    private EcoSystem business;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    public RequestDetails(JPanel mainJPanel, CollectionWorkRequest cwr, EcoSystem business) {
         initComponents();
+        business = dB4OUtil.retrieveSystem();
         this.mainJPanel = mainJPanel;
         this.cwr = cwr;
         populateTable();

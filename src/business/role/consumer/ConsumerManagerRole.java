@@ -29,7 +29,7 @@ public class ConsumerManagerRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
-        return new ConsumerManager(userProcessContainer, account, organization, enterprise, network);
+        return new ConsumerManager(userProcessContainer, account, organization, enterprise, network, business);
     }
 
 }

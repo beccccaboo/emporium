@@ -4,6 +4,8 @@
  */
 package userInterface.consumer.manager;
 
+import business.DB4OUtil.DB4OUtil;
+import business.EcoSystem;
 import business.enterprise.ConsumerEnterprise;
 import business.enterprise.Enterprise;
 import business.network.Network;
@@ -39,9 +41,11 @@ public class ConsumerManager extends javax.swing.JPanel {
     private Enterprise enterprise;
     private ConsumerEnterprise consumerEnterprise;
     private Network network;
-    
-    public ConsumerManager(JPanel mainPanel, UserAccount account, Organization organization, Enterprise enterprise, Network network) {
+    private EcoSystem business;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    public ConsumerManager(JPanel mainPanel, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
+        business = dB4OUtil.retrieveSystem();
         this.mainPanel = mainPanel;
         this.account = account;
         this.organization = organization;
@@ -110,6 +114,7 @@ public class ConsumerManager extends javax.swing.JPanel {
         tblDetails = new javax.swing.JTable();
         lblName = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(1000, 1000));
 
@@ -481,6 +486,8 @@ public class ConsumerManager extends javax.swing.JPanel {
 
         jLabel2.setText("Manager Name: ");
 
+        btnLogout.setText("Logout");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -494,11 +501,17 @@ public class ConsumerManager extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogout)
+                .addGap(89, 89, 89))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(79, Short.MAX_VALUE)
+                .addContainerGap(38, Short.MAX_VALUE)
+                .addComponent(btnLogout)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(lblName))
@@ -522,7 +535,7 @@ public class ConsumerManager extends javax.swing.JPanel {
             CollectionWorkRequest request = (CollectionWorkRequest) tblRestaurantRequests.getValueAt(selectedRow, 3);
             String message = txtMessageRedirect.getText();
 
-            ConsumerOtherRegionsRequest ngoOtherRegionsRequestJPanel = new ConsumerOtherRegionsRequest(mainPanel, request, organization, account, network, message);
+            ConsumerOtherRegionsRequest ngoOtherRegionsRequestJPanel = new ConsumerOtherRegionsRequest(mainPanel, request, organization, account, network, message, business);
             mainPanel.add("NGOOtherRegionsRequestJPanel", ngoOtherRegionsRequestJPanel);
             CardLayout layout = (CardLayout) mainPanel.getLayout();
             layout.next(mainPanel);
@@ -543,7 +556,7 @@ public class ConsumerManager extends javax.swing.JPanel {
         } else {
             CollectionWorkRequest cwr = (CollectionWorkRequest) tblRestaurantRequests.getValueAt(selectedRow, 3);
 
-            SupplierRequestView supplierRequestView = new SupplierRequestView(mainPanel, cwr);
+            SupplierRequestView supplierRequestView = new SupplierRequestView(mainPanel, cwr, business);
             CardLayout layout = (CardLayout) mainPanel.getLayout();
             mainPanel.add("SupplierRequestView", supplierRequestView);
             layout.next(mainPanel);
@@ -612,7 +625,7 @@ public class ConsumerManager extends javax.swing.JPanel {
     }//GEN-LAST:event_btnApproveActionPerformed
 
     private void btnShortageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShortageActionPerformed
-        ConsumerRaiseShortageRequest consumerRequestJPanel = new ConsumerRaiseShortageRequest(mainPanel, account, consumerEnterprise, network);
+        ConsumerRaiseShortageRequest consumerRequestJPanel = new ConsumerRaiseShortageRequest(mainPanel, account, consumerEnterprise, network, business);
         mainPanel.add("ConsumerRequestJPanel", consumerRequestJPanel);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
@@ -652,6 +665,7 @@ public class ConsumerManager extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnApprove;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnPay;
     private javax.swing.JButton btnRedirectConsumer;
     private javax.swing.JButton btnShortage;

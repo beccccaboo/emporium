@@ -26,7 +26,7 @@ public class LogisticsManagerRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
-        return new LogisticsManager(userProcessContainer, account, organization, enterprise, network);
+        return new LogisticsManager(userProcessContainer, account, organization, enterprise, network, business);
     }
     
 }

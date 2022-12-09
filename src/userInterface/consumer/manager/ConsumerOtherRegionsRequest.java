@@ -4,6 +4,8 @@
  */
 package userInterface.consumer.manager;
 
+import business.DB4OUtil.DB4OUtil;
+import business.EcoSystem;
 import business.enterprise.Enterprise;
 import business.network.Network;
 import business.organization.Organization;
@@ -34,8 +36,11 @@ public class ConsumerOtherRegionsRequest extends javax.swing.JPanel {
     private Network network;
     private CollectionWorkRequest collectionWorkRequest;
     private String message;
-    public ConsumerOtherRegionsRequest(JPanel mainPanel, CollectionWorkRequest collectionWorkRequest, Organization organization, UserAccount account, Network network, String message) {
+    private EcoSystem business;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    public ConsumerOtherRegionsRequest(JPanel mainPanel, CollectionWorkRequest collectionWorkRequest, Organization organization, UserAccount account, Network network, String message, EcoSystem business) {
         initComponents();
+        business = dB4OUtil.retrieveSystem();
         this.mainPanel = mainPanel;
         this.collectionWorkRequest = collectionWorkRequest;
         this.account = account;

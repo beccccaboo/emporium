@@ -4,6 +4,8 @@
  */
 package userInterface.logistics.worker;
 
+import business.DB4OUtil.DB4OUtil;
+import business.EcoSystem;
 import business.enterprise.Enterprise;
 import business.network.Network;
 import business.organization.Organization;
@@ -34,9 +36,12 @@ public class ConfirmDelivery extends javax.swing.JPanel {
     private Date date;
     private CollectionWorkRequest request;
     private Network network;
+    private EcoSystem business;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     
-    public ConfirmDelivery(JPanel mainPanel, UserAccount account, Enterprise enterprise, CollectionWorkRequest request, Network network) {
+    public ConfirmDelivery(JPanel mainPanel, UserAccount account, Enterprise enterprise, CollectionWorkRequest request, Network network, EcoSystem business) {
         initComponents();
+        business = dB4OUtil.retrieveSystem();
         this.mainPanel = mainPanel;
         this.account = account;
         this.request = request;

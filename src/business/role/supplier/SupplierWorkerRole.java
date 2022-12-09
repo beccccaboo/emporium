@@ -25,7 +25,7 @@ public class SupplierWorkerRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
-        return new SupplierWorker(userProcessContainer, account, enterprise, network);
+        return new SupplierWorker(userProcessContainer, account, enterprise, network, business);
     }
 
 }

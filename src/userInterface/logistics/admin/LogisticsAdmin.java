@@ -4,6 +4,8 @@
  */
 package userInterface.logistics.admin;
 
+import business.DB4OUtil.DB4OUtil;
+import business.EcoSystem;
 import business.employee.Employee;
 import business.enterprise.Enterprise;
 import business.organization.Organization;
@@ -29,9 +31,11 @@ public class LogisticsAdmin extends javax.swing.JPanel {
     private OrganizationDirectory organizationDirectory;
     private JPanel mainPanel;
     private Enterprise enterprise;
-    
-    public LogisticsAdmin(JPanel mainPanel, Enterprise enterprise) {
+    private EcoSystem business;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    public LogisticsAdmin(JPanel mainPanel, Enterprise enterprise, EcoSystem business) {
         initComponents();
+        business = dB4OUtil.retrieveSystem();
         this.mainPanel = mainPanel;
         this.enterprise = enterprise;
         this.organizationDirectory = enterprise.getOrganizationDirectory();
@@ -92,6 +96,7 @@ public class LogisticsAdmin extends javax.swing.JPanel {
         txtUserName = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblUsers = new javax.swing.JTable();
+        btnLogout = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(1000, 1000));
         setName(""); // NOI18N
@@ -388,7 +393,7 @@ public class LogisticsAdmin extends javax.swing.JPanel {
                             .addGroup(manageUserAccountLayout.createSequentialGroup()
                                 .addGap(67, 67, 67)
                                 .addComponent(lblHeader2)))
-                        .addGap(0, 83, Short.MAX_VALUE)))
+                        .addGap(0, 92, Short.MAX_VALUE)))
                 .addGap(136, 136, 136))
         );
         manageUserAccountLayout.setVerticalGroup(
@@ -427,16 +432,24 @@ public class LogisticsAdmin extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Manage User Account", manageUserAccount);
 
+        btnLogout.setText("Logout");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogout)
+                .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 100, Short.MAX_VALUE)
+                .addGap(24, 24, 24)
+                .addComponent(btnLogout)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -556,6 +569,7 @@ public class LogisticsAdmin extends javax.swing.JPanel {
     private javax.swing.JButton btnAddOrganization;
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnCreateEmployee;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JComboBox cmbEmployee;
     private javax.swing.JComboBox cmbOrg;
     private javax.swing.JComboBox cmbOrgCreate;

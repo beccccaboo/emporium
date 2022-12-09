@@ -4,6 +4,8 @@
  */
 package userInterface.supervision.admin;
 
+import business.DB4OUtil.DB4OUtil;
+import business.EcoSystem;
 import business.employee.Employee;
 import business.enterprise.Enterprise;
 import business.organization.Organization;
@@ -12,10 +14,12 @@ import business.organization.OrganizationDirectory;
 import business.role.Role;
 import business.userAccount.UserAccount;
 import business.util.validation.Validation;
+import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import userInterface.LoginJPanel;
 
 /**
  *
@@ -26,13 +30,15 @@ public class SupervisionAdmin extends javax.swing.JPanel {
     /**
      * Creates new form SupervisionAdmin
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private Enterprise enterprise;
     private OrganizationDirectory organizationDir;
-    
-    public SupervisionAdmin(JPanel userProcessContainer,Enterprise enterprise) {
+    private EcoSystem business;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    public SupervisionAdmin(JPanel mainPanel,Enterprise enterprise, EcoSystem business) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        business = dB4OUtil.retrieveSystem();
+        this.mainPanel = mainPanel;
         this.enterprise = enterprise;
         this.organizationDir = enterprise.getOrganizationDirectory();
         lblValue.setText(enterprise.getName());
@@ -98,6 +104,7 @@ public class SupervisionAdmin extends javax.swing.JPanel {
         tblUsers = new javax.swing.JTable();
         lblValue = new javax.swing.JLabel();
         lblEnterprise = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(1000, 1000));
 
@@ -443,6 +450,13 @@ public class SupervisionAdmin extends javax.swing.JPanel {
         lblEnterprise.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblEnterprise.setText("Government:");
 
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -456,11 +470,17 @@ public class SupervisionAdmin extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblValue, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addComponent(btnLogout)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblValue))
@@ -575,11 +595,24 @@ public class SupervisionAdmin extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
 
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+
+        mainPanel.removeAll();
+
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        LoginJPanel loginPanel = new LoginJPanel(mainPanel);
+        mainPanel.add("loginPanel", loginPanel);
+        layout.next(mainPanel);
+
+        dB4OUtil.storeSystem(business);
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddOrganization;
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnCreateEmployee;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JComboBox cmbEmployee;
     private javax.swing.JComboBox cmbOrg;
     private javax.swing.JComboBox cmbOrgCreate;

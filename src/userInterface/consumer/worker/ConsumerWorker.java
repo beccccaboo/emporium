@@ -4,6 +4,7 @@
  */
 package userInterface.consumer.worker;
 
+import business.DB4OUtil.DB4OUtil;
 import business.EcoSystem;
 import business.enterprise.ConsumerEnterprise;
 import business.enterprise.Enterprise;
@@ -37,9 +38,11 @@ public class ConsumerWorker extends javax.swing.JPanel {
     private ConsumerEnterprise enterprise;
     private Distributed distributed;
     private Boolean isDistributed = false;
-    
+    private EcoSystem business;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     public ConsumerWorker(JPanel mainPanel, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         initComponents();
+        business = dB4OUtil.retrieveSystem();
         this.mainPanel = mainPanel;
         this.account = account;
         this.enterprise = (ConsumerEnterprise) enterprise;
@@ -89,6 +92,7 @@ public class ConsumerWorker extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         lblQuantity1 = new javax.swing.JLabel();
         lblQuantityVal = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(1000, 1000));
 
@@ -373,16 +377,24 @@ public class ConsumerWorker extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Inventory", jPanel3);
 
+        btnLogout.setText("Logout");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogout)
+                .addGap(32, 32, 32))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 118, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
+                .addComponent(btnLogout)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 882, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -543,7 +555,7 @@ public class ConsumerWorker extends javax.swing.JPanel {
         } else {
             CollectionWorkRequest request = (CollectionWorkRequest) tblDetails.getValueAt(selectedRow, 1);
 
-            ConsumerViewRequest consumerWorkerViewRequestJPanel = new ConsumerViewRequest(mainPanel, request);
+            ConsumerViewRequest consumerWorkerViewRequestJPanel = new ConsumerViewRequest(mainPanel, request, business);
             mainPanel.add("NGOWorkerViewRequestJPanel", consumerWorkerViewRequestJPanel);
             CardLayout layout = (CardLayout) mainPanel.getLayout();
             layout.next(mainPanel);
@@ -555,6 +567,7 @@ public class ConsumerWorker extends javax.swing.JPanel {
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnCollect;
     private javax.swing.JButton btnConfirm;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnRemove;
     private javax.swing.JButton btnView;
     private javax.swing.JLabel jLabel1;

@@ -4,6 +4,8 @@
  */
 package userInterface.consumer.manager;
 
+import business.DB4OUtil.DB4OUtil;
+import business.EcoSystem;
 import business.util.request.RequestItem;
 import business.workQueue.CollectionWorkRequest;
 import java.awt.CardLayout;
@@ -21,8 +23,11 @@ public class SupplierRequestView extends javax.swing.JPanel {
      */
     private JPanel mainPanel;
     private CollectionWorkRequest collectionWorkRequest;
-    public SupplierRequestView(JPanel mainPanel, CollectionWorkRequest collectionWorkRequest) {
+    private EcoSystem business;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    public SupplierRequestView(JPanel mainPanel, CollectionWorkRequest collectionWorkRequest, EcoSystem business) {
         initComponents();
+        business = dB4OUtil.retrieveSystem();
         this.mainPanel = mainPanel;
         this.collectionWorkRequest = collectionWorkRequest;
         populateTable();

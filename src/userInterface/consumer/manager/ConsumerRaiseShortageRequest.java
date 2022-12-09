@@ -4,6 +4,8 @@
  */
 package userInterface.consumer.manager;
 
+import business.DB4OUtil.DB4OUtil;
+import business.EcoSystem;
 import business.enterprise.ConsumerEnterprise;
 import business.enterprise.Enterprise;
 import business.network.Network;
@@ -32,8 +34,11 @@ public class ConsumerRaiseShortageRequest extends javax.swing.JPanel {
     private UserAccount account;
     private Network network;
     private boolean hasShortage = false;
-    public ConsumerRaiseShortageRequest(JPanel mainPanel, UserAccount account, ConsumerEnterprise enterprise, Network network) {
+    private EcoSystem business;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    public ConsumerRaiseShortageRequest(JPanel mainPanel, UserAccount account, ConsumerEnterprise enterprise, Network network, EcoSystem business) {
         initComponents();
+        business = dB4OUtil.retrieveSystem();
         this.mainPanel = mainPanel;
         this.enterprise = enterprise;
         this.account = account;

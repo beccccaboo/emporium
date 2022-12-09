@@ -4,6 +4,7 @@
  */
 package userInterface.consumer.admin;
 
+import business.DB4OUtil.DB4OUtil;
 import business.EcoSystem;
 import business.employee.Employee;
 import business.enterprise.Enterprise;
@@ -33,10 +34,14 @@ public class ConsumerAdmin extends javax.swing.JPanel {
     private Enterprise enterprise;
     private EcoSystem business;
     private OrganizationDirectory organizationDirectory;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     public ConsumerAdmin(JPanel mainPanel, Enterprise enterprise, EcoSystem business) {
         initComponents();
+        
         this.mainPanel = mainPanel;
         this.business = business;
+        //Should be below?
+        business = dB4OUtil.retrieveSystem();
         this.enterprise = enterprise;
         this.organizationDirectory = enterprise.getOrganizationDirectory();
         
@@ -99,6 +104,7 @@ public class ConsumerAdmin extends javax.swing.JPanel {
         lblOrg = new javax.swing.JLabel();
         btnCreateEmployee = new javax.swing.JButton();
         cmbOrg = new javax.swing.JComboBox();
+        btnLogout = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(1000, 1000));
 
@@ -178,7 +184,7 @@ public class ConsumerAdmin extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 691, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(166, 166, 166)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -455,19 +461,28 @@ public class ConsumerAdmin extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Manage Employee", jPanel2);
 
+        btnLogout.setText("Logout");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1087, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1087, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnLogout)
+                        .addGap(183, 183, 183))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(94, 94, 94)
+                .addGap(27, 27, 27)
+                .addComponent(btnLogout)
+                .addGap(44, 44, 44)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 796, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(110, Short.MAX_VALUE))
         );
@@ -598,6 +613,7 @@ public class ConsumerAdmin extends javax.swing.JPanel {
     private javax.swing.JButton btnAddOrganization;
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnCreateEmployee;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JComboBox cmbEmployee;
     private javax.swing.JComboBox cmbOrg;
     private javax.swing.JComboBox cmbOrgCreate;

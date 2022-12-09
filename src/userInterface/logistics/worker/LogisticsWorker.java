@@ -4,6 +4,8 @@
  */
 package userInterface.logistics.worker;
 
+import business.DB4OUtil.DB4OUtil;
+import business.EcoSystem;
 import business.enterprise.Enterprise;
 import business.network.Network;
 import business.userAccount.UserAccount;
@@ -28,9 +30,11 @@ public class LogisticsWorker extends javax.swing.JPanel {
     private UserAccount account;
     private Enterprise enterprise;
     private Network network;
-    
-    public LogisticsWorker(JPanel mainPanel, UserAccount account, Enterprise enterprise, Network network) {
+    private EcoSystem business;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    public LogisticsWorker(JPanel mainPanel, UserAccount account, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
+        business = dB4OUtil.retrieveSystem();
         this.mainPanel = mainPanel;
         this.account = account;
         this.enterprise = enterprise;
@@ -62,6 +66,7 @@ public class LogisticsWorker extends javax.swing.JPanel {
         tblLogisticsWorker1 = new javax.swing.JTable();
         lblHeader1 = new javax.swing.JLabel();
         btnDelivery = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(1000, 1000));
 
@@ -177,16 +182,24 @@ public class LogisticsWorker extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Delivery", jPanel2);
 
+        btnLogout.setText("Logout");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogout)
+                .addGap(92, 92, 92))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 100, Short.MAX_VALUE)
+                .addGap(36, 36, 36)
+                .addComponent(btnLogout)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -204,7 +217,7 @@ public class LogisticsWorker extends javax.swing.JPanel {
             CollectionWorkRequest request = (CollectionWorkRequest) tblLogisticsWorker.getValueAt(selectedRow, 5);
             if (request.getStatus().equals(RequestStatus.getPickupStatusMessage(3))) {
 
-                PickUpDetails logisticsWorkerPickUpDetailsJPanel = new PickUpDetails(mainPanel, account, request);
+                PickUpDetails logisticsWorkerPickUpDetailsJPanel = new PickUpDetails(mainPanel, account, request, business);
                 mainPanel.add("LogisticsWorkerPickUpDetailsJPanel", logisticsWorkerPickUpDetailsJPanel);
                 CardLayout layout = (CardLayout) mainPanel.getLayout();
                 layout.next(mainPanel);
@@ -231,7 +244,7 @@ public class LogisticsWorker extends javax.swing.JPanel {
             CollectionWorkRequest request = (CollectionWorkRequest) tblLogisticsWorker1.getValueAt(selectedRow, 5);
             if (request.getStatus().equals(RequestStatus.getPickupStatusMessage(4))) {
 
-                ConfirmDelivery logisticsWorkerDeliveryDetailsJPanel = new ConfirmDelivery(mainPanel, account, enterprise, request, network);
+                ConfirmDelivery logisticsWorkerDeliveryDetailsJPanel = new ConfirmDelivery(mainPanel, account, enterprise, request, network, business);
                 mainPanel.add("LogisticsWorkerDeliveryDetailsJPanel", logisticsWorkerDeliveryDetailsJPanel);
                 CardLayout layout = (CardLayout) mainPanel.getLayout();
                 layout.next(mainPanel);
@@ -249,6 +262,7 @@ public class LogisticsWorker extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelivery;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnPickup;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

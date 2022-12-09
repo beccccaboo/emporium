@@ -4,6 +4,8 @@
  */
 package userInterface.logistics.manager;
 
+import business.DB4OUtil.DB4OUtil;
+import business.EcoSystem;
 import business.enterprise.ConsumerEnterprise;
 import business.enterprise.Enterprise;
 import business.network.Network;
@@ -43,14 +45,17 @@ public class LogisticsManager extends javax.swing.JPanel {
     private Organization organization;
     private Enterprise enterprise;
     private Network network;
-    
-    public LogisticsManager(JPanel mainPanel, UserAccount account, Organization organization, Enterprise enterprise, Network network) {
+    private EcoSystem business;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    public LogisticsManager(JPanel mainPanel, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
+        business = dB4OUtil.retrieveSystem();
         this.mainPanel = mainPanel;
         this.account = account;
         this.organization = organization;
         this.enterprise = enterprise;
         this.network = network;
+       
         populateTable();
         populateComboBox();
         
@@ -100,6 +105,7 @@ public class LogisticsManager extends javax.swing.JPanel {
         lblUnPaid = new javax.swing.JLabel();
         lblUnPaidVal = new javax.swing.JLabel();
         pnlChart = new javax.swing.JPanel();
+        btnLogout = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(1000, 1000));
 
@@ -382,6 +388,8 @@ public class LogisticsManager extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Payment Info", jPanel4);
 
+        btnLogout.setText("Logout");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -390,11 +398,17 @@ public class LogisticsManager extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogout)
+                .addGap(59, 59, 59))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(125, 125, 125)
+                .addGap(39, 39, 39)
+                .addComponent(btnLogout)
+                .addGap(63, 63, 63)
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
@@ -561,7 +575,7 @@ public class LogisticsManager extends javax.swing.JPanel {
         } else {
             CollectionWorkRequest request = (CollectionWorkRequest) tblRequests.getValueAt(selectedRow, 3);
 
-            RequestDetails logisticsManagerViewRequestDetailsJPanel = new RequestDetails(mainPanel, request);
+            RequestDetails logisticsManagerViewRequestDetailsJPanel = new RequestDetails(mainPanel, request, business);
             mainPanel.add("LogisticsManagerViewRequestDetailsJPanel", logisticsManagerViewRequestDetailsJPanel);
             CardLayout layout = (CardLayout) mainPanel.getLayout();
             layout.next(mainPanel);
@@ -580,7 +594,7 @@ public class LogisticsManager extends javax.swing.JPanel {
         } else {
             CollectionWorkRequest request = (CollectionWorkRequest) tblRequests.getValueAt(selectedRow, 4);
 
-            RequestDetails logisticsManagerViewRequestDetailsJPanel = new RequestDetails(mainPanel, request);
+            RequestDetails logisticsManagerViewRequestDetailsJPanel = new RequestDetails(mainPanel, request, business);
             mainPanel.add("LogisticsManagerViewRequestDetailsJPanel", logisticsManagerViewRequestDetailsJPanel);
             CardLayout layout = (CardLayout) mainPanel.getLayout();
             layout.next(mainPanel);
@@ -593,6 +607,7 @@ public class LogisticsManager extends javax.swing.JPanel {
     private javax.swing.JButton btnDetails;
     private javax.swing.JButton btnGenerateAll;
     private javax.swing.JButton btnGenerateInovice;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnViewDetails;
     private javax.swing.JComboBox cmbConsumer;
     private javax.swing.JComboBox cmbWorker;

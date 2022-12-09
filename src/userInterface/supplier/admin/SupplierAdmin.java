@@ -4,6 +4,7 @@
  */
 package userInterface.supplier.admin;
 
+import business.DB4OUtil.DB4OUtil;
 import business.EcoSystem;
 import business.employee.Employee;
 import business.enterprise.Enterprise;
@@ -13,10 +14,12 @@ import business.organization.OrganizationDirectory;
 import business.role.Role;
 import business.userAccount.UserAccount;
 import business.util.validation.Validation;
+import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import userInterface.LoginJPanel;
 
 /**
  *
@@ -31,8 +34,10 @@ public class SupplierAdmin extends javax.swing.JPanel {
     private Enterprise enterprise;
     private EcoSystem business;
     private OrganizationDirectory organizationDir;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     public SupplierAdmin(JPanel mainPanel, Enterprise enterprise, EcoSystem business) {
         initComponents();
+        business = dB4OUtil.retrieveSystem();
         this.mainPanel = mainPanel;
         this.enterprise = enterprise;
         this.business = business;
@@ -97,6 +102,7 @@ public class SupplierAdmin extends javax.swing.JPanel {
         lblOrg1 = new javax.swing.JLabel();
         cmbOrganization = new javax.swing.JComboBox();
         btnAddOrganization = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setMinimumSize(new java.awt.Dimension(1000, 1000));
@@ -429,16 +435,29 @@ public class SupplierAdmin extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Manage Organization", manageOrganization);
 
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 100, Short.MAX_VALUE)
+                .addContainerGap(44, Short.MAX_VALUE)
+                .addComponent(btnLogout)
+                .addGap(33, 33, 33)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -545,11 +564,24 @@ public class SupplierAdmin extends javax.swing.JPanel {
         populateEmpOrgTable((Organization) cmbOrg.getSelectedItem());
     }//GEN-LAST:event_btnCreateEmployeeActionPerformed
 
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+
+        mainPanel.removeAll();
+
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        LoginJPanel loginPanel = new LoginJPanel(mainPanel);
+        mainPanel.add("loginPanel", loginPanel);
+        layout.next(mainPanel);
+
+        dB4OUtil.storeSystem(business);
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddOrganization;
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnCreateEmployee;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JComboBox cmbEmployee;
     private javax.swing.JComboBox cmbOrg;
     private javax.swing.JComboBox cmbOrgCreate;

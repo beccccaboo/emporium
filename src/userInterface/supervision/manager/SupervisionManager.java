@@ -4,6 +4,8 @@
  */
 package userInterface.supervision.manager;
 
+import business.DB4OUtil.DB4OUtil;
+import business.EcoSystem;
 import business.enterprise.ConsumerEnterprise;
 import business.enterprise.Enterprise;
 import business.enterprise.SupplierEnterprise;
@@ -44,6 +46,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
+import userInterface.LoginJPanel;
 
 /**
  *
@@ -56,9 +59,11 @@ public class SupervisionManager extends javax.swing.JPanel {
      */
     private JPanel mainPanel;
     private Network network;
-
-    public SupervisionManager(JPanel mainPanel, UserAccount account, Network network) {
+    private EcoSystem business;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    public SupervisionManager(JPanel mainPanel, UserAccount account, Network network, EcoSystem business) {
         initComponents();
+        business = dB4OUtil.retrieveSystem();
         this.mainPanel = mainPanel;
         this.network = network;
         lblValue.setText(lblValue.getText() + " " + account.getEmployee().getName());
@@ -101,6 +106,7 @@ public class SupervisionManager extends javax.swing.JPanel {
         pnlChart = new javax.swing.JPanel();
         lblHeader = new javax.swing.JLabel();
         lblValue = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(1000, 1000));
 
@@ -268,6 +274,13 @@ public class SupervisionManager extends javax.swing.JPanel {
 
         lblValue.setText("Welcome, ");
 
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -280,11 +293,17 @@ public class SupervisionManager extends javax.swing.JPanel {
                 .addGap(313, 313, 313)
                 .addComponent(lblValue, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(83, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
+                .addComponent(btnLogout)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(lblValue)
                 .addGap(41, 41, 41)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -304,7 +323,7 @@ public class SupervisionManager extends javax.swing.JPanel {
         } else {
             CollectionWorkRequest request = (CollectionWorkRequest) tblWastageAvoided.getValueAt(selectedRow, 2);
 
-            SupervisionViewDetails supervisionViewDetails = new SupervisionViewDetails(mainPanel, request);
+            SupervisionViewDetails supervisionViewDetails = new SupervisionViewDetails(mainPanel, request, business);
             mainPanel.add("SupervisionViewDetails", supervisionViewDetails);
 
             CardLayout layout = (CardLayout) mainPanel.getLayout();
@@ -380,10 +399,23 @@ public class SupervisionManager extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_cmbRestaurantActionPerformed
 
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+
+        mainPanel.removeAll();
+
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        LoginJPanel loginPanel = new LoginJPanel(mainPanel);
+        mainPanel.add("loginPanel", loginPanel);
+        layout.next(mainPanel);
+
+        dB4OUtil.storeSystem(business);
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDetails;
     private javax.swing.JButton btnExport;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JComboBox cmbRestaurant;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

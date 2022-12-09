@@ -4,6 +4,8 @@
  */
 package userInterface.supplier.manager;
 
+import business.DB4OUtil.DB4OUtil;
+import business.EcoSystem;
 import business.enterprise.Enterprise;
 import business.organization.Organization;
 import business.role.Role;
@@ -22,6 +24,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
+import userInterface.LoginJPanel;
 
 /**
  *
@@ -35,9 +38,11 @@ public class SupplierManager extends javax.swing.JPanel {
     private JPanel mainPanel;
     private UserAccount account;
     private Enterprise enterprise;
-    
-    public SupplierManager(JPanel mainPanel, UserAccount account, Enterprise enterprise) {
+    private EcoSystem business;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    public SupplierManager(JPanel mainPanel, UserAccount account, Enterprise enterprise, EcoSystem business) {
         initComponents();
+        business = dB4OUtil.retrieveSystem();
         this.mainPanel = mainPanel;
         this.enterprise = enterprise;
         this.account = account;
@@ -68,6 +73,7 @@ public class SupplierManager extends javax.swing.JPanel {
         lblName = new javax.swing.JLabel();
         lblWastageValue = new javax.swing.JLabel();
         lblWastage = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(1000, 1000));
         setVerifyInputWhenFocusTarget(false);
@@ -166,6 +172,13 @@ public class SupplierManager extends javax.swing.JPanel {
 
         lblWastage.setText("Total wastage avoided :");
 
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -182,11 +195,17 @@ public class SupplierManager extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblWastageValue, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(73, Short.MAX_VALUE)
+                .addContainerGap(32, Short.MAX_VALUE)
+                .addComponent(btnLogout)
+                .addGap(18, 18, 18)
                 .addComponent(lblName)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -211,15 +230,28 @@ public class SupplierManager extends javax.swing.JPanel {
         } else {
             CollectionWorkRequest cwr = (CollectionWorkRequest) tblLog.getValueAt(selectedRow, 2);
 
-            ViewLogItem supplierWorkerViewLogItemJPanel = new ViewLogItem(mainPanel, cwr);
+            ViewLogItem supplierWorkerViewLogItemJPanel = new ViewLogItem(mainPanel, cwr, business);
             CardLayout layout = (CardLayout) mainPanel.getLayout();
             mainPanel.add("SupplierWorkerViewLogItemJPanel", supplierWorkerViewLogItemJPanel);
             layout.next(mainPanel);
         }
     }//GEN-LAST:event_btnViewRequestItemActionPerformed
 
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+
+        mainPanel.removeAll();
+
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        LoginJPanel loginPanel = new LoginJPanel(mainPanel);
+        mainPanel.add("loginPanel", loginPanel);
+        layout.next(mainPanel);
+
+        dB4OUtil.storeSystem(business);
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnViewRequestItem;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

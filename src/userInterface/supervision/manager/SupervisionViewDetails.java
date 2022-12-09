@@ -4,6 +4,7 @@
  */
 package userInterface.supervision.manager;
 
+import business.DB4OUtil.DB4OUtil;
 import business.EcoSystem;
 import business.network.Network;
 import business.util.request.RequestItem;
@@ -23,8 +24,11 @@ public class SupervisionViewDetails extends javax.swing.JPanel {
      */
     private JPanel mainPanel;
     private CollectionWorkRequest cwr;
-    public SupervisionViewDetails(JPanel mainPanel, CollectionWorkRequest cwr) {
+    private EcoSystem business;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    public SupervisionViewDetails(JPanel mainPanel, CollectionWorkRequest cwr, EcoSystem business) {
         initComponents();
+        business = dB4OUtil.retrieveSystem();
         this.mainPanel = mainPanel;
         this.cwr = cwr;
         populateTable();
