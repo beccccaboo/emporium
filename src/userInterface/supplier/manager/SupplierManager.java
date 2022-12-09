@@ -4,6 +4,25 @@
  */
 package userInterface.supplier.manager;
 
+import business.enterprise.Enterprise;
+import business.organization.Organization;
+import business.role.Role;
+import business.userAccount.UserAccount;
+import business.workQueue.CollectionWorkRequest;
+import business.workQueue.WorkRequest;
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Color;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
+
 /**
  *
  * @author Arpit
@@ -13,8 +32,19 @@ public class SupplierManager extends javax.swing.JPanel {
     /**
      * Creates new form SupplierManager
      */
-    public SupplierManager() {
+    private JPanel mainPanel;
+    private UserAccount account;
+    private Enterprise enterprise;
+    
+    public SupplierManager(JPanel mainPanel, UserAccount account, Enterprise enterprise) {
         initComponents();
+        this.mainPanel = mainPanel;
+        this.enterprise = enterprise;
+        this.account = account;
+
+        populateLoginDetails();
+        populateChart();
+        populateTable();
     }
 
     /**
@@ -35,6 +65,9 @@ public class SupplierManager extends javax.swing.JPanel {
         jScrollPane = new javax.swing.JScrollPane();
         tblLog = new javax.swing.JTable();
         btnViewRequestItem = new javax.swing.JButton();
+        lblName = new javax.swing.JLabel();
+        lblWastageValue = new javax.swing.JLabel();
+        lblWastage = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(1000, 1000));
         setVerifyInputWhenFocusTarget(false);
@@ -99,16 +132,19 @@ public class SupplierManager extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(0, 32, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(828, 828, 828)
-                        .addComponent(btnViewRequestItem))
-                    .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 951, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addComponent(lblHeader1, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 951, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(152, 152, 152)
+                                .addComponent(lblHeader1, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(17, 17, 17))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnViewRequestItem)
+                        .addGap(49, 49, 49))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,6 +160,12 @@ public class SupplierManager extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("View RequestLog", jPanel2);
 
+        lblName.setText("Welcome, ");
+
+        lblWastageValue.setText("<wastage_avoided>");
+
+        lblWastage.setText("Total wastage avoided :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -132,11 +174,25 @@ public class SupplierManager extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(271, 271, 271)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblWastage)
+                    .addComponent(lblName))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblWastageValue, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(137, Short.MAX_VALUE)
+                .addContainerGap(73, Short.MAX_VALUE)
+                .addComponent(lblName)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblWastage)
+                    .addComponent(lblWastageValue))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 857, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -155,10 +211,10 @@ public class SupplierManager extends javax.swing.JPanel {
         } else {
             CollectionWorkRequest cwr = (CollectionWorkRequest) tblLog.getValueAt(selectedRow, 2);
 
-            RestaurantManagerViewLogItemJPanel restaurantWorkerViewLogItemJPanel = new RestaurantManagerViewLogItemJPanel(userProcessContainer, cwr);
-            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            userProcessContainer.add("RestaurantWorkerViewLogItemJPanel", restaurantWorkerViewLogItemJPanel);
-            layout.next(userProcessContainer);
+            ViewLogItem supplierWorkerViewLogItemJPanel = new ViewLogItem(mainPanel, cwr);
+            CardLayout layout = (CardLayout) mainPanel.getLayout();
+            mainPanel.add("SupplierWorkerViewLogItemJPanel", supplierWorkerViewLogItemJPanel);
+            layout.next(mainPanel);
         }
     }//GEN-LAST:event_btnViewRequestItemActionPerformed
 
@@ -171,7 +227,94 @@ public class SupplierManager extends javax.swing.JPanel {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblHeader;
     private javax.swing.JLabel lblHeader1;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblWastage;
+    private javax.swing.JLabel lblWastageValue;
     private javax.swing.JPanel pnlChart;
     private javax.swing.JTable tblLog;
     // End of variables declaration//GEN-END:variables
+
+    private void populateLoginDetails() {
+        double quantity = 0;
+        lblName.setText(lblName.getText() + " " + account.getEmployee().getName());
+        for (Organization o : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            for (UserAccount ua : o.getUserAccountDirectory().getUserAccountList()) {
+                if ((ua.getRole().getRoleType().getValue()).equals(Role.RoleType.SupplierWorker.getValue())) {
+                    for (WorkRequest wr : ua.getWorkQueue().getWorkRequestList()) {
+                        CollectionWorkRequest cwr = (CollectionWorkRequest) wr;
+                        quantity += cwr.getTotalQuantity();
+                    }
+                }
+            }
+        }
+        lblWastageValue.setText(quantity + " pounds");
+    }
+    
+    public void populateChart() {
+        DefaultCategoryDataset dataSet = new DefaultCategoryDataset();
+        double wastageAvoided = 0;
+
+        for (Organization o : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            for (UserAccount ua : o.getUserAccountDirectory().getUserAccountList()) {
+                if ((ua.getRole().getRoleType().getValue()).equals(Role.RoleType.SupplierWorker.getValue())) {
+                    String name = ua.getEmployee().getName();
+                    for (WorkRequest wr : ua.getWorkQueue().getWorkRequestList()) {
+                        if (wr instanceof CollectionWorkRequest) {
+                            CollectionWorkRequest cwr = (CollectionWorkRequest) wr;
+                            wastageAvoided += cwr.getTotalQuantity();
+                        }
+                    }
+                    dataSet.setValue(wastageAvoided, "Wastage Avoided", name);
+                    wastageAvoided = 0;
+                }
+            }
+        }
+
+        JFreeChart chart = ChartFactory.createBarChart("Wastage Avoided by each Employee",
+                "Employee",
+                "Wastage Avoided",
+                dataSet,
+                PlotOrientation.VERTICAL, true, true, false);
+
+        CategoryPlot plot = chart.getCategoryPlot();
+        plot.setRangeGridlinePaint(Color.BLACK);
+
+        // ChartFrame chartFrame = new ChartFrame("Wastage Avoided by each Employee", chart, true);
+        // chartFrame.setVisible(true);
+        // chartFrame.setSize(500,400); 
+        ChartPanel chartPanel = new ChartPanel(chart);
+        pnlChart.removeAll();
+        pnlChart.add(chartPanel, BorderLayout.CENTER);
+        pnlChart.validate();
+
+    }
+    
+    public void populateTable() {
+        DefaultTableModel dtm = (DefaultTableModel) tblLog.getModel();
+        dtm.setRowCount(0);
+
+        for (Organization o : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            for (UserAccount ua : o.getUserAccountDirectory().getUserAccountList()) {
+                if ((ua.getRole().getRoleType().getValue()).equals(Role.RoleType.SupplierWorker.getValue())) {
+                    for (WorkRequest wr : ua.getWorkQueue().getWorkRequestList()) {
+                        if (wr instanceof CollectionWorkRequest) {
+                            CollectionWorkRequest cwr = (CollectionWorkRequest) wr;
+
+                            Object row[] = new Object[7];
+                            row[0] = cwr.getRequestDate();
+                            row[1] = cwr.getRaisedBy().getEmployee().getName();
+                            row[2] = cwr;
+                            row[3] = cwr.getTotalQuantity();
+                            row[4] = cwr.getDeliverToConsumer() == null ? "Undelivered" : cwr.getDeliverToConsumer();
+                            row[5] = cwr.getDeliveredByLogistics() == null ? "Undelivered" : cwr.getDeliveredByLogistics();
+                            row[6] = cwr.getDeliveryCost() == 0d ? "Undelivered" : "$" + cwr.getDeliveryCost();
+
+                            dtm.addRow(row);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }

@@ -11,6 +11,7 @@ import business.organization.Organization;
 import business.role.Role;
 import business.userAccount.UserAccount;
 import javax.swing.JPanel;
+import userInterface.supervision.admin.SupervisionAdmin;
 
 /**
  *
@@ -21,9 +22,9 @@ public class SupervisionAdminRole extends Role{
         super(RoleType.SupervisionAdmin);
     }
 
-//    @Override
-//    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
-//        return new SupervisionAdminWorkAreaJPanel(userProcessContainer, enterprise);
-//    }
+    @Override
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
+        return new SupervisionAdmin(userProcessContainer, enterprise);
+    }
     
 }

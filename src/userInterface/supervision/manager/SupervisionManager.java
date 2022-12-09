@@ -4,8 +4,46 @@
  */
 package userInterface.supervision.manager;
 
+import business.enterprise.ConsumerEnterprise;
+import business.enterprise.Enterprise;
+import business.enterprise.SupplierEnterprise;
+import business.network.Network;
+import business.organization.Organization;
+import business.organization.consumer.ConsumerManagerOrganization;
+import business.role.Role;
+import business.userAccount.UserAccount;
+import business.util.inventory.Distributed;
+import business.util.item.ItemQuantity;
+import business.util.request.RequestItem;
+import business.workQueue.CollectionWorkRequest;
+import business.workQueue.PaymentWorkRequest;
+import business.workQueue.WorkRequest;
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Set;
+import java.util.TreeMap;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.xssf.usermodel.XSSFCellStyle;
+import org.apache.poi.xssf.usermodel.XSSFFont;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
@@ -16,8 +54,24 @@ public class SupervisionManager extends javax.swing.JPanel {
     /**
      * Creates new form SupervisorAdmin
      */
-    public SupervisionManager() {
+    private JPanel mainPanel;
+    private Network network;
+
+    public SupervisionManager(JPanel mainPanel, UserAccount account, Network network) {
         initComponents();
+        this.mainPanel = mainPanel;
+        this.network = network;
+        lblValue.setText(lblValue.getText() + " " + account.getEmployee().getName());
+        
+        //Customer Reached
+        populateReachedChart();
+        
+        //Product Status
+        populateRestaurantCombo();
+        populateData(null);
+        
+        //Chart
+        populateChart();
     }
 
     /**
@@ -46,8 +100,7 @@ public class SupervisionManager extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         pnlChart = new javax.swing.JPanel();
         lblHeader = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
+        lblValue = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(1000, 1000));
 
@@ -185,7 +238,7 @@ public class SupervisionManager extends javax.swing.JPanel {
 
         lblHeader.setBackground(new java.awt.Color(204, 204, 255));
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblHeader.setText("Manager Work Area - Avoided Chart");
+        lblHeader.setText("Manager Work Area - Wastage Avoided Chart");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -213,31 +266,7 @@ public class SupervisionManager extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Chart", jPanel3);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 988, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 822, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab(" ", jPanel4);
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 988, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 822, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab(" ", jPanel5);
+        lblValue.setText("Welcome, ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -247,11 +276,17 @@ public class SupervisionManager extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(313, 313, 313)
+                .addComponent(lblValue, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(141, Short.MAX_VALUE)
+                .addContainerGap(83, Short.MAX_VALUE)
+                .addComponent(lblValue)
+                .addGap(41, 41, 41)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -269,11 +304,11 @@ public class SupervisionManager extends javax.swing.JPanel {
         } else {
             CollectionWorkRequest request = (CollectionWorkRequest) tblWastageAvoided.getValueAt(selectedRow, 2);
 
-            GovernmentMayorViewRequestDetailsJPanel governmentMayorViewRequestDetailsJPanel = new GovernmentMayorViewRequestDetailsJPanel(userProcessContainer, request);
-            userProcessContainer.add("GovernmentMayorViewRequestDetailsJPanel", governmentMayorViewRequestDetailsJPanel);
+            SupervisionViewDetails supervisionViewDetails = new SupervisionViewDetails(mainPanel, request);
+            mainPanel.add("SupervisionViewDetails", supervisionViewDetails);
 
-            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            layout.next(userProcessContainer);
+            CardLayout layout = (CardLayout) mainPanel.getLayout();
+            layout.next(mainPanel);
         }
     }//GEN-LAST:event_btnDetailsActionPerformed
 
@@ -340,7 +375,7 @@ public class SupervisionManager extends javax.swing.JPanel {
         if (cmbRestaurant.getSelectedIndex() < 1) {
             populateData(null);
         } else {
-            RestaurantEnterprise e = (RestaurantEnterprise) cmbRestaurant.getSelectedItem();
+            SupplierEnterprise e = (SupplierEnterprise) cmbRestaurant.getSelectedItem();
             populateData(e);
         }
     }//GEN-LAST:event_cmbRestaurantActionPerformed
@@ -353,8 +388,6 @@ public class SupervisionManager extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblHeader;
@@ -362,9 +395,198 @@ public class SupervisionManager extends javax.swing.JPanel {
     private javax.swing.JLabel lblHeading;
     private javax.swing.JLabel lblRestaurant;
     private javax.swing.JLabel lblTotalWastage;
+    private javax.swing.JLabel lblValue;
     private javax.swing.JLabel lblWastageValue;
     private javax.swing.JPanel pnlChart;
     private javax.swing.JPanel pnlChartFed;
     private javax.swing.JTable tblWastageAvoided;
     // End of variables declaration//GEN-END:variables
+
+    public void populateReachedChart() {
+
+        DefaultCategoryDataset dataSet = new DefaultCategoryDataset();
+        int peopleFed = 0;
+        double amount = 0;
+        double avoided = 0;
+        double wastage = 0;
+
+        for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
+            if (e.getEnterpriseType() == Enterprise.EnterpriseType.Consumer) {
+                String name = e.getName();
+
+                ConsumerEnterprise ne = (ConsumerEnterprise) e;
+
+                //Wastage Avoided
+                for (RequestItem ri : ne.getInventory().getRequestItemList()) {
+                    avoided += ItemQuantity.getQuantity(ri.getItemName()) * ri.getQuantity();
+                }
+
+                // Wastage
+                for (RequestItem ri : ne.getWasteInventory().getRequestItemList()) {
+                    wastage += ItemQuantity.getQuantity(ri.getItemName()) * ri.getQuantity();
+                }
+
+                // People fed
+                for (Distributed d : ne.getDistributedList()) {
+                    peopleFed += d.getPeopleFed();
+                }
+
+                // Expenses
+                for (Organization o : e.getOrganizationDirectory().getOrganizationList()) {
+                    if (o instanceof ConsumerManagerOrganization) {
+                        for (UserAccount ua : o.getUserAccountDirectory().getUserAccountList()) {
+                            for (WorkRequest wr : o.getWorkQueue().getWorkRequestList()) {
+                                if (wr instanceof PaymentWorkRequest) {
+                                    PaymentWorkRequest pwr = (PaymentWorkRequest) wr;
+                                    amount += pwr.getCollectionWorkRequest().getDeliveryCost();
+                                }
+                            }
+                        }
+                    }
+                }
+
+                dataSet.setValue(avoided, name, "Wastage Avoided ");
+                dataSet.setValue(wastage, name, "Wastage in inventory ");
+                dataSet.setValue(peopleFed, name, "People Reached");
+                dataSet.setValue(amount, name, "Expenses Inccured (in $)");
+
+                peopleFed = 0;
+                avoided = 0;
+                wastage = 0;
+                amount = 0;
+            }
+        }
+        JFreeChart chart = ChartFactory.createBarChart("Analysis report for Consumer",
+                "Consumer",
+                "Values",
+                dataSet,
+                PlotOrientation.VERTICAL, true, true, false);
+
+        CategoryPlot plot = chart.getCategoryPlot();
+
+        plot.setRangeGridlinePaint(Color.BLACK);
+        plot.setBackgroundPaint(Color.WHITE);
+
+        ChartPanel chartPanel = new ChartPanel(chart);
+        pnlChartFed.removeAll();
+        pnlChartFed.add(chartPanel, BorderLayout.CENTER);
+        pnlChartFed.validate();
+
+    }
+    
+    public void populateRestaurantCombo() {
+        cmbRestaurant.removeAllItems();
+        cmbRestaurant.addItem(null);
+        for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
+            if (e.getEnterpriseType() == Enterprise.EnterpriseType.Supplier) {
+                cmbRestaurant.addItem(e);
+            }
+        }
+    }
+
+    public void populateData(SupplierEnterprise supplier) {
+
+        DefaultTableModel dtm = (DefaultTableModel) tblWastageAvoided.getModel();
+        dtm.setRowCount(0);
+
+        double wastage = 0;
+
+        // All data
+        if (supplier == null) {
+
+            for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
+                if (e.getEnterpriseType() == Enterprise.EnterpriseType.Supplier) {
+                    for (Organization o : e.getOrganizationDirectory().getOrganizationList()) {
+                        for (UserAccount ua : o.getUserAccountDirectory().getUserAccountList()) {
+                            if ((ua.getRole().getRoleType().getValue()).equals(Role.RoleType.SupplierWorker.getValue())) {
+                                for (WorkRequest wr : ua.getWorkQueue().getWorkRequestList()) {
+                                    if (wr instanceof CollectionWorkRequest) {
+                                        CollectionWorkRequest cwr = (CollectionWorkRequest) wr;
+
+                                        Object row[] = new Object[4];
+                                        row[0] = cwr.getRaisedBySupplier();
+                                        row[1] = cwr.getTotalQuantity();
+                                        row[2] = cwr;
+                                        row[3] = cwr.getDeliverToConsumer() == null ? "Undelivered" : cwr.getDeliverToConsumer();
+                                        dtm.addRow(row);
+
+                                        wastage += cwr.getTotalQuantity();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        } // Filtered
+        else {
+
+            for (Organization o : supplier.getOrganizationDirectory().getOrganizationList()) {
+                for (UserAccount ua : o.getUserAccountDirectory().getUserAccountList()) {
+                    if ((ua.getRole().getRoleType().getValue()).equals(Role.RoleType.SupplierWorker.getValue())) {
+                        for (WorkRequest wr : ua.getWorkQueue().getWorkRequestList()) {
+                            CollectionWorkRequest cwr = (CollectionWorkRequest) wr;
+
+                            Object row[] = new Object[4];
+                            row[0] = cwr.getRaisedBySupplier();
+                            row[1] = cwr.getTotalQuantity();
+                            row[2] = cwr;
+                            row[3] = cwr.getDeliverToConsumer()== null ? "Undelivered" : cwr.getDeliverToConsumer();
+                            dtm.addRow(row);
+
+                            wastage += cwr.getTotalQuantity();
+                        }
+                    }
+                }
+            }
+
+        }
+
+        lblWastageValue.setText(wastage + " pounds");
+    }
+    
+    //Chart
+    public void populateChart() {
+
+        DefaultCategoryDataset dataSet = new DefaultCategoryDataset();
+        double wastageAvoided = 0;
+
+        for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
+            if (e.getEnterpriseType() == Enterprise.EnterpriseType.Supplier) {
+                String name = e.getName();
+                for (Organization o : e.getOrganizationDirectory().getOrganizationList()) {
+                    for (UserAccount ua : o.getUserAccountDirectory().getUserAccountList()) {
+                        if ((ua.getRole().getRoleType().getValue()).equals(Role.RoleType.SupplierWorker.getValue())) {
+                            for (WorkRequest wr : ua.getWorkQueue().getWorkRequestList()) {
+                                if (wr instanceof CollectionWorkRequest) {
+                                    CollectionWorkRequest cwr = (CollectionWorkRequest) wr;
+                                    wastageAvoided += cwr.getTotalQuantity();
+                                }
+                            }
+                        }
+                    }
+                    dataSet.setValue(wastageAvoided, "Wastage Avoided", name);
+                    wastageAvoided = 0;
+                }
+            }
+        }
+
+        JFreeChart chart = ChartFactory.createBarChart("Wastage Avoided by each Supplier",
+                "Supplier",
+                "Wastage Avoided (In Pounds)",
+                dataSet,
+                PlotOrientation.VERTICAL, true, true, false);
+
+        CategoryPlot plot = chart.getCategoryPlot();
+        plot.setRangeGridlinePaint(Color.BLACK);
+        plot.setBackgroundPaint(Color.WHITE);
+
+        ChartPanel chartPanel = new ChartPanel(chart);
+        pnlChart.removeAll();
+        pnlChart.add(chartPanel, BorderLayout.CENTER);
+        pnlChart.validate();
+
+    }
+
 }

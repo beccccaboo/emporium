@@ -4,6 +4,26 @@
  */
 package userInterface.consumer.manager;
 
+import business.enterprise.ConsumerEnterprise;
+import business.enterprise.Enterprise;
+import business.network.Network;
+import business.organization.Organization;
+import business.organization.logistics.LogisticsManagerOrganization;
+import business.role.Role;
+import business.userAccount.UserAccount;
+import business.util.item.ItemQuantity;
+import business.util.request.RequestItem;
+import business.util.request.RequestStatus;
+import static business.util.request.RequestStatus.pickupRequestStatusList;
+import business.workQueue.CollectionWorkRequest;
+import business.workQueue.PaymentWorkRequest;
+import business.workQueue.WorkRequest;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+
 /**
  *
  * @author swarag
@@ -11,10 +31,37 @@ package userInterface.consumer.manager;
 public class ConsumerManager extends javax.swing.JPanel {
 
     /**
-     * Creates new form ConsumerManagerWorkAreaJPanel
+     * Creates new form ConsumerManager
      */
-    public ConsumerManager() {
+    private JPanel mainPanel;
+    private UserAccount account;
+    private Organization organization;
+    private Enterprise enterprise;
+    private ConsumerEnterprise consumerEnterprise;
+    private Network network;
+    
+    public ConsumerManager(JPanel mainPanel, UserAccount account, Organization organization, Enterprise enterprise, Network network) {
         initComponents();
+        this.mainPanel = mainPanel;
+        this.account = account;
+        this.organization = organization;
+        this.enterprise = enterprise;
+        this.consumerEnterprise = (ConsumerEnterprise) enterprise;
+        this.network = network;
+        lblName.setText(account.getEmployee().getName());
+        
+        //Supplier requests
+        populateTable();
+        populateComboBox();
+        
+        //View Inventory
+        populateInventoryTable();
+        
+        //View Wastage Inventory
+        populateWastageInventoryTable();
+        
+        //Pay Invoices
+        populateInvoiceTable();
     }
 
     /**
@@ -31,7 +78,7 @@ public class ConsumerManager extends javax.swing.JPanel {
         jScrollPane = new javax.swing.JScrollPane();
         tblRestaurantRequests = new javax.swing.JTable();
         jPanelRedirectToNGO = new javax.swing.JPanel();
-        btnAssignNGO = new javax.swing.JButton();
+        btnRedirectConsumer = new javax.swing.JButton();
         lblMessageRedirect = new javax.swing.JLabel();
         txtMessageRedirect = new javax.swing.JTextField();
         lblHeader = new javax.swing.JLabel();
@@ -61,6 +108,8 @@ public class ConsumerManager extends javax.swing.JPanel {
         lblHeader3 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblDetails = new javax.swing.JTable();
+        lblName = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(1000, 1000));
 
@@ -85,10 +134,10 @@ public class ConsumerManager extends javax.swing.JPanel {
         jPanelRedirectToNGO.setBackground(new java.awt.Color(204, 255, 204));
         jPanelRedirectToNGO.setBorder(javax.swing.BorderFactory.createTitledBorder("Redirect to other NGO"));
 
-        btnAssignNGO.setText("Redirect");
-        btnAssignNGO.addActionListener(new java.awt.event.ActionListener() {
+        btnRedirectConsumer.setText("Redirect");
+        btnRedirectConsumer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAssignNGOActionPerformed(evt);
+                btnRedirectConsumerActionPerformed(evt);
             }
         });
 
@@ -103,7 +152,7 @@ public class ConsumerManager extends javax.swing.JPanel {
                 .addGroup(jPanelRedirectToNGOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRedirectToNGOLayout.createSequentialGroup()
                         .addGap(179, 179, 179)
-                        .addComponent(btnAssignNGO))
+                        .addComponent(btnRedirectConsumer))
                     .addGroup(jPanelRedirectToNGOLayout.createSequentialGroup()
                         .addComponent(lblMessageRedirect)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -118,7 +167,7 @@ public class ConsumerManager extends javax.swing.JPanel {
                     .addComponent(txtMessageRedirect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblMessageRedirect))
                 .addGap(59, 59, 59)
-                .addComponent(btnAssignNGO)
+                .addComponent(btnRedirectConsumer)
                 .addGap(16, 16, 16))
         );
 
@@ -231,10 +280,10 @@ public class ConsumerManager extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelAssignToEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanelRedirectToNGO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(404, Short.MAX_VALUE))
+                .addContainerGap(279, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Inventory Request", jPanel1);
+        jTabbedPane1.addTab("Supplier Request", jPanel1);
 
         tblInventory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -304,7 +353,7 @@ public class ConsumerManager extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(btnShortage)
-                .addContainerGap(424, Short.MAX_VALUE))
+                .addContainerGap(299, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("View Inventory", jPanel2);
@@ -365,7 +414,7 @@ public class ConsumerManager extends javax.swing.JPanel {
                     .addComponent(lblQuantityVal1))
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(469, Short.MAX_VALUE))
+                .addContainerGap(344, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("View wastage Inventory", jPanel3);
@@ -423,10 +472,14 @@ public class ConsumerManager extends javax.swing.JPanel {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(109, 109, 109)
                 .addComponent(btnPay)
-                .addContainerGap(475, Short.MAX_VALUE))
+                .addContainerGap(350, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Pay Invoice", jPanel4);
+
+        lblName.setText("<<View Name>>");
+
+        jLabel2.setText("Manager Name: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -435,16 +488,27 @@ public class ConsumerManager extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(358, 358, 358)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 994, Short.MAX_VALUE)
+                .addContainerGap(79, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(lblName))
+                .addGap(29, 29, 29)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 869, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAssignNGOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignNGOActionPerformed
+    private void btnRedirectConsumerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRedirectConsumerActionPerformed
         // TODO add your handling code here:
 
         int selectedRow = tblRestaurantRequests.getSelectedRow();
@@ -458,14 +522,14 @@ public class ConsumerManager extends javax.swing.JPanel {
             CollectionWorkRequest request = (CollectionWorkRequest) tblRestaurantRequests.getValueAt(selectedRow, 3);
             String message = txtMessageRedirect.getText();
 
-            NGOOtherRegionsRequestJPanel ngoOtherRegionsRequestJPanel = new NGOOtherRegionsRequestJPanel(userProcessContainer, request, organization, account, network, message);
-            userProcessContainer.add("NGOOtherRegionsRequestJPanel", ngoOtherRegionsRequestJPanel);
-            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            layout.next(userProcessContainer);
+            ConsumerOtherRegionsRequest ngoOtherRegionsRequestJPanel = new ConsumerOtherRegionsRequest(mainPanel, request, organization, account, network, message);
+            mainPanel.add("NGOOtherRegionsRequestJPanel", ngoOtherRegionsRequestJPanel);
+            CardLayout layout = (CardLayout) mainPanel.getLayout();
+            layout.next(mainPanel);
             txtMessageRedirect.setText("");
         }
 
-    }//GEN-LAST:event_btnAssignNGOActionPerformed
+    }//GEN-LAST:event_btnRedirectConsumerActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
@@ -479,10 +543,10 @@ public class ConsumerManager extends javax.swing.JPanel {
         } else {
             CollectionWorkRequest cwr = (CollectionWorkRequest) tblRestaurantRequests.getValueAt(selectedRow, 3);
 
-            NGORestaurantRequestViewJPanel restaurantWorkerViewLogItemJPanel = new NGORestaurantRequestViewJPanel(userProcessContainer, cwr);
-            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            userProcessContainer.add("RestaurantWorkerViewLogItemJPanel", restaurantWorkerViewLogItemJPanel);
-            layout.next(userProcessContainer);
+            SupplierRequestView supplierRequestView = new SupplierRequestView(mainPanel, cwr);
+            CardLayout layout = (CardLayout) mainPanel.getLayout();
+            mainPanel.add("SupplierRequestView", supplierRequestView);
+            layout.next(mainPanel);
         }
     }//GEN-LAST:event_btnViewActionPerformed
 
@@ -516,7 +580,7 @@ public class ConsumerManager extends javax.swing.JPanel {
                 request.setSender(account);
                 request.setStatus(RequestStatus.getPickupStatusMessage(2));
                 request.setMessage(txtMessage.getText());
-                request.setDeliverToNGO(enterprise.getName());
+                request.setDeliverToConsumer(enterprise.getName());
 
                 UserAccount acc = (UserAccount) cmbWorker.getSelectedItem();
                 request.setDeliverTo(acc);
@@ -548,10 +612,10 @@ public class ConsumerManager extends javax.swing.JPanel {
     }//GEN-LAST:event_btnApproveActionPerformed
 
     private void btnShortageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShortageActionPerformed
-        NGOManagerRaiseShortageRequestJPanel ngoRequestJPanel = new NGOManagerRaiseShortageRequestJPanel(userProcessContainer, account, enterprise, network);
-        userProcessContainer.add("NGORequestJPanel", ngoRequestJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        ConsumerRaiseShortageRequest consumerRequestJPanel = new ConsumerRaiseShortageRequest(mainPanel, account, consumerEnterprise, network);
+        mainPanel.add("ConsumerRequestJPanel", consumerRequestJPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnShortageActionPerformed
 
     private void btnPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayActionPerformed
@@ -588,11 +652,12 @@ public class ConsumerManager extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnApprove;
-    private javax.swing.JButton btnAssignNGO;
     private javax.swing.JButton btnPay;
+    private javax.swing.JButton btnRedirectConsumer;
     private javax.swing.JButton btnShortage;
     private javax.swing.JButton btnView;
     private javax.swing.JComboBox cmbWorker;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -611,6 +676,7 @@ public class ConsumerManager extends javax.swing.JPanel {
     private javax.swing.JLabel lblHeader3;
     private javax.swing.JLabel lblMessage;
     private javax.swing.JLabel lblMessageRedirect;
+    private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblQuantity;
     private javax.swing.JLabel lblQuantity1;
     private javax.swing.JLabel lblQuantityVal;
@@ -623,4 +689,118 @@ public class ConsumerManager extends javax.swing.JPanel {
     private javax.swing.JTextField txtMessage;
     private javax.swing.JTextField txtMessageRedirect;
     // End of variables declaration//GEN-END:variables
+
+    //Supplier Requests
+    public void populateTable() {
+        
+        DefaultTableModel dtm = (DefaultTableModel) tblRestaurantRequests.getModel();
+        dtm.setRowCount(0);
+        for (WorkRequest workRequest : organization.getWorkQueue().getWorkRequestList()) {
+            if (workRequest instanceof CollectionWorkRequest) {
+                CollectionWorkRequest cwr = (CollectionWorkRequest) workRequest;
+
+                // View only newly raised requests
+                if (cwr.getStatus().equals(RequestStatus.getPickupStatusMessage(1))) {
+                    Object row[] = new Object[4];
+                    
+                    row[0] = cwr.getRaisedBySupplier();
+                    row[1] = cwr.getRequestDate();
+                    row[2] = cwr.getMessage();
+                    row[3] = cwr;
+                    
+                    dtm.addRow(row);
+                }
+            }
+        }
+    }
+    
+    private void populateComboBox() {
+        cmbWorker.removeAllItems();
+        for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            for (UserAccount user : org.getUserAccountDirectory().getUserAccountList()) {
+                if (user.getRole().getRoleType().getValue().equals(Role.RoleType.ConsumerWorker.getValue())) {
+                    cmbWorker.addItem(user);
+                }
+            }
+        }
+    }
+    
+    //Inventory View
+    private void populateInventoryTable() {
+        DefaultTableModel dtm = (DefaultTableModel) tblInventory.getModel();
+        dtm.setRowCount(0);
+
+        double amount = 0;
+
+        for (RequestItem ri : consumerEnterprise.getInventory().getRequestItemList()) {
+            if (ri.getDaysBeforeDonation()> 0 && ri.getQuantity() > 0) {
+                Object row[] = new Object[3];
+
+                row[0] = ri;
+                row[1] = ri.getQuantity();
+                row[2] = ri.getDaysBeforeDonation();
+                dtm.addRow(row);
+
+                amount += ItemQuantity.getQuantity(ri.getItemName()) * ri.getQuantity();
+            }
+        }
+
+        //Enable sorting
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(dtm);
+        tblInventory.setRowSorter(sorter);
+
+        lblQuantityVal.setText(amount + " pounds");
+    }
+    
+    //View Wastage Inventory
+    private void populateWastageInventoryTable() {
+        DefaultTableModel dtm = (DefaultTableModel) tblInventory1.getModel();
+        dtm.setRowCount(0);
+
+        double amount = 0;
+
+        for (RequestItem ri : consumerEnterprise.getWasteInventory().getRequestItemList()) {
+            if (ri.getQuantity() > 0) {
+                Object row[] = new Object[3];
+
+                row[0] = ri;
+                row[1] = ri.getQuantity();
+                row[2] = ItemQuantity.calculateIndividualQuantity(ri) + "";
+                dtm.addRow(row);
+
+                amount += ItemQuantity.getQuantity(ri.getItemName()) * ri.getQuantity();
+            }
+        }
+
+        //Enable sorting
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(dtm);
+        tblInventory1.setRowSorter(sorter);
+
+        lblQuantityVal1.setText(amount + " pounds");
+    }
+    
+    //Pay Invoices
+        
+    public void populateInvoiceTable() {
+
+        DefaultTableModel dtm = (DefaultTableModel) tblDetails.getModel();
+        dtm.setRowCount(0);
+        for (WorkRequest wr : organization.getWorkQueue().getWorkRequestList()) {
+            if (wr instanceof PaymentWorkRequest) {
+                PaymentWorkRequest pwr = (PaymentWorkRequest) wr;
+                CollectionWorkRequest cwr = pwr.getCollectionWorkRequest();
+                if ((cwr.getStatus().equals(pickupRequestStatusList.get(5))) || (cwr.getStatus().equals(pickupRequestStatusList.get(6)))) {
+
+                    Object row[] = new Object[5];
+                    row[0] = pwr;
+                    row[1] = cwr.getResolveDate();
+                    row[2] = pwr.getStatus();
+                    row[3] = "$" + cwr.getDeliveryCost();
+                    row[4] = cwr.getPaid() ? "Yes" : "No";
+
+                    dtm.addRow(row);
+                }
+            }
+        }
+    }
 }
