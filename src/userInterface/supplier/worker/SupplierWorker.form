@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[1000, 1000]"/>
@@ -22,13 +22,37 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="lblWastage" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblName" alignment="1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="lblWastageValue" min="-2" pref="111" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="btnLogout" min="-2" pref="113" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="199" max="32767" attributes="0"/>
-              <Component id="jTabbedPane1" min="-2" pref="801" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+              <Component id="btnLogout" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+              <Component id="lblName" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblWastage" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblWastageValue" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jTabbedPane1" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -82,8 +106,8 @@
                                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="0" attributes="0">
                                                           <Component id="spnQuantity" alignment="0" min="-2" pref="54" max="-2" attributes="0"/>
-                                                          <Component id="spnPerishTime" alignment="0" min="-2" pref="54" max="-2" attributes="0"/>
-                                                          <Component id="cmbFood" alignment="0" min="-2" pref="148" max="-2" attributes="0"/>
+                                                          <Component id="spnDonationDays" alignment="0" min="-2" pref="54" max="-2" attributes="0"/>
+                                                          <Component id="cmbItem" alignment="0" min="-2" pref="148" max="-2" attributes="0"/>
                                                           <Component id="btnAdd" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
                                                       </Group>
                                                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
@@ -111,7 +135,7 @@
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblFoodType" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cmbFood" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmbItem" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -121,7 +145,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblPerishTime" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="spnPerishTime" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="spnDonationDays" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblWarning" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
@@ -137,7 +161,7 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnRaiseRequest" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="194" max="32767" attributes="0"/>
+                      <EmptySpace pref="278" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -160,7 +184,7 @@
                 <Property name="text" type="java.lang.String" value="Quantity:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cmbFood">
+            <Component class="javax.swing.JComboBox" name="cmbItem">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
@@ -198,7 +222,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoveActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JSpinner" name="spnPerishTime">
+            <Component class="javax.swing.JSpinner" name="spnDonationDays">
               <Properties>
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                   <SpinnerModel initial="4" minimum="4" numberType="java.lang.Integer" stepSize="1" type="number"/>
@@ -220,7 +244,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="tblFoodItems">
+                <Component class="javax.swing.JTable" name="tblItems">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="3" rowCount="0">
@@ -300,7 +324,7 @@
                       <Component id="jScrollPane1" min="-2" pref="175" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                       <Component id="btnViewRequestItem" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="392" max="32767" attributes="0"/>
+                      <EmptySpace pref="479" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -350,5 +374,28 @@
         </Container>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JLabel" name="lblName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Welcome, "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblWastage">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Total wastage avoided :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblWastageValue">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;wastage_avoided&gt;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnLogout">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Logout"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogoutActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>

@@ -224,8 +224,8 @@ public class LoginJPanel extends javax.swing.JPanel {
             return;
         } else {
             CardLayout layout = (CardLayout) mainPanel.getLayout();
-            SupplierAdmin supplierAdmin = new SupplierAdmin();
-            mainPanel.add("Supplier Admin", supplierAdmin);
+//            SupplierAdmin supplierAdmin = new SupplierAdmin();
+//            mainPanel.add("Supplier Admin", supplierAdmin);
 //            mainPanel.add("Supplier Admin", ua.getRole().createWorkArea(userProcessContainer, ua, inOrganization, inEnterprise, system, network));
             mainPanel.add("WorkArea", ua.getRole().createWorkArea(mainPanel, ua, inOrganization, inEnterprise, system, network));
             layout.next(mainPanel);

@@ -4,6 +4,7 @@
  */
 package userInterface.systemAdminWorkArea;
 
+import business.DB4OUtil.DB4OUtil;
 import business.EcoSystem;
 import business.employee.Employee;
 import business.enterprise.Enterprise;
@@ -12,13 +13,16 @@ import business.network.Network;
 import business.role.Role;
 import business.role.consumer.ConsumerAdminRole;
 import business.role.logistics.LogisticsAdminRole;
+import business.role.supervision.SupervisionAdminRole;
 import business.role.supplier.SupplierAdminRole;
 import business.userAccount.UserAccount;
 import business.util.validation.Validation;
+import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import userInterface.LoginJPanel;
 
 /**
  *
@@ -31,14 +35,17 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
      */
     private JPanel mainPanel;
     private EcoSystem business;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     public SystemAdminWorkArea(JPanel mainPanel, EcoSystem business) {
         initComponents();
+        business = dB4OUtil.retrieveSystem();
         this.mainPanel = mainPanel;
         this.business = business;
         populateNetworkTable();
         populateEnterpriseTable();
         populateComboBox();
         populateNetworkComboBox();
+        populateEnterpriseAdminTable();
     }
 
     /**
@@ -93,6 +100,7 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
         lblNetwork1 = new javax.swing.JLabel();
         btnAddEnterprise1 = new javax.swing.JButton();
         cmbNetwork1 = new javax.swing.JComboBox();
+        btnLogout = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(1000, 1000));
 
@@ -455,10 +463,17 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
                     .addComponent(txtName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49)
                 .addComponent(btnAddEnterprise1)
-                .addContainerGap(323, Short.MAX_VALUE))
+                .addContainerGap(318, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Manage Enterprise Admin", jPanel3);
+
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -468,11 +483,17 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 139, Short.MAX_VALUE)
+                .addGap(43, 43, 43)
+                .addComponent(btnLogout)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 915, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -497,6 +518,8 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, "Network added successfully", "Information", JOptionPane.INFORMATION_MESSAGE);
         txtName.setText("");
         populateNetworkTable();
+        populateComboBox();
+        populateNetworkComboBox();
     }//GEN-LAST:event_btnAddNetworkActionPerformed
 
     private void btnAddEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEnterpriseActionPerformed
@@ -531,13 +554,14 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
 
     private void btnAddEnterprise1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEnterprise1ActionPerformed
 
-        Enterprise enterprise = (Enterprise) cmbEnterprise.getSelectedItem();
+        Enterprise enterprise = (Enterprise) cmbEnterprise1.getSelectedItem();
 
         if (enterprise == null) {
             JOptionPane.showMessageDialog(null, "Invalid input!");
         }
 
         String userName = null;
+        
         if (Validation.validateStringInput(txtUserName)) {
             userName = txtUserName.getText();
         } else {
@@ -545,8 +569,8 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
         }
 
         String name = null;
-        if (Validation.validateStringInput(txtName)) {
-            userName = txtUserName.getText();
+        if (Validation.validateStringInput(txtName1)) {
+            name = txtName1.getText();
         } else {
             return;
         }
@@ -613,13 +637,28 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
 
     private void cmbEnterprise1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEnterprise1ActionPerformed
         // TODO add your handling code here:
+//        
     }//GEN-LAST:event_cmbEnterprise1ActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+       
+
+        mainPanel.removeAll();
+
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        LoginJPanel loginPanel = new LoginJPanel(mainPanel);
+        mainPanel.add("loginPanel", loginPanel);
+        layout.next(mainPanel);
+
+        dB4OUtil.storeSystem(business);
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddEnterprise;
     private javax.swing.JButton btnAddEnterprise1;
     private javax.swing.JButton btnAddNetwork;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JComboBox cmbEnterprise;
     private javax.swing.JComboBox cmbEnterprise1;
     private javax.swing.JComboBox cmbNetwork;

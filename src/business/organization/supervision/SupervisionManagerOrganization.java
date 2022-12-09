@@ -7,7 +7,7 @@ package business.organization.supervision;
 
 import business.organization.Organization;
 import business.role.Role;
-import business.role.government.GovernmentMayorRole;
+import business.role.supervision.SupervisionManagerRole;
 
 import java.util.ArrayList;
 

@@ -4,6 +4,21 @@
  */
 package userInterface.logistics.admin;
 
+import business.DB4OUtil.DB4OUtil;
+import business.EcoSystem;
+import business.employee.Employee;
+import business.enterprise.Enterprise;
+import business.organization.Organization;
+import business.organization.Organization.Type;
+import business.organization.OrganizationDirectory;
+import business.role.Role;
+import business.userAccount.UserAccount;
+import business.util.validation.Validation;
+import java.awt.Color;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Arpit
@@ -13,8 +28,27 @@ public class LogisticsAdmin extends javax.swing.JPanel {
     /**
      * Creates new form LogisticsAdmin
      */
-    public LogisticsAdmin() {
+    private OrganizationDirectory organizationDirectory;
+    private JPanel mainPanel;
+    private Enterprise enterprise;
+    private EcoSystem business;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    public LogisticsAdmin(JPanel mainPanel, Enterprise enterprise, EcoSystem business) {
         initComponents();
+        business = dB4OUtil.retrieveSystem();
+        this.mainPanel = mainPanel;
+        this.enterprise = enterprise;
+        this.organizationDirectory = enterprise.getOrganizationDirectory();
+        populateOrganizationComboBox();
+        populateOrganizationEmpComboBox();
+        
+        //Organization
+        populateTable();
+        populateCombo();
+        
+        //User Account
+        populateOrganiztionComboBox();
+        populateData();
     }
 
     /**
@@ -62,6 +96,7 @@ public class LogisticsAdmin extends javax.swing.JPanel {
         txtUserName = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblUsers = new javax.swing.JTable();
+        btnLogout = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(1000, 1000));
         setName(""); // NOI18N
@@ -214,6 +249,12 @@ public class LogisticsAdmin extends javax.swing.JPanel {
 
         lblOrg1.setText("Organization Type ");
 
+        cmbOrganization.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbOrganizationActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout manageOrganizationLayout = new javax.swing.GroupLayout(manageOrganization);
         manageOrganization.setLayout(manageOrganizationLayout);
         manageOrganizationLayout.setHorizontalGroup(
@@ -352,7 +393,7 @@ public class LogisticsAdmin extends javax.swing.JPanel {
                             .addGroup(manageUserAccountLayout.createSequentialGroup()
                                 .addGap(67, 67, 67)
                                 .addComponent(lblHeader2)))
-                        .addGap(0, 83, Short.MAX_VALUE)))
+                        .addGap(0, 92, Short.MAX_VALUE)))
                 .addGap(136, 136, 136))
         );
         manageUserAccountLayout.setVerticalGroup(
@@ -391,16 +432,24 @@ public class LogisticsAdmin extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Manage User Account", manageUserAccount);
 
+        btnLogout.setText("Logout");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogout)
+                .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 100, Short.MAX_VALUE)
+                .addGap(24, 24, 24)
+                .addComponent(btnLogout)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -511,11 +560,16 @@ public class LogisticsAdmin extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
 
+    private void cmbOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbOrganizationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbOrganizationActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddOrganization;
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnCreateEmployee;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JComboBox cmbEmployee;
     private javax.swing.JComboBox cmbOrg;
     private javax.swing.JComboBox cmbOrgCreate;
@@ -550,4 +604,102 @@ public class LogisticsAdmin extends javax.swing.JPanel {
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
+
+    
+    public void populateOrganizationComboBox() {
+        cmbOrg.removeAllItems();
+
+        for (Organization organization : organizationDirectory.getOrganizationList()) {
+            cmbOrg.addItem(organization);
+        }
+    }
+
+    public void populateOrganizationEmpComboBox() {
+        cmbOrgCreate.removeAllItems();
+
+        for (Organization organization : organizationDirectory.getOrganizationList()) {
+            cmbOrgCreate.addItem(organization);
+        }
+    }
+
+    private void populateTable(Organization organization) {
+        DefaultTableModel model = (DefaultTableModel) tblOrganization.getModel();
+
+        model.setRowCount(0);
+
+        for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()) {
+            Object[] row = new Object[2];
+            row[0] = employee.getId();
+            row[1] = employee.getName();
+            model.addRow(row);
+        }
+    }
+    
+    private void populateCombo() {
+        cmbOrganization.removeAllItems();
+        for (Organization.Type type : Organization.Type.values()) {
+            if ((!type.getValue().equals(Organization.Type.LogisticsAdmin.getValue())) && (type.getValue().indexOf("Logistics") >= 0)) {
+                cmbOrganization.addItem(type);
+            }
+        }
+    }
+
+    private void populateTable() {
+        //It is tblOrganization1 in Manage Organization
+        DefaultTableModel model = (DefaultTableModel) tblOrganization1.getModel();
+
+        model.setRowCount(0);
+
+        for (Organization organization : organizationDirectory.getOrganizationList()) {
+            Object[] row = new Object[2];
+            row[0] = organization.getOrganizationID();
+            row[1] = organization.getName();
+
+            model.addRow(row);
+        }
+    }
+    
+    //Organiztion Combo Box for User Account
+    public void populateOrganiztionComboBox() {
+        cmbOrganiztion.removeAllItems();
+
+        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            cmbOrganiztion.addItem(organization);
+        }
+    }
+    
+    public void populateEmployeeComboBox(Organization organization) {
+        cmbEmployee.removeAllItems();
+
+        for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()) {
+            if (organization.getUserAccountDirectory().searchUser(employee) == null) {
+                cmbEmployee.addItem(employee);
+
+            }
+
+        }
+    }
+
+    private void populateRoleComboBox(Organization organization) {
+        cmbRole.removeAllItems();
+        for (Role role : organization.getSupportedRole()) {
+            cmbRole.addItem(role);
+        }
+    }
+
+    public void populateData() {
+
+        DefaultTableModel dtm = (DefaultTableModel) tblUsers.getModel();
+        dtm.setRowCount(0);
+
+        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            for (UserAccount ua : organization.getUserAccountDirectory().getUserAccountList()) {
+                Object row[] = new Object[2];
+                row[0] = ua;
+                row[1] = ua.getRole();
+                dtm.addRow(row);
+            }
+        }
+    }
 }
+

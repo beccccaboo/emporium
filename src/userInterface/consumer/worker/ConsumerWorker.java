@@ -4,6 +4,26 @@
  */
 package userInterface.consumer.worker;
 
+import business.DB4OUtil.DB4OUtil;
+import business.EcoSystem;
+import business.enterprise.ConsumerEnterprise;
+import business.enterprise.Enterprise;
+import business.organization.Organization;
+import business.userAccount.UserAccount;
+import business.util.inventory.Distributed;
+import business.util.inventory.DistributedItems;
+import business.util.item.Item;
+import business.util.item.ItemQuantity;
+import business.workQueue.CollectionWorkRequest;
+import business.workQueue.WorkRequest;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import business.util.request.RequestItem;
+import business.util.request.RequestStatus;
+import java.awt.CardLayout;
+import javax.swing.table.TableRowSorter;
+
 /**
  *
  * @author swarag
@@ -13,8 +33,25 @@ public class ConsumerWorker extends javax.swing.JPanel {
     /**
      * Creates new form NGOWorkerWorkAreaJPanel
      */
-    public ConsumerWorker() {
+    private JPanel mainPanel;
+    private UserAccount account;
+    private ConsumerEnterprise enterprise;
+    private Distributed distributed;
+    private Boolean isDistributed = false;
+    private EcoSystem business;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    public ConsumerWorker(JPanel mainPanel, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         initComponents();
+        business = dB4OUtil.retrieveSystem();
+        this.mainPanel = mainPanel;
+        this.account = account;
+        this.enterprise = (ConsumerEnterprise) enterprise;
+        populateTable();
+        populateInventoryTable();
+        if (!isDistributed) {
+            distributed = new Distributed();
+        }
+        populateInventoryViewTable();
     }
 
     /**
@@ -27,12 +64,6 @@ public class ConsumerWorker extends javax.swing.JPanel {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblInventory1 = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
-        lblQuantity1 = new javax.swing.JLabel();
-        lblQuantityVal = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDetails = new javax.swing.JTable();
@@ -55,70 +86,15 @@ public class ConsumerWorker extends javax.swing.JPanel {
         spnQuantity = new javax.swing.JSpinner();
         btnAdd = new javax.swing.JButton();
         jSeparator = new javax.swing.JSeparator();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblInventory1 = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        lblQuantity1 = new javax.swing.JLabel();
+        lblQuantityVal = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(1000, 1000));
-
-        tblInventory1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Type", "Quantity", "Hours to perish"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(tblInventory1);
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel2.setText("Consumer Worker Inventory Panel");
-
-        lblQuantity1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lblQuantity1.setText("Total Quantity :");
-
-        lblQuantityVal.setText("<quantity>");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(lblQuantity1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblQuantityVal, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(17, 17, 17)
-                    .addComponent(jLabel2)
-                    .addGap(43, 43, 43)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblQuantity1)
-                        .addComponent(lblQuantityVal))
-                    .addGap(35, 35, 35)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(691, Short.MAX_VALUE)))
-        );
-
-        jTabbedPane1.addTab("Inventory", jPanel3);
 
         jPanel1.setMinimumSize(new java.awt.Dimension(1000, 1000));
 
@@ -338,26 +314,88 @@ public class ConsumerWorker extends javax.swing.JPanel {
                     .addComponent(lblWastageAvoided))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnConfirm)
-                .addContainerGap(356, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Distribute Item", jPanel2);
+
+        tblInventory1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Type", "Quantity", "Hours to perish"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tblInventory1);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setText("Consumer Worker Inventory Panel");
+
+        lblQuantity1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblQuantity1.setText("Total Quantity :");
+
+        lblQuantityVal.setText("<quantity>");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(125, 125, 125)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(lblQuantity1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lblQuantityVal, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(423, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(jLabel2)
+                .addGap(43, 43, 43)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblQuantity1)
+                    .addComponent(lblQuantityVal))
+                .addGap(35, 35, 35)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(489, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Inventory", jPanel3);
+
+        btnLogout.setText("Logout");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(465, Short.MAX_VALUE))
+            .addComponent(jTabbedPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogout)
+                .addGap(32, 32, 32))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(254, 254, 254)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(388, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(btnLogout)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 882, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -376,7 +414,7 @@ public class ConsumerWorker extends javax.swing.JPanel {
         addBackToInventory(ri);
 
         JOptionPane.showMessageDialog(null,
-            "Selected food item removed and added back to inventory",
+            "Selected item removed and added back to inventory",
             "Information",
             JOptionPane.INFORMATION_MESSAGE);
 
@@ -388,7 +426,7 @@ public class ConsumerWorker extends javax.swing.JPanel {
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         if (distributed.getDistributedItemList().isEmpty()) {
             JOptionPane.showMessageDialog(null,
-                "No food items distributed",
+                "No items distributed",
                 "Warning",
                 JOptionPane.INFORMATION_MESSAGE);
             return;
@@ -517,10 +555,10 @@ public class ConsumerWorker extends javax.swing.JPanel {
         } else {
             CollectionWorkRequest request = (CollectionWorkRequest) tblDetails.getValueAt(selectedRow, 1);
 
-            NGOWorkerViewRequestJPanel nGOWorkerViewRequestJPanel = new NGOWorkerViewRequestJPanel(userProcessContainer, request);
-            userProcessContainer.add("NGOWorkerViewRequestJPanel", nGOWorkerViewRequestJPanel);
-            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            layout.next(userProcessContainer);
+            ConsumerViewRequest consumerWorkerViewRequestJPanel = new ConsumerViewRequest(mainPanel, request, business);
+            mainPanel.add("NGOWorkerViewRequestJPanel", consumerWorkerViewRequestJPanel);
+            CardLayout layout = (CardLayout) mainPanel.getLayout();
+            layout.next(mainPanel);
         }
     }//GEN-LAST:event_btnViewActionPerformed
 
@@ -529,6 +567,7 @@ public class ConsumerWorker extends javax.swing.JPanel {
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnCollect;
     private javax.swing.JButton btnConfirm;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnRemove;
     private javax.swing.JButton btnView;
     private javax.swing.JLabel jLabel1;
@@ -556,4 +595,127 @@ public class ConsumerWorker extends javax.swing.JPanel {
     private javax.swing.JTable tblInventory1;
     private javax.swing.JTable tblListItem;
     // End of variables declaration//GEN-END:variables
+
+    //Pickup Delivery
+    private void populateTable() {
+        DefaultTableModel dtm = (DefaultTableModel) tblDetails.getModel();
+        dtm.setRowCount(0);
+        for (WorkRequest workRequest : account.getWorkQueue().getWorkRequestList()) {
+            CollectionWorkRequest cwr = (CollectionWorkRequest) workRequest;
+            Object row[] = new Object[2];
+            row[0] = cwr.getRaisedBySupplier();
+            row[1] = cwr;
+            dtm.addRow(row);
+        }
+    }
+    
+    //Distribute Items
+    private void populateInventoryTable() {
+        DefaultTableModel dtm = (DefaultTableModel) tblInventory.getModel();
+        dtm.setRowCount(0);
+
+        for (RequestItem ri : enterprise.getInventory().getRequestItemList()) {
+            if (ri.getQuantity() > 0 && ri.getDaysBeforeDonation()> 0) {
+                Object row[] = new Object[3];
+
+                row[0] = ri;
+                row[1] = ri.getQuantity();
+                row[2] = ri.getDaysBeforeDonation();
+                dtm.addRow(row);
+            }
+        }
+
+        //Enable sorting
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(dtm);
+        tblInventory.setRowSorter(sorter);
+    }
+    
+    private void populateItemTable() {
+        DefaultTableModel dtm = (DefaultTableModel) tblListItem.getModel();
+        dtm.setRowCount(0);
+
+        for (DistributedItems di : distributed.getDistributedItemList()) {
+            Object row[] = new Object[2];
+
+            row[0] = di.getDistributedRequestItem();
+            row[1] = di.getQuantityDistributed();
+            dtm.addRow(row);
+        }
+    }
+    
+    //ON LOGOUT ADD THIS CODE (DOUBT)
+//    DefaultTableModel dtm = (DefaultTableModel) tblListItem.getModel();
+//        for (int i = 0; i < dtm.getRowCount(); i++) {
+//            RequestItem ri = (RequestItem) tblListItem.getValueAt(i, 0);
+//            if (ri != null) {
+//                addBackToInventory(ri);
+//            }
+//        }
+//        dtm.setRowCount(0);
+//
+//        // GO back
+//        userProcessContainer.remove(this);
+//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+//        layout.previous(userProcessContainer);
+    
+    private void calculateWastageAvoided() {
+
+        double wastageAvoided = 0;
+        for (DistributedItems di : distributed.getDistributedItemList()) {
+            RequestItem ri = di.getDistributedRequestItem();
+            wastageAvoided += Item.getItemQuantity(ri.getItemName()) * di.getQuantityDistributed();
+        }
+        lblWastageAvoidedValue.setText(wastageAvoided + " pounds");
+    }
+
+    //will be used for logout
+    private void addBackToInventory(RequestItem ri) {
+
+        // Reset quantity in inventory
+        int oldQty = ri.getQuantity();
+        int currentAvail = 0;
+
+        DistributedItems toBeRemoved = null;
+
+        for (DistributedItems di : distributed.getDistributedItemList()) {
+            RequestItem reqi = di.getDistributedRequestItem();
+            if (reqi == ri) {
+                currentAvail = di.getQuantityDistributed();
+                // Remove item from current distributed list
+                toBeRemoved = di;
+            }
+        }
+
+        distributed.removeDistributedItem(toBeRemoved);
+        ri.setQuantity(oldQty + currentAvail);
+
+    }
+    
+    private void populateInventoryViewTable() {
+        DefaultTableModel dtm = (DefaultTableModel) tblInventory1.getModel();
+        dtm.setRowCount(0);
+
+        double amount = 0;
+
+        ConsumerEnterprise ent = (ConsumerEnterprise) enterprise;
+        for (RequestItem ri : ent.getInventory().getRequestItemList()) {
+
+            if (ri.getDaysBeforeDonation()> 0 && ri.getQuantity() > 0) {
+                Object row[] = new Object[3];
+
+                row[0] = ri;
+                row[1] = ri.getQuantity();
+                row[2] = ri.getDaysBeforeDonation();
+                dtm.addRow(row);
+
+                amount += ItemQuantity.getQuantity(ri.getItemName()) * ri.getQuantity();
+            }
+        }
+
+        // For sorting
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(dtm);
+        tblInventory1.setRowSorter(sorter);
+
+        lblQuantityVal.setText(amount + " pounds");
+    }
 }

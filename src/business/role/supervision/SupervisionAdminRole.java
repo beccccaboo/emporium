@@ -4,18 +4,27 @@
  */
 package business.role.supervision;
 
+import business.EcoSystem;
+import business.enterprise.Enterprise;
+import business.network.Network;
+import business.organization.Organization;
+import business.role.Role;
+import business.userAccount.UserAccount;
+import javax.swing.JPanel;
+import userInterface.supervision.admin.SupervisionAdmin;
+
 /**
  *
  * @author Arpit
  */
-public class SupervisionAdminRole {
+public class SupervisionAdminRole extends Role{
        public SupervisionAdminRole() {
         super(RoleType.SupervisionAdmin);
     }
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
-        return new SupervisionAdminWorkAreaJPanel(userProcessContainer, enterprise);
+        return new SupervisionAdmin(userProcessContainer, enterprise, business);
     }
     
 }
