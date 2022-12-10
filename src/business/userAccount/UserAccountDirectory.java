@@ -24,7 +24,7 @@ public class UserAccountDirectory {
         return userAccountList;
     }
 
-    public UserAccount addUserAccount(String username, String password, Employee employee, Role role, String email, long mobileNo) {
+    public UserAccount addUserAccount(String username, String password, Employee employee, Role role, String email, long mobileNo, String imgPath) {
         UserAccount userAccount = new UserAccount();
         userAccount.setUsername(username);
         userAccount.setPassword(password);
@@ -32,6 +32,7 @@ public class UserAccountDirectory {
         userAccount.setRole(role);
         userAccount.setEmail(email);
         userAccount.setMobileNo(mobileNo);
+        userAccount.setImgPath(imgPath);
         userAccountList.add(userAccount);
         return userAccount;
     }

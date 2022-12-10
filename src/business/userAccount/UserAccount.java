@@ -22,6 +22,7 @@ public class UserAccount {
     private WorkQueue workQueue;
     private String email;
     private long mobileNo;
+    private String imgPath;
     
     public UserAccount() {
         workQueue = new WorkQueue();
@@ -81,6 +82,14 @@ public class UserAccount {
 
     public void setMobileNo(long mobileNo) {
         this.mobileNo = mobileNo;
+    }
+
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
     }
     
     

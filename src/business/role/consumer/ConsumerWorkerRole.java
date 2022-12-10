@@ -11,7 +11,7 @@ import business.organization.Organization;
 import business.role.Role;
 import business.userAccount.UserAccount;
 import javax.swing.JPanel;
-import userInterface.consumer.worker.ConsumerWorker;
+import userInterface.consumer.worker.ConsumerWorkerWorkAreaJPanel;
 
 
 /**
@@ -26,7 +26,7 @@ public class ConsumerWorkerRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel mainPanel, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
-      return new ConsumerWorker(mainPanel, account, organization, enterprise, business);
+      return new ConsumerWorkerWorkAreaJPanel(mainPanel, account, organization, enterprise, business);
     }
 
 }
