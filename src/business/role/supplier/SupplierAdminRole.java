@@ -12,7 +12,7 @@ import business.organization.Organization;
 import business.role.Role;
 import business.userAccount.UserAccount;
 import javax.swing.JPanel;
-import userInterface.supplier.admin.SupplierAdmin;
+import userInterface.supplier.admin.SupplierAdminWorkAreaJPanel;
 
 /**
  *
@@ -26,7 +26,7 @@ public class SupplierAdminRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel mainPanel, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
-        return new SupplierAdmin(mainPanel, enterprise, business);
+        return new SupplierAdminWorkAreaJPanel(mainPanel, enterprise, business);
     }
 
 }
