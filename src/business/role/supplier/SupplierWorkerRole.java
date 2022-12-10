@@ -5,9 +5,13 @@
 package business.role.supplier;
 
 import business.EcoSystem;
+import business.enterprise.Enterprise;
+import business.network.Network;
 import business.organization.Organization;
 import business.role.Role;
+import business.userAccount.UserAccount;
 import javax.swing.JPanel;
+import userInterface.supplier.worker.SupplierWorker;
 
 /**
  *
@@ -19,9 +23,9 @@ public class SupplierWorkerRole extends Role {
         super(Role.RoleType.SupplierWorker);
     }
 
-//    @Override
-//    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
-//        return new RestaurantWorkerWorkAreaJPanel(userProcessContainer, account, enterprise, network);
-//    }
+    @Override
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
+        return new SupplierWorker(userProcessContainer, account, enterprise, network, business);
+    }
 
 }

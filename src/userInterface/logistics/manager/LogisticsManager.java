@@ -4,6 +4,31 @@
  */
 package userInterface.logistics.manager;
 
+import business.DB4OUtil.DB4OUtil;
+import business.EcoSystem;
+import business.enterprise.ConsumerEnterprise;
+import business.enterprise.Enterprise;
+import business.network.Network;
+import business.organization.Organization;
+import business.organization.consumer.ConsumerManagerOrganization;
+import business.role.Role;
+import business.userAccount.UserAccount;
+import business.util.request.RequestStatus;
+import static business.util.request.RequestStatus.pickupRequestStatusList;
+import business.workQueue.CollectionWorkRequest;
+import business.workQueue.PaymentWorkRequest;
+import business.workQueue.WorkRequest;
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PiePlot;
+import org.jfree.data.general.DefaultPieDataset;
+
 /**
  *
  * @author Arpit
@@ -13,8 +38,33 @@ public class LogisticsManager extends javax.swing.JPanel {
     /**
      * Creates new form LogisticsManager
      */
-    public LogisticsManager() {
+    
+    //VIEW DETAILS PENDING
+    private JPanel mainPanel;
+    private UserAccount account;
+    private Organization organization;
+    private Enterprise enterprise;
+    private Network network;
+    private EcoSystem business;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    public LogisticsManager(JPanel mainPanel, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
+        business = dB4OUtil.retrieveSystem();
+        this.mainPanel = mainPanel;
+        this.account = account;
+        this.organization = organization;
+        this.enterprise = enterprise;
+        this.network = network;
+       
+        populateTable();
+        populateComboBox();
+        
+        //Work log
+        populateTableWorkLog();
+        
+        //Invoices
+        populateComboBoxInvoices();
+        populateChart();
     }
 
     /**
@@ -42,13 +92,20 @@ public class LogisticsManager extends javax.swing.JPanel {
         btnViewDetails = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lblName = new javax.swing.JLabel();
-        cmbNGO = new javax.swing.JComboBox();
+        cmbConsumer = new javax.swing.JComboBox();
         btnGenerateAll = new javax.swing.JButton();
         btnGenerateInovice = new javax.swing.JButton();
         lblHeader = new javax.swing.JLabel();
         jScrollPane = new javax.swing.JScrollPane();
         tblDetails = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
+        lblHeader3 = new javax.swing.JLabel();
+        lblPaid = new javax.swing.JLabel();
+        lblPaidVal = new javax.swing.JLabel();
+        lblUnPaid = new javax.swing.JLabel();
+        lblUnPaidVal = new javax.swing.JLabel();
+        pnlChart = new javax.swing.JPanel();
+        btnLogout = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(1000, 1000));
 
@@ -190,9 +247,9 @@ public class LogisticsManager extends javax.swing.JPanel {
         lblName.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblName.setText("NGO Name:");
 
-        cmbNGO.addActionListener(new java.awt.event.ActionListener() {
+        cmbConsumer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbNGOActionPerformed(evt);
+                cmbConsumerActionPerformed(evt);
             }
         });
 
@@ -244,7 +301,7 @@ public class LogisticsManager extends javax.swing.JPanel {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cmbNGO, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cmbConsumer, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(277, 277, 277)
                                 .addComponent(btnGenerateAll)
@@ -263,7 +320,7 @@ public class LogisticsManager extends javax.swing.JPanel {
                 .addGap(49, 49, 49)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblName)
-                    .addComponent(cmbNGO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbConsumer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59)
@@ -275,18 +332,63 @@ public class LogisticsManager extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Generate Invoices", jPanel3);
 
+        lblHeader3.setBackground(new java.awt.Color(204, 204, 255));
+        lblHeader3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblHeader3.setText("Logistics Manager - View Invoice Payement Status");
+
+        lblPaid.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblPaid.setText("Total Amount Received (Paid) :");
+
+        lblPaidVal.setText("<paid>");
+
+        lblUnPaid.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblUnPaid.setText("Total Amount Pending (Un-Paid) :");
+
+        lblUnPaidVal.setText("<un-paid>");
+
+        pnlChart.setBackground(new java.awt.Color(255, 255, 204));
+        pnlChart.setLayout(new java.awt.BorderLayout());
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 988, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(93, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pnlChart, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 833, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblUnPaid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblPaid, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPaidVal, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblUnPaidVal, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblHeader3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 668, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(74, 74, 74))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 838, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(lblHeader3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPaid, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPaidVal))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUnPaid)
+                    .addComponent(lblUnPaidVal))
+                .addGap(8, 8, 8)
+                .addComponent(pnlChart, javax.swing.GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE)
+                .addGap(163, 163, 163))
         );
 
-        jTabbedPane1.addTab(" ", jPanel4);
+        jTabbedPane1.addTab("Payment Info", jPanel4);
+
+        btnLogout.setText("Logout");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -296,27 +398,33 @@ public class LogisticsManager extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogout)
+                .addGap(59, 59, 59))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(125, 125, 125)
+                .addGap(39, 39, 39)
+                .addComponent(btnLogout)
+                .addGap(63, 63, 63)
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmbNGOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNGOActionPerformed
+    private void cmbConsumerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbConsumerActionPerformed
         // TODO add your handling code here:
-        NGOEnterprise ngo = (NGOEnterprise) cmbNGO.getSelectedItem();
-        if (ngo != null) {
-            populateTable(ngo);
+        ConsumerEnterprise consumer = (ConsumerEnterprise) cmbConsumer.getSelectedItem();
+        if (consumer != null) {
+            populateTableDetails(consumer);
         }
-    }//GEN-LAST:event_cmbNGOActionPerformed
+    }//GEN-LAST:event_cmbConsumerActionPerformed
 
     private void btnGenerateAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateAllActionPerformed
 
-        NGOEnterprise ngo = (NGOEnterprise) cmbNGO.getSelectedItem();
+        ConsumerEnterprise consumer = (ConsumerEnterprise) cmbConsumer.getSelectedItem();
         boolean generated = false;
 
         for (int i = 0; i < tblDetails.getRowCount(); i++) {
@@ -333,9 +441,9 @@ public class LogisticsManager extends javax.swing.JPanel {
                     pwr.setSender(account);
 
                     for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
-                        if (e.getName().equals(ngo.getName())) {
+                        if (e.getName().equals(consumer.getName())) {
                             for (Organization o : e.getOrganizationDirectory().getOrganizationList()) {
-                                if (o instanceof NGOManagerOrganization) {
+                                if (o instanceof ConsumerManagerOrganization) {
                                     o.getWorkQueue().getWorkRequestList().add(pwr);
                                     break;
                                 }
@@ -354,7 +462,7 @@ public class LogisticsManager extends javax.swing.JPanel {
             return;
         }
         JOptionPane.showMessageDialog(null, "All ungenerated invoices are now generated", "Information", JOptionPane.INFORMATION_MESSAGE);
-        populateTable(ngo);
+        populateTableDetails(consumer);
     }//GEN-LAST:event_btnGenerateAllActionPerformed
 
     private void btnGenerateInoviceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateInoviceActionPerformed
@@ -386,7 +494,7 @@ public class LogisticsManager extends javax.swing.JPanel {
                     return;
                 }
 
-                NGOEnterprise ngo = (NGOEnterprise) cmbNGO.getSelectedItem();
+                ConsumerEnterprise consumer = (ConsumerEnterprise) cmbConsumer.getSelectedItem();
 
                 PaymentWorkRequest pwr = new PaymentWorkRequest();
                 cwr.setInvoiceGenerated(true);
@@ -395,9 +503,9 @@ public class LogisticsManager extends javax.swing.JPanel {
                 pwr.setSender(account);
 
                 for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
-                    if (e.getName().equals(ngo.getName())) {
+                    if (e.getName().equals(consumer.getName())) {
                         for (Organization o : e.getOrganizationDirectory().getOrganizationList()) {
-                            if (o instanceof NGOManagerOrganization) {
+                            if (o instanceof ConsumerManagerOrganization) {
                                 o.getWorkQueue().getWorkRequestList().add(pwr);
                                 break;
                             }
@@ -408,7 +516,7 @@ public class LogisticsManager extends javax.swing.JPanel {
                 // Add to own work queue
                 account.getWorkQueue().getWorkRequestList().add(pwr);
                 JOptionPane.showMessageDialog(null, "Invoice request raised with NGO for further processing", "Information", JOptionPane.INFORMATION_MESSAGE);
-                populateTable(ngo);
+                populateTableDetails(consumer);
             } else {
                 JOptionPane.showMessageDialog(null,
                     "Request not delivered yet to generate an Invoice for",
@@ -467,10 +575,10 @@ public class LogisticsManager extends javax.swing.JPanel {
         } else {
             CollectionWorkRequest request = (CollectionWorkRequest) tblRequests.getValueAt(selectedRow, 3);
 
-            LogisticsManagerViewRequestDetailsJPanel logisticsManagerViewRequestDetailsJPanel = new LogisticsManagerViewRequestDetailsJPanel(userProcessContainer, request);
-            userProcessContainer.add("LogisticsManagerViewRequestDetailsJPanel", logisticsManagerViewRequestDetailsJPanel);
-            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            layout.next(userProcessContainer);
+            RequestDetails logisticsManagerViewRequestDetailsJPanel = new RequestDetails(mainPanel, request, business);
+            mainPanel.add("LogisticsManagerViewRequestDetailsJPanel", logisticsManagerViewRequestDetailsJPanel);
+            CardLayout layout = (CardLayout) mainPanel.getLayout();
+            layout.next(mainPanel);
         }
     }//GEN-LAST:event_btnDetailsActionPerformed
 
@@ -486,10 +594,10 @@ public class LogisticsManager extends javax.swing.JPanel {
         } else {
             CollectionWorkRequest request = (CollectionWorkRequest) tblRequests.getValueAt(selectedRow, 4);
 
-            LogisticsManagerViewRequestDetailsJPanel logisticsManagerViewRequestDetailsJPanel = new LogisticsManagerViewRequestDetailsJPanel(userProcessContainer, request);
-            userProcessContainer.add("LogisticsManagerViewRequestDetailsJPanel", logisticsManagerViewRequestDetailsJPanel);
-            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            layout.next(userProcessContainer);
+            RequestDetails logisticsManagerViewRequestDetailsJPanel = new RequestDetails(mainPanel, request, business);
+            mainPanel.add("LogisticsManagerViewRequestDetailsJPanel", logisticsManagerViewRequestDetailsJPanel);
+            CardLayout layout = (CardLayout) mainPanel.getLayout();
+            layout.next(mainPanel);
         }
     }//GEN-LAST:event_btnViewDetailsActionPerformed
 
@@ -499,8 +607,9 @@ public class LogisticsManager extends javax.swing.JPanel {
     private javax.swing.JButton btnDetails;
     private javax.swing.JButton btnGenerateAll;
     private javax.swing.JButton btnGenerateInovice;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnViewDetails;
-    private javax.swing.JComboBox cmbNGO;
+    private javax.swing.JComboBox cmbConsumer;
     private javax.swing.JComboBox cmbWorker;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -513,10 +622,186 @@ public class LogisticsManager extends javax.swing.JPanel {
     private javax.swing.JLabel lblHeader;
     private javax.swing.JLabel lblHeader1;
     private javax.swing.JLabel lblHeader2;
+    private javax.swing.JLabel lblHeader3;
     private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblPaid;
+    private javax.swing.JLabel lblPaidVal;
+    private javax.swing.JLabel lblUnPaid;
+    private javax.swing.JLabel lblUnPaidVal;
     private javax.swing.JLabel lblWorker;
+    private javax.swing.JPanel pnlChart;
     private javax.swing.JTable tblDetails;
     private javax.swing.JTable tblRequests;
     private javax.swing.JTable tblRequests1;
     // End of variables declaration//GEN-END:variables
+
+    private void populateTable() {
+
+        DefaultTableModel dtm = (DefaultTableModel) tblRequests.getModel();
+        dtm.setRowCount(0);
+
+        // Display organization's work queue
+        for (WorkRequest workRequest : organization.getWorkQueue().getWorkRequestList()) {
+            if (workRequest instanceof CollectionWorkRequest) {
+                CollectionWorkRequest cwr = (CollectionWorkRequest) workRequest;
+
+                // If status other than newly raised and assigned to Organization, then show
+                if (cwr.getStatus().equals(RequestStatus.getPickupStatusMessage(2))) {
+                    // if (cwr.getDeliveredToNGO().equals(organization.getName())) {
+                    Object row[] = new Object[4];
+
+                    row[0] = cwr.getRaisedBy();
+                    row[1] = cwr.getRaisedBySupplier();
+                    row[2] = cwr.getDeliverToConsumer();
+                    row[3] = cwr;
+
+                    dtm.addRow(row);
+
+                }
+                //   } // If status is newly raised by Restaurant, then display
+                /*       else {
+                    Object row[] = new Object[4];
+
+                    row[0] = cwr.getSender();
+                    row[1] = cwr.getRaisedBy();
+                    row[2] = cwr.getDeliverTo();
+                    row[3] = cwr;
+
+                    dtm.addRow(row);
+                }*/
+            }
+        }
+
+        /*
+        // Display own work queue
+        for (WorkRequest workRequest : account.getWorkQueue().getWorkRequestList()) {
+            if (workRequest instanceof CollectionWorkRequest) {
+                CollectionWorkRequest cwr = (CollectionWorkRequest) workRequest;
+
+                Object row[] = new Object[4];
+
+                row[0] = cwr.getSender();
+                row[1] = cwr.getRaisedBy();
+                row[2] = cwr.getDeliverTo();
+                row[3] = cwr;
+
+                dtm.addRow(row);
+            }
+
+        } */
+    }
+
+    private void populateComboBox() {
+        cmbWorker.removeAllItems();
+        for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            for (UserAccount user : org.getUserAccountDirectory().getUserAccountList()) {
+                if (user.getRole().getRoleType().getValue().equals(Role.RoleType.LogisticsWorker.getValue())) {
+                    cmbWorker.addItem(user);
+                }
+            }
+        }
+    }
+
+    private void populateTableWorkLog() {
+
+        DefaultTableModel dtm = (DefaultTableModel) tblRequests1.getModel();
+        dtm.setRowCount(0);
+
+        for (Organization o : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            for (UserAccount ua : o.getUserAccountDirectory().getUserAccountList()) {
+                if (ua.getRole().getRoleType().getValue().equals(Role.RoleType.LogisticsWorker.getValue())) {
+                    for (WorkRequest workRequest : ua.getWorkQueue().getWorkRequestList()) {
+                        if (workRequest instanceof CollectionWorkRequest) {
+                            CollectionWorkRequest cwr = (CollectionWorkRequest) workRequest;
+
+                            Object row[] = new Object[5];
+
+                            row[0] = cwr.getRaisedBy();
+                            row[1] = cwr.getRaisedBySupplier();
+                            row[2] = cwr.getDeliverToConsumer();
+                            row[3] = ua.getEmployee();
+                            row[4] = cwr;
+
+                            dtm.addRow(row);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void populateComboBoxInvoices() {
+        cmbConsumer.removeAllItems();
+        for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
+            if (e.getEnterpriseType().equals(Enterprise.EnterpriseType.Consumer)) {
+                cmbConsumer.addItem(e);
+            }
+        }
+    }
+    
+    public void populateTableDetails(ConsumerEnterprise consumer) {
+
+        DefaultTableModel dtm = (DefaultTableModel) tblDetails.getModel();
+        dtm.setRowCount(0);
+        for (WorkRequest wr : account.getWorkQueue().getWorkRequestList()) {
+            if (wr instanceof CollectionWorkRequest) {
+                CollectionWorkRequest cwr = (CollectionWorkRequest) wr;
+                if ((cwr.getStatus().equals(pickupRequestStatusList.get(5))) || (cwr.getStatus().equals(pickupRequestStatusList.get(6)))) {
+                    if (cwr.getDeliverToConsumer()!= null) {
+                        if (cwr.getDeliverToConsumer().equals(consumer.getName())) {
+                            Object row[] = new Object[5];
+                            row[0] = cwr.getResolveDate();
+                            row[1] = cwr;
+                            row[2] = "$" + cwr.getDeliveryCost();
+                            row[3] = cwr.getInvoiceGenerated() ? "Yes" : "No";
+                            row[4] = cwr.getPaid() ? "Yes" : "No";
+
+                            dtm.addRow(row);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    public void populateChart() {
+
+        DefaultPieDataset dataSet = new DefaultPieDataset();
+        int paid = 0, unpaid = 0;
+        double paidAmount = 0, unpaidAmount = 0;
+
+        for (WorkRequest wr : account.getWorkQueue().getWorkRequestList()) {
+            if (wr instanceof PaymentWorkRequest) {
+                PaymentWorkRequest pwr = (PaymentWorkRequest) wr;
+                if (pwr.getCollectionWorkRequest().getInvoiceGenerated()) {
+                    if (pwr.getCollectionWorkRequest().getPaid()) {
+                        paid++;
+                        paidAmount += pwr.getCollectionWorkRequest().getDeliveryCost();
+                    } else {
+                        unpaid++;
+                        unpaidAmount += pwr.getCollectionWorkRequest().getDeliveryCost();
+                    }
+                }
+            }
+        }
+
+        dataSet.setValue("Paid", paid);
+        dataSet.setValue("Unpaid", unpaid);
+
+        JFreeChart chart = ChartFactory.createPieChart("Paid and Unpaid Invoices",
+                dataSet, true, true, true);
+
+        PiePlot plot = (PiePlot) chart.getPlot();
+
+        ChartPanel chartPanel = new ChartPanel(chart);
+        pnlChart.removeAll();
+        pnlChart.add(chartPanel, BorderLayout.CENTER);
+        pnlChart.validate();
+
+        lblPaidVal.setText("$ " + paidAmount);
+        lblUnPaidVal.setText("$ " + unpaidAmount);
+
+    }
+
+    
 }

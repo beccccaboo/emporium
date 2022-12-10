@@ -4,6 +4,27 @@
  */
 package userInterface.supplier.worker;
 
+import business.DB4OUtil.DB4OUtil;
+import business.EcoSystem;
+import business.enterprise.Enterprise;
+import business.network.Network;
+import business.organization.Organization;
+import business.organization.supplier.SupplierManagerOrganization;
+import business.userAccount.UserAccount;
+import business.util.item.Item;
+import business.util.item.ItemQuantity;
+import business.util.request.RequestItem;
+import business.util.request.RequestStatus;
+import business.workQueue.CollectionWorkRequest;
+import business.workQueue.WorkRequest;
+import java.awt.CardLayout;
+import java.util.ArrayList;
+import java.util.Set;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import userInterface.LoginJPanel;
+
 /**
  *
  * @author Arpit
@@ -13,8 +34,30 @@ public class SupplierWorker extends javax.swing.JPanel {
     /**
      * Creates new form SupplierWorker
      */
-    public SupplierWorker() {
+    
+    private JPanel mainPanel;
+    private UserAccount account;
+    private Enterprise enterprise;
+    private Network network;
+    private String enterpriseName;
+    private EcoSystem business;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    public SupplierWorker(JPanel mainPanel, UserAccount account, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
+        business = dB4OUtil.retrieveSystem();
+        this.mainPanel = mainPanel;
+        this.account = account;
+        this.enterprise = enterprise;
+        this.network = network;
+        this.enterpriseName = enterprise.getName();
+
+        populateLoginDetails();
+        
+        //Collection Request
+        DefaultTableModel dtm = (DefaultTableModel) tblItems.getModel();
+        dtm.setRowCount(0);
+
+        populateItemCombo();
     }
 
     /**
@@ -32,15 +75,15 @@ public class SupplierWorker extends javax.swing.JPanel {
         lblFoodType = new javax.swing.JLabel();
         txtMessage = new javax.swing.JTextField();
         lblQuantity = new javax.swing.JLabel();
-        cmbFood = new javax.swing.JComboBox<>();
+        cmbItem = new javax.swing.JComboBox<>();
         spnQuantity = new javax.swing.JSpinner();
         lblWarning = new javax.swing.JLabel();
         lblPerishTime = new javax.swing.JLabel();
         btnRemove = new javax.swing.JButton();
-        spnPerishTime = new javax.swing.JSpinner();
+        spnDonationDays = new javax.swing.JSpinner();
         btnAdd = new javax.swing.JButton();
         jScrollPane = new javax.swing.JScrollPane();
-        tblFoodItems = new javax.swing.JTable();
+        tblItems = new javax.swing.JTable();
         lblHeader = new javax.swing.JLabel();
         btnRaiseRequest = new javax.swing.JButton();
         lblSubHeader = new javax.swing.JLabel();
@@ -49,6 +92,10 @@ public class SupplierWorker extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblLog = new javax.swing.JTable();
         btnViewRequestItem = new javax.swing.JButton();
+        lblName = new javax.swing.JLabel();
+        lblWastage = new javax.swing.JLabel();
+        lblWastageValue = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(1000, 1000));
 
@@ -72,7 +119,7 @@ public class SupplierWorker extends javax.swing.JPanel {
             }
         });
 
-        spnPerishTime.setModel(new javax.swing.SpinnerNumberModel(4, 4, null, 1));
+        spnDonationDays.setModel(new javax.swing.SpinnerNumberModel(4, 4, null, 1));
 
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -81,7 +128,7 @@ public class SupplierWorker extends javax.swing.JPanel {
             }
         });
 
-        tblFoodItems.setModel(new javax.swing.table.DefaultTableModel(
+        tblItems.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -97,7 +144,7 @@ public class SupplierWorker extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane.setViewportView(tblFoodItems);
+        jScrollPane.setViewportView(tblItems);
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblHeader.setText("Supplier Worker Work Area - Collection Request");
@@ -145,8 +192,8 @@ public class SupplierWorker extends javax.swing.JPanel {
                                                 .addGap(18, 18, 18)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(spnQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(spnPerishTime, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(cmbFood, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(spnDonationDays, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(cmbItem, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(15, 15, 15)
                                                 .addComponent(lblWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
@@ -163,7 +210,7 @@ public class SupplierWorker extends javax.swing.JPanel {
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblFoodType)
-                    .addComponent(cmbFood, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblQuantity)
@@ -171,7 +218,7 @@ public class SupplierWorker extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPerishTime)
-                    .addComponent(spnPerishTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spnDonationDays, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addComponent(btnAdd)
@@ -185,7 +232,7 @@ public class SupplierWorker extends javax.swing.JPanel {
                     .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnRaiseRequest)
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addContainerGap(278, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Raise Collection Request", jPanel1);
@@ -243,27 +290,60 @@ public class SupplierWorker extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72)
                 .addComponent(btnViewRequestItem)
-                .addContainerGap(392, Short.MAX_VALUE))
+                .addContainerGap(479, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("View Request Log", jPanel2);
+
+        lblName.setText("Welcome, ");
+
+        lblWastage.setText("Total wastage avoided :");
+
+        lblWastageValue.setText("<wastage_avoided>");
+
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(256, 256, 256)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblWastage)
+                    .addComponent(lblName))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblWastageValue, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 199, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 801, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addComponent(btnLogout)
+                .addGap(2, 2, 2)
+                .addComponent(lblName)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblWastage)
+                    .addComponent(lblWastageValue))
+                .addGap(18, 18, 18)
+                .addComponent(jTabbedPane1))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
-        int selectedRow = tblFoodItems.getSelectedRow();
+        int selectedRow = tblItems.getSelectedRow();
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(null,
                 "Please select an item to be removed",
@@ -272,15 +352,15 @@ public class SupplierWorker extends javax.swing.JPanel {
             return;
         }
 
-        DefaultTableModel dtm = (DefaultTableModel) tblFoodItems.getModel();
+        DefaultTableModel dtm = (DefaultTableModel) tblItems.getModel();
         dtm.removeRow(selectedRow);
 
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        String food = cmbFood.getSelectedItem().toString();
+        String food = cmbItem.getSelectedItem().toString();
         int quantity = (Integer) spnQuantity.getValue();
-        int hours = (Integer) spnPerishTime.getValue();
+        int hours = (Integer) spnDonationDays.getValue();
 
         if (quantity < 1) {
             JOptionPane.showMessageDialog(null,
@@ -303,20 +383,20 @@ public class SupplierWorker extends javax.swing.JPanel {
         row[1] = quantity;
         row[2] = hours;
 
-        DefaultTableModel dtm = (DefaultTableModel) tblFoodItems.getModel();
+        DefaultTableModel dtm = (DefaultTableModel) tblItems.getModel();
         dtm.addRow(row);
 
         //        JOptionPane.showMessageDialog(null, "Food Item Added");
-        cmbFood.setSelectedIndex(0);
+        cmbItem.setSelectedIndex(0);
         spnQuantity.setValue(1);
-        spnPerishTime.setValue(4);
+        spnDonationDays.setValue(4);
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnRaiseRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaiseRequestActionPerformed
 
         String message = txtMessage.getText();
 
-        DefaultTableModel dtm = (DefaultTableModel) tblFoodItems.getModel();
+        DefaultTableModel dtm = (DefaultTableModel) tblItems.getModel();
 
         if (dtm.getRowCount() == 0) {
             JOptionPane.showMessageDialog(null, "No food items selected to be distributed");
@@ -325,11 +405,11 @@ public class SupplierWorker extends javax.swing.JPanel {
 
         ArrayList<RequestItem> requestList = new ArrayList();
         for (int i = 0; i < dtm.getRowCount(); i++) {
-            String food = (String) dtm.getValueAt(i, 0);
+            String item = (String) dtm.getValueAt(i, 0);
             int quantity = (Integer) dtm.getValueAt(i, 1);
             int hours = (Integer) dtm.getValueAt(i, 2);
 
-            RequestItem ri = new RequestItem(food, quantity, hours);
+            RequestItem ri = new RequestItem(item, quantity, hours);
             requestList.add(ri);
         }
 
@@ -338,13 +418,13 @@ public class SupplierWorker extends javax.swing.JPanel {
         request.setMessage(message);
         request.setRequestItems(requestList);
         request.setStatus(RequestStatus.getPickupStatusMessage(1));
-        request.setTotalQuantity(FoodQuantity.calculateQuantity(request.getRequestItems()));
+        request.setTotalQuantity(ItemQuantity.calculateQuantity(request.getRequestItems()));
         request.setRaisedBy(account);
-        request.setRaisedByRestaurant(enterpriseName);
+        request.setRaisedBySupplier(enterpriseName);
 
         for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
             for (Organization o : e.getOrganizationDirectory().getOrganizationList()) {
-                if (o instanceof NGOManagerOrganization) {
+                if (o instanceof SupplierManagerOrganization) {
                     o.getWorkQueue().getWorkRequestList().add(request);
                 }
             }
@@ -368,20 +448,33 @@ public class SupplierWorker extends javax.swing.JPanel {
         } else {
             CollectionWorkRequest cwr = (CollectionWorkRequest) tblLog.getValueAt(selectedRow, 1);
 
-            RestaurantWorkerViewLogItemJPanel restaurantWorkerViewLogItemJPanel = new RestaurantWorkerViewLogItemJPanel(userProcessContainer, cwr);
-            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            userProcessContainer.add("RestaurantWorkerViewLogItemJPanel", restaurantWorkerViewLogItemJPanel);
-            layout.next(userProcessContainer);
+            LogItem viewLogItemJPanel = new LogItem(mainPanel, cwr, business);
+            CardLayout layout = (CardLayout) mainPanel.getLayout();
+            mainPanel.add("viewLogItemJPanel", viewLogItemJPanel);
+            layout.next(mainPanel);
         }
     }//GEN-LAST:event_btnViewRequestItemActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+
+        mainPanel.removeAll();
+
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        LoginJPanel loginPanel = new LoginJPanel(mainPanel);
+        mainPanel.add("loginPanel", loginPanel);
+        layout.next(mainPanel);
+
+        dB4OUtil.storeSystem(business);
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnRaiseRequest;
     private javax.swing.JButton btnRemove;
     private javax.swing.JButton btnViewRequestItem;
-    private javax.swing.JComboBox<String> cmbFood;
+    private javax.swing.JComboBox<String> cmbItem;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane;
@@ -391,14 +484,41 @@ public class SupplierWorker extends javax.swing.JPanel {
     private javax.swing.JLabel lblFoodType;
     private javax.swing.JLabel lblHeader;
     private javax.swing.JLabel lblHeader1;
+    private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPerishTime;
     private javax.swing.JLabel lblQuantity;
     private javax.swing.JLabel lblSubHeader;
     private javax.swing.JLabel lblWarning;
-    private javax.swing.JSpinner spnPerishTime;
+    private javax.swing.JLabel lblWastage;
+    private javax.swing.JLabel lblWastageValue;
+    private javax.swing.JSpinner spnDonationDays;
     private javax.swing.JSpinner spnQuantity;
-    private javax.swing.JTable tblFoodItems;
+    private javax.swing.JTable tblItems;
     private javax.swing.JTable tblLog;
     private javax.swing.JTextField txtMessage;
     // End of variables declaration//GEN-END:variables
+
+    private void populateLoginDetails() {
+        double quantity = 0;
+        lblName.setText(lblName.getText() + " " + account.getEmployee().getName());
+        for (WorkRequest wr : account.getWorkQueue().getWorkRequestList()) {
+            if (wr instanceof CollectionWorkRequest) {
+                CollectionWorkRequest cwr = (CollectionWorkRequest) wr;
+                quantity += cwr.getTotalQuantity();
+            }
+        }
+        lblWastageValue.setText(quantity + " pounds");
+    }
+    
+    public void populateItemCombo() {
+
+        cmbItem.removeAllItems();
+
+        Set itemNames = Item.getItemMap().keySet();
+
+        for (Object name : itemNames) {
+            cmbItem.addItem((String) name);
+        }
+
+    }
 }

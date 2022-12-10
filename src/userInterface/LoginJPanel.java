@@ -6,8 +6,13 @@ package userInterface;
 
 import business.DB4OUtil.DB4OUtil;
 import business.EcoSystem;
+import business.enterprise.Enterprise;
+import business.network.Network;
 import business.organization.Organization;
 import business.userAccount.UserAccount;
+import business.util.item.Item;
+import business.util.request.RequestStatus;
+import business.util.validation.Validation;
 import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -30,11 +35,11 @@ public class LoginJPanel extends javax.swing.JPanel {
     public LoginJPanel(JPanel mainPanel) {
         initComponents();
         this.mainPanel = mainPanel;
-//        system = dB4OUtil.retrieveSystem();
-//        RequestStatus.initalizePickupRequestStatusMap();
-//        RequestStatus.initializeInvoiceStatusMap();
-//        RequestStatus.initializeShortageStatusListMap();
-//        Food.initializeFood();
+        system = dB4OUtil.retrieveSystem();
+        RequestStatus.initalizePickupRequestStatusMap();
+        RequestStatus.initializeInvoiceStatusMap();
+        RequestStatus.initializeShortageStatusListMap();
+        Item.initializeItem();
     }
 
     /**
@@ -158,73 +163,74 @@ public class LoginJPanel extends javax.swing.JPanel {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
 
-//        String userName = null;
-//        if (Validation.validateStringInput(txtUserName)) {
-//            userName = txtUserName.getText();
-//        } else {
-//            return;
-//        }
+        String userName = null;
+        if (Validation.validateStringInput(txtUserName)) {
+            userName = txtUserName.getText();
+        } else {
+            return;
+        }
+
+        char[] passChar = txtPassword.getPassword();
+        if (passChar == null) {
+            JOptionPane.showMessageDialog(null,
+                "Input cannot be blank",
+                "Warning",
+                JOptionPane.WARNING_MESSAGE);
+            txtPassword.setBackground(Color.RED);
+            return;
+        }
 //
-//        char[] passChar = txtPassword.getPassword();
-//        if (passChar == null) {
-//            JOptionPane.showMessageDialog(null,
-//                "Input cannot be blank",
-//                "Warning",
-//                JOptionPane.WARNING_MESSAGE);
-//            txtPassword.setBackground(Color.RED);
-//            return;
-//        }
+        UserAccount ua = new UserAccount();
+        String password = ua.encodePassword(String.valueOf(passChar));
+
+        Enterprise inEnterprise = null;
+        Organization inOrganization = null;
+
+        Network network = null;
+
+        ua = system.getUserAccountDirectory().searchUser(userName, password);
 //
-//        UserAccount ua = new UserAccount();
-//        String password = ua.encodePassword(String.valueOf(passChar));
-//
-//        Enterprise inEnterprise = null;
-//        Organization inOrganization = null;
-//
-//        Network network = null;
-//
-//        ua = system.getUserAccountDirectory().searchUser(userName, password);
-//
-//        if (ua == null) {
-//            for (Network n : system.getNetworkList()) {
-//                for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
-//                    ua = e.getUserAccountDirectory().searchUser(userName, password);
-//                    if (ua == null) {
-//                        for (Organization o : e.getOrganizationDirectory().getOrganizationList()) {
-//                            ua = o.getUserAccountDirectory().searchUser(userName, password);
-//                            if (ua != null) {
-//                                inEnterprise = e;
-//                                inOrganization = o;
-//                                network = n;
-//                                break;
-//                            }
-//                        }
-//                    } else {
-//                        inEnterprise = e;
-//                        network = n;
-//                        break;
-//                    }
-//                    if (inOrganization != null) {
-//                        break;
-//                    }
-//                }
-//                if (network != null) {
-//                    break;
-//                }
-//            }
-//        }
-//
-//        if (ua == null) {
-//            JOptionPane.showMessageDialog(null, "Invalid credentials");
-//            return;
-//        } else {
+        if (ua == null) {
+            for (Network n : system.getNetworkList()) {
+                for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                    ua = e.getUserAccountDirectory().searchUser(userName, password);
+                    if (ua == null) {
+                        for (Organization o : e.getOrganizationDirectory().getOrganizationList()) {
+                            ua = o.getUserAccountDirectory().searchUser(userName, password);
+                            if (ua != null) {
+                                inEnterprise = e;
+                                inOrganization = o;
+                                network = n;
+                                break;
+                            }
+                        }
+                    } else {
+                        inEnterprise = e;
+                        network = n;
+                        break;
+                    }
+                    if (inOrganization != null) {
+                        break;
+                    }
+                }
+                if (network != null) {
+                    break;
+                }
+            }
+        }
+
+        if (ua == null) {
+            JOptionPane.showMessageDialog(null, "Invalid credentials");
+            return;
+        } else {
             CardLayout layout = (CardLayout) mainPanel.getLayout();
-            SupplierAdmin supplierAdmin = new SupplierAdmin();
-            mainPanel.add("Supplier Admin", supplierAdmin);
+//            SupplierAdmin supplierAdmin = new SupplierAdmin();
+//            mainPanel.add("Supplier Admin", supplierAdmin);
 //            mainPanel.add("Supplier Admin", ua.getRole().createWorkArea(userProcessContainer, ua, inOrganization, inEnterprise, system, network));
+            mainPanel.add("WorkArea", ua.getRole().createWorkArea(mainPanel, ua, inOrganization, inEnterprise, system, network));
             layout.next(mainPanel);
 
-//        }
+        }
         btnLogin.setEnabled(false);
 //        btnLogout.setEnabled(true);
         txtUserName.setEnabled(false);
