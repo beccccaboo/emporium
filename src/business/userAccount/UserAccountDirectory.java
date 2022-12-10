@@ -5,6 +5,7 @@
 package business.userAccount;
 
 import business.employee.Employee;
+import business.organization.Organization;
 import business.role.Role;
 import java.util.ArrayList;
 
@@ -23,12 +24,14 @@ public class UserAccountDirectory {
         return userAccountList;
     }
 
-    public UserAccount addUserAccount(String username, String password, Employee employee, Role role) {
+    public UserAccount addUserAccount(String username, String password, Employee employee, Role role, String email, long mobileNo) {
         UserAccount userAccount = new UserAccount();
         userAccount.setUsername(username);
         userAccount.setPassword(password);
         userAccount.setEmployee(employee);
         userAccount.setRole(role);
+        userAccount.setEmail(email);
+        userAccount.setMobileNo(mobileNo);
         userAccountList.add(userAccount);
         return userAccount;
     }
@@ -65,5 +68,16 @@ public class UserAccountDirectory {
         }
         return false;
     }
-
+    
+//    public Organization searchOrg(String userName){
+//        for (OrganizationDirectory od : userAccountList) {
+//            if (ua.getUsername().equals(userName)) {
+//                if (ua.matchPassword(password, ua.getPassword())) {
+//                    return ua;
+//                }
+//            }
+//        }
+//        return null;
+//    }
+   
 }

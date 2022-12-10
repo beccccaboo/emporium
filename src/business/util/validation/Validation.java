@@ -5,6 +5,8 @@
 package business.util.validation;
 
 import java.awt.Color;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -27,6 +29,30 @@ public class Validation {
         }
         inputTextField.setBackground(Color.WHITE);
         return true;
+    }
+    
+    //Function to validate Email
+    public static boolean validateEmailInput(JTextField inputTextField){
+        if (inputTextField.getText() == null || "".equals(inputTextField.getText())) {
+            JOptionPane.showMessageDialog(null,
+                    "Input cannot be blank",
+                    "Warning",
+                    JOptionPane.WARNING_MESSAGE);
+            inputTextField.setBackground(Color.RED);
+            return false;
+        } else {
+            String regex = "^(.+)@(.+)$";
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(inputTextField.getText());
+            if(!matcher.matches()){
+                JOptionPane.showMessageDialog(null,
+                    "Enter a Valid Email",
+                    "Warning",
+                    JOptionPane.WARNING_MESSAGE);
+            inputTextField.setBackground(Color.RED);
+            return false;
+            } else return true;
+        }
     }
 
     // Function to validate Numerical inputs

@@ -20,7 +20,9 @@ public class UserAccount {
     private Employee employee;
     private Role role;
     private WorkQueue workQueue;
-
+    private String email;
+    private long mobileNo;
+    
     public UserAccount() {
         workQueue = new WorkQueue();
     }
@@ -64,6 +66,24 @@ public class UserAccount {
     public void setWorkQueue(WorkQueue workQueue) {
         this.workQueue = workQueue;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public long getMobileNo() {
+        return mobileNo;
+    }
+
+    public void setMobileNo(long mobileNo) {
+        this.mobileNo = mobileNo;
+    }
+    
+    
     
     public String encodePassword(String input) {
         String output = null;

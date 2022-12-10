@@ -29,9 +29,9 @@ public abstract class Organization {
         LogisticsAdmin("Logistics Admin Organization"),
         LogisticsManager("Logistics Manager Organization"),
         LogisticsWorker("Logistics Worker Organization"),
-        SupplierAdmin("Restaurant Admin Organization"),
-        SupplierManager("Restaurant Manager Organization"),
-        SupplierWorker("Restaurant Worker Organization"),
+        SupplierAdmin("Supplier Admin Organization"),
+        SupplierManager("Supplier Manager Organization"),
+        SupplierWorker("Supplier Worker Organization"),
         SupervisionAdmin("Supervision Admin Organization"),
         SupervisionManager("Supervision Manager Organization");
 
