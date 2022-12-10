@@ -19,7 +19,7 @@ public class ConfigureEcoSystem {
         Employee employee = ecoSystem.getEmployeeDirectory().addEmployee("System Admin");
         UserAccount ua = new UserAccount();
         String password = ua.encodePassword("sysadmin");
-        ua = ecoSystem.getUserAccountDirectory().addUserAccount("sysadmin", password, employee, new SystemAdminRole());
+        ua = ecoSystem.getUserAccountDirectory().addUserAccount("sysadmin", password, employee, new SystemAdminRole(), "sysadmin@gmail.com", 8573132155L);
 
         return ecoSystem;
 

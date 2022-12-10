@@ -4,6 +4,7 @@
  */
 package business.role.supplier;
 
+import business.DB4OUtil.DB4OUtil;
 import business.EcoSystem;
 import business.enterprise.Enterprise;
 import business.network.Network;
