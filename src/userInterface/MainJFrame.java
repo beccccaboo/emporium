@@ -66,7 +66,7 @@ public class MainJFrame extends javax.swing.JFrame implements Runnable {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        userProcessContainer = new javax.swing.JPanel();
+        mainPanel = new javax.swing.JPanel();
         mainPagePanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -217,8 +217,8 @@ public class MainJFrame extends javax.swing.JFrame implements Runnable {
 
         splitPane.setLeftComponent(leftPane);
 
-        userProcessContainer.setBackground(new java.awt.Color(204, 255, 255));
-        userProcessContainer.setLayout(new java.awt.CardLayout());
+        mainPanel.setBackground(new java.awt.Color(204, 255, 255));
+        mainPanel.setLayout(new java.awt.CardLayout());
 
         mainPagePanel.setBackground(new java.awt.Color(156, 210, 210));
         mainPagePanel.setPreferredSize(new java.awt.Dimension(507, 545));
@@ -239,9 +239,9 @@ public class MainJFrame extends javax.swing.JFrame implements Runnable {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        userProcessContainer.add(mainPagePanel, "card2");
+        mainPanel.add(mainPagePanel, "card2");
 
-        splitPane.setRightComponent(userProcessContainer);
+        splitPane.setRightComponent(mainPanel);
 
         getContentPane().add(splitPane, java.awt.BorderLayout.CENTER);
 
@@ -310,9 +310,9 @@ public class MainJFrame extends javax.swing.JFrame implements Runnable {
             JOptionPane.showMessageDialog(null, "Invalid credentials");
             return;
         } else {
-            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            userProcessContainer.add("WorkArea", ua.getRole().createWorkArea(userProcessContainer, ua, inOrganization, inEnterprise, system, network));
-            layout.next(userProcessContainer);
+            CardLayout layout = (CardLayout) mainPanel.getLayout();
+            mainPanel.add("WorkArea", ua.getRole().createWorkArea(mainPanel, ua, inOrganization, inEnterprise, system, network));
+            layout.next(mainPanel);
 
         }
         btnLogin.setEnabled(false);
@@ -330,12 +330,12 @@ public class MainJFrame extends javax.swing.JFrame implements Runnable {
         txtUserName.setText("");
         txtPassword.setText("");
 
-        userProcessContainer.removeAll();
+        mainPanel.removeAll();
 
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
         MainPageJPanel mpjp = new MainPageJPanel();
-        userProcessContainer.add("ConsumerRequestViewJPanel", mpjp);
-        layout.next(userProcessContainer);
+        mainPanel.add("ConsumerRequestViewJPanel", mpjp);
+        layout.next(mainPanel);
 
         dB4OUtil.storeSystem(system);
     }//GEN-LAST:event_btnLogoutActionPerformed
@@ -402,7 +402,7 @@ public class MainJFrame extends javax.swing.JFrame implements Runnable {
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUserName;
-    private javax.swing.JPanel userProcessContainer;
+    private javax.swing.JPanel mainPanel;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -422,7 +422,7 @@ public class MainJFrame extends javax.swing.JFrame implements Runnable {
                                         for (WorkRequest wr : ua.getWorkQueue().getWorkRequestList()) {
                                             CollectionWorkRequest cwr = (CollectionWorkRequest) wr;
                                             System.out.println("\n********** Updating Perishable **********");
-                                            cwr.updateDonation();
+                                            cwr.updateDisposal();
                                             System.out.println("\n ********** Update Complete **********");
                                         }
                                     }
