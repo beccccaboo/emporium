@@ -407,7 +407,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
                             .addComponent(btnSave)))
                     .addComponent(lblPassword1)
                     .addComponent(btnBrowse))
-                .addContainerGap(328, Short.MAX_VALUE))
+                .addContainerGap(300, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBack, btnBrowse, btnCancel, btnDelete, btnNew, btnSave, btnUpdate, btnView, cmbEmployee, cmbOrganiztion, cmbRole, lblEmail, lblEmployee, lblMobileNo, lblOrganization, lblPassword, lblPassword1, lblRole, lblUserName, txtEmail, txtMobileNo, txtPassword, txtUserName});
@@ -431,7 +431,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
         }
 
        long mobileNo = 0;
-        if (Validation.validateNumericalInput(txtMobileNo, 3)) {
+        if (Validation.validateNumericalInput(txtMobileNo, 3)&& Validation.validatePhoneNumber(txtMobileNo)) {
             mobileNo = Long.parseLong(txtMobileNo.getText());
         } else {
             return;
