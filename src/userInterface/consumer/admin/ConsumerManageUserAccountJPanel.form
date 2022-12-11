@@ -87,7 +87,7 @@
                                       <Component id="txtMobileNo" linkSize="1" min="-2" pref="184" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="179" max="32767" attributes="0"/>
+                              <EmptySpace pref="169" max="32767" attributes="0"/>
                               <Component id="btnSave" linkSize="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -146,7 +146,7 @@
                   <Component id="lblRole" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cmbRole" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="32767" attributes="0"/>
+              <EmptySpace type="separate" pref="183" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="jSeparator" min="-2" pref="10" max="-2" attributes="0"/>

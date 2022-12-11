@@ -15,6 +15,25 @@ import javax.swing.JTextField;
  * @author rebeccabiju
  */
 public class Validation {
+    //Function to validate Phone Number
+    public static boolean validatePhoneNumber(JTextField inputTextField){
+        if (inputTextField.getText() == null || "".equals(inputTextField.getText())) {
+            JOptionPane.showMessageDialog(null,
+                    "Input cannot be blank",
+                    "Warning",
+                    JOptionPane.WARNING_MESSAGE);
+            inputTextField.setBackground(Color.RED);
+            return false;
+        } else if(String.valueOf(inputTextField.getText()).length()!=10){
+            JOptionPane.showMessageDialog(null,
+                    "Phone number should be of 10 digits",
+                    "Try Again",
+                    JOptionPane.ERROR_MESSAGE);
+            inputTextField.setBackground(Color.RED);
+            return false;
+        }else return true;
+    }
+    
     // Function to valid Strings
     public static boolean validateStringInput(JTextField inputTextField) {
 

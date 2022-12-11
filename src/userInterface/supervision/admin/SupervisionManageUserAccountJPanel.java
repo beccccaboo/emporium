@@ -573,7 +573,7 @@ public class SupervisionManageUserAccountJPanel extends javax.swing.JPanel {
         }
 
         long mobileNo = 0;
-        if (Validation.validateNumericalInput(txtMobileNo, 3)) {
+        if (Validation.validateNumericalInput(txtMobileNo, 3) && Validation.validatePhoneNumber(txtMobileNo)) {
             mobileNo = Long.parseLong(txtMobileNo.getText());
         } else {
             return;

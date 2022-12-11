@@ -83,7 +83,7 @@
                               <Component id="lblMobileNo" linkSize="1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Component id="txtMobileNo" linkSize="1" min="-2" pref="136" max="-2" attributes="0"/>
-                              <EmptySpace min="175" pref="571" max="32767" attributes="0"/>
+                              <EmptySpace min="175" pref="157" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lblEmail" linkSize="1" min="-2" max="-2" attributes="0"/>
@@ -166,9 +166,9 @@
                       <Component id="lblMobileNo" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtMobileNo" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblEnterprise" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="cmbEnterprise" linkSize="2" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblEnterprise" linkSize="2" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -210,7 +210,7 @@
                   <Component id="btnDelete" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnCancel" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+              <EmptySpace pref="55" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

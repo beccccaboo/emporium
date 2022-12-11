@@ -322,7 +322,7 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
                                         .addComponent(lblMobileNo)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(txtMobileNo, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
                                 .addComponent(btnSave))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -370,7 +370,7 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRole)
                     .addComponent(cmbRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 183, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -440,7 +440,7 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
         }
 
        long mobileNo = 0;
-        if (Validation.validateNumericalInput(txtMobileNo, 3)) {
+        if (Validation.validateNumericalInput(txtMobileNo, 3)&& Validation.validatePhoneNumber(txtMobileNo)) {
             mobileNo = Long.parseLong(txtMobileNo.getText());
         } else {
             return;
