@@ -10,11 +10,17 @@ import business.enterprise.Enterprise;
 import business.organization.Organization;
 import business.role.Role;
 import business.userAccount.UserAccount;
+import business.util.mail.Mail;
 import business.util.validation.Validation;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Image;
+import java.io.File;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -28,7 +34,9 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
      */
     private JPanel userProcessContainer;
     private Enterprise enterprise;
-
+    String operation;
+    UserAccount selectedPerson;
+    String selectedImagePath = File.separator+"Users"+File.separator+"rebeccabiju"+File.separator+"Downloads"+File.separator+"noImg.jpeg";
     public LogisticsManageUserAccountJPanel(JPanel userProcessContainer, Enterprise enterprise) {
         initComponents();
         this.enterprise = enterprise;
@@ -36,6 +44,20 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
 
         populateOrganizationComboBox();
         populateData();
+        
+        btnUpdate.setVisible(false);
+//        btnDelete.setVisible(false);
+        btnSave.setVisible(false);
+        btnCancel.setVisible(false);
+        
+        toggleEditablePerson(false, Color.LIGHT_GRAY);
+        clearDataPerson();
+        btnCancel.setVisible(false);
+        btnDelete.setVisible(false);
+        
+        toggleCombo(false);
+        lblImage.setVisible(true);
+        btnBrowse.setVisible(false);
     }
 
     public void populateOrganizationComboBox() {
@@ -101,7 +123,7 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
         jSeparator = new javax.swing.JSeparator();
         btnBack = new javax.swing.JButton();
         lblOrganization = new javax.swing.JLabel();
-        btnCreate = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
         cmbOrganiztion = new javax.swing.JComboBox();
         lblEmployee = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
@@ -109,8 +131,17 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
         txtEmail = new javax.swing.JTextField();
         txtMobileNo = new javax.swing.JTextField();
         lblMobileNo = new javax.swing.JLabel();
+        lblImage = new javax.swing.JLabel();
+        lblPassword1 = new javax.swing.JLabel();
+        btnBrowse = new javax.swing.JButton();
+        btnNew = new javax.swing.JButton();
+        btnView = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 204));
+        setMinimumSize(new java.awt.Dimension(800, 800));
 
         lblRole.setText("Role");
 
@@ -159,10 +190,10 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
 
         lblOrganization.setText("Organization");
 
-        btnCreate.setText("Create");
-        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateActionPerformed(evt);
+                btnSaveActionPerformed(evt);
             }
         });
 
@@ -184,6 +215,50 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
 
         lblMobileNo.setText("Phone Number");
 
+        lblPassword1.setText("Profile Image:");
+
+        btnBrowse.setText("Browse");
+        btnBrowse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBrowseActionPerformed(evt);
+            }
+        });
+
+        btnNew.setText("New");
+        btnNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewActionPerformed(evt);
+            }
+        });
+
+        btnView.setText("View");
+        btnView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewActionPerformed(evt);
+            }
+        });
+
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
+        btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -191,102 +266,130 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(73, 73, 73)
+                                .addComponent(lblHeader))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(186, 186, 186)
+                                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 120, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(149, 149, 149)
-                                        .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(56, 56, 56)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lblPassword1)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(btnBrowse)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(lblUserName)
+                                                    .addComponent(lblPassword))
+                                                .addGap(19, 19, 19)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(txtUserName)
+                                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(37, 37, 37)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(lblEmail, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(lblMobileNo, javax.swing.GroupLayout.Alignment.TRAILING))
+                                                .addGap(52, 52, 52)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(txtMobileNo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(10, 10, 10)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGap(98, 98, 98)
+                                                        .addComponent(btnNew)
+                                                        .addGap(24, 24, 24)
+                                                        .addComponent(btnView)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addComponent(btnUpdate)
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(btnDelete)
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(btnCancel))
+                                                    .addComponent(btnBack))
+                                                .addGap(18, 18, 18)
+                                                .addComponent(btnSave))))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(151, 151, 151)
-                                        .addComponent(btnBack)
-                                        .addGap(230, 230, 230)
-                                        .addComponent(btnCreate)))
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(lblHeader)
-                        .addGap(0, 83, Short.MAX_VALUE)))
+                                        .addGap(225, 225, 225)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblOrganization)
+                                            .addComponent(lblEmployee)
+                                            .addComponent(lblRole))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(cmbRole, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(cmbEmployee, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(cmbOrganiztion, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblUserName)
-                            .addComponent(lblPassword))
-                        .addGap(19, 19, 19)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtUserName)
-                            .addComponent(txtPassword)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblOrganization)
-                            .addComponent(lblEmployee)
-                            .addComponent(lblRole))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cmbRole, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cmbEmployee, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cmbOrganiztion, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblMobileNo)
-                        .addGap(52, 52, 52)
-                        .addComponent(txtMobileNo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblEmail)
-                        .addGap(52, 52, 52)
-                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblOrganization)
-                            .addComponent(cmbOrganiztion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblEmployee)
-                            .addComponent(cmbEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblEmail)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblMobileNo)
-                            .addComponent(txtMobileNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblOrganization)
+                    .addComponent(cmbOrganiztion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEmployee)
+                    .addComponent(cmbEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRole)
                     .addComponent(cmbRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEmail)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblMobileNo)
+                            .addComponent(txtMobileNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblUserName)
+                            .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPassword)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPassword1)
+                    .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBrowse))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUserName)
-                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPassword)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCreate)
-                    .addComponent(btnBack))
-                .addContainerGap(56, Short.MAX_VALUE))
+                    .addComponent(btnBack)
+                    .addComponent(btnView)
+                    .addComponent(btnDelete)
+                    .addComponent(btnUpdate)
+                    .addComponent(btnCancel)
+                    .addComponent(btnNew)
+                    .addComponent(btnSave))
+                .addGap(68, 68, 68))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -297,7 +400,7 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
 
         String userName = null;
         if (Validation.validateStringInput(txtUserName)) {
@@ -335,29 +438,56 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
 
         UserAccount ua = new UserAccount();
         String password = ua.encodePassword(String.valueOf(passChar));
-
+        
+        if(operation.equals("Update")){
+            selectedPerson.setPassword(password);
+            selectedPerson.setMobileNo(mobileNo);
+            selectedPerson.setEmail(email);
+            if(selectedImagePath!=null)
+                selectedPerson.setImgPath(selectedImagePath);
+            Mail.sendMail(email, "Details Updated!", "Your details have been updated on the portal!");
+        }
         Organization organization = (Organization) cmbOrganiztion.getSelectedItem();
+        
+        if(operation.equals("New")){
+           
+            if (organization.getUserAccountDirectory().checkIfUserNameExists(userName)) {
+                JOptionPane.showMessageDialog(null, "User name already exists. Please select a different one.");
+                return;
+            }
 
-        if (organization.getUserAccountDirectory().checkIfUserNameExists(userName)) {
-            JOptionPane.showMessageDialog(null, "User name already exists. Please select a different one.");
-            return;
+            Employee employee = (Employee) cmbEmployee.getSelectedItem();
+            Role role = (Role) cmbRole.getSelectedItem();
+
+            if (organization == null || employee == null || role == null) {
+                JOptionPane.showMessageDialog(null, "Invalid input!");
+                return;
+            }
+
+            organization.getUserAccountDirectory().addUserAccount(userName, password, employee, role, email, mobileNo, selectedImagePath);
+            Mail.sendMail(email, "Welcome to Emporium!", "You have sucessfully registered to Emporium. Now manage second hand goods effeciently!");
+            JOptionPane.showMessageDialog(null, "User account created successfully", "Information", JOptionPane.INFORMATION_MESSAGE);
+        
         }
-
-        Employee employee = (Employee) cmbEmployee.getSelectedItem();
-        Role role = (Role) cmbRole.getSelectedItem();
-
-        if (organization == null || employee == null || role == null) {
-            JOptionPane.showMessageDialog(null, "Invalid input!");
-            return;
-        }
-
-        organization.getUserAccountDirectory().addUserAccount(userName, password, employee, role, email, mobileNo);
-        JOptionPane.showMessageDialog(null, "User account created successfully", "Information", JOptionPane.INFORMATION_MESSAGE);
+        
+        
         populateEmployeeComboBox(organization);
+        clearDataPerson();
+//        populateEmployeeComboBox(organization);
         populateData();
-        txtUserName.setText("");
-        txtPassword.setText("");
-    }//GEN-LAST:event_btnCreateActionPerformed
+        btnSave.setVisible(false);
+        btnView.setVisible(true);
+        btnNew.setVisible(true);
+        btnCancel.setVisible(false);
+        btnUpdate.setVisible(false);
+        tblUsers.setEnabled(true);
+        btnBrowse.setVisible(false);
+        cmbRole.setEnabled(true);
+        cmbOrganiztion.setEnabled(true);
+        cmbEmployee.setEnabled(true);
+        toggleCombo(false);
+        toggleEditablePerson(false, Color.LIGHT_GRAY);
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     private void cmbOrganiztionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbOrganiztionActionPerformed
         Organization organization = (Organization) cmbOrganiztion.getSelectedItem();
@@ -371,10 +501,164 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
 
+    private void btnBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseActionPerformed
+        // TODO add your handling code here:
+        JFileChooser browseImageFile = new JFileChooser();
+        FileNameExtensionFilter fnef = new FileNameExtensionFilter("IMAGES", "png", "jpg", "jpeg");
+        browseImageFile.addChoosableFileFilter(fnef);
+        browseImageFile.setAcceptAllFileFilterUsed(false);
+        int showOpenDialogue = browseImageFile.showOpenDialog(null);
+
+        if (showOpenDialogue == JFileChooser.APPROVE_OPTION) {
+            File selectedImageFile = browseImageFile.getSelectedFile();
+            selectedImagePath = selectedImageFile.getAbsolutePath();
+            JOptionPane.showMessageDialog(null, selectedImagePath);
+
+        }
+    }//GEN-LAST:event_btnBrowseActionPerformed
+
+    private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
+        // TODO add your handling code here:
+        operation="New";
+        clearDataPerson();
+        toggleCombo(true);
+        btnNew.setVisible(false);
+        btnView.setVisible(false);
+        btnBrowse.setVisible(true);
+        btnSave.setVisible(true);
+        btnCancel.setVisible(true);
+        cmbRole.setEnabled(true);
+        cmbOrganiztion.setEnabled(true);
+        cmbEmployee.setEnabled(true);
+        toggleEditablePerson(true, Color.WHITE);
+
+        //        lblImage.setVisible(false);
+    }//GEN-LAST:event_btnNewActionPerformed
+
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+        // TODO add your handling code here:
+        lblImage.setVisible(true);
+        int selectedRowIndex = tblUsers.getSelectedRow();
+        if(selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a row to display data");
+            return;
+        }
+        //
+        DefaultTableModel model = (DefaultTableModel)tblUsers.getModel();
+        selectedPerson = (UserAccount) model.getValueAt(selectedRowIndex, 0);
+        //
+
+        txtUserName.setText(selectedPerson.getUsername());
+        txtMobileNo.setText(Long.toString(selectedPerson.getMobileNo()));
+        txtEmail.setText(selectedPerson.getEmail());
+
+        cmbEmployee.addItem(selectedPerson.getEmployee().getName());
+        cmbRole.addItem(selectedPerson.getRole().getRoleType());
+
+        ImageIcon imgIcon = new ImageIcon(selectedPerson.getImgPath());
+        System.out.println(selectedPerson.getImgPath()+""+lblImage.getWidth()+""+lblImage.getHeight());
+        Image img =imgIcon.getImage().getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+
+        lblImage.setIcon(new ImageIcon(img));
+        btnBrowse.setVisible(false);
+
+        //        System.out.println(selectedPerson.getEmployee().getName());
+        //        txtPassword.setText(selectedPerson.getPassword());
+        //
+        //Make Text fields uneditable
+        toggleEditablePerson(false, Color.LIGHT_GRAY);
+        btnUpdate.setVisible(true);
+        toggleCombo(false);
+        //        btnDelete.setVisible(true);
+    }//GEN-LAST:event_btnViewActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        operation="Update";
+        selectedImagePath = null;
+        int selectedRowIndex = tblUsers.getSelectedRow();
+        if(selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a person to update data");
+            return;
+        }
+
+        DefaultTableModel model = (DefaultTableModel)tblUsers.getModel();
+        selectedPerson = (UserAccount) model.getValueAt(selectedRowIndex, 0);
+
+        cmbEmployee.addItem(selectedPerson.getEmployee().getName());
+        cmbRole.addItem(selectedPerson.getRole().getRoleType());
+        toggleEditablePerson(true, Color.WHITE);
+        txtUserName.setEnabled(false);
+        cmbRole.setEnabled(false);
+        cmbOrganiztion.setEnabled(false);
+        cmbEmployee.setEnabled(false);
+        btnSave.setVisible(true);
+        btnBrowse.setVisible(true);
+        btnCancel.setVisible(true);
+        tblUsers.setEnabled(false);
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        //        int selectedRowIndex = tblPerson.getSelectedRow();
+        //        if(selectedRowIndex<0){
+            //            JOptionPane.showMessageDialog(this, "Please select a row to delete data");
+            //            return;
+            //        }
+        //
+        //        DefaultTableModel model = (DefaultTableModel)tblPerson.getModel();
+        //        selectedPerson = (Person) model.getValueAt(selectedRowIndex, 0);
+        //        String username = selectedPerson.getUsername();
+        //        User user = userDir.getUserByUsername(username);
+        //        if(user.getRole().equals("patient")){
+            //            Patient patient = patientDir.getPatientByUsername(username);
+            //            patientDir.deletePatient(patient);
+            //        }
+        //        if(user.getRole().equals("doctor")){
+            //            Doctor doctor = doctorDir.getDoctorByUsername(username);
+            //            doctorDir.deleteDoctor(doctor);
+            //        }
+        //
+        //        personDir.deletePerson(selectedPerson);
+        //        userDir.deleteUser(user);
+        //
+        //        JOptionPane.showMessageDialog(this, "Person data deleted");
+        //        //
+        //        populateTablePerson();
+        //        clearDataPerson();
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        // TODO add your handling code here:
+        btnNew.setVisible(true);
+        btnBrowse.setVisible(false);
+        btnView.setVisible(true);
+        btnSave.setVisible(false);
+        btnUpdate.setVisible(false);
+        btnDelete.setVisible(false);
+        btnCancel.setVisible(false);
+        txtUserName.setEnabled(true);
+        tblUsers.setEnabled(true);
+        cmbRole.setEnabled(true);
+        cmbOrganiztion.setEnabled(true);
+        cmbEmployee.setEnabled(true);
+        clearDataPerson();
+        toggleEditablePerson(false, Color.LIGHT_GRAY);
+        toggleCombo(false);
+        //        cmbRole.setSelectedIndex(0);
+        //        cmbEmployee.setSelectedIndex(0);
+        //        cmbOrganiztion.setSelectedIndex(0);
+    }//GEN-LAST:event_btnCancelActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnCreate;
+    private javax.swing.JButton btnBrowse;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnNew;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnView;
     private javax.swing.JComboBox cmbEmployee;
     private javax.swing.JComboBox cmbOrganiztion;
     private javax.swing.JComboBox cmbRole;
@@ -383,9 +667,11 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblEmployee;
     private javax.swing.JLabel lblHeader;
+    private javax.swing.JLabel lblImage;
     private javax.swing.JLabel lblMobileNo;
     private javax.swing.JLabel lblOrganization;
     private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblPassword1;
     private javax.swing.JLabel lblRole;
     private javax.swing.JLabel lblUserName;
     private javax.swing.JTable tblUsers;
@@ -394,4 +680,48 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
+
+    //Clear User Data
+    private void clearDataPerson() {
+        //Clear past info
+        txtUserName.setText("");
+        txtPassword.setText("");
+        txtMobileNo.setText("");
+        txtEmail.setText("");
+        if(lblImage.getWidth()!= 0 && lblImage.getHeight()!=0){
+            ImageIcon imgIcon = new ImageIcon("");
+            Image img =imgIcon.getImage().getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+            lblImage.setIcon(new ImageIcon(img));
+        }
+        
+//        txtStreetNo.setText("");
+//        txtCommunityName.setText("");
+//        txtCityName.setText("");
+//        txtZipCode.setText("");
+    }
+    
+    private void toggleEditablePerson(boolean b, Color bg) {
+        txtUserName.setEditable(b);
+        txtUserName.setBackground(bg);
+        
+        txtPassword.setEditable(b);
+        txtPassword.setBackground(bg);
+        
+        txtMobileNo.setEditable(b);
+        txtMobileNo.setBackground(bg);
+        
+        txtEmail.setEditable(b);
+        txtEmail.setBackground(bg);
+    }
+
+    private void toggleCombo(boolean b) {
+        lblOrganization.setVisible(b);
+        lblRole.setVisible(b);
+        lblEmployee.setVisible(b);
+        cmbOrganiztion.setVisible(b);
+        cmbRole.setVisible(b);
+        cmbEmployee.setVisible(b);
+        
+    }
+
 }

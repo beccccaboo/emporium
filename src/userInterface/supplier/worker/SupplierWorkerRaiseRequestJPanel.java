@@ -300,6 +300,7 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
 
             RequestItem ri = new RequestItem(food, quantity, hours);
             requestList.add(ri);
+            System.out.println("Request Item: "+requestList.get(i));
         }
 
         CollectionWorkRequest request = new CollectionWorkRequest();
@@ -311,15 +312,21 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
         request.setRaisedBy(account);
         request.setRaisedBySupplier(enterpriseName);
 
+        System.out.println("Collection work request in Supplier Worker: "+ request.getRaisedBySupplier()+ " " +request.getSender());
         for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
             for (Organization o : e.getOrganizationDirectory().getOrganizationList()) {
                 if (o instanceof ConsumerManagerOrganization) {
                     o.getWorkQueue().getWorkRequestList().add(request);
+                    System.out.println("Org work queue: "+ o);
                 }
             }
         }
 
         account.getWorkQueue().getWorkRequestList().add(request);
+        System.out.println("Account: "+account);
+        System.out.println("Account Work Queue: "+account.getWorkQueue());
+        System.out.println("Account Work Queue: "+account.getWorkQueue().getWorkRequestList().get(account.getWorkQueue().getWorkRequestList().size() - 1));
+        
         JOptionPane.showMessageDialog(null, "Request raised with Consumer for further processing", "Information", JOptionPane.INFORMATION_MESSAGE);
         dtm.setRowCount(0);
 

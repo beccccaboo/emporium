@@ -399,6 +399,7 @@ public class ConsumerSupplierRequestJPanel extends javax.swing.JPanel {
 
                 // View only newly raised requests
                 if (cwr.getStatus().equals(RequestStatus.getPickupStatusMessage(1))) {
+                    System.out.println("CWR in Consumer: "+cwr.getRaisedBySupplier());
                     Object row[] = new Object[4];
                     
                     row[0] = cwr.getRaisedBySupplier();

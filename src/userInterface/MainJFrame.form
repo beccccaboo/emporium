@@ -177,9 +177,8 @@
                           <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lblHeading" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblText" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblText" min="-2" pref="440" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -201,7 +200,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tw Cen MT" size="52" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Food Wastage Management"/>
+                    <Property name="text" type="java.lang.String" value="Emporium"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblText">
@@ -209,7 +208,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="24" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="&lt;HTML&gt;Donate your leftover food instead of wasting it.&lt;br/&gt;Help feed the needy.&lt;br/&gt;Reduce your carbon footprint&lt;/HTML&gt;"/>
+                    <Property name="text" type="java.lang.String" value="AA"/>
                   </Properties>
                 </Component>
               </SubComponents>

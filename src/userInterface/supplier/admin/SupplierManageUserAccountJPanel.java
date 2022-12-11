@@ -10,6 +10,7 @@ import business.enterprise.Enterprise;
 import business.organization.Organization;
 import business.role.Role;
 import business.userAccount.UserAccount;
+import business.util.mail.Mail;
 import business.util.validation.Validation;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -45,6 +46,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
         this.business = business;
         populateOrganizationComboBox();
         populateData();
+        
         
         btnUpdate.setVisible(false);
 //        btnDelete.setVisible(false);
@@ -146,8 +148,8 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
         lblPassword1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 204, 153));
-        setMinimumSize(new java.awt.Dimension(600, 600));
-        setPreferredSize(new java.awt.Dimension(600, 600));
+        setMinimumSize(new java.awt.Dimension(800, 800));
+        setPreferredSize(new java.awt.Dimension(800, 800));
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblHeader.setText("Supplier Adminstrative Work Area - Manage Users");
@@ -399,7 +401,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
                         .addComponent(btnBack)
                         .addComponent(btnNew))
                     .addComponent(btnSave))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(216, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -443,10 +445,6 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
         String password = ua.encodePassword(String.valueOf(passChar));
         Organization organization = (Organization) cmbOrganiztion.getSelectedItem();
         
- 
-        
-    
-        
         if(operation.equals("Update")){
                         //Get City based on cityname
                         //Get Community based on community name
@@ -458,6 +456,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
                         selectedPerson.setEmail(email);
                         if(selectedImagePath!=null)
                             selectedPerson.setImgPath(selectedImagePath);
+                        Mail.sendMail(email, "Details Updated!", "Your details have been updated on the portal!");
          }
         if(operation.equals("New")){
             Employee employee = (Employee) cmbEmployee.getSelectedItem();
@@ -473,6 +472,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
         }
           
             organization.getUserAccountDirectory().addUserAccount(userName, password, employee, role, email, mobileNo, selectedImagePath);
+            Mail.sendMail(email, "Welcome to Emporium!", "You have sucessfully registered to Emporium. Now manage second hand goods effeciently!");
             JOptionPane.showMessageDialog(null, "User account created successfully", "Information", JOptionPane.INFORMATION_MESSAGE);
 
         }
@@ -493,9 +493,6 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
         toggleCombo(false);
         toggleEditablePerson(false, Color.LIGHT_GRAY);
         
-        ImageIcon imgIcon = new ImageIcon("");
-        Image img =imgIcon.getImage().getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
-        lblImage.setIcon(new ImageIcon(img));
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -608,6 +605,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
         btnNew.setVisible(true);
+        btnBrowse.setVisible(false);
         btnView.setVisible(true);
         btnSave.setVisible(false);
         btnUpdate.setVisible(false);
@@ -621,9 +619,6 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
         clearDataPerson();
         toggleEditablePerson(false, Color.LIGHT_GRAY);
         toggleCombo(false);
-        ImageIcon imgIcon = new ImageIcon("");
-        Image img =imgIcon.getImage().getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
-        lblImage.setIcon(new ImageIcon(img));
 //        cmbRole.setSelectedIndex(0);
 //        cmbEmployee.setSelectedIndex(0);
 //        cmbOrganiztion.setSelectedIndex(0);
@@ -705,6 +700,12 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
         txtPassword.setText("");
         txtMobileNo.setText("");
         txtEmail.setText("");
+        if(lblImage.getWidth()!= 0 && lblImage.getHeight()!=0){
+            ImageIcon imgIcon = new ImageIcon("");
+            Image img =imgIcon.getImage().getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+            lblImage.setIcon(new ImageIcon(img));
+        }
+        
 //        txtStreetNo.setText("");
 //        txtCommunityName.setText("");
 //        txtCityName.setText("");
