@@ -71,8 +71,13 @@ public class ConsumerSupplierRequestJPanel extends javax.swing.JPanel {
         txtMessageRedirect = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
 
-        setBackground(new java.awt.Color(204, 255, 204));
+        setBackground(new java.awt.Color(6, 36, 50));
+        setForeground(new java.awt.Color(204, 204, 204));
+        setMinimumSize(new java.awt.Dimension(1400, 1000));
 
+        tblSupplierRequests.setBackground(new java.awt.Color(87, 92, 123));
+        tblSupplierRequests.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tblSupplierRequests.setForeground(new java.awt.Color(255, 255, 255));
         tblSupplierRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -98,8 +103,12 @@ public class ConsumerSupplierRequestJPanel extends javax.swing.JPanel {
         }
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblHeader.setText("NGO Manager- Restaurant Requests");
+        lblHeader.setForeground(new java.awt.Color(204, 204, 204));
+        lblHeader.setText("Consumer Manager- Restaurant Requests");
 
+        btnView.setBackground(new java.awt.Color(191, 149, 155));
+        btnView.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnView.setForeground(new java.awt.Color(204, 204, 204));
         btnView.setText("View Details");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,6 +116,9 @@ public class ConsumerSupplierRequestJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnBack.setBackground(new java.awt.Color(191, 149, 155));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(204, 204, 204));
         btnBack.setText("<< BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,11 +126,16 @@ public class ConsumerSupplierRequestJPanel extends javax.swing.JPanel {
             }
         });
 
-        jPanelAssignToEmployee.setBackground(new java.awt.Color(204, 255, 204));
-        jPanelAssignToEmployee.setBorder(javax.swing.BorderFactory.createTitledBorder("Assign to Employee"));
+        jPanelAssignToEmployee.setBackground(new java.awt.Color(6, 36, 50));
+        jPanelAssignToEmployee.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Assign to Employee", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14), new java.awt.Color(204, 204, 204))); // NOI18N
+        jPanelAssignToEmployee.setForeground(new java.awt.Color(204, 204, 204));
 
+        lblMessage.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblMessage.setForeground(new java.awt.Color(204, 204, 204));
         lblMessage.setText("Message:");
 
+        lblWorker.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblWorker.setForeground(new java.awt.Color(204, 204, 204));
         lblWorker.setText("Worker:");
 
         cmbWorker.addActionListener(new java.awt.event.ActionListener() {
@@ -127,6 +144,9 @@ public class ConsumerSupplierRequestJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnApprove.setBackground(new java.awt.Color(191, 149, 155));
+        btnApprove.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnApprove.setForeground(new java.awt.Color(204, 204, 204));
         btnApprove.setText("Assign");
         btnApprove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,9 +192,13 @@ public class ConsumerSupplierRequestJPanel extends javax.swing.JPanel {
                 .addGap(11, 11, 11))
         );
 
-        jPanelRedirectToConsumer.setBackground(new java.awt.Color(204, 255, 204));
-        jPanelRedirectToConsumer.setBorder(javax.swing.BorderFactory.createTitledBorder("Redirect to other NGO"));
+        jPanelRedirectToConsumer.setBackground(new java.awt.Color(6, 36, 50));
+        jPanelRedirectToConsumer.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Redirect to other NGO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14), new java.awt.Color(204, 204, 204))); // NOI18N
+        jPanelRedirectToConsumer.setForeground(new java.awt.Color(204, 204, 204));
 
+        btnAssignConsumer.setBackground(new java.awt.Color(191, 149, 155));
+        btnAssignConsumer.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAssignConsumer.setForeground(new java.awt.Color(204, 204, 204));
         btnAssignConsumer.setText("Redirect");
         btnAssignConsumer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,6 +206,8 @@ public class ConsumerSupplierRequestJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblMessageRedirect.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblMessageRedirect.setForeground(new java.awt.Color(204, 204, 204));
         lblMessageRedirect.setText("Message:");
 
         javax.swing.GroupLayout jPanelRedirectToConsumerLayout = new javax.swing.GroupLayout(jPanelRedirectToConsumer);
@@ -216,31 +242,36 @@ public class ConsumerSupplierRequestJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator1)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanelRedirectToConsumer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jPanelAssignToEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(405, 405, 405)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(401, 401, 401)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jPanelRedirectToConsumer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jPanelAssignToEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(481, 481, 481)
+                                .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 410, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
-                        .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                        .addGap(145, 145, 145)
+                        .addComponent(jSeparator1)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(46, 46, 46)
                 .addComponent(lblHeader)
                 .addGap(50, 50, 50)
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -254,7 +285,7 @@ public class ConsumerSupplierRequestJPanel extends javax.swing.JPanel {
                     .addComponent(jPanelRedirectToConsumer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addComponent(btnBack)
-                .addGap(48, 48, 48))
+                .addContainerGap(381, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

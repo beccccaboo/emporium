@@ -61,21 +61,27 @@ public class ConsumerManagerRaiseShortageRequestJPanel extends javax.swing.JPane
         cmbEmployee = new javax.swing.JComboBox();
         btnRaise = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 255, 204));
+        setBackground(new java.awt.Color(6, 36, 50));
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblHeader.setText("NGO Manager - Shortage Request");
+        lblHeader.setForeground(new java.awt.Color(204, 204, 204));
+        lblHeader.setText("Consumer Manager - Shortage Request");
 
         lblEmployee.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblEmployee.setForeground(new java.awt.Color(204, 204, 204));
         lblEmployee.setText("<HTML>Select <br/>Employee:</HTML>");
 
         lblMessage.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblMessage.setForeground(new java.awt.Color(204, 204, 204));
         lblMessage.setText("Message:");
 
         txtMessage.setColumns(20);
         txtMessage.setRows(5);
         jScrollPane.setViewportView(txtMessage);
 
+        btnBack.setBackground(new java.awt.Color(191, 149, 155));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("<<BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,6 +89,13 @@ public class ConsumerManagerRaiseShortageRequestJPanel extends javax.swing.JPane
             }
         });
 
+        cmbEmployee.setBackground(new java.awt.Color(191, 149, 155));
+        cmbEmployee.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cmbEmployee.setForeground(new java.awt.Color(255, 255, 255));
+
+        btnRaise.setBackground(new java.awt.Color(191, 149, 155));
+        btnRaise.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnRaise.setForeground(new java.awt.Color(255, 255, 255));
         btnRaise.setText("Raise Request");
         btnRaise.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,28 +108,27 @@ public class ConsumerManagerRaiseShortageRequestJPanel extends javax.swing.JPane
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(437, 437, 437)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(484, 484, 484)
+                                .addGap(64, 64, 64)
                                 .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(420, 420, 420)
-                                .addComponent(lblEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane)
                             .addComponent(cmbEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(512, 512, 512)
-                        .addComponent(lblHeader))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(657, 657, 657)
+                        .addGap(237, 237, 237)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRaise))))
-                .addContainerGap(498, Short.MAX_VALUE))
+                            .addComponent(btnRaise)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addComponent(lblHeader)))
+                .addContainerGap(442, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnBack, btnRaise});
@@ -124,7 +136,7 @@ public class ConsumerManagerRaiseShortageRequestJPanel extends javax.swing.JPane
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(77, 77, 77)
+                .addGap(119, 119, 119)
                 .addComponent(lblHeader)
                 .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,9 +148,9 @@ public class ConsumerManagerRaiseShortageRequestJPanel extends javax.swing.JPane
                     .addComponent(lblEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(btnRaise)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 413, Short.MAX_VALUE)
+                .addGap(44, 44, 44)
                 .addComponent(btnBack)
-                .addGap(115, 115, 115))
+                .addContainerGap(442, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBack, btnRaise, cmbEmployee});
