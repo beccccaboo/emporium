@@ -24,11 +24,11 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnBack" min="-2" pref="123" max="-2" attributes="0"/>
                   <Component id="lblHeader" alignment="0" min="-2" pref="613" max="-2" attributes="0"/>
-                  <Component id="btnBack" min="-2" max="-2" attributes="0"/>
                   <Component id="pnlChart" min="-2" pref="613" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -40,8 +40,8 @@
               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               <Component id="pnlChart" min="-2" pref="441" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnBack" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <Component id="btnBack" min="-2" pref="69" max="-2" attributes="0"/>
+              <EmptySpace pref="365" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -56,7 +56,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Restaurant Worker Work Area - Employee Report"/>
+        <Property name="text" type="java.lang.String" value="Supplier Worker Work Area - Employee Report"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnBack">

@@ -58,7 +58,7 @@ public class SupplierWorkerViewLogItemJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 204, 153));
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblHeader.setText("Restaurant Worker Work Area - Collection Request");
+        lblHeader.setText("Supplier Worker Work Area - Collection Request");
 
         tblItems.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

@@ -3,51 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/business/DB4OUtil/DB4OUtil.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/logistics/admin/LogisticsManageUserAccountJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/supplier/worker/SupplierWorkerWorkAreaJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/business/ConfigureEcoSystem.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/consumer/manager/ConsumerWorkerViewInventoryJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/logistics/admin/LogisticsManageEmployeeJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/business/enterprise/SupplierEnterprise.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/consumer/admin/ConsumerManageOrganizationJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/supplier/admin/SupplierManageUserAccountJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/business/employee/EmployeeDirectory.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/consumer/manager/ConsumerViewShortageRequestJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/supplier/manager/SupplierManagerWorkAreaJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/business/role/Role.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/consumer/worker/ConsumerWorkerDistributeFoodJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/consumer/worker/ConsumerWorkerWorkAreaJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/systemAdminWorkArea/ManageEnterpriseJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/MainPageJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/consumer/manager/ConsumerSupplierRequestJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/business/role/supplier/SupplierManagerRole.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/supplier/worker/SupplierWorkerViewLogItemJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/business/employee/Employee.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/business/userAccount/UserAccount.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/consumer/manager/ConsumerSupplierRequestViewJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/business/role/SystemAdminRole.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/business/organization/OrganizationDirectory.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/supplier/worker/SupplierWorkerRaiseRequestJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/logistics/admin/LogisticsAdminWorkAreaJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/business/role/supplier/SupplierAdminRole.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/consumer/admin/ConsumerAdminWorkAreaJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/consumer/worker/ConsumerWorkerViewRequestJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/consumer/worker/ConsumerWorkerViewInventoryJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/supplier/manager/SupplierManagerViewEmployeeWastageAvoidedRecords.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/business/role/consumer/ConsumerAdminRole.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/business/organization/Organization.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/systemAdminWorkArea/ManageEnterpriseAdminJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/consumer/admin/ConsumerManageUserAccountJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/consumer/admin/ConsumerManageEmployeeJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/business/util/validation/Validation.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/supplier/worker/SupplierWorkerViewRequestLogJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/business/EcoSystem.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/consumer/manager/ConsumerOtherRegionsRequestJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/consumer/worker/ConsumerWorkerPickupDeliveryJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/supplier/manager/SupplierManagerViewRequestLogJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/userInterface/logistics/admin/LogisticsManageOrganizationJPanel.java</file>
-            <file>file:/Users/rebeccabiju/Documents/Uni/AED-INFO5100/Emporium/src/business/userAccount/UserAccountDirectory.java</file>
+            <file>file:/E:/%23Masters/Application%20Engineering%20and%20Development/AED/emporium/src/userInterface/MainJFrame.java</file>
+            <file>file:/E:/%23Masters/Application%20Engineering%20and%20Development/AED/emporium/src/userInterface/MainPageJPanel.java</file>
+            <file>file:/E:/%23Masters/Application%20Engineering%20and%20Development/AED/emporium/src/userInterface/systemAdminWorkArea/SystemAdminWorkAreaJPanel.java</file>
         </group>
     </open-files>
 </project-private>
