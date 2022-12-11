@@ -21,15 +21,15 @@ public class ConsumerAdminWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ConsumerAdminWorkAreaJPanel
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private UserAccount account;
     private Organization organization;
     private Enterprise enterprise;
     private EcoSystem business;
 
-    public ConsumerAdminWorkAreaJPanel(JPanel userProcessContainer, Enterprise enterprise, EcoSystem business) {
+    public ConsumerAdminWorkAreaJPanel(JPanel mainPanel, Enterprise enterprise, EcoSystem business) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.business = business;
         this.account = account;
         this.organization = organization;
@@ -132,29 +132,29 @@ public class ConsumerAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnManageOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageOrganizationActionPerformed
 
-        ConsumerManageOrganizationJPanel manageConsumerOrganizationJPanel = new ConsumerManageOrganizationJPanel(userProcessContainer, enterprise.getOrganizationDirectory());
-        userProcessContainer.add("manageConsumerOrganizationJPanel", manageConsumerOrganizationJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        ConsumerManageOrganizationJPanel manageConsumerOrganizationJPanel = new ConsumerManageOrganizationJPanel(mainPanel, enterprise.getOrganizationDirectory());
+        mainPanel.add("manageConsumerOrganizationJPanel", manageConsumerOrganizationJPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnManageOrganizationActionPerformed
 
     private void btnManageEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageEmployeeActionPerformed
 
-        ConsumerManageEmployeeJPanel manageConsumerEmployeeJPanel = new ConsumerManageEmployeeJPanel(userProcessContainer, enterprise.getOrganizationDirectory());
-        userProcessContainer.add("manageEmployeeJPanel", manageConsumerEmployeeJPanel);
+        ConsumerManageEmployeeJPanel manageConsumerEmployeeJPanel = new ConsumerManageEmployeeJPanel(mainPanel, enterprise.getOrganizationDirectory());
+        mainPanel.add("manageEmployeeJPanel", manageConsumerEmployeeJPanel);
 
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
 
     }//GEN-LAST:event_btnManageEmployeeActionPerformed
 
     private void btnManageUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageUserActionPerformed
         // TODO add your handling code here:
-        ConsumerManageUserAccountJPanel muajp = new ConsumerManageUserAccountJPanel(userProcessContainer, enterprise, business);
-        userProcessContainer.add("ManageUserAccountJPanel", muajp);
+        ConsumerManageUserAccountJPanel muajp = new ConsumerManageUserAccountJPanel(mainPanel, enterprise, business);
+        mainPanel.add("ManageUserAccountJPanel", muajp);
 
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnManageUserActionPerformed
 
 

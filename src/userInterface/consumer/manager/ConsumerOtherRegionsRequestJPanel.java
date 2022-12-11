@@ -26,7 +26,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ConsumerOtherRegionsRequestJPanel extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private UserAccount account;
     private Organization organization;
     private Network network;
@@ -36,9 +36,9 @@ public class ConsumerOtherRegionsRequestJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ConsumerOtherRegionsRequestJPanel
      */
-    public ConsumerOtherRegionsRequestJPanel(JPanel userProcessContainer, CollectionWorkRequest collectionWorkRequest, Organization organization, UserAccount account, Network network, String message) {
+    public ConsumerOtherRegionsRequestJPanel(JPanel mainPanel, CollectionWorkRequest collectionWorkRequest, Organization organization, UserAccount account, Network network, String message) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.collectionWorkRequest = collectionWorkRequest;
         this.account = account;
         this.organization = organization;
@@ -242,14 +242,14 @@ public class ConsumerOtherRegionsRequestJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
 
-        int componentLength = userProcessContainer.getComponentCount();
-        ConsumerSupplierRequestJPanel panel = (ConsumerSupplierRequestJPanel) userProcessContainer.getComponent(componentLength - 1);
+        int componentLength = mainPanel.getComponentCount();
+        ConsumerSupplierRequestJPanel panel = (ConsumerSupplierRequestJPanel) mainPanel.getComponent(componentLength - 1);
         panel.populateTable();
 
-        layout.previous(userProcessContainer);
+        layout.previous(mainPanel);
 
 
     }//GEN-LAST:event_btnBackActionPerformed
@@ -331,7 +331,7 @@ public class ConsumerOtherRegionsRequestJPanel extends javax.swing.JPanel {
                 Object row[] = new Object[3];
                 row[0] = ri;
                 row[1] = ri.getQuantity();
-                row[2] = ri.getDaysBeforeDonation();
+                row[2] = ri.getDaysBeforeDisposal();
 
                 dtm.addRow(row);
             }

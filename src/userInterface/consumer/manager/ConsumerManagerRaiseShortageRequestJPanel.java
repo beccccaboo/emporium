@@ -28,15 +28,15 @@ public class ConsumerManagerRaiseShortageRequestJPanel extends javax.swing.JPane
     /**
      * Creates new form RegionRequestJPanel
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private ConsumerEnterprise enterprise;
     private UserAccount account;
     private Network network;
     private boolean hasShortage = false;
 
-    public ConsumerManagerRaiseShortageRequestJPanel(JPanel userProcessContainer, UserAccount account, ConsumerEnterprise enterprise, Network network) {
+    public ConsumerManagerRaiseShortageRequestJPanel(JPanel mainPanel, UserAccount account, ConsumerEnterprise enterprise, Network network) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.enterprise = enterprise;
         this.account = account;
         this.network = network;
@@ -155,9 +155,9 @@ public class ConsumerManagerRaiseShortageRequestJPanel extends javax.swing.JPane
     }
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnRaiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaiseActionPerformed

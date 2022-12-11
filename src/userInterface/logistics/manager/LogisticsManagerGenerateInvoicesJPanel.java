@@ -30,13 +30,13 @@ public class LogisticsManagerGenerateInvoicesJPanel extends javax.swing.JPanel {
     /**
      * Creates new form LogisticsManagerGenerateInvoices
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private UserAccount account;
     private Network network;
 
-    public LogisticsManagerGenerateInvoicesJPanel(JPanel userProcessContainer, UserAccount account, Network network) {
+    public LogisticsManagerGenerateInvoicesJPanel(JPanel mainPanel, UserAccount account, Network network) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.network = network;
         this.account = account;
         populateComboBox();
@@ -175,9 +175,9 @@ public class LogisticsManagerGenerateInvoicesJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void cmbConsumerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbConsumerActionPerformed

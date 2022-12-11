@@ -19,21 +19,21 @@ import javax.swing.table.DefaultTableModel;
  */
 public class SupervisionManagerViewRequestDetailsJPanel extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private CollectionWorkRequest cwr;
 
     /**
      * Creates new form ConsumerRequestViewJPanel
      */
-    public SupervisionManagerViewRequestDetailsJPanel(JPanel userProcessContainer, CollectionWorkRequest cwr) {
+    public SupervisionManagerViewRequestDetailsJPanel(JPanel mainPanel, CollectionWorkRequest cwr) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.cwr = cwr;
         populateTable();
         populateData();
     }
 
-    SupervisionManagerViewRequestDetailsJPanel(JPanel userProcessContainer, EcoSystem business, Network network) {
+    SupervisionManagerViewRequestDetailsJPanel(JPanel mainPanel, EcoSystem business, Network network) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -238,9 +238,9 @@ public class SupervisionManagerViewRequestDetailsJPanel extends javax.swing.JPan
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
 

@@ -23,12 +23,12 @@ public class LogisticsWorkerPickUpJPanel extends javax.swing.JPanel {
     /**
      * Creates new form LogisticsWorkerPickUpJPanel
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private UserAccount account;
 
-    public LogisticsWorkerPickUpJPanel(JPanel userProcessContainer, UserAccount account) {
+    public LogisticsWorkerPickUpJPanel(JPanel mainPanel, UserAccount account) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.account = account;
         populateTable();
     }
@@ -163,10 +163,10 @@ public class LogisticsWorkerPickUpJPanel extends javax.swing.JPanel {
             CollectionWorkRequest request = (CollectionWorkRequest) tblLogisticsWorker.getValueAt(selectedRow, 5);
             if (request.getStatus().equals(RequestStatus.getPickupStatusMessage(3))) {
 
-                LogisticsWorkerPickUpDetailsJPanel logisticsWorkerPickUpDetailsJPanel = new LogisticsWorkerPickUpDetailsJPanel(userProcessContainer, account, request);
-                userProcessContainer.add("LogisticsWorkerPickUpDetailsJPanel", logisticsWorkerPickUpDetailsJPanel);
-                CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-                layout.next(userProcessContainer);
+                LogisticsWorkerPickUpDetailsJPanel logisticsWorkerPickUpDetailsJPanel = new LogisticsWorkerPickUpDetailsJPanel(mainPanel, account, request);
+                mainPanel.add("LogisticsWorkerPickUpDetailsJPanel", logisticsWorkerPickUpDetailsJPanel);
+                CardLayout layout = (CardLayout) mainPanel.getLayout();
+                layout.next(mainPanel);
 
             } else {
                 JOptionPane.showMessageDialog(null,
@@ -179,9 +179,9 @@ public class LogisticsWorkerPickUpJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnPickupActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
 

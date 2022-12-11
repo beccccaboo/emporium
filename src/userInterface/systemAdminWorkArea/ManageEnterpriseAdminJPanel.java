@@ -37,7 +37,7 @@ import userInterface.snapshot.Snapshot;
  */
 public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private EcoSystem business;
     Snapshot snapshot;
     /**
@@ -49,9 +49,9 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
     UserAccount selectedPerson;
     
     
-    public ManageEnterpriseAdminJPanel(JPanel userProcessContainer, EcoSystem business) {
+    public ManageEnterpriseAdminJPanel(JPanel mainPanel, EcoSystem business) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.business = business;
 
         populateTable();
@@ -403,13 +403,13 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_cmbNetworkActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        userProcessContainer.remove(this);
-        Component[] componentArray = userProcessContainer.getComponents();
+        mainPanel.remove(this);
+        Component[] componentArray = mainPanel.getComponents();
         Component component = componentArray[componentArray.length - 1];
         SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
 //        sysAdminwjp.populateTree();
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
@@ -684,10 +684,10 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
     private void btnSnapshotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSnapshotActionPerformed
         // TODO add your handling code here:
-        snapshot = new Snapshot(userProcessContainer);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.add("snapshot", snapshot);
-        layout.next(userProcessContainer);
+        snapshot = new Snapshot(mainPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        mainPanel.add("snapshot", snapshot);
+        layout.next(mainPanel);
 //        selectedImagePath = snapshot.getPath();
         System.out.println("Selected Image: "+ selectedImagePath);
     }//GEN-LAST:event_btnSnapshotActionPerformed

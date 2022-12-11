@@ -22,15 +22,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class SupplierManagerViewRequestLogJPanel extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private Enterprise enterprise;
 
     /**
      * Creates new form SupplierWorkerViewRequestLogJPanel
      */
-    public SupplierManagerViewRequestLogJPanel(JPanel userProcessContainer, Enterprise enterprise) {
+    public SupplierManagerViewRequestLogJPanel(JPanel mainPanel, Enterprise enterprise) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.enterprise = enterprise;
 
         populateTable();
@@ -160,9 +160,9 @@ public class SupplierManagerViewRequestLogJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.remove(this);
-        layout.previous(userProcessContainer);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        mainPanel.remove(this);
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnViewRequestItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewRequestItemActionPerformed
@@ -176,10 +176,10 @@ public class SupplierManagerViewRequestLogJPanel extends javax.swing.JPanel {
         } else {
             CollectionWorkRequest cwr = (CollectionWorkRequest) tblLog.getValueAt(selectedRow, 2);
 
-            SupplierManagerViewLogItemJPanel restaurantWorkerViewLogItemJPanel = new SupplierManagerViewLogItemJPanel(userProcessContainer, cwr);
-            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            userProcessContainer.add("RestaurantWorkerViewLogItemJPanel", restaurantWorkerViewLogItemJPanel);
-            layout.next(userProcessContainer);
+            SupplierManagerViewLogItemJPanel restaurantWorkerViewLogItemJPanel = new SupplierManagerViewLogItemJPanel(mainPanel, cwr);
+            CardLayout layout = (CardLayout) mainPanel.getLayout();
+            mainPanel.add("RestaurantWorkerViewLogItemJPanel", restaurantWorkerViewLogItemJPanel);
+            layout.next(mainPanel);
         }
     }//GEN-LAST:event_btnViewRequestItemActionPerformed
 

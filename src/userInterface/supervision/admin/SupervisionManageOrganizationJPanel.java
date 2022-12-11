@@ -20,14 +20,14 @@ import javax.swing.table.DefaultTableModel;
 public class SupervisionManageOrganizationJPanel extends javax.swing.JPanel {
 
     private OrganizationDirectory directory;
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
 
     /**
      * Creates new form ManageOrganizationJPanel
      */
-    public SupervisionManageOrganizationJPanel(JPanel userProcessContainer, OrganizationDirectory directory) {
+    public SupervisionManageOrganizationJPanel(JPanel mainPanel, OrganizationDirectory directory) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.directory = directory;
         populateTable();
         populateCombo();
@@ -197,9 +197,9 @@ public class SupervisionManageOrganizationJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
 
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -20,12 +20,12 @@ public class ConsumerSupplierRequestViewJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ConsumerSupplierRequestViewJPanel
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private CollectionWorkRequest collectionWorkRequest;
 
-    public ConsumerSupplierRequestViewJPanel(JPanel userProcessContainer, CollectionWorkRequest collectionWorkRequest) {
+    public ConsumerSupplierRequestViewJPanel(JPanel mainPanel, CollectionWorkRequest collectionWorkRequest) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.collectionWorkRequest = collectionWorkRequest;
         populateTable();
         populateData();
@@ -188,9 +188,9 @@ public class ConsumerSupplierRequestViewJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
 
@@ -220,7 +220,7 @@ public class ConsumerSupplierRequestViewJPanel extends javax.swing.JPanel {
                 Object row[] = new Object[3];
                 row[0] = ri;
                 row[1] = ri.getQuantity();
-                row[2] = ri.getDaysBeforeDonation();
+                row[2] = ri.getDaysBeforeDisposal();
 
                 dtm.addRow(row);
             }

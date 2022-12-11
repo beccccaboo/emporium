@@ -19,7 +19,7 @@ import javax.swing.JPanel;
  */
 public class SupplierWorkerWorkAreaJPanel extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private UserAccount account;
     private Enterprise enterprise;
     private Network network;
@@ -27,9 +27,9 @@ public class SupplierWorkerWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form SupplierWorkerWorkArea
      */
-    public SupplierWorkerWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Enterprise enterprise, Network network) {
+    public SupplierWorkerWorkAreaJPanel(JPanel mainPanel, UserAccount account, Enterprise enterprise, Network network) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.account = account;
         this.enterprise = enterprise;
         this.network = network;
@@ -117,18 +117,18 @@ public class SupplierWorkerWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCollectionReqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCollectionReqActionPerformed
-        SupplierWorkerRaiseRequestJPanel supplierWorkerRaiseRequestJPanel = new SupplierWorkerRaiseRequestJPanel(userProcessContainer, account, enterprise.getName(), network);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.add("SupplierWorkerRaiseRequestJPanel", supplierWorkerRaiseRequestJPanel);
-        layout.next(userProcessContainer);
+        SupplierWorkerRaiseRequestJPanel supplierWorkerRaiseRequestJPanel = new SupplierWorkerRaiseRequestJPanel(mainPanel, account, enterprise.getName(), network);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        mainPanel.add("SupplierWorkerRaiseRequestJPanel", supplierWorkerRaiseRequestJPanel);
+        layout.next(mainPanel);
 
     }//GEN-LAST:event_btnCollectionReqActionPerformed
 
     private void btnLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogActionPerformed
-        SupplierWorkerViewRequestLogJPanel supplierWorkerViewRequestLogJPanel = new SupplierWorkerViewRequestLogJPanel(userProcessContainer, account);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.add("SupplierWorkerViewRequestLogJPanel", supplierWorkerViewRequestLogJPanel);
-        layout.next(userProcessContainer);
+        SupplierWorkerViewRequestLogJPanel supplierWorkerViewRequestLogJPanel = new SupplierWorkerViewRequestLogJPanel(mainPanel, account);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        mainPanel.add("SupplierWorkerViewRequestLogJPanel", supplierWorkerViewRequestLogJPanel);
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnLogActionPerformed
 
     private void populateLoginDetails() {

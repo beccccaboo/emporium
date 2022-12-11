@@ -24,11 +24,11 @@ public class ConsumerManageEmployeeJPanel extends javax.swing.JPanel {
      * Creates new form ConsumerManageEmployeeJPanel
      */
     private OrganizationDirectory organizationDirectory;
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
 
-    public ConsumerManageEmployeeJPanel(JPanel userProcessContainer, OrganizationDirectory organizationDirectory) {
+    public ConsumerManageEmployeeJPanel(JPanel mainPanel, OrganizationDirectory organizationDirectory) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.organizationDirectory = organizationDirectory;
 
         populateOrganizationComboBox();
@@ -225,9 +225,9 @@ public class ConsumerManageEmployeeJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
 
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnCreateEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateEmployeeActionPerformed

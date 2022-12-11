@@ -33,17 +33,17 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ConsumerManageUserAccount
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private Enterprise enterprise;
     private EcoSystem business;
 
     String operation;
     UserAccount selectedPerson;
     String selectedImagePath = File.separator+"Users"+File.separator+"rebeccabiju"+File.separator+"Downloads"+File.separator+"noImg.jpeg";
-    public ConsumerManageUserAccountJPanel(JPanel userProcessContainer, Enterprise enterprise, EcoSystem business) {
+    public ConsumerManageUserAccountJPanel(JPanel mainPanel, Enterprise enterprise, EcoSystem business) {
         initComponents();
         this.enterprise = enterprise;
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.business = business;
 
         populateOrganizationComboBox();
@@ -419,9 +419,9 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed

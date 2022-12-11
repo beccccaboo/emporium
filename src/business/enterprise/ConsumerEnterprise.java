@@ -57,10 +57,10 @@ public class ConsumerEnterprise extends Enterprise {
         // Traverse inventory
         System.out.println("\nInventory");
         for (RequestItem ri : inventory.getRequestItemList()) {
-            System.out.println(ri.getItemName() + " " + ri.getQuantity() + " " + ri.getDaysBeforeDonation());
+            System.out.println(ri.getItemName() + " " + ri.getQuantity() + " " + ri.getDaysBeforeDisposal());
 
             // If perished, add to wastage inventory
-            if (ri.getDaysBeforeDonation() <= 0 && wasteInventory != null) {
+            if (ri.getDaysBeforeDisposal() <= 0 && wasteInventory != null) {
                 wasteInventory.addRequestItem(ri);
             }
         }
@@ -71,7 +71,7 @@ public class ConsumerEnterprise extends Enterprise {
             // Remove from inventory, items added to wastage inventory
             inventory.getRequestItemList().removeAll(wasteInventory.getRequestItemList());
             for (RequestItem wri : wasteInventory.getRequestItemList()) {
-                System.out.println(wri.getItemName() + " " + wri.getQuantity() + " " + wri.getDaysBeforeDonation());
+                System.out.println(wri.getItemName() + " " + wri.getQuantity() + " " + wri.getDaysBeforeDisposal());
             }
         }
     }

@@ -55,7 +55,7 @@ public abstract class Role {
         return roleType;
     }
 
-    public abstract JPanel createWorkArea(JPanel userProcessContainer,
+    public abstract JPanel createWorkArea(JPanel mainPanel,
             UserAccount account,
             Organization organization,
             Enterprise enterprise,

@@ -20,14 +20,14 @@ public class LogisticsWorkerWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form LogisticsWorkerJPanel
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private UserAccount account;
     private Enterprise enterprise;
     private Network network;
 
-    public LogisticsWorkerWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Enterprise enterprise, Network network) {
+    public LogisticsWorkerWorkAreaJPanel(JPanel mainPanel, UserAccount account, Enterprise enterprise, Network network) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.account = account;
         this.enterprise = enterprise;
         this.network = network;
@@ -107,18 +107,18 @@ public class LogisticsWorkerWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeliveryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeliveryActionPerformed
-        LogisticsWorkerDeliveryJPanel logsiticsWorkerDeliveryJPanel = new LogisticsWorkerDeliveryJPanel(userProcessContainer, account, enterprise, network);
-        userProcessContainer.add("LogsiticsWorkerDeliveryJPanel", logsiticsWorkerDeliveryJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        LogisticsWorkerDeliveryJPanel logsiticsWorkerDeliveryJPanel = new LogisticsWorkerDeliveryJPanel(mainPanel, account, enterprise, network);
+        mainPanel.add("LogsiticsWorkerDeliveryJPanel", logsiticsWorkerDeliveryJPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnDeliveryActionPerformed
 
     private void btnPickupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPickupActionPerformed
 
-        LogisticsWorkerPickUpJPanel logisticsWorkerPickUpJPanel = new LogisticsWorkerPickUpJPanel(userProcessContainer, account);
-        userProcessContainer.add("LogisticsWorkerPickUpJPanel", logisticsWorkerPickUpJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        LogisticsWorkerPickUpJPanel logisticsWorkerPickUpJPanel = new LogisticsWorkerPickUpJPanel(mainPanel, account);
+        mainPanel.add("LogisticsWorkerPickUpJPanel", logisticsWorkerPickUpJPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
 
     }//GEN-LAST:event_btnPickupActionPerformed
 

@@ -19,15 +19,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class SupplierWorkerViewRequestLogJPanel extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private UserAccount account;
 
     /**
      * Creates new form SupplierWorkerViewRequestLogJPanel
      */
-    public SupplierWorkerViewRequestLogJPanel(JPanel userProcessContainer, UserAccount account) {
+    public SupplierWorkerViewRequestLogJPanel(JPanel mainPanel, UserAccount account) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.account = account;
 
         populateTable();
@@ -143,9 +143,9 @@ public class SupplierWorkerViewRequestLogJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.remove(this);
-        layout.previous(userProcessContainer);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        mainPanel.remove(this);
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnViewRequestItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewRequestItemActionPerformed
@@ -159,10 +159,10 @@ public class SupplierWorkerViewRequestLogJPanel extends javax.swing.JPanel {
         } else {
             CollectionWorkRequest cwr = (CollectionWorkRequest) tblLog.getValueAt(selectedRow, 1);
 
-            SupplierWorkerViewLogItemJPanel supplierWorkerViewLogItemJPanel = new SupplierWorkerViewLogItemJPanel(userProcessContainer, cwr);
-            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            userProcessContainer.add("SupplierWorkerViewLogItemJPanel", supplierWorkerViewLogItemJPanel);
-            layout.next(userProcessContainer);
+            SupplierWorkerViewLogItemJPanel supplierWorkerViewLogItemJPanel = new SupplierWorkerViewLogItemJPanel(mainPanel, cwr);
+            CardLayout layout = (CardLayout) mainPanel.getLayout();
+            mainPanel.add("SupplierWorkerViewLogItemJPanel", supplierWorkerViewLogItemJPanel);
+            layout.next(mainPanel);
         }
     }//GEN-LAST:event_btnViewRequestItemActionPerformed
 

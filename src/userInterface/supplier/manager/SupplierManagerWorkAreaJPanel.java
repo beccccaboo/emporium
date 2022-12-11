@@ -20,16 +20,16 @@ import javax.swing.JPanel;
  */
 public class SupplierManagerWorkAreaJPanel extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private UserAccount account;
     private Enterprise enterprise;
 
     /**
      * Creates new form SupplierManagerWorkAreaJPanel
      */
-    public SupplierManagerWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Enterprise enterprise) {
+    public SupplierManagerWorkAreaJPanel(JPanel mainPanel, UserAccount account, Enterprise enterprise) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.enterprise = enterprise;
         this.account = account;
 
@@ -144,17 +144,17 @@ public class SupplierManagerWorkAreaJPanel extends javax.swing.JPanel {
     }
 
     private void btnLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogActionPerformed
-        SupplierManagerViewRequestLogJPanel supplierManagerViewRequestLogJPanel = new SupplierManagerViewRequestLogJPanel(userProcessContainer, enterprise);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.add("SupplierWorkerViewRequestLogJPanel", supplierManagerViewRequestLogJPanel);
-        layout.next(userProcessContainer);
+        SupplierManagerViewRequestLogJPanel supplierManagerViewRequestLogJPanel = new SupplierManagerViewRequestLogJPanel(mainPanel, enterprise);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        mainPanel.add("SupplierWorkerViewRequestLogJPanel", supplierManagerViewRequestLogJPanel);
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnLogActionPerformed
 
     private void btnEmployeeReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmployeeReportsActionPerformed
-        SupplierManagerViewEmployeeWastageAvoidedRecords supplierManagerViewEmployeeWastageAvoidedRecords = new SupplierManagerViewEmployeeWastageAvoidedRecords(userProcessContainer, enterprise);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.add("SupplierManagerViewEmployeeWastageAvoidedRecords", supplierManagerViewEmployeeWastageAvoidedRecords);
-        layout.next(userProcessContainer);
+        SupplierManagerViewEmployeeWastageAvoidedRecords supplierManagerViewEmployeeWastageAvoidedRecords = new SupplierManagerViewEmployeeWastageAvoidedRecords(mainPanel, enterprise);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        mainPanel.add("SupplierManagerViewEmployeeWastageAvoidedRecords", supplierManagerViewEmployeeWastageAvoidedRecords);
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnEmployeeReportsActionPerformed
 
 
