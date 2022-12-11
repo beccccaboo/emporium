@@ -11,6 +11,7 @@ import business.organization.Organization;
 import business.role.Role;
 import business.userAccount.UserAccount;
 import javax.swing.JPanel;
+import userInterface.logistics.admin.LogisticsAdminWorkAreaJPanel;
 
 
 /**
@@ -24,9 +25,9 @@ public class LogisticsAdminRole extends Role {
     }
 
 
-//    @Override
-//    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
-//        return new LogisticsAdminWorkAreaJPanel(userProcessContainer, enterprise);
-//    }
+    @Override
+    public JPanel createWorkArea(JPanel mainPanel, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
+        return new LogisticsAdminWorkAreaJPanel(mainPanel, enterprise);
+    }
 
 }
