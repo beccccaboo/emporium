@@ -10,6 +10,7 @@ import business.network.Network;
 import business.organization.Organization;
 import business.organization.consumer.ConsumerWorkerOrganization;
 import business.userAccount.UserAccount;
+import business.util.mail.Mail;
 import business.util.request.RequestItem;
 import business.util.request.RequestStatus;
 import business.util.validation.Validation;
@@ -17,6 +18,7 @@ import business.workQueue.CollectionWorkRequest;
 import java.awt.CardLayout;
 import java.awt.Image;
 import java.io.File;
+import java.util.Arrays;
 import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -338,6 +340,13 @@ public class LogisticsWorkerDeliveryDetailsJPanel extends javax.swing.JPanel {
         if(snapshot.getPath()!=null)
             selectedImagePath = snapshot.getPath();
 
+        
+        DefaultTableModel dtm = (DefaultTableModel) tblDetails.getModel();
+        String items[] = new String[dtm.getRowCount()];
+        for(int i=0; i<dtm.getRowCount(); i++){
+            items[i] = dtm.getValueAt(i, 0).toString();
+        }
+                
         request.setStatus(RequestStatus.getPickupStatusMessage(5));
         request.setDeliveredBy(account);
         request.setDeliveryCost(cost);
@@ -353,6 +362,9 @@ public class LogisticsWorkerDeliveryDetailsJPanel extends javax.swing.JPanel {
                     for (UserAccount ua : o.getUserAccountDirectory().getUserAccountList()) {
                         if (request.getDeliverTo() == ua) {
                             ua.getWorkQueue().getWorkRequestList().add(request);
+                            
+                            //Mail to tell the consumer that the item has been delivered
+                            Mail.sendMail(ua.getEmail(), "Your item has been delivered!", "Your items "+Arrays.toString(items)+ " have been delivered. Please pick it up");
                             break;
                         }
                     }
