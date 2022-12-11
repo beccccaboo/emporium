@@ -33,17 +33,19 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
     /**
      * Creates new form LogisticsManageUserAccountJPanel
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private Enterprise enterprise;
     String operation;
     Snapshot snapshot;
     UserAccount selectedPerson;
     String selectedImagePath = File.separator+"Users"+File.separator+"rebeccabiju"+File.separator+"Downloads"+File.separator+"noImg.jpeg";
-    public LogisticsManageUserAccountJPanel(JPanel userProcessContainer, Enterprise enterprise) {
+    public LogisticsManageUserAccountJPanel(JPanel mainPanel, Enterprise enterprise) {
         initComponents();
         this.enterprise = enterprise;
-        this.userProcessContainer = userProcessContainer;
-        snapshot=new Snapshot(userProcessContainer);
+
+        this.mainPanel = mainPanel;
+        snapshot=new Snapshot(mainPanel);
+
         populateOrganizationComboBox();
         populateData();
         
@@ -411,9 +413,9 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed

@@ -28,7 +28,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private UserAccount account;
     private Network network;
     private String enterpriseName;
@@ -36,9 +36,9 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
     /**
      * Creates new form SupplierWorkerJPanel
      */
-    public SupplierWorkerRaiseRequestJPanel(JPanel userProcessContainer, UserAccount account, String enterpriseName, Network network) {
+    public SupplierWorkerRaiseRequestJPanel(JPanel mainPanel, UserAccount account, String enterpriseName, Network network) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.account = account;
         this.network = network;
         this.enterpriseName = enterpriseName;
@@ -357,9 +357,9 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnRaiseRequestActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.remove(this);
-        layout.previous(userProcessContainer);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        mainPanel.remove(this);
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed

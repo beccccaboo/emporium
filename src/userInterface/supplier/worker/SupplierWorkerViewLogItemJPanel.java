@@ -17,15 +17,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class SupplierWorkerViewLogItemJPanel extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private CollectionWorkRequest collectionWorkRequest;
 
     /**
      * Creates new form SupplierWorkerViewLogItemJPanel
      */
-    public SupplierWorkerViewLogItemJPanel(JPanel userProcessContainer, CollectionWorkRequest collectionWorkRequest) {
+    public SupplierWorkerViewLogItemJPanel(JPanel mainPanel, CollectionWorkRequest collectionWorkRequest) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.collectionWorkRequest = collectionWorkRequest;
         populateItemTable();
         populateData();
@@ -184,9 +184,9 @@ public class SupplierWorkerViewLogItemJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.remove(this);
-        layout.previous(userProcessContainer);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        mainPanel.remove(this);
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     public void populateItemTable() {

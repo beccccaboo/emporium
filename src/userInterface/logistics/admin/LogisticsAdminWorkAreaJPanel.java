@@ -18,12 +18,12 @@ public class LogisticsAdminWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form LogisticsAdminWorkAreaJPanel
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private Enterprise enterprise;
 
-    public LogisticsAdminWorkAreaJPanel(JPanel userProcessContainer, Enterprise enterprise) {
+    public LogisticsAdminWorkAreaJPanel(JPanel mainPanel, Enterprise enterprise) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.enterprise = enterprise;
         lblValue.setText(enterprise.getName());
     }
@@ -118,29 +118,29 @@ public class LogisticsAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnManageOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageOrganizationActionPerformed
 
-        LogisticsManageOrganizationJPanel manageLogisticsOrganizationJPanel = new LogisticsManageOrganizationJPanel(userProcessContainer, enterprise.getOrganizationDirectory());
-        userProcessContainer.add("manageLogisticsOrganizationJPanel", manageLogisticsOrganizationJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        LogisticsManageOrganizationJPanel manageLogisticsOrganizationJPanel = new LogisticsManageOrganizationJPanel(mainPanel, enterprise.getOrganizationDirectory());
+        mainPanel.add("manageLogisticsOrganizationJPanel", manageLogisticsOrganizationJPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnManageOrganizationActionPerformed
 
     private void btnManageEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageEmployeeActionPerformed
 
-        LogisticsManageEmployeeJPanel manageLogisticsEmployeeJPanel = new LogisticsManageEmployeeJPanel(userProcessContainer, enterprise.getOrganizationDirectory());
-        userProcessContainer.add("manageLogisticsEmployeeJPanel", manageLogisticsEmployeeJPanel);
+        LogisticsManageEmployeeJPanel manageLogisticsEmployeeJPanel = new LogisticsManageEmployeeJPanel(mainPanel, enterprise.getOrganizationDirectory());
+        mainPanel.add("manageLogisticsEmployeeJPanel", manageLogisticsEmployeeJPanel);
 
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
 
     }//GEN-LAST:event_btnManageEmployeeActionPerformed
 
     private void btnManageUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageUserActionPerformed
         // TODO add your handling code here:
-        LogisticsManageUserAccountJPanel manageLogisticsUserAccountJPanel = new LogisticsManageUserAccountJPanel(userProcessContainer, enterprise);
-        userProcessContainer.add("manageLogisticsUserAccountJPanel", manageLogisticsUserAccountJPanel);
+        LogisticsManageUserAccountJPanel manageLogisticsUserAccountJPanel = new LogisticsManageUserAccountJPanel(mainPanel, enterprise);
+        mainPanel.add("manageLogisticsUserAccountJPanel", manageLogisticsUserAccountJPanel);
 
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnManageUserActionPerformed
 
 

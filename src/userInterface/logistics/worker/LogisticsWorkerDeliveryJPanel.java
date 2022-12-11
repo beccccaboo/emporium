@@ -25,14 +25,14 @@ public class LogisticsWorkerDeliveryJPanel extends javax.swing.JPanel {
     /**
      * Creates new form LogisticsWorkerDeliveryJPanel
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private UserAccount account;
     private Enterprise enterprise;
     private Network network;
 
-    public LogisticsWorkerDeliveryJPanel(JPanel userProcessContainer, UserAccount account, Enterprise enterprise, Network network) {
+    public LogisticsWorkerDeliveryJPanel(JPanel mainPanel, UserAccount account, Enterprise enterprise, Network network) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.account = account;
         this.enterprise = enterprise;
         this.network = network;
@@ -155,10 +155,10 @@ public class LogisticsWorkerDeliveryJPanel extends javax.swing.JPanel {
             CollectionWorkRequest request = (CollectionWorkRequest) tblLogisticsWorker.getValueAt(selectedRow, 5);
             if (request.getStatus().equals(RequestStatus.getPickupStatusMessage(4))) {
 
-                LogisticsWorkerDeliveryDetailsJPanel logisticsWorkerDeliveryDetailsJPanel = new LogisticsWorkerDeliveryDetailsJPanel(userProcessContainer, account, enterprise, request, network);
-                userProcessContainer.add("LogisticsWorkerDeliveryDetailsJPanel", logisticsWorkerDeliveryDetailsJPanel);
-                CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-                layout.next(userProcessContainer);
+                LogisticsWorkerDeliveryDetailsJPanel logisticsWorkerDeliveryDetailsJPanel = new LogisticsWorkerDeliveryDetailsJPanel(mainPanel, account, enterprise, request, network);
+                mainPanel.add("LogisticsWorkerDeliveryDetailsJPanel", logisticsWorkerDeliveryDetailsJPanel);
+                CardLayout layout = (CardLayout) mainPanel.getLayout();
+                layout.next(mainPanel);
 
             } else {
                 JOptionPane.showMessageDialog(null,
@@ -171,9 +171,9 @@ public class LogisticsWorkerDeliveryJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnDeliveryActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
 

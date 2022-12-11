@@ -21,15 +21,15 @@ public class ConsumerWorkerWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form RegionWorkerJPanel
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private UserAccount account;
     private Organization organization;
     private Enterprise enterprise;
     private EcoSystem business;
 
-    public ConsumerWorkerWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
+    public ConsumerWorkerWorkAreaJPanel(JPanel mainPanel, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.business = business;
         this.account = account;
         this.organization = organization;
@@ -122,26 +122,26 @@ public class ConsumerWorkerWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnViewInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewInventoryActionPerformed
         // TODO add your handling code here:
-        ConsumerWorkerViewInventoryJPanel nGOWorkerInventoryUpdateJPanel = new ConsumerWorkerViewInventoryJPanel(userProcessContainer, enterprise);
-        userProcessContainer.add("NGOWorkerInventoryUpdateJPanel", nGOWorkerInventoryUpdateJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        ConsumerWorkerViewInventoryJPanel nGOWorkerInventoryUpdateJPanel = new ConsumerWorkerViewInventoryJPanel(mainPanel, enterprise);
+        mainPanel.add("NGOWorkerInventoryUpdateJPanel", nGOWorkerInventoryUpdateJPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnViewInventoryActionPerformed
 
     private void btnUpdateInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateInventoryActionPerformed
         // TODO add your handling code here:
-        ConsumerWorkerPickupDeliveryJPanel nGOWorkerInventoryUpdateJPanel = new ConsumerWorkerPickupDeliveryJPanel(userProcessContainer, account, enterprise);
-        userProcessContainer.add("NGOWorkerUpdateInventoryJPanel", nGOWorkerInventoryUpdateJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        ConsumerWorkerPickupDeliveryJPanel nGOWorkerInventoryUpdateJPanel = new ConsumerWorkerPickupDeliveryJPanel(mainPanel, account, enterprise);
+        mainPanel.add("NGOWorkerUpdateInventoryJPanel", nGOWorkerInventoryUpdateJPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnUpdateInventoryActionPerformed
 
     private void btnDistributeFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDistributeFoodActionPerformed
         // TODO add your handling code here:
-        ConsumerWorkerDistributeFoodJPanel distributeFoodJPanel = new ConsumerWorkerDistributeFoodJPanel(userProcessContainer, enterprise);
-        userProcessContainer.add("DistributeFoodJPanel", distributeFoodJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        ConsumerWorkerDistributeFoodJPanel distributeFoodJPanel = new ConsumerWorkerDistributeFoodJPanel(mainPanel, enterprise);
+        mainPanel.add("DistributeFoodJPanel", distributeFoodJPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnDistributeFoodActionPerformed
 
 

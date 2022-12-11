@@ -25,14 +25,14 @@ public class ConsumerWorkerViewInventoryJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ViewInventoryJPanel
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private ConsumerEnterprise enterprise;
     private UserAccount account;
     private Network network;
 
-    public ConsumerWorkerViewInventoryJPanel(JPanel userProcessContainer, Enterprise enterprise, UserAccount account, Network network) {
+    public ConsumerWorkerViewInventoryJPanel(JPanel mainPanel, Enterprise enterprise, UserAccount account, Network network) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.enterprise = (ConsumerEnterprise) enterprise;;
         this.account = account;
         this.network = network;
@@ -149,16 +149,16 @@ public class ConsumerWorkerViewInventoryJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnShortageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShortageActionPerformed
-        ConsumerManagerRaiseShortageRequestJPanel consumerRequestJPanel = new ConsumerManagerRaiseShortageRequestJPanel(userProcessContainer, account, enterprise, network);
-        userProcessContainer.add("ConsumerRequestJPanel", consumerRequestJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        ConsumerManagerRaiseShortageRequestJPanel consumerRequestJPanel = new ConsumerManagerRaiseShortageRequestJPanel(mainPanel, account, enterprise, network);
+        mainPanel.add("ConsumerRequestJPanel", consumerRequestJPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnShortageActionPerformed
 
 
@@ -179,12 +179,12 @@ public class ConsumerWorkerViewInventoryJPanel extends javax.swing.JPanel {
         double amount = 0;
 
         for (RequestItem ri : enterprise.getInventory().getRequestItemList()) {
-            if (ri.getDaysBeforeDonation()> 0 && ri.getQuantity() > 0) {
+            if (ri.getDaysBeforeDisposal()> 0 && ri.getQuantity() > 0) {
                 Object row[] = new Object[3];
 
                 row[0] = ri;
                 row[1] = ri.getQuantity();
-                row[2] = ri.getDaysBeforeDonation();
+                row[2] = ri.getDaysBeforeDisposal();
                 dtm.addRow(row);
 
                 amount += ItemQuantity.getQuantity(ri.getItemName()) * ri.getQuantity();

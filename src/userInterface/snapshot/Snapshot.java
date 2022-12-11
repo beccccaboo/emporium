@@ -35,14 +35,14 @@ public class Snapshot extends javax.swing.JPanel {
     String imgPath;
     Mat frame = new Mat();
     MatOfByte mem = new MatOfByte();
-    JPanel userProcessContainer;
+    JPanel mainPanel;
     
     public Snapshot(){
         initComponents();
     }
-    public Snapshot(JPanel userProcessContainer) {
+    public Snapshot(JPanel mainPanel) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         /* Set the Nimbus look and feel */
@@ -227,9 +227,9 @@ public class Snapshot extends javax.swing.JPanel {
             System.out.println("File access cancelled by user.");
         }
         
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_jButton3ActionPerformed
 
 

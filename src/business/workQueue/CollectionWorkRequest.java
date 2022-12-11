@@ -120,16 +120,16 @@ public class CollectionWorkRequest extends WorkRequest {
     
     //Hours to perish?
 
-    public void addRequestItem(String food, int quantity, int daysBeforeDonation) {
-        RequestItem ri = new RequestItem(food, quantity, daysBeforeDonation);
+    public void addRequestItem(String food, int quantity, int daysBeforeDisposal) {
+        RequestItem ri = new RequestItem(food, quantity, daysBeforeDisposal);
         requestItems.add(ri);
     }
 
-    public void updateDonation() {
+    public void updateDisposal() {
         for (RequestItem ri : requestItems) {
-            if (ri.getDaysBeforeDonation()> 0 && ri.getQuantity() > 0) {
-                ri.setDaysBeforeDonation(ri.getDaysBeforeDonation()- 0.25);
-                System.out.println(ri.getItemName() + " " + ri.getDaysBeforeDonation());
+            if (ri.getDaysBeforeDisposal()> 0 && ri.getQuantity() > 0) {
+                ri.setDaysBeforeDisposal(ri.getDaysBeforeDisposal()- 0.25);
+                System.out.println(ri.getItemName() + " " + ri.getDaysBeforeDisposal());
             }
         }
     }

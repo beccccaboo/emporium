@@ -26,14 +26,14 @@ public class ConsumerWorkerDistributeFoodJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ConsumerWorkerDistributeFoodJPanel
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private ConsumerEnterprise enterprise;
     private Distributed distributed;
     private Boolean isDistributed = false;
 
-    public ConsumerWorkerDistributeFoodJPanel(JPanel userProcessContainer, Enterprise enterprise) {
+    public ConsumerWorkerDistributeFoodJPanel(JPanel mainPanel, Enterprise enterprise) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.enterprise = (ConsumerEnterprise) enterprise;
         populateInventoryTable();
         if (!isDistributed) {
@@ -272,12 +272,12 @@ public class ConsumerWorkerDistributeFoodJPanel extends javax.swing.JPanel {
         dtm.setRowCount(0);
 
         for (RequestItem ri : enterprise.getInventory().getRequestItemList()) {
-            if (ri.getQuantity() > 0 && ri.getDaysBeforeDonation()> 0) {
+            if (ri.getQuantity() > 0 && ri.getDaysBeforeDisposal()> 0) {
                 Object row[] = new Object[3];
 
                 row[0] = ri;
                 row[1] = ri.getQuantity();
-                row[2] = ri.getDaysBeforeDonation();
+                row[2] = ri.getDaysBeforeDisposal();
                 dtm.addRow(row);
             }
         }
@@ -315,9 +315,9 @@ public class ConsumerWorkerDistributeFoodJPanel extends javax.swing.JPanel {
         dtm.setRowCount(0);
 
         // GO back
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
