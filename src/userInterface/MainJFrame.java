@@ -21,6 +21,8 @@ import business.workQueue.WorkRequest;
 import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import org.opencv.core.Core;
+import userInterface.snapshot.Snapshot;
 
 /**
  *
@@ -298,12 +300,14 @@ public class MainJFrame extends javax.swing.JFrame implements Runnable {
             java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 MainJFrame jFrame = new MainJFrame();
                 jFrame.setVisible(true);
+                new Snapshot().setVisible(true);
                 Thread thread = new Thread(jFrame);
                 thread.start();
             }

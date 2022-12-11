@@ -101,7 +101,11 @@
                                           </Group>
                                       </Group>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="btnBrowse" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="btnBrowse" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="btnSnapshot" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                           <Component id="txtMobileNo" min="-2" pref="136" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -144,7 +148,7 @@
                       <Component id="jScrollPane" min="-2" pref="586" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="85" pref="227" max="32767" attributes="0"/>
+              <EmptySpace min="85" pref="155" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -206,6 +210,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblPassword1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnBrowse" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnSnapshot" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lblImage" min="-2" pref="179" max="-2" attributes="0"/>
@@ -436,6 +441,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnSnapshot">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Snapshot"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSnapshotActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

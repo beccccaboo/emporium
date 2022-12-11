@@ -28,6 +28,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import userInterface.consumer.manager.ConsumerSupplierRequestViewJPanel;
+import userInterface.snapshot.Snapshot;
 
 /**
  *
@@ -37,13 +39,16 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private EcoSystem business;
-
+    Snapshot snapshot;
     /**
      * Creates new form ManagerEnterpriseAdminJPanel
      */
     String selectedImagePath = File.separator+"Users"+File.separator+"rebeccabiju"+File.separator+"Downloads"+File.separator+"noImg.jpeg";
+    
     String operation;
     UserAccount selectedPerson;
+    
+    
     public ManageEnterpriseAdminJPanel(JPanel userProcessContainer, EcoSystem business) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
@@ -109,6 +114,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
+        btnSnapshot = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 204, 204));
         setMinimumSize(new java.awt.Dimension(800, 800));
@@ -222,6 +228,13 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnSnapshot.setText("Snapshot");
+        btnSnapshot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSnapshotActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -268,7 +281,6 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                                 .addGap(9, 9, 9)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lblEmail)
@@ -283,11 +295,13 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                                                 .addComponent(lblPassword1)
                                                 .addGap(31, 31, 31)))
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnBrowse)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(btnBrowse)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(btnSnapshot))
                                             .addComponent(txtMobileNo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(121, 121, 121))))
                     .addGroup(layout.createSequentialGroup()
@@ -312,7 +326,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(lblNetworkList, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(85, 227, Short.MAX_VALUE))
+                .addGap(85, 155, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -361,7 +375,8 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblPassword1)
-                            .addComponent(btnBrowse))
+                            .addComponent(btnBrowse)
+                            .addComponent(btnSnapshot))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(69, 69, 69)))
@@ -442,6 +457,10 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             txtPassword.setBackground(Color.RED);
             return;
         }
+        
+        if(snapshot.getPath()!=null){
+            selectedImagePath = snapshot.getPath();
+        }
         UserAccount account = new UserAccount();
 
         String password = account.encodePassword(String.valueOf(passChar));
@@ -506,7 +525,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         cmbNetwork.setEnabled(true);
         txtUserName.setEnabled(true);
         toggleCombo(false);
-        selectedImagePath = "";
+//        selectedImagePath = "";
         toggleEditablePerson(false, Color.LIGHT_GRAY);
 
     }//GEN-LAST:event_btnSaveActionPerformed
@@ -568,6 +587,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 //        cmbRole.addItem(selectedPerson.getRole().getRoleType());
 
         ImageIcon imgIcon = new ImageIcon(selectedPerson.getImgPath());
+        
         System.out.println(selectedPerson.getImgPath()+""+lblImage.getWidth()+""+lblImage.getHeight());
         Image img =imgIcon.getImage().getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
 
@@ -661,6 +681,16 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         //        cmbOrganiztion.setSelectedIndex(0);
     }//GEN-LAST:event_btnCancelActionPerformed
 
+    private void btnSnapshotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSnapshotActionPerformed
+        // TODO add your handling code here:
+        snapshot = new Snapshot(userProcessContainer);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        userProcessContainer.add("snapshot", snapshot);
+        layout.next(userProcessContainer);
+//        selectedImagePath = snapshot.getPath();
+        System.out.println("Selected Image: "+ selectedImagePath);
+    }//GEN-LAST:event_btnSnapshotActionPerformed
+
     private void populateTable() {
         DefaultTableModel dtm = (DefaultTableModel) tblEnterprise.getModel();
         dtm.setRowCount(0);
@@ -702,6 +732,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnNew;
     private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnSnapshot;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnView;
     private javax.swing.JComboBox cmbEnterprise;
