@@ -22,6 +22,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import userInterface.snapshot.Snapshot;
 
 /**
  *
@@ -35,13 +36,14 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private Enterprise enterprise;
     String operation;
+    Snapshot snapshot;
     UserAccount selectedPerson;
     String selectedImagePath = File.separator+"Users"+File.separator+"rebeccabiju"+File.separator+"Downloads"+File.separator+"noImg.jpeg";
     public LogisticsManageUserAccountJPanel(JPanel userProcessContainer, Enterprise enterprise) {
         initComponents();
         this.enterprise = enterprise;
         this.userProcessContainer = userProcessContainer;
-
+        snapshot=new Snapshot(userProcessContainer);
         populateOrganizationComboBox();
         populateData();
         
@@ -58,6 +60,7 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
         toggleCombo(false);
         lblImage.setVisible(true);
         btnBrowse.setVisible(false);
+        btnSnapshot.setVisible(false);
     }
 
     public void populateOrganizationComboBox() {
@@ -139,6 +142,7 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
+        btnSnapshot = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 204));
         setMinimumSize(new java.awt.Dimension(800, 800));
@@ -259,6 +263,13 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnSnapshot.setText("Snapshot");
+        btnSnapshot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSnapshotActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -286,8 +297,10 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(lblPassword1)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(btnBrowse)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(btnBrowse)
+                                                    .addComponent(btnSnapshot))
+                                                .addGap(23, 23, 23)
                                                 .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -379,8 +392,11 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblPassword1)
                     .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBrowse))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnBrowse)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSnapshot)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack)
                     .addComponent(btnView)
@@ -438,7 +454,8 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
 
         UserAccount ua = new UserAccount();
         String password = ua.encodePassword(String.valueOf(passChar));
-        
+        if(snapshot.getPath()!=null)
+            selectedImagePath = snapshot.getPath();
         if(operation.equals("Update")){
             selectedPerson.setPassword(password);
             selectedPerson.setMobileNo(mobileNo);
@@ -482,6 +499,7 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
         btnUpdate.setVisible(false);
         tblUsers.setEnabled(true);
         btnBrowse.setVisible(false);
+        btnSnapshot.setVisible(false);
         cmbRole.setEnabled(true);
         cmbOrganiztion.setEnabled(true);
         cmbEmployee.setEnabled(true);
@@ -525,6 +543,7 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
         btnNew.setVisible(false);
         btnView.setVisible(false);
         btnBrowse.setVisible(true);
+        btnSnapshot.setVisible(true);
         btnSave.setVisible(true);
         btnCancel.setVisible(true);
         cmbRole.setEnabled(true);
@@ -561,7 +580,7 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
 
         lblImage.setIcon(new ImageIcon(img));
         btnBrowse.setVisible(false);
-
+        btnSnapshot.setVisible(false);
         //        System.out.println(selectedPerson.getEmployee().getName());
         //        txtPassword.setText(selectedPerson.getPassword());
         //
@@ -593,6 +612,7 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
         cmbEmployee.setEnabled(false);
         btnSave.setVisible(true);
         btnBrowse.setVisible(true);
+        btnSnapshot.setVisible(true);
         btnCancel.setVisible(true);
         tblUsers.setEnabled(false);
     }//GEN-LAST:event_btnUpdateActionPerformed
@@ -631,6 +651,7 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         btnNew.setVisible(true);
         btnBrowse.setVisible(false);
+        btnSnapshot.setVisible(false);
         btnView.setVisible(true);
         btnSave.setVisible(false);
         btnUpdate.setVisible(false);
@@ -649,6 +670,15 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
         //        cmbOrganiztion.setSelectedIndex(0);
     }//GEN-LAST:event_btnCancelActionPerformed
 
+    private void btnSnapshotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSnapshotActionPerformed
+        // TODO add your handling code here:
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        userProcessContainer.add("snapshot", snapshot);
+        layout.next(userProcessContainer);
+        //        selectedImagePath = snapshot.getPath();
+        System.out.println("Selected Image: "+ selectedImagePath);
+    }//GEN-LAST:event_btnSnapshotActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
@@ -657,6 +687,7 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnNew;
     private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnSnapshot;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnView;
     private javax.swing.JComboBox cmbEmployee;

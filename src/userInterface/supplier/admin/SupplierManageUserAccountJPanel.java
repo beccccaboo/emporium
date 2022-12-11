@@ -23,6 +23,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import userInterface.snapshot.Snapshot;
 
 /**
  *
@@ -36,6 +37,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
     private JPanel container;
     private Enterprise enterprise;
     private EcoSystem business;
+    Snapshot snapshot;
     String operation;
     UserAccount selectedPerson;
     String selectedImagePath = File.separator+"Users"+File.separator+"rebeccabiju"+File.separator+"Downloads"+File.separator+"noImg.jpeg";
@@ -44,6 +46,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
         this.enterprise = enterprise;
         this.container = container;
         this.business = business;
+        snapshot=new Snapshot(container);
         populateOrganizationComboBox();
         populateData();
         
@@ -61,6 +64,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
         toggleCombo(false);
         lblImage.setVisible(true);
         btnBrowse.setVisible(false);
+        btnSnapshot.setVisible(false);
     }
 
     public void populateOrganizationComboBox() {
@@ -146,6 +150,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
         btnBrowse = new javax.swing.JButton();
         lblImage = new javax.swing.JLabel();
         lblPassword1 = new javax.swing.JLabel();
+        btnSnapshot = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 204, 153));
         setMinimumSize(new java.awt.Dimension(800, 800));
@@ -271,6 +276,13 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
 
         lblPassword1.setText("Profile Image:");
 
+        btnSnapshot.setText("Snapshot");
+        btnSnapshot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSnapshotActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -327,10 +339,12 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
                                 .addGap(64, 64, 64)
                                 .addComponent(lblPassword1)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnBrowse)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnSnapshot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnBrowse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(88, 88, 88)
                                 .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 14, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(55, 55, 55)
@@ -382,19 +396,24 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblUserName)
-                                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblEmail))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblPassword)
-                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblMobileNo)
-                                    .addComponent(txtMobileNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btnBrowse)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnSnapshot, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lblUserName)
+                                        .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblEmail))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lblPassword)
+                                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblMobileNo)
+                                        .addComponent(txtMobileNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(92, 92, 92)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -405,9 +424,8 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
                                 .addComponent(btnBack)
                                 .addComponent(btnNew))
                             .addComponent(btnSave)))
-                    .addComponent(lblPassword1)
-                    .addComponent(btnBrowse))
-                .addContainerGap(300, Short.MAX_VALUE))
+                    .addComponent(lblPassword1))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBack, btnBrowse, btnCancel, btnDelete, btnNew, btnSave, btnUpdate, btnView, cmbEmployee, cmbOrganiztion, cmbRole, lblEmail, lblEmployee, lblMobileNo, lblOrganization, lblPassword, lblPassword1, lblRole, lblUserName, txtEmail, txtMobileNo, txtPassword, txtUserName});
@@ -452,6 +470,8 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
         
         UserAccount ua = new UserAccount();
         String password = ua.encodePassword(String.valueOf(passChar));
+        if(snapshot.getPath()!=null)
+            selectedImagePath = snapshot.getPath();
         Organization organization = (Organization) cmbOrganiztion.getSelectedItem();
         
         if(operation.equals("Update")){
@@ -496,6 +516,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
         btnUpdate.setVisible(false);
         tblUsers.setEnabled(true);
         btnBrowse.setVisible(false);
+        btnSnapshot.setVisible(false);
         cmbRole.setEnabled(true);
         cmbOrganiztion.setEnabled(true);
         cmbEmployee.setEnabled(true);
@@ -540,6 +561,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
         cmbEmployee.setEnabled(false);
         btnSave.setVisible(true);
         btnBrowse.setVisible(true);
+        btnSnapshot.setVisible(true);
         btnCancel.setVisible(true);
         tblUsers.setEnabled(false);
     }//GEN-LAST:event_btnUpdateActionPerformed
@@ -570,7 +592,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
         
         lblImage.setIcon(new ImageIcon(img));
         btnBrowse.setVisible(false);
-        
+        btnSnapshot.setVisible(false);
 //        System.out.println(selectedPerson.getEmployee().getName());
 //        txtPassword.setText(selectedPerson.getPassword());
         //
@@ -615,6 +637,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         btnNew.setVisible(true);
         btnBrowse.setVisible(false);
+        btnSnapshot.setVisible(false);
         btnView.setVisible(true);
         btnSave.setVisible(false);
         btnUpdate.setVisible(false);
@@ -641,6 +664,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
         btnNew.setVisible(false);
         btnView.setVisible(false);
         btnBrowse.setVisible(true);
+        btnSnapshot.setVisible(true);
         btnSave.setVisible(true);
         btnCancel.setVisible(true);
         cmbRole.setEnabled(true);
@@ -671,6 +695,15 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnBrowseActionPerformed
 
+    private void btnSnapshotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSnapshotActionPerformed
+        // TODO add your handling code here:
+        CardLayout layout = (CardLayout) container.getLayout();
+        container.add("snapshot", snapshot);
+        layout.next(container);
+        //        selectedImagePath = snapshot.getPath();
+        System.out.println("Selected Image: "+ selectedImagePath);
+    }//GEN-LAST:event_btnSnapshotActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBrowse;
@@ -678,6 +711,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnNew;
     private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnSnapshot;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnView;
     private javax.swing.JComboBox cmbEmployee;

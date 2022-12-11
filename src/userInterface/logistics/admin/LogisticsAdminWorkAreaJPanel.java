@@ -112,7 +112,7 @@ public class LogisticsAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnManageEmployee)
                 .addGap(24, 24, 24)
                 .addComponent(btnManageUser)
-                .addContainerGap(345, Short.MAX_VALUE))
+                .addContainerGap(401, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
