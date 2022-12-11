@@ -9,6 +9,7 @@ import business.enterprise.Enterprise;
 import business.organization.Organization;
 import business.role.Role;
 import business.userAccount.UserAccount;
+import business.util.mail.Mail;
 import business.util.validation.Validation;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -378,15 +379,16 @@ public class SupervisionManageUserAccountJPanel extends javax.swing.JPanel {
                     .addComponent(lblPassword1)
                     .addComponent(btnBrowse))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack)
-                    .addComponent(btnSave)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnView)
                         .addComponent(btnDelete)
                         .addComponent(btnUpdate)
                         .addComponent(btnCancel)
-                        .addComponent(btnNew)))
+                        .addComponent(btnNew))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnBack)
+                        .addComponent(btnSave)))
                 .addGap(116, 116, 116))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -606,7 +608,8 @@ public class SupervisionManageUserAccountJPanel extends javax.swing.JPanel {
             selectedPerson.setMobileNo(mobileNo);
             selectedPerson.setEmail(email);
             if(selectedImagePath!=null)
-            selectedPerson.setImgPath(selectedImagePath);
+                selectedPerson.setImgPath(selectedImagePath);
+            Mail.sendMail(email, "Details Updated!", "Your details have been updated on the portal!");
         }
         
         if(operation.equals("New")){
@@ -623,6 +626,7 @@ public class SupervisionManageUserAccountJPanel extends javax.swing.JPanel {
             }
 
             organization.getUserAccountDirectory().addUserAccount(userName, password, employee, role, email, mobileNo, selectedImagePath);
+            Mail.sendMail(email, "Welcome to Emporium!", "You have sucessfully registered to Emporium. Now manage second hand goods effeciently!");
             JOptionPane.showMessageDialog(null, "User account created successfully", "Information", JOptionPane.INFORMATION_MESSAGE);
 
         }

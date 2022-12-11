@@ -15,6 +15,7 @@ import business.role.logistics.LogisticsAdminRole;
 import business.role.supervision.SupervisionAdminRole;
 import business.role.supplier.SupplierAdminRole;
 import business.userAccount.UserAccount;
+import business.util.mail.Mail;
 import business.util.validation.Validation;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -469,6 +470,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                     switch (enterprise.getEnterpriseType()) {
                         case Logistics:
                             account = enterprise.getUserAccountDirectory().addUserAccount(userName, password, employee, (Role) new LogisticsAdminRole(), email, mobileNo, selectedImagePath);
+                            Mail.sendMail(email, "Welcome to Emporium!", "You have sucessfully registered to Emporium. Now manage second hand goods effeciently!");
                             break;
                         case Consumer:
                             account = enterprise.getUserAccountDirectory().addUserAccount(userName, password, employee, (Role) new ConsumerAdminRole(), email, mobileNo, selectedImagePath);
@@ -480,8 +482,10 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                             account = enterprise.getUserAccountDirectory().addUserAccount(userName, password, employee, (Role) new SupervisionAdminRole(), email, mobileNo, selectedImagePath);
                             break;
                         default:
+                          
                         break;
                     }
+                    Mail.sendMail(email, "Welcome to Emporium!", "You have sucessfully registered to Emporium. Now manage second hand goods effeciently!");
                 }
 
             JOptionPane.showMessageDialog(null, "Enterprise admin added successfully", "Information", JOptionPane.INFORMATION_MESSAGE);
@@ -502,6 +506,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         cmbNetwork.setEnabled(true);
         txtUserName.setEnabled(true);
         toggleCombo(false);
+        selectedImagePath = "";
         toggleEditablePerson(false, Color.LIGHT_GRAY);
 
     }//GEN-LAST:event_btnSaveActionPerformed

@@ -11,6 +11,7 @@ import business.enterprise.Enterprise;
 import business.organization.Organization;
 import business.role.Role;
 import business.userAccount.UserAccount;
+import business.util.mail.Mail;
 import business.util.validation.Validation;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -388,15 +389,15 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
                     .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBrowse))
                 .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnView)
                         .addComponent(btnDelete)
                         .addComponent(btnUpdate)
                         .addComponent(btnCancel)
                         .addComponent(btnNew)
-                        .addComponent(btnSave)))
+                        .addComponent(btnSave))
+                    .addComponent(btnBack))
                 .addGap(74, 74, 74))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -451,7 +452,8 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
             selectedPerson.setMobileNo(mobileNo);
             selectedPerson.setEmail(email);
             if(selectedImagePath!=null)
-            selectedPerson.setImgPath(selectedImagePath);
+                selectedPerson.setImgPath(selectedImagePath);
+            Mail.sendMail(email, "Details Updated!", "Your details have been updated on the portal!");
         }
         
         
@@ -472,7 +474,9 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
             }
 
             organization.getUserAccountDirectory().addUserAccount(userName, password, employee, role, email, mobileNo, selectedImagePath);
-           
+            Mail.sendMail(email, "Welcome to Emporium!", "You have sucessfully registered to Emporium. Now manage second hand goods effeciently!");
+            JOptionPane.showMessageDialog(null, "User account created successfully", "Information", JOptionPane.INFORMATION_MESSAGE);
+        
         }
         
         populateEmployeeComboBox(organization);
