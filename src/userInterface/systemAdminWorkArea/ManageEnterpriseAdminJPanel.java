@@ -26,8 +26,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.RowFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import userInterface.consumer.manager.ConsumerSupplierRequestViewJPanel;
 import userInterface.snapshot.Snapshot;
 
@@ -116,6 +118,8 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         btnSnapshot = new javax.swing.JButton();
+        txtSearchString = new javax.swing.JTextField();
+        lblSearchString = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 204, 204));
         setMinimumSize(new java.awt.Dimension(800, 800));
@@ -238,6 +242,19 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             }
         });
 
+        txtSearchString.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchStringActionPerformed(evt);
+            }
+        });
+        txtSearchString.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearchStringKeyReleased(evt);
+            }
+        });
+
+        lblSearchString.setText("Search String:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -323,8 +340,13 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                             .addComponent(lblNetworkList, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(73, 73, 73)
-                        .addComponent(lblCreateNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                        .addComponent(lblCreateNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(200, 200, 200)
+                        .addComponent(lblSearchString)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtSearchString, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnBack, btnBrowse, btnCancel, btnDelete, btnNew, btnSave, btnSnapshot, btnUpdate, btnView, cmbEnterprise, cmbNetwork, lblEmail, lblEnterprise, lblMobileNo, lblName, lblNetwork, lblPassword, lblPassword1, lblUserName, txtEmail, txtMobileNo, txtName, txtPassword, txtUserName});
@@ -337,8 +359,12 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 .addGap(48, 48, 48)
                 .addComponent(lblNetworkList)
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSearchString)
+                    .addComponent(txtSearchString, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(117, 117, 117)
+                .addGap(65, 65, 65)
                 .addComponent(jSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblCreateNetwork)
@@ -699,6 +725,16 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         System.out.println("Selected Image: "+ selectedImagePath);
     }//GEN-LAST:event_btnSnapshotActionPerformed
 
+    private void txtSearchStringActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchStringActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchStringActionPerformed
+
+    private void txtSearchStringKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchStringKeyReleased
+        // TODO add your handling code here:
+        String searchString = txtSearchString.getText();
+        search(searchString);
+    }//GEN-LAST:event_txtSearchStringKeyReleased
+
     private void populateTable() {
         DefaultTableModel dtm = (DefaultTableModel) tblEnterprise.getModel();
         dtm.setRowCount(0);
@@ -758,12 +794,14 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblNetworkList;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblPassword1;
+    private javax.swing.JLabel lblSearchString;
     private javax.swing.JLabel lblUserName;
     private javax.swing.JTable tblEnterprise;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtMobileNo;
     private javax.swing.JTextField txtName;
     private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtSearchString;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 
@@ -808,5 +846,13 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         cmbEnterprise.setEditable(b);
         cmbNetwork.setEditable(b);
         
+    }
+    
+    //For search box
+    private void search(String searchString){
+        DefaultTableModel model = (DefaultTableModel)tblEnterprise.getModel();
+        TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
+        tblEnterprise.setRowSorter(trs);
+        trs.setRowFilter(RowFilter.regexFilter(searchString));
     }
 }

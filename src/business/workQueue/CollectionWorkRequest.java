@@ -25,6 +25,7 @@ public class CollectionWorkRequest extends WorkRequest {
     private double deliveryCost;
     private boolean paid;
     private boolean invoiceGenerated;
+    private String imgPath;
 
     public CollectionWorkRequest() {
         requestItems = new ArrayList();
@@ -117,8 +118,16 @@ public class CollectionWorkRequest extends WorkRequest {
     public void setInvoiceGenerated(boolean invoiceGenerated) {
         this.invoiceGenerated = invoiceGenerated;
     }
+
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
+    }
     
-    //Hours to perish?
+    
 
     public void addRequestItem(String food, int quantity, int daysBeforeDisposal) {
         RequestItem ri = new RequestItem(food, quantity, daysBeforeDisposal);

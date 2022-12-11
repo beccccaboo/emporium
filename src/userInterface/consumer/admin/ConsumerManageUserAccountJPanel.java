@@ -58,7 +58,7 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
         toggleEditablePerson(false, Color.LIGHT_GRAY);
         clearDataPerson();
         btnCancel.setVisible(false);
-        btnDelete.setVisible(false);
+//        btnDelete.setVisible(false);
         
         toggleCombo(false);
         lblImage.setVisible(true);
@@ -144,7 +144,6 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
         btnNew = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         btnSnapshot = new javax.swing.JButton();
 
@@ -327,16 +326,6 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnDelete.setBackground(new java.awt.Color(191, 149, 155));
-        btnDelete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
-        btnDelete.setText("Delete");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
-
         btnCancel.setBackground(new java.awt.Color(191, 149, 155));
         btnCancel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCancel.setForeground(new java.awt.Color(255, 255, 255));
@@ -406,9 +395,7 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
                                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                                 .addComponent(lblMobileNo)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(txtMobileNo, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnSave))))
+                                                .addComponent(txtMobileNo, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(61, 61, 61)
                                 .addComponent(btnBack)
@@ -418,9 +405,9 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
                                 .addComponent(btnView)
                                 .addGap(30, 30, 30)
                                 .addComponent(btnUpdate)
-                                .addGap(31, 31, 31)
-                                .addComponent(btnDelete)
-                                .addGap(32, 32, 32)
+                                .addGap(33, 33, 33)
+                                .addComponent(btnSave)
+                                .addGap(30, 30, 30)
                                 .addComponent(btnCancel)))
                         .addGap(123, 123, 123))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -437,7 +424,7 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
                 .addGap(226, 226, 226))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnBack, btnBrowse, btnCancel, btnDelete, btnNew, btnSave, btnUpdate, btnView, cmbEmployee, cmbOrganiztion, cmbRole, lblEmail, lblEmployee, lblMobileNo, lblOrganization, lblPassword, lblPassword1, lblRole, lblUserName, txtEmail, txtMobileNo, txtPassword, txtUserName});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnBack, btnBrowse, btnCancel, btnNew, btnSave, btnUpdate, btnView, cmbEmployee, cmbOrganiztion, cmbRole, lblEmail, lblEmployee, lblMobileNo, lblOrganization, lblPassword, lblPassword1, lblRole, lblUserName, txtEmail, txtMobileNo, txtPassword, txtUserName});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -459,32 +446,27 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
                     .addComponent(lblRole)
                     .addComponent(cmbRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblUserName)
-                                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblPassword)
-                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblEmail)
-                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblMobileNo)
-                                    .addComponent(txtMobileNo, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(12, 12, 12))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnSave)
-                        .addGap(56, 56, 56)))
+                .addComponent(jSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblUserName)
+                            .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPassword)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEmail)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMobileNo)
+                            .addComponent(txtMobileNo, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -498,15 +480,15 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnView)
-                    .addComponent(btnDelete)
                     .addComponent(btnUpdate)
                     .addComponent(btnCancel)
                     .addComponent(btnNew)
-                    .addComponent(btnBack))
+                    .addComponent(btnBack)
+                    .addComponent(btnSave))
                 .addGap(110, 110, 110))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBack, btnCancel, btnDelete, btnNew, btnSave, btnUpdate, btnView, cmbEmployee, cmbOrganiztion, cmbRole, lblEmail, lblEmployee, lblMobileNo, lblOrganization, lblPassword, lblPassword1, lblRole, lblUserName, txtEmail, txtMobileNo, txtPassword, txtUserName});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBack, btnCancel, btnNew, btnSave, btnUpdate, btnView, cmbEmployee, cmbOrganiztion, cmbRole, lblEmail, lblEmployee, lblMobileNo, lblOrganization, lblPassword, lblPassword1, lblRole, lblUserName, txtEmail, txtMobileNo, txtPassword, txtUserName});
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -728,36 +710,6 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
         tblUsers.setEnabled(false);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
-        //        int selectedRowIndex = tblPerson.getSelectedRow();
-        //        if(selectedRowIndex<0){
-            //            JOptionPane.showMessageDialog(this, "Please select a row to delete data");
-            //            return;
-            //        }
-        //
-        //        DefaultTableModel model = (DefaultTableModel)tblPerson.getModel();
-        //        selectedPerson = (Person) model.getValueAt(selectedRowIndex, 0);
-        //        String username = selectedPerson.getUsername();
-        //        User user = userDir.getUserByUsername(username);
-        //        if(user.getRole().equals("patient")){
-            //            Patient patient = patientDir.getPatientByUsername(username);
-            //            patientDir.deletePatient(patient);
-            //        }
-        //        if(user.getRole().equals("doctor")){
-            //            Doctor doctor = doctorDir.getDoctorByUsername(username);
-            //            doctorDir.deleteDoctor(doctor);
-            //        }
-        //
-        //        personDir.deletePerson(selectedPerson);
-        //        userDir.deleteUser(user);
-        //
-        //        JOptionPane.showMessageDialog(this, "Person data deleted");
-        //        //
-        //        populateTablePerson();
-        //        clearDataPerson();
-    }//GEN-LAST:event_btnDeleteActionPerformed
-
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
         btnNew.setVisible(true);
@@ -766,7 +718,7 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
         btnView.setVisible(true);
         btnSave.setVisible(false);
         btnUpdate.setVisible(false);
-        btnDelete.setVisible(false);
+//        btnDelete.setVisible(false);
         btnCancel.setVisible(false);
         txtUserName.setEnabled(true);
         tblUsers.setEnabled(true);
@@ -795,7 +747,6 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBrowse;
     private javax.swing.JButton btnCancel;
-    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnNew;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnSnapshot;
