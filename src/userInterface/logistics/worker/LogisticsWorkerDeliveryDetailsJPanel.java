@@ -15,10 +15,14 @@ import business.util.request.RequestStatus;
 import business.util.validation.Validation;
 import business.workQueue.CollectionWorkRequest;
 import java.awt.CardLayout;
+import java.awt.Image;
+import java.io.File;
 import java.util.Date;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import userInterface.snapshot.Snapshot;
 
 /**
  *
@@ -35,9 +39,12 @@ public class LogisticsWorkerDeliveryDetailsJPanel extends javax.swing.JPanel {
     private Date date;
     private CollectionWorkRequest request;
     private Network network;
-
+    Snapshot snapshot;
+    String selectedImagePath = File.separator+"Users"+File.separator+"rebeccabiju"+File.separator+"Downloads"+File.separator+"noImg.jpeg";
+    
     public LogisticsWorkerDeliveryDetailsJPanel(JPanel mainPanel, UserAccount account, Enterprise enterprise, CollectionWorkRequest request, Network network) {
         initComponents();
+        snapshot=new Snapshot(mainPanel);
         this.mainPanel = mainPanel;
         this.account = account;
         this.request = request;
@@ -95,6 +102,10 @@ public class LogisticsWorkerDeliveryDetailsJPanel extends javax.swing.JPanel {
         lblWeightValue = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
         lblDateValue = new javax.swing.JLabel();
+        btnSnapshot = new javax.swing.JButton();
+        lblImage = new javax.swing.JLabel();
+        lblDate1 = new javax.swing.JLabel();
+        btnShow = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 204));
 
@@ -172,6 +183,25 @@ public class LogisticsWorkerDeliveryDetailsJPanel extends javax.swing.JPanel {
 
         lblDateValue.setText("<delivery_date>");
 
+        btnSnapshot.setText("Snapshot");
+        btnSnapshot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSnapshotActionPerformed(evt);
+            }
+        });
+
+        lblImage.setBorder(new javax.swing.border.MatteBorder(null));
+
+        lblDate1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblDate1.setText("Delivery Image:");
+
+        btnShow.setText("Show");
+        btnShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlDeliveryDetailsLayout = new javax.swing.GroupLayout(pnlDeliveryDetails);
         pnlDeliveryDetails.setLayout(pnlDeliveryDetailsLayout);
         pnlDeliveryDetailsLayout.setHorizontalGroup(
@@ -190,13 +220,24 @@ public class LogisticsWorkerDeliveryDetailsJPanel extends javax.swing.JPanel {
                     .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblPackage)
                     .addGroup(pnlDeliveryDetailsLayout.createSequentialGroup()
-                        .addComponent(lblDate)
-                        .addGap(23, 23, 23)
-                        .addComponent(lblDateValue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(pnlDeliveryDetailsLayout.createSequentialGroup()
                         .addComponent(lblWeight)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblWeightValue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(lblWeightValue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlDeliveryDetailsLayout.createSequentialGroup()
+                        .addGroup(pnlDeliveryDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDate)
+                            .addComponent(lblDate1))
+                        .addGap(23, 23, 23)
+                        .addGroup(pnlDeliveryDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDateValue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(pnlDeliveryDetailsLayout.createSequentialGroup()
+                                .addGroup(pnlDeliveryDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnlDeliveryDetailsLayout.createSequentialGroup()
+                                        .addComponent(btnSnapshot)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnShow))
+                                    .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(86, 86, 86))
         );
         pnlDeliveryDetailsLayout.setVerticalGroup(
@@ -222,7 +263,14 @@ public class LogisticsWorkerDeliveryDetailsJPanel extends javax.swing.JPanel {
                 .addGroup(pnlDeliveryDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDate)
                     .addComponent(lblDateValue))
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addGroup(pnlDeliveryDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSnapshot)
+                    .addComponent(lblDate1)
+                    .addComponent(btnShow))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -233,16 +281,16 @@ public class LogisticsWorkerDeliveryDetailsJPanel extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createSequentialGroup()
+                            .addComponent(btnBack)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblCost)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(txtCost, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
                             .addComponent(btnConfirm))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBack)
-                            .addComponent(pnlDeliveryDetails, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(pnlDeliveryDetails, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(10, 10, 10))
         );
         layout.setVerticalGroup(
@@ -250,16 +298,19 @@ public class LogisticsWorkerDeliveryDetailsJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(lblHeader)
-                .addGap(50, 50, 50)
+                .addGap(18, 18, 18)
                 .addComponent(pnlDeliveryDetails, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnConfirm)
-                    .addComponent(txtCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCost))
-                .addGap(38, 38, 38)
-                .addComponent(btnBack)
-                .addGap(43, 43, 43))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnBack)
+                        .addGap(40, 40, 40))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnConfirm)
+                            .addComponent(lblCost))
+                        .addGap(48, 48, 48))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -283,6 +334,9 @@ public class LogisticsWorkerDeliveryDetailsJPanel extends javax.swing.JPanel {
                     JOptionPane.WARNING_MESSAGE);
             return;
         }
+        
+        if(snapshot.getPath()!=null)
+            selectedImagePath = snapshot.getPath();
 
         request.setStatus(RequestStatus.getPickupStatusMessage(5));
         request.setDeliveredBy(account);
@@ -290,6 +344,7 @@ public class LogisticsWorkerDeliveryDetailsJPanel extends javax.swing.JPanel {
         request.setDeliveredByLogistics(enterprise.getName());
         request.setPaid(false);
         request.setResolveDate(new Date());
+        request.setImgPath(selectedImagePath);
 
         // Assign to Consumer Worker's queue who was assigned for pickup
         for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
@@ -315,17 +370,38 @@ public class LogisticsWorkerDeliveryDetailsJPanel extends javax.swing.JPanel {
         layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void btnSnapshotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSnapshotActionPerformed
+        // TODO add your handling code here:
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        mainPanel.add("snapshot", snapshot);
+        layout.next(mainPanel);
+        //        selectedImagePath = snapshot.getPath();
+        System.out.println("Selected Image: "+ selectedImagePath);
+    }//GEN-LAST:event_btnSnapshotActionPerformed
+
+    private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
+        // TODO add your handling code here:
+        ImageIcon imgIcon = new ImageIcon(selectedImagePath);
+        System.out.println(selectedImagePath);
+        Image img =imgIcon.getImage().getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+        
+    }//GEN-LAST:event_btnShowActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnConfirm;
+    private javax.swing.JButton btnShow;
+    private javax.swing.JButton btnSnapshot;
     private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JLabel lblCost;
     private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblDate1;
     private javax.swing.JLabel lblDateValue;
     private javax.swing.JLabel lblDeliveredTo;
     private javax.swing.JLabel lblDeliveredValue;
     private javax.swing.JLabel lblHeader;
+    private javax.swing.JLabel lblImage;
     private javax.swing.JLabel lblPackage;
     private javax.swing.JLabel lblRequestedBy;
     private javax.swing.JLabel lblRequestedByValue;
