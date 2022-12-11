@@ -29,26 +29,31 @@
                       <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="btnBack" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="btnRemove" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="btnBack" linkSize="1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="lblPeopleFed" min="-2" pref="77" max="-2" attributes="0"/>
-                                  <Component id="lblWastageAvoided" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnRemove" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="lblPeopleFed" min="-2" pref="77" max="-2" attributes="0"/>
+                                          <Component id="lblWastageAvoided" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="spnPeopleFed" min="-2" pref="46" max="-2" attributes="0"/>
+                                          <Component id="lblWastageAvoidedValue" min="-2" pref="115" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="spnPeopleFed" min="-2" pref="46" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="98" pref="98" max="-2" attributes="0"/>
-                              <Component id="btnConfirm" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="btnConfirm" linkSize="1" min="-2" pref="84" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblWastageAvoidedValue" min="-2" pref="115" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="269" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="390" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -88,7 +93,7 @@
               <Component id="jScrollPane" min="-2" pref="183" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnAdd" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAdd" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="spnQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -99,26 +104,26 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
-                      <Component id="btnBack" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnBack" linkSize="2" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnRemove" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnRemove" linkSize="2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblPeopleFed" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="spnPeopleFed" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblWastageAvoidedValue" alignment="0" min="-2" pref="14" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="lblWastageAvoided" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblWastageAvoidedValue" min="-2" pref="14" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnConfirm" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btnConfirm" linkSize="2" min="-2" pref="42" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="367" max="32767" attributes="0"/>
+              <EmptySpace pref="322" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -314,6 +319,18 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblWastageAvoidedValue">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+            <MatteColorBorder>
+              <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+            </MatteColorBorder>
+          </Border>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnBack">
       <Properties>

@@ -53,7 +53,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         initComponents();
         this.mainPanel = mainPanel;
         this.business = business;
-        snapshot=new Snapshot(userProcessContainer);
+        snapshot=new Snapshot(mainPanel);
         populateTable();
         populateNetworkComboBox();
         
