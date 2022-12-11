@@ -36,10 +36,10 @@ public class MainPageJPanel extends javax.swing.JPanel {
         mainPagePanel.setBackground(new java.awt.Color(204, 255, 255));
 
         lblHeading.setFont(new java.awt.Font("Tw Cen MT", 0, 52)); // NOI18N
-        lblHeading.setText("Food Wastage Management");
+        lblHeading.setText("Emporium");
 
         lblText.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        lblText.setText("<HTML>Donate your leftover food instead of wasting it.<br/>Help feed the needy.<br/>Reduce your carbon footprint</HTML>");
+        lblText.setText("AA");
 
         javax.swing.GroupLayout mainPagePanelLayout = new javax.swing.GroupLayout(mainPagePanel);
         mainPagePanel.setLayout(mainPagePanelLayout);
@@ -49,8 +49,8 @@ public class MainPageJPanel extends javax.swing.JPanel {
                 .addGap(67, 67, 67)
                 .addGroup(mainPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblHeading)
-                    .addComponent(lblText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(196, Short.MAX_VALUE))
+                    .addComponent(lblText))
+                .addContainerGap(600, Short.MAX_VALUE))
         );
         mainPagePanelLayout.setVerticalGroup(
             mainPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

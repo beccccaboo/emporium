@@ -27,9 +27,9 @@
                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="btnBack" min="-2" pref="104" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="724" max="-2" attributes="0"/>
-                              <Component id="btnViewRequestItem" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnBack" min="-2" pref="124" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="671" max="-2" attributes="0"/>
+                              <Component id="btnViewRequestItem" min="-2" pref="161" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jScrollPane" min="-2" pref="951" max="-2" attributes="0"/>
                       </Group>
@@ -39,7 +39,7 @@
                       <Component id="lblHeader" min="-2" pref="669" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="418" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -49,13 +49,13 @@
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Component id="lblHeader" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-              <Component id="jScrollPane" pref="449" max="32767" attributes="0"/>
+              <Component id="jScrollPane" pref="810" max="32767" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnBack" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnViewRequestItem" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="btnBack" pref="57" max="32767" attributes="0"/>
+                  <Component id="btnViewRequestItem" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

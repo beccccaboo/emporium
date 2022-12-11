@@ -56,7 +56,7 @@ public class SupplierWorkerWorkAreaJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 204, 153));
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblHeader.setText("Restaurant Worker Work Area");
+        lblHeader.setText("Supplier Worker Work Area");
 
         lblName.setText("Welcome, ");
 
@@ -92,7 +92,7 @@ public class SupplierWorkerWorkAreaJPanel extends javax.swing.JPanel {
                             .addComponent(lblName))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnLog, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                            .addComponent(btnLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblWastageValue, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCollectionReq, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(116, 116, 116))
@@ -112,7 +112,7 @@ public class SupplierWorkerWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnCollectionReq)
                 .addGap(27, 27, 27)
                 .addComponent(btnLog)
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap(737, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
