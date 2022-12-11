@@ -59,7 +59,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
         toggleEditablePerson(false, Color.LIGHT_GRAY);
         clearDataPerson();
         btnCancel.setVisible(false);
-        btnDelete.setVisible(false);
+//        btnDelete.setVisible(false);
         
         toggleCombo(false);
         lblImage.setVisible(true);
@@ -144,7 +144,6 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
         lblMobileNo = new javax.swing.JLabel();
         btnUpdate = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         btnNew = new javax.swing.JButton();
         btnBrowse = new javax.swing.JButton();
@@ -244,13 +243,6 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnDelete.setText("Delete");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
-
         btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -344,7 +336,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
                                     .addComponent(btnBrowse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(88, 88, 88)
                                 .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 14, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(55, 55, 55)
@@ -356,17 +348,15 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnUpdate)
                 .addGap(18, 18, 18)
-                .addComponent(btnDelete)
+                .addComponent(btnSave)
                 .addGap(18, 18, 18)
                 .addComponent(btnCancel)
-                .addGap(18, 18, 18)
-                .addComponent(btnSave)
-                .addContainerGap(308, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblEmail, lblMobileNo});
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnBack, btnBrowse, btnCancel, btnDelete, btnNew, btnSave, btnUpdate, btnView, txtMobileNo});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnBack, btnBrowse, btnCancel, btnNew, btnSave, btnUpdate, btnView, txtMobileNo});
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblEmployee, lblOrganization, lblRole});
 
@@ -400,7 +390,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(btnBrowse)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                                     .addComponent(btnSnapshot, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -415,20 +405,18 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
                                         .addComponent(lblMobileNo)
                                         .addComponent(txtMobileNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(92, 92, 92)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btnView)
-                                .addComponent(btnDelete)
-                                .addComponent(btnUpdate)
-                                .addComponent(btnCancel)
-                                .addComponent(btnBack)
-                                .addComponent(btnNew))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnView)
+                            .addComponent(btnUpdate)
+                            .addComponent(btnCancel)
+                            .addComponent(btnBack)
+                            .addComponent(btnNew)
                             .addComponent(btnSave)))
                     .addComponent(lblPassword1))
                 .addContainerGap(118, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBack, btnBrowse, btnCancel, btnDelete, btnNew, btnSave, btnUpdate, btnView, cmbEmployee, cmbOrganiztion, cmbRole, lblEmail, lblEmployee, lblMobileNo, lblOrganization, lblPassword, lblPassword1, lblRole, lblUserName, txtEmail, txtMobileNo, txtPassword, txtUserName});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBack, btnBrowse, btnCancel, btnNew, btnSave, btnUpdate, btnView, cmbEmployee, cmbOrganiztion, cmbRole, lblEmail, lblEmployee, lblMobileNo, lblOrganization, lblPassword, lblPassword1, lblRole, lblUserName, txtEmail, txtMobileNo, txtPassword, txtUserName});
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -603,36 +591,6 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
 //        btnDelete.setVisible(true);
     }//GEN-LAST:event_btnViewActionPerformed
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
-//        int selectedRowIndex = tblPerson.getSelectedRow();
-//        if(selectedRowIndex<0){
-//            JOptionPane.showMessageDialog(this, "Please select a row to delete data");
-//            return;
-//        }
-//
-//        DefaultTableModel model = (DefaultTableModel)tblPerson.getModel();
-//        selectedPerson = (Person) model.getValueAt(selectedRowIndex, 0);
-//        String username = selectedPerson.getUsername();
-//        User user = userDir.getUserByUsername(username);
-//        if(user.getRole().equals("patient")){
-//            Patient patient = patientDir.getPatientByUsername(username);
-//            patientDir.deletePatient(patient);
-//        }
-//        if(user.getRole().equals("doctor")){
-//            Doctor doctor = doctorDir.getDoctorByUsername(username);
-//            doctorDir.deleteDoctor(doctor);
-//        }
-//
-//        personDir.deletePerson(selectedPerson);
-//        userDir.deleteUser(user);
-//
-//        JOptionPane.showMessageDialog(this, "Person data deleted");
-//        //
-//        populateTablePerson();
-//        clearDataPerson();
-    }//GEN-LAST:event_btnDeleteActionPerformed
-
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
         btnNew.setVisible(true);
@@ -641,7 +599,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
         btnView.setVisible(true);
         btnSave.setVisible(false);
         btnUpdate.setVisible(false);
-        btnDelete.setVisible(false);
+//        btnDelete.setVisible(false);
         btnCancel.setVisible(false);
         txtUserName.setEnabled(true);
         tblUsers.setEnabled(true);
@@ -708,7 +666,6 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBrowse;
     private javax.swing.JButton btnCancel;
-    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnNew;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnSnapshot;
