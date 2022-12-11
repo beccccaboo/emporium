@@ -50,11 +50,17 @@ public class ConsumerWorkerWorkAreaJPanel extends javax.swing.JPanel {
         btnUpdateInventory = new javax.swing.JButton();
         btnDistributeFood = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 255, 204));
+        setBackground(new java.awt.Color(6, 36, 50));
+        setMinimumSize(new java.awt.Dimension(1400, 1000));
+        setPreferredSize(new java.awt.Dimension(1400, 1000));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("NGO Worker WorkArea Panel");
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setText("Consumer Worker WorkArea Panel");
 
+        btnViewInventory.setBackground(new java.awt.Color(191, 149, 123));
+        btnViewInventory.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnViewInventory.setForeground(new java.awt.Color(255, 255, 255));
         btnViewInventory.setText("View Inventory");
         btnViewInventory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,6 +68,9 @@ public class ConsumerWorkerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUpdateInventory.setBackground(new java.awt.Color(191, 149, 123));
+        btnUpdateInventory.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnUpdateInventory.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdateInventory.setText("Pickup Delivery");
         btnUpdateInventory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,6 +78,9 @@ public class ConsumerWorkerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnDistributeFood.setBackground(new java.awt.Color(191, 149, 123));
+        btnDistributeFood.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnDistributeFood.setForeground(new java.awt.Color(255, 255, 255));
         btnDistributeFood.setText("Distribute Food");
         btnDistributeFood.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,30 +93,30 @@ public class ConsumerWorkerWorkAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(356, 356, 356)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(264, 264, 264)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnUpdateInventory, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                            .addComponent(btnDistributeFood, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnViewInventory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btnUpdateInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(btnDistributeFood, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)
+                        .addComponent(btnViewInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(148, 148, 148)
+                        .addGap(87, 87, 87)
                         .addComponent(jLabel1)))
-                .addGap(173, 173, 173))
+                .addContainerGap(407, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(263, 263, 263)
                 .addComponent(jLabel1)
-                .addGap(54, 54, 54)
-                .addComponent(btnUpdateInventory)
-                .addGap(18, 18, 18)
-                .addComponent(btnDistributeFood)
-                .addGap(18, 18, 18)
-                .addComponent(btnViewInventory)
-                .addGap(160, 160, 160))
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnUpdateInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnViewInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDistributeFood, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(613, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
