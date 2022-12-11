@@ -54,7 +54,7 @@ public class SupervisionManageUserAccountJPanel extends javax.swing.JPanel {
         toggleEditablePerson(false, Color.LIGHT_GRAY);
         clearDataPerson();
         btnCancel.setVisible(false);
-        btnDelete.setVisible(false);
+//        btnDelete.setVisible(false);
         
         toggleCombo(false);
         lblImage.setVisible(true);
@@ -138,7 +138,6 @@ public class SupervisionManageUserAccountJPanel extends javax.swing.JPanel {
         btnNew = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         btnSnapshot = new javax.swing.JButton();
 
@@ -244,13 +243,6 @@ public class SupervisionManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnDelete.setText("Delete");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
-
         btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -304,11 +296,9 @@ public class SupervisionManageUserAccountJPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnUpdate)
                         .addGap(18, 18, 18)
-                        .addComponent(btnDelete)
+                        .addComponent(btnSave)
                         .addGap(18, 18, 18)
-                        .addComponent(btnCancel)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSave))
+                        .addComponent(btnCancel))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(88, 88, 88)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -393,17 +383,15 @@ public class SupervisionManageUserAccountJPanel extends javax.swing.JPanel {
                         .addComponent(btnBrowse)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnSnapshot)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnView)
-                        .addComponent(btnDelete)
                         .addComponent(btnUpdate)
                         .addComponent(btnCancel)
-                        .addComponent(btnNew))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnBack)
-                        .addComponent(btnSave)))
+                        .addComponent(btnNew)
+                        .addComponent(btnSave))
+                    .addComponent(btnBack))
                 .addGap(116, 116, 116))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -521,36 +509,6 @@ public class SupervisionManageUserAccountJPanel extends javax.swing.JPanel {
         tblUsers.setEnabled(false);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
-        //        int selectedRowIndex = tblPerson.getSelectedRow();
-        //        if(selectedRowIndex<0){
-            //            JOptionPane.showMessageDialog(this, "Please select a row to delete data");
-            //            return;
-            //        }
-        //
-        //        DefaultTableModel model = (DefaultTableModel)tblPerson.getModel();
-        //        selectedPerson = (Person) model.getValueAt(selectedRowIndex, 0);
-        //        String username = selectedPerson.getUsername();
-        //        User user = userDir.getUserByUsername(username);
-        //        if(user.getRole().equals("patient")){
-            //            Patient patient = patientDir.getPatientByUsername(username);
-            //            patientDir.deletePatient(patient);
-            //        }
-        //        if(user.getRole().equals("doctor")){
-            //            Doctor doctor = doctorDir.getDoctorByUsername(username);
-            //            doctorDir.deleteDoctor(doctor);
-            //        }
-        //
-        //        personDir.deletePerson(selectedPerson);
-        //        userDir.deleteUser(user);
-        //
-        //        JOptionPane.showMessageDialog(this, "Person data deleted");
-        //        //
-        //        populateTablePerson();
-        //        clearDataPerson();
-    }//GEN-LAST:event_btnDeleteActionPerformed
-
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
         btnNew.setVisible(true);
@@ -559,7 +517,7 @@ public class SupervisionManageUserAccountJPanel extends javax.swing.JPanel {
         btnView.setVisible(true);
         btnSave.setVisible(false);
         btnUpdate.setVisible(false);
-        btnDelete.setVisible(false);
+//        btnDelete.setVisible(false);
         btnCancel.setVisible(false);
         txtUserName.setEnabled(true);
         tblUsers.setEnabled(true);
@@ -683,7 +641,6 @@ public class SupervisionManageUserAccountJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBrowse;
     private javax.swing.JButton btnCancel;
-    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnNew;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnSnapshot;
