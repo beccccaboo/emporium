@@ -13,7 +13,7 @@ import business.role.Role;
 import business.role.Role.RoleType;
 import business.userAccount.UserAccount;
 import javax.swing.JPanel;
-import userInterface.consumer.manager.ConsumerManager;
+import userInterface.consumer.manager.ConsumerManagerWorkAreaJPanel;
 
 
 /**
@@ -29,7 +29,7 @@ public class ConsumerManagerRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
-        return new ConsumerManager(userProcessContainer, account, organization, enterprise, network, business);
+        return new ConsumerManagerWorkAreaJPanel(userProcessContainer, account, organization, enterprise, network);
     }
 
 }

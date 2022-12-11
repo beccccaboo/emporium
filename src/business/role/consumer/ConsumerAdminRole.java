@@ -7,7 +7,7 @@ import business.organization.Organization;
 import business.role.Role;
 import business.userAccount.UserAccount;
 import javax.swing.JPanel;
-import userInterface.consumer.admin.ConsumerAdmin;
+import userInterface.consumer.admin.ConsumerAdminWorkAreaJPanel;
 
 
 
@@ -23,7 +23,7 @@ public class ConsumerAdminRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel mainPanel, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
-        return new ConsumerAdmin(mainPanel, enterprise, business);
+        return new ConsumerAdminWorkAreaJPanel(mainPanel, enterprise, business);
     }
 
 }
