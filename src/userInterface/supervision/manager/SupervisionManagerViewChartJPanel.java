@@ -122,8 +122,8 @@ public class SupervisionManagerViewChartJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBack1)
-                            .addComponent(pnlChart, javax.swing.GroupLayout.PREFERRED_SIZE, 735, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(pnlChart, javax.swing.GroupLayout.PREFERRED_SIZE, 735, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addComponent(lblHeader)))
@@ -137,8 +137,8 @@ public class SupervisionManagerViewChartJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(pnlChart, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(btnBack1)
-                .addGap(30, 30, 30))
+                .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 

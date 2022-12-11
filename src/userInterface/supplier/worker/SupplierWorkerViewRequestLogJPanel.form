@@ -66,7 +66,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Restaurant Worker Work Area - Request Log"/>
+        <Property name="text" type="java.lang.String" value="Supplier Worker Work Area - Request Log"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane">

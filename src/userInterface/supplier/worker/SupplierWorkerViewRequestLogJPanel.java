@@ -68,7 +68,7 @@ public class SupplierWorkerViewRequestLogJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 204, 153));
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblHeader.setText("Restaurant Worker Work Area - Request Log");
+        lblHeader.setText("Supplier Worker Work Area - Request Log");
 
         tblLog.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

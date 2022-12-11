@@ -96,12 +96,12 @@ public class SupervisionManagerWorkAreaJPanel extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addComponent(lblValue)
                 .addGap(49, 49, 49)
-                .addComponent(btnWastageAvoided)
-                .addGap(24, 24, 24)
-                .addComponent(btnWastageAvoidedChart)
-                .addGap(24, 24, 24)
-                .addComponent(btnPeopleFed)
-                .addGap(102, 102, 102))
+                .addComponent(btnWastageAvoided, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnWastageAvoidedChart, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnPeopleFed, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 

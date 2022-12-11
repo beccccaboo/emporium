@@ -76,7 +76,7 @@ public class SupplierManageOrganizationJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 204, 153));
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblHeader.setText("Restaurant Adminstrative Work Area - Manage Organization");
+        lblHeader.setText("Supplier Adminstrative Work Area - Manage Organization");
 
         tblOrganization.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

@@ -21,31 +21,33 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="475" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblHeader" alignment="0" min="-2" pref="391" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="lblWastage" linkSize="1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="lblWastageValue" linkSize="1" min="-2" pref="111" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="512" max="-2" attributes="0"/>
+          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnEmployeeReports" max="32767" attributes="0"/>
-                          <Component id="btnLog" max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="-2" pref="573" max="-2" attributes="0"/>
+                      <Component id="lblName" linkSize="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblHeader" alignment="0" min="-2" pref="391" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="lblWastage" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblName" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="lblWastageValue" min="-2" pref="111" max="-2" attributes="0"/>
-                          </Group>
+                      <EmptySpace min="-2" pref="574" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btnLog" linkSize="1" max="32767" attributes="0"/>
+                          <Component id="btnEmployeeReports" linkSize="1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -55,17 +57,17 @@
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Component id="lblHeader" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-              <Component id="lblName" min="-2" max="-2" attributes="0"/>
+              <Component id="lblName" linkSize="2" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblWastage" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblWastageValue" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblWastage" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblWastageValue" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-              <Component id="btnLog" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+              <Component id="btnLog" linkSize="2" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnEmployeeReports" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+              <Component id="btnEmployeeReports" linkSize="2" min="-2" pref="83" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -76,7 +78,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Restaurant Manager Work Area"/>
+        <Property name="text" type="java.lang.String" value="Supplier Manager Work Area"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblName">
