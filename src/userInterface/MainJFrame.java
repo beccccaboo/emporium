@@ -204,7 +204,7 @@ public class MainJFrame extends javax.swing.JFrame implements Runnable {
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 264, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnLogout)
                 .addGap(19, 19, 19))
         );
@@ -230,9 +230,9 @@ public class MainJFrame extends javax.swing.JFrame implements Runnable {
         mainPagePanelLayout.setHorizontalGroup(
             mainPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPagePanelLayout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1803, Short.MAX_VALUE)
-                .addGap(24, 24, 24))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         mainPagePanelLayout.setVerticalGroup(
             mainPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

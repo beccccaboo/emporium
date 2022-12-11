@@ -39,7 +39,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
     private JPanel mainPanel;
     private EcoSystem business;
-    Snapshot snapshot;
+    Snapshot snapshot ;
     /**
      * Creates new form ManagerEnterpriseAdminJPanel
      */
@@ -53,7 +53,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         initComponents();
         this.mainPanel = mainPanel;
         this.business = business;
-
+        snapshot=new Snapshot(userProcessContainer);
         populateTable();
         populateNetworkComboBox();
         
@@ -70,6 +70,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         toggleCombo(false);
         lblImage.setVisible(true);
         btnBrowse.setVisible(false);
+        btnSnapshot.setVisible(false);
         
         txtName.setVisible(false);
         lblName.setVisible(false);
@@ -323,7 +324,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(73, 73, 73)
                         .addComponent(lblCreateNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnBack, btnBrowse, btnCancel, btnDelete, btnNew, btnSave, btnSnapshot, btnUpdate, btnView, cmbEnterprise, cmbNetwork, lblEmail, lblEnterprise, lblMobileNo, lblName, lblNetwork, lblPassword, lblPassword1, lblUserName, txtEmail, txtMobileNo, txtName, txtPassword, txtUserName});
@@ -386,7 +387,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                     .addComponent(btnUpdate)
                     .addComponent(btnDelete)
                     .addComponent(btnCancel))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBack, btnBrowse, btnCancel, btnDelete, btnNew, btnSave, btnSnapshot, btnUpdate, btnView, cmbEnterprise, cmbNetwork, lblEmail, lblEnterprise, lblMobileNo, lblName, lblNetwork, lblPassword, lblPassword1, lblUserName, txtEmail, txtMobileNo, txtName, txtPassword, txtUserName});
@@ -459,13 +460,12 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             return;
         }
         
-        if(snapshot.getPath()!=null){
-            selectedImagePath = snapshot.getPath();
-        }
+        
         UserAccount account = new UserAccount();
 
         String password = account.encodePassword(String.valueOf(passChar));
-        
+        if(snapshot.getPath()!=null)
+            selectedImagePath = snapshot.getPath();
         if(operation.equals("Update")){
 
             selectedPerson.setPassword(password);
@@ -478,6 +478,8 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
              }
         
             if(operation.equals("New")){
+                
+        
                 if (business.checkIfUserNameIsUnique(userName)) {
                     JOptionPane.showMessageDialog(null, "User name already exists. Please select a different one.");
                     return;
@@ -522,6 +524,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         btnUpdate.setVisible(false);
         tblEnterprise.setEnabled(true);
         btnBrowse.setVisible(false);
+        btnSnapshot.setVisible(false);
         cmbEnterprise.setEnabled(true);
         cmbNetwork.setEnabled(true);
         txtUserName.setEnabled(true);
@@ -555,6 +558,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         btnNew.setVisible(false);
         btnView.setVisible(false);
         btnBrowse.setVisible(true);
+        btnSnapshot.setVisible(true);
         btnSave.setVisible(true);
         btnCancel.setVisible(true);
         cmbNetwork.setEnabled(true);
@@ -594,7 +598,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
         lblImage.setIcon(new ImageIcon(img));
         btnBrowse.setVisible(false);
-
+        btnSnapshot.setVisible(false);
         //        System.out.println(selectedPerson.getEmployee().getName());
         //        txtPassword.setText(selectedPerson.getPassword());
         //
@@ -626,6 +630,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         cmbEnterprise.setEnabled(false);
         btnSave.setVisible(true);
         btnBrowse.setVisible(true);
+        btnSnapshot.setVisible(true);
         btnCancel.setVisible(true);
         tblEnterprise.setEnabled(false);
     }//GEN-LAST:event_btnUpdateActionPerformed
@@ -664,6 +669,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         btnNew.setVisible(true);
         btnBrowse.setVisible(false);
+        btnSnapshot.setVisible(false);
         btnView.setVisible(true);
         btnSave.setVisible(false);
         btnUpdate.setVisible(false);
@@ -684,10 +690,11 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
     private void btnSnapshotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSnapshotActionPerformed
         // TODO add your handling code here:
-        snapshot = new Snapshot(mainPanel);
+
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         mainPanel.add("snapshot", snapshot);
         layout.next(mainPanel);
+
 //        selectedImagePath = snapshot.getPath();
         System.out.println("Selected Image: "+ selectedImagePath);
     }//GEN-LAST:event_btnSnapshotActionPerformed

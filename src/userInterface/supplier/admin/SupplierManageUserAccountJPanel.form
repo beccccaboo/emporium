@@ -94,12 +94,15 @@
                               <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                               <Component id="lblPassword1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="btnBrowse" linkSize="4" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="btnSnapshot" max="32767" attributes="0"/>
+                                  <Component id="btnBrowse" linkSize="4" max="32767" attributes="0"/>
+                              </Group>
                               <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
                               <Component id="lblImage" min="-2" pref="259" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="14" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -154,22 +157,29 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblUserName" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtUserName" linkSize="2" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                                  <Component id="txtEmail" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblEmail" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblImage" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="btnBrowse" linkSize="2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="btnSnapshot" min="-2" pref="40" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblPassword" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtPassword" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblMobileNo" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtMobileNo" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblUserName" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtUserName" linkSize="2" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                                      <Component id="txtEmail" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblEmail" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblPassword" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtPassword" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblMobileNo" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtMobileNo" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
-                          <Component id="lblImage" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -185,9 +195,8 @@
                       </Group>
                   </Group>
                   <Component id="lblPassword1" linkSize="2" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnBrowse" linkSize="2" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="300" max="32767" attributes="0"/>
+              <EmptySpace pref="118" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -387,6 +396,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Profile Image:"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnSnapshot">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Snapshot"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSnapshotActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

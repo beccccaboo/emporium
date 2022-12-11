@@ -136,7 +136,7 @@
                       <Component id="lblCreateNetwork" min="-2" pref="283" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="18" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -210,7 +210,7 @@
                   <Component id="btnDelete" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnCancel" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="55" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
