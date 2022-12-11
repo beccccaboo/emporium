@@ -21,12 +21,12 @@ public class ConsumerViewShortageRequestJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ConsumerViewShortageRequestJPanel
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private Organization organization;
 
-    public ConsumerViewShortageRequestJPanel(JPanel userProcessContainer, Organization organization) {
+    public ConsumerViewShortageRequestJPanel(JPanel mainPanel, Organization organization) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.organization = organization;
         populateShortageTable();
     }
@@ -124,9 +124,9 @@ public class ConsumerViewShortageRequestJPanel extends javax.swing.JPanel {
     }
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
 

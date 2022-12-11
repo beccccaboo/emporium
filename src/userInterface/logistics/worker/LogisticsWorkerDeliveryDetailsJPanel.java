@@ -29,16 +29,16 @@ public class LogisticsWorkerDeliveryDetailsJPanel extends javax.swing.JPanel {
     /**
      * Creates new form LogisticsWorkerDeliverJPanel
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private UserAccount account;
     private Enterprise enterprise;
     private Date date;
     private CollectionWorkRequest request;
     private Network network;
 
-    public LogisticsWorkerDeliveryDetailsJPanel(JPanel userProcessContainer, UserAccount account, Enterprise enterprise, CollectionWorkRequest request, Network network) {
+    public LogisticsWorkerDeliveryDetailsJPanel(JPanel mainPanel, UserAccount account, Enterprise enterprise, CollectionWorkRequest request, Network network) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.account = account;
         this.request = request;
         this.enterprise = enterprise;
@@ -63,7 +63,7 @@ public class LogisticsWorkerDeliveryDetailsJPanel extends javax.swing.JPanel {
             Object row[] = new Object[3];
             row[0] = ri;
             row[1] = ri.getQuantity();
-            row[2] = ri.getDaysBeforeDonation();
+            row[2] = ri.getDaysBeforeDisposal();
 
             dtm.addRow(row);
         }
@@ -310,9 +310,9 @@ public class LogisticsWorkerDeliveryDetailsJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
 

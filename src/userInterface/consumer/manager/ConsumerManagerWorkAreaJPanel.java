@@ -21,15 +21,15 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form RegionManagerWorkArea
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private UserAccount account;
     private Organization organization;
     private Enterprise enterprise;
     private Network network;
 
-    public ConsumerManagerWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network) {
+    public ConsumerManagerWorkAreaJPanel(JPanel mainPanel, UserAccount account, Organization organization, Enterprise enterprise, Network network) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.account = account;
         this.organization = organization;
         this.enterprise = enterprise;
@@ -138,33 +138,33 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnSupplierRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupplierRequestActionPerformed
         // TODO add your handling code here:
-        ConsumerSupplierRequestJPanel supplierRequestJPanel = new ConsumerSupplierRequestJPanel(userProcessContainer, account, organization, enterprise, network);
-        userProcessContainer.add("SupplierRequestJPanel", supplierRequestJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        ConsumerSupplierRequestJPanel supplierRequestJPanel = new ConsumerSupplierRequestJPanel(mainPanel, account, organization, enterprise, network);
+        mainPanel.add("SupplierRequestJPanel", supplierRequestJPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnSupplierRequestActionPerformed
 
     private void btnInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventoryActionPerformed
         // TODO add your handling code here:
-        ConsumerWorkerViewInventoryJPanel viewConsumerInventoryJPanel = new ConsumerWorkerViewInventoryJPanel(userProcessContainer, enterprise, account, network);
-        userProcessContainer.add("ViewConsumerInventoryJPanel", viewConsumerInventoryJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        ConsumerWorkerViewInventoryJPanel viewConsumerInventoryJPanel = new ConsumerWorkerViewInventoryJPanel(mainPanel, enterprise, account, network);
+        mainPanel.add("ViewConsumerInventoryJPanel", viewConsumerInventoryJPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnInventoryActionPerformed
 
     private void btnWastageInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWastageInventoryActionPerformed
-        ConsumerWorkerViewWastageInventoryJPanel consumerWorkerViewwastageInventoryJPanel = new ConsumerWorkerViewWastageInventoryJPanel(userProcessContainer, enterprise);
-        userProcessContainer.add("ConsumerWorkerViewWastageInventoryJPanel", consumerWorkerViewwastageInventoryJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        ConsumerWorkerViewWastageInventoryJPanel consumerWorkerViewwastageInventoryJPanel = new ConsumerWorkerViewWastageInventoryJPanel(mainPanel, enterprise);
+        mainPanel.add("ConsumerWorkerViewWastageInventoryJPanel", consumerWorkerViewwastageInventoryJPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnWastageInventoryActionPerformed
 
     private void btnInvoicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvoicesActionPerformed
         // TODO add your handling code here:
-        ConsumerManagerPayInvoiceJPanel consumerManagerPayInvoiceJPanel = new ConsumerManagerPayInvoiceJPanel(userProcessContainer, account, organization);
-        userProcessContainer.add("ConsumerManagerPayInvoiceJPanel", consumerManagerPayInvoiceJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        ConsumerManagerPayInvoiceJPanel consumerManagerPayInvoiceJPanel = new ConsumerManagerPayInvoiceJPanel(mainPanel, account, organization);
+        mainPanel.add("ConsumerManagerPayInvoiceJPanel", consumerManagerPayInvoiceJPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnInvoicesActionPerformed
 
 

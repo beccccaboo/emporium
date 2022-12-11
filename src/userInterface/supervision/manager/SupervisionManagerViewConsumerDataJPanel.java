@@ -33,15 +33,15 @@ import org.jfree.data.category.DefaultCategoryDataset;
  */
 public class SupervisionManagerViewConsumerDataJPanel extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private Network network;
 
     /**
      * Creates new form SupervisionManagerViewPeopleFed
      */
-    public SupervisionManagerViewConsumerDataJPanel(JPanel userProcessContainer, Network network) {
+    public SupervisionManagerViewConsumerDataJPanel(JPanel mainPanel, Network network) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.network = network;
         populateFedChart();
         //populateExpensesChart();
@@ -222,9 +222,9 @@ public class SupervisionManagerViewConsumerDataJPanel extends javax.swing.JPanel
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.remove(this);
-        layout.previous(userProcessContainer);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        mainPanel.remove(this);
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
 

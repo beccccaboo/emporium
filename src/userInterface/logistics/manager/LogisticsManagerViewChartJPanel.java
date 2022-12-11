@@ -23,15 +23,15 @@ import org.jfree.data.general.DefaultPieDataset;
  */
 public class LogisticsManagerViewChartJPanel extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private UserAccount account;
 
     /**
      * Creates new form LogisticsManagerViewChartJPanel
      */
-    public LogisticsManagerViewChartJPanel(JPanel userProcessContainer, UserAccount account) {
+    public LogisticsManagerViewChartJPanel(JPanel mainPanel, UserAccount account) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.account = account;
         populateChart();
     }
@@ -164,9 +164,9 @@ public class LogisticsManagerViewChartJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.remove(this);
-        layout.previous(userProcessContainer);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        mainPanel.remove(this);
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
 

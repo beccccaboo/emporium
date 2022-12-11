@@ -21,15 +21,15 @@ public class LogisticsManagerWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form LogisticsManagerWorkAreaJPanel
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private UserAccount account;
     private Organization organization;
     private Enterprise enterprise;
     private Network network;
 
-    public LogisticsManagerWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network) {
+    public LogisticsManagerWorkAreaJPanel(JPanel mainPanel, UserAccount account, Organization organization, Enterprise enterprise, Network network) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.account = account;
         this.organization = organization;
         this.enterprise = enterprise;
@@ -139,33 +139,33 @@ public class LogisticsManagerWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnRestaurantRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurantRequestActionPerformed
         // TODO add your handling code here:
-        LogisticsManagerViewRequestsJPanel logisticsManagerViewRequestsJPanel = new LogisticsManagerViewRequestsJPanel(userProcessContainer, account, organization, enterprise);
-        userProcessContainer.add("LogisticsManagerViewRequestsJPanel", logisticsManagerViewRequestsJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        LogisticsManagerViewRequestsJPanel logisticsManagerViewRequestsJPanel = new LogisticsManagerViewRequestsJPanel(mainPanel, account, organization, enterprise);
+        mainPanel.add("LogisticsManagerViewRequestsJPanel", logisticsManagerViewRequestsJPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnRestaurantRequestActionPerformed
 
     private void btnInvoicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvoicesActionPerformed
-        LogisticsManagerGenerateInvoicesJPanel logisticsManagerGenerateInvoicesJPanel = new LogisticsManagerGenerateInvoicesJPanel(userProcessContainer, account, network);
-        userProcessContainer.add("LogisticsManagerGenerateInvoicesJPanel", logisticsManagerGenerateInvoicesJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        LogisticsManagerGenerateInvoicesJPanel logisticsManagerGenerateInvoicesJPanel = new LogisticsManagerGenerateInvoicesJPanel(mainPanel, account, network);
+        mainPanel.add("LogisticsManagerGenerateInvoicesJPanel", logisticsManagerGenerateInvoicesJPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnInvoicesActionPerformed
 
     private void btnWorkLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWorkLogActionPerformed
         // TODO add your handling code here:
-        LogisticsManagerViewWorkLogJPanel logisticsManagerViewWorkLogJPanel = new LogisticsManagerViewWorkLogJPanel(userProcessContainer, enterprise);
-        userProcessContainer.add("LogisticsManagerViewWorkLogJPanel", logisticsManagerViewWorkLogJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        LogisticsManagerViewWorkLogJPanel logisticsManagerViewWorkLogJPanel = new LogisticsManagerViewWorkLogJPanel(mainPanel, enterprise);
+        mainPanel.add("LogisticsManagerViewWorkLogJPanel", logisticsManagerViewWorkLogJPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnWorkLogActionPerformed
 
     private void btnPayementInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayementInfoActionPerformed
         // TODO add your handling code here:
-        LogisticsManagerViewChartJPanel logisticsManagerViewChartJPanel = new LogisticsManagerViewChartJPanel(userProcessContainer, account);
-        userProcessContainer.add("LogisticsManagerViewChartJPanel", logisticsManagerViewChartJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        LogisticsManagerViewChartJPanel logisticsManagerViewChartJPanel = new LogisticsManagerViewChartJPanel(mainPanel, account);
+        mainPanel.add("LogisticsManagerViewChartJPanel", logisticsManagerViewChartJPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnPayementInfoActionPerformed
 
 

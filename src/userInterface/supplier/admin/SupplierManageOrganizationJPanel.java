@@ -19,14 +19,14 @@ import javax.swing.table.DefaultTableModel;
 public class SupplierManageOrganizationJPanel extends javax.swing.JPanel {
 
     private OrganizationDirectory directory;
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
 
     /**
      * Creates new form ManageOrganizationJPanel
      */
-    public SupplierManageOrganizationJPanel(JPanel userProcessContainer, OrganizationDirectory directory) {
+    public SupplierManageOrganizationJPanel(JPanel mainPanel, OrganizationDirectory directory) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.directory = directory;
         populateTable();
         populateCombo();
@@ -192,9 +192,9 @@ public class SupplierManageOrganizationJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
 
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void cmbOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbOrganizationActionPerformed

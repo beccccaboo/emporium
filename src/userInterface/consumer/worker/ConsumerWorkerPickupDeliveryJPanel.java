@@ -26,13 +26,13 @@ public class ConsumerWorkerPickupDeliveryJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ConsumerWorkerPickupDeliveryJPanel
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private UserAccount account;
     private ConsumerEnterprise enterprise;
 
-    public ConsumerWorkerPickupDeliveryJPanel(JPanel userProcessContainer, UserAccount account, Enterprise enterprise) {
+    public ConsumerWorkerPickupDeliveryJPanel(JPanel mainPanel, UserAccount account, Enterprise enterprise) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.account = account;
         this.enterprise = (ConsumerEnterprise) enterprise;
         populateTable();
@@ -177,18 +177,18 @@ public class ConsumerWorkerPickupDeliveryJPanel extends javax.swing.JPanel {
         } else {
             CollectionWorkRequest request = (CollectionWorkRequest) tblDetails.getValueAt(selectedRow, 1);
 
-            ConsumerWorkerViewRequestJPanel consumerWorkerViewRequestJPanel = new ConsumerWorkerViewRequestJPanel(userProcessContainer, request);
-            userProcessContainer.add("ConsumerWorkerViewRequestJPanel", consumerWorkerViewRequestJPanel);
-            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            layout.next(userProcessContainer);
+            ConsumerWorkerViewRequestJPanel consumerWorkerViewRequestJPanel = new ConsumerWorkerViewRequestJPanel(mainPanel, request);
+            mainPanel.add("ConsumerWorkerViewRequestJPanel", consumerWorkerViewRequestJPanel);
+            CardLayout layout = (CardLayout) mainPanel.getLayout();
+            layout.next(mainPanel);
         }
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
 

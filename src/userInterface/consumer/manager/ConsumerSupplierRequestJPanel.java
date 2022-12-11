@@ -28,15 +28,15 @@ public class ConsumerSupplierRequestJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ConsumerSupplierRequestJPanel
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private UserAccount account;
     private Organization organization;
     private Enterprise enterprise;
     private Network network;
     
-    public ConsumerSupplierRequestJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network) {
+    public ConsumerSupplierRequestJPanel(JPanel mainPanel, UserAccount account, Organization organization, Enterprise enterprise, Network network) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.network = network;
         this.account = account;
         this.organization = organization;
@@ -270,18 +270,18 @@ public class ConsumerSupplierRequestJPanel extends javax.swing.JPanel {
         } else {
             CollectionWorkRequest cwr = (CollectionWorkRequest) tblSupplierRequests.getValueAt(selectedRow, 3);
             
-            ConsumerSupplierRequestViewJPanel supplierWorkerViewLogItemJPanel = new ConsumerSupplierRequestViewJPanel(userProcessContainer, cwr);
-            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            userProcessContainer.add("SupplierWorkerViewLogItemJPanel", supplierWorkerViewLogItemJPanel);
-            layout.next(userProcessContainer);
+            ConsumerSupplierRequestViewJPanel supplierWorkerViewLogItemJPanel = new ConsumerSupplierRequestViewJPanel(mainPanel, cwr);
+            CardLayout layout = (CardLayout) mainPanel.getLayout();
+            mainPanel.add("SupplierWorkerViewLogItemJPanel", supplierWorkerViewLogItemJPanel);
+            layout.next(mainPanel);
         }
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnApproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveActionPerformed
@@ -359,10 +359,10 @@ public class ConsumerSupplierRequestJPanel extends javax.swing.JPanel {
             CollectionWorkRequest request = (CollectionWorkRequest) tblSupplierRequests.getValueAt(selectedRow, 3);
             String message = txtMessageRedirect.getText();
             
-            ConsumerOtherRegionsRequestJPanel consumerOtherRegionsRequestJPanel = new ConsumerOtherRegionsRequestJPanel(userProcessContainer, request, organization, account, network, message);
-            userProcessContainer.add("ConsumerOtherRegionsRequestJPanel", consumerOtherRegionsRequestJPanel);
-            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            layout.next(userProcessContainer);            
+            ConsumerOtherRegionsRequestJPanel consumerOtherRegionsRequestJPanel = new ConsumerOtherRegionsRequestJPanel(mainPanel, request, organization, account, network, message);
+            mainPanel.add("ConsumerOtherRegionsRequestJPanel", consumerOtherRegionsRequestJPanel);
+            CardLayout layout = (CardLayout) mainPanel.getLayout();
+            layout.next(mainPanel);            
             txtMessageRedirect.setText("");
         }
         

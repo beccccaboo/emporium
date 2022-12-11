@@ -17,15 +17,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class LogisticsManagerViewRequestDetailsJPanel extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private CollectionWorkRequest cwr;
 
     /**
      * Creates new form ConsumerRequestViewJPanel
      */
-    LogisticsManagerViewRequestDetailsJPanel(JPanel userProcessContainer, CollectionWorkRequest cwr) {
+    LogisticsManagerViewRequestDetailsJPanel(JPanel mainPanel, CollectionWorkRequest cwr) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.cwr = cwr;
         populateTable();
         populateData();
@@ -228,9 +228,9 @@ public class LogisticsManagerViewRequestDetailsJPanel extends javax.swing.JPanel
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
 

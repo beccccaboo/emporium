@@ -38,15 +38,15 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  */
 public class SupervisionManagerViewWastageAvoidedBySupplierJPanel extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private Network network;
 
     /**
      * Creates new form SupervisionManagerViewWastageAvoidedByRestaurants
      */
-    public SupervisionManagerViewWastageAvoidedBySupplierJPanel(JPanel userProcessContainer, Network network) {
+    public SupervisionManagerViewWastageAvoidedBySupplierJPanel(JPanel mainPanel, Network network) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.network = network;
         populateSupplierCombo();
         populateData(null);
@@ -199,9 +199,9 @@ public class SupervisionManagerViewWastageAvoidedBySupplierJPanel extends javax.
     }//GEN-LAST:event_cmbSupplierActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetailsActionPerformed
@@ -216,11 +216,11 @@ public class SupervisionManagerViewWastageAvoidedBySupplierJPanel extends javax.
         } else {
             CollectionWorkRequest request = (CollectionWorkRequest) tblWastageAvoided.getValueAt(selectedRow, 2);
 
-            SupervisionManagerViewRequestDetailsJPanel supervisionManagerViewRequestDetailsJPanel = new SupervisionManagerViewRequestDetailsJPanel(userProcessContainer, request);
-            userProcessContainer.add("supervisionManagerViewRequestDetailsJPanel", supervisionManagerViewRequestDetailsJPanel);
+            SupervisionManagerViewRequestDetailsJPanel supervisionManagerViewRequestDetailsJPanel = new SupervisionManagerViewRequestDetailsJPanel(mainPanel, request);
+            mainPanel.add("supervisionManagerViewRequestDetailsJPanel", supervisionManagerViewRequestDetailsJPanel);
 
-            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            layout.next(userProcessContainer);
+            CardLayout layout = (CardLayout) mainPanel.getLayout();
+            layout.next(mainPanel);
         }
     }//GEN-LAST:event_btnDetailsActionPerformed
 

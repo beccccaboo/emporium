@@ -31,12 +31,12 @@ public class SupplierManagerViewEmployeeWastageAvoidedRecords extends javax.swin
     /**
      * Creates new form SupplierManagerViewEmployeeRecords
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private Enterprise enterprise;
 
-    public SupplierManagerViewEmployeeWastageAvoidedRecords(JPanel userProcessContainer, Enterprise enterprise) {
+    public SupplierManagerViewEmployeeWastageAvoidedRecords(JPanel mainPanel, Enterprise enterprise) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.enterprise = enterprise;
         populateChart();
     }
@@ -94,9 +94,9 @@ public class SupplierManagerViewEmployeeWastageAvoidedRecords extends javax.swin
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.remove(this);
-        layout.previous(userProcessContainer);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        mainPanel.remove(this);
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     public void populateChart() {
