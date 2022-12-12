@@ -33,4 +33,6 @@ Domain: Market Place for items
 #### Below is the Class Diagram: 
 <img width="1144" alt="image" src="https://user-images.githubusercontent.com/113070179/206957215-68f3fc61-d10f-4e09-a5af-edaaeaf531ed.png">
 
+### Below is ArchitecturalDiagram
 
+<img src="./ArchitecturalDiagram.jpg">
