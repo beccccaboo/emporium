@@ -74,11 +74,14 @@ public class SupervisionManageOrganizationJPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         btnAddOrganization = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(255, 51, 51));
+        setMinimumSize(new java.awt.Dimension(1400, 1000));
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblHeader.setText("Government Adminstrative Work Area - Manage Organization");
 
+        tblOrganization.setBackground(new java.awt.Color(255, 153, 153));
+        tblOrganization.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tblOrganization.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -108,8 +111,14 @@ public class SupervisionManageOrganizationJPanel extends javax.swing.JPanel {
             tblOrganization.getColumnModel().getColumn(1).setResizable(false);
         }
 
+        lblOrg.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblOrg.setText("Organization Type ");
 
+        cmbOrganization.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+
+        btnBack.setBackground(new java.awt.Color(102, 102, 102));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(204, 204, 204));
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,6 +126,9 @@ public class SupervisionManageOrganizationJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnAddOrganization.setBackground(new java.awt.Color(102, 102, 102));
+        btnAddOrganization.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAddOrganization.setForeground(new java.awt.Color(204, 204, 204));
         btnAddOrganization.setText("Add Organization");
         btnAddOrganization.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,33 +140,37 @@ public class SupervisionManageOrganizationJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, 815, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(165, 165, 165)
-                        .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(253, 253, 253)
-                        .addComponent(lblOrg)
-                        .addGap(18, 18, 18)
-                        .addComponent(cmbOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(135, 135, 135)
-                        .addComponent(btnBack)
-                        .addGap(306, 306, 306)
-                        .addComponent(btnAddOrganization))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 746, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(45, 45, 45))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(561, 561, 561)
+                                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(649, 649, 649)
+                                .addComponent(lblOrg)
+                                .addGap(18, 18, 18)
+                                .addComponent(cmbOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(531, 531, 531)
+                                .addComponent(btnBack)
+                                .addGap(306, 306, 306)
+                                .addComponent(btnAddOrganization)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jSeparator, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1394, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 746, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(198, 198, 198))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(246, 246, 246)
                 .addComponent(lblHeader)
-                .addGap(48, 48, 48)
+                .addGap(52, 52, 52)
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addComponent(jSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -166,7 +182,7 @@ public class SupervisionManageOrganizationJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack)
                     .addComponent(btnAddOrganization))
-                .addGap(62, 62, 62))
+                .addContainerGap(389, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
