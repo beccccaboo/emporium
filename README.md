@@ -1,5 +1,9 @@
 # Emporium - A Marketplace for all
-
+---
+### Team Members: 
+Arpit Jain (002771928)
+Rebecca Biju (002768633)
+Swarag Gutte (002728422)
 ---
 
 ### What does Emporium do?
