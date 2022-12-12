@@ -66,6 +66,7 @@ public class SupplierWorkerViewRequestLogJPanel extends javax.swing.JPanel {
         btnViewRequestItem = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 204, 153));
+        setMinimumSize(new java.awt.Dimension(1400, 1000));
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblHeader.setText("Supplier Worker Work Area - Request Log");
@@ -94,6 +95,7 @@ public class SupplierWorkerViewRequestLogJPanel extends javax.swing.JPanel {
             tblLog.getColumnModel().getColumn(3).setResizable(false);
         }
 
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,6 +103,7 @@ public class SupplierWorkerViewRequestLogJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnViewRequestItem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnViewRequestItem.setText("View Request Item");
         btnViewRequestItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,24 +116,23 @@ public class SupplierWorkerViewRequestLogJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(343, 343, 343)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(53, 53, 53)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(448, 448, 448)
-                                .addComponent(btnViewRequestItem))
-                            .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 675, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnViewRequestItem))
+                        .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 675, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(382, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(196, 196, 196)
                 .addComponent(lblHeader)
                 .addGap(50, 50, 50)
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -138,7 +140,7 @@ public class SupplierWorkerViewRequestLogJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack)
                     .addComponent(btnViewRequestItem))
-                .addContainerGap())
+                .addContainerGap(451, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

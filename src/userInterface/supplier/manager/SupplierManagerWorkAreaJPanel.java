@@ -53,16 +53,21 @@ public class SupplierManagerWorkAreaJPanel extends javax.swing.JPanel {
         btnEmployeeReports = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 204, 153));
+        setMinimumSize(new java.awt.Dimension(1400, 1000));
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblHeader.setText("Supplier Manager Work Area");
 
+        lblName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblName.setText("Welcome, ");
 
+        lblWastageValue.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblWastageValue.setText("<wastage_avoided>");
 
+        lblWastage.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblWastage.setText("Total wastage avoided :");
 
+        btnLog.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnLog.setText("View Request Log");
         btnLog.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +75,7 @@ public class SupplierManagerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnEmployeeReports.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnEmployeeReports.setText("View Employee Wastage Avoided");
         btnEmployeeReports.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,48 +88,48 @@ public class SupplierManagerWorkAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(475, Short.MAX_VALUE)
+                .addContainerGap(543, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblWastage)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblWastageValue, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(512, 512, 512))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(573, 573, 573)
-                        .addComponent(lblName))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(574, 574, 574)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnEmployeeReports, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnEmployeeReports, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblWastage, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblWastageValue, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(483, 483, 483))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnEmployeeReports, btnLog, lblName, lblWastage, lblWastageValue});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnEmployeeReports, btnLog});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(201, 201, 201)
                 .addComponent(lblHeader)
-                .addGap(48, 48, 48)
-                .addComponent(lblName)
                 .addGap(18, 18, 18)
+                .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblWastage)
-                    .addComponent(lblWastageValue))
-                .addGap(53, 53, 53)
+                    .addComponent(lblWastage, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblWastageValue, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
                 .addComponent(btnLog)
                 .addGap(18, 18, 18)
                 .addComponent(btnEmployeeReports, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(462, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnEmployeeReports, btnLog, lblName, lblWastage, lblWastageValue});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnEmployeeReports, btnLog});
 
     }// </editor-fold>//GEN-END:initComponents
 
