@@ -54,15 +54,21 @@ public class LogisticsManagerWorkAreaJPanel extends javax.swing.JPanel {
         btnWorkLog = new javax.swing.JButton();
         btnPayementInfo = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 204));
+        setBackground(new java.awt.Color(204, 204, 255));
+        setMinimumSize(new java.awt.Dimension(1400, 1000));
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblHeader.setText("Logistics Manager Work Area");
 
+        lblName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblName.setText("Welcome: ");
 
+        lblNameVal.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblNameVal.setText("<<View Name>>");
 
+        btnRestaurantRequest.setBackground(new java.awt.Color(0, 0, 51));
+        btnRestaurantRequest.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnRestaurantRequest.setForeground(new java.awt.Color(204, 204, 204));
         btnRestaurantRequest.setText("View Work Requests");
         btnRestaurantRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +76,9 @@ public class LogisticsManagerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnInvoices.setBackground(new java.awt.Color(0, 0, 51));
+        btnInvoices.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnInvoices.setForeground(new java.awt.Color(204, 204, 204));
         btnInvoices.setText("Generate Invoices");
         btnInvoices.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,6 +86,9 @@ public class LogisticsManagerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnWorkLog.setBackground(new java.awt.Color(0, 0, 51));
+        btnWorkLog.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnWorkLog.setForeground(new java.awt.Color(204, 204, 204));
         btnWorkLog.setText("View Work Log");
         btnWorkLog.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,6 +96,9 @@ public class LogisticsManagerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnPayementInfo.setBackground(new java.awt.Color(0, 0, 51));
+        btnPayementInfo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnPayementInfo.setForeground(new java.awt.Color(204, 204, 204));
         btnPayementInfo.setText("View Payment Info");
         btnPayementInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,45 +111,51 @@ public class LogisticsManagerWorkAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(478, 478, 478)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(189, 189, 189)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnWorkLog, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRestaurantRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblName)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblNameVal))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(88, 88, 88)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnInvoices, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnRestaurantRequest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnWorkLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnPayementInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                            .addComponent(btnInvoices, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnPayementInfo)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(161, 161, 161)
+                        .addGap(112, 112, 112)
+                        .addComponent(lblName)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblNameVal))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
                         .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(147, 147, 147))
+                .addContainerGap(494, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnInvoices, btnPayementInfo, btnRestaurantRequest, btnWorkLog});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(182, 182, 182)
                 .addComponent(lblHeader)
-                .addGap(45, 45, 45)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblName)
                     .addComponent(lblNameVal))
-                .addGap(40, 40, 40)
-                .addComponent(btnRestaurantRequest)
-                .addGap(25, 25, 25)
-                .addComponent(btnWorkLog)
-                .addGap(25, 25, 25)
-                .addComponent(btnInvoices)
-                .addGap(26, 26, 26)
-                .addComponent(btnPayementInfo)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRestaurantRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnInvoices))
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnWorkLog)
+                    .addComponent(btnPayementInfo))
+                .addContainerGap(503, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnInvoices, btnPayementInfo, btnRestaurantRequest, btnWorkLog});
+
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRestaurantRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurantRequestActionPerformed
