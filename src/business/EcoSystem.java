@@ -4,13 +4,19 @@
  */
 package business;
 
+import business.enterprise.Enterprise;
+import business.network.Network;
+import business.organization.Organization;
+import business.role.Role;
+import business.role.SystemAdminRole;
+import business.userAccount.UserAccountDirectory;
 import java.util.ArrayList;
 
 /**
  *
  * @author rebeccabiju
  */
-public class EcoSystem {
+public class EcoSystem extends Organization{
     private static EcoSystem ecoSystem;
     private ArrayList<Network> networkList;
 
@@ -77,4 +83,5 @@ public class EcoSystem {
         }
         return false;
     }
+
 }
