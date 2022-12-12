@@ -11,7 +11,7 @@ Domain: Market Place for items
     -    `Supervisor admin` : This role will be assigned to a supervision authority like mayor or equivalent person who can monitor if all the process is going on seamlessly and the supply is reaching to the actual consumer or not. Additionally he has task to assign a supervisor manager.
     -    `Supervisor manager` : This role will keep track of all the invoice and other records to check everything is working properly.
 
-2.`Consumer`: The consumer is the last enterprise in the entire process. Consumer will place an order for a particular item from the list of available item provided by the supplier. Consumer has 3 organizations under him which are admin, manager and worker
+2. `Consumer`: The consumer is the last enterprise in the entire process. Consumer will place an order for a particular item from the list of available item provided by the supplier. Consumer has 3 organizations under him which are admin, manager and worker.
     -    `Consumer Admin` : He will monitor the entire operation and will assign consumer managers for the tasks.
     -    `Consumer Manager` : This organisation will keep track of supplies and will place and order for required items. This role will also look after the invoices for the items. He can even raise a request for the items so that any supplier can fullfill that request. This role will also assign Consumer worker for the job.
     -    `Consumer worker` : This organisation has a task to go and pick the order placed by the consumer manager.
