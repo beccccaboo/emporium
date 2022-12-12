@@ -1,8 +1,8 @@
 # Emporium - A Marketplace for all
 ---
-### Team Members: 
-Arpit Jain (002771928)
-Rebecca Biju (002768633)
+### Team Members: <br>
+Arpit Jain (002771928)<br>
+Rebecca Biju (002768633)<br>
 Swarag Gutte (002728422)
 ---
 
