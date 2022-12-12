@@ -102,15 +102,14 @@ public class ConsumerSupplierRequestViewJPanel extends javax.swing.JPanel {
         lblCostVal.setForeground(new java.awt.Color(204, 204, 204));
         lblCostVal.setText("<cost>");
 
-        tblRequestDetails.setBackground(new java.awt.Color(87, 92, 123));
+        tblRequestDetails.setBackground(new java.awt.Color(204, 204, 204));
         tblRequestDetails.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        tblRequestDetails.setForeground(new java.awt.Color(255, 255, 255));
         tblRequestDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Quantity", "Type", "Hours to perish"
+                "Quantity", "Type", "Days Before Disposal"
             }
         ) {
             boolean[] canEdit = new boolean [] {

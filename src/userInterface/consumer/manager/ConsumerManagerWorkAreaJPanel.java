@@ -75,7 +75,7 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
         btnSupplierRequest.setBackground(new java.awt.Color(191, 149, 155));
         btnSupplierRequest.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSupplierRequest.setForeground(new java.awt.Color(255, 255, 255));
-        btnSupplierRequest.setText("Restaurants Requests");
+        btnSupplierRequest.setLabel("Supplier Requests");
         btnSupplierRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSupplierRequestActionPerformed(evt);
@@ -105,7 +105,7 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
         btnWastageInventory.setBackground(new java.awt.Color(191, 149, 155));
         btnWastageInventory.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnWastageInventory.setForeground(new java.awt.Color(255, 255, 255));
-        btnWastageInventory.setText("View Wastage Inventory");
+        btnWastageInventory.setText("View Disposal Inventory");
         btnWastageInventory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnWastageInventoryActionPerformed(evt);
@@ -126,7 +126,7 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
                         .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnWastageInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 195, Short.MAX_VALUE)
+                            .addComponent(btnWastageInventory, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
                             .addComponent(btnSupplierRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

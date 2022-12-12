@@ -60,9 +60,8 @@ public class ConsumerManagerPayInvoiceJPanel extends javax.swing.JPanel {
         lblHeader.setForeground(new java.awt.Color(204, 204, 204));
         lblHeader.setText("Consumer Manager - Pay Invoices");
 
-        tblDetails.setBackground(new java.awt.Color(87, 92, 123));
+        tblDetails.setBackground(new java.awt.Color(204, 204, 204));
         tblDetails.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        tblDetails.setForeground(new java.awt.Color(255, 255, 255));
         tblDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -115,9 +114,6 @@ public class ConsumerManagerPayInvoiceJPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(265, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(252, 252, 252)
-                        .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 910, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(125, 125, 125)
@@ -125,6 +121,10 @@ public class ConsumerManagerPayInvoiceJPanel extends javax.swing.JPanel {
                         .addGap(466, 466, 466)
                         .addComponent(btnPay)))
                 .addGap(242, 242, 242))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(463, 463, 463)
+                .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnBack, btnPay});

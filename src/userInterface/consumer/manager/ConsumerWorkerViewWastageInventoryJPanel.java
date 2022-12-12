@@ -52,15 +52,14 @@ public class ConsumerWorkerViewWastageInventoryJPanel extends javax.swing.JPanel
         setBackground(new java.awt.Color(6, 36, 50));
         setMinimumSize(new java.awt.Dimension(1400, 1000));
 
-        tblInventory.setBackground(new java.awt.Color(87, 92, 123));
+        tblInventory.setBackground(new java.awt.Color(204, 204, 204));
         tblInventory.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        tblInventory.setForeground(new java.awt.Color(204, 204, 204));
         tblInventory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Item", "Quantity", "Wastage Amount(In pounds)"
+                "Item", "Quantity", "Disposal Amount(In pounds)"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -81,7 +80,7 @@ public class ConsumerWorkerViewWastageInventoryJPanel extends javax.swing.JPanel
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblHeader.setForeground(new java.awt.Color(204, 204, 204));
-        lblHeader.setText("Consumer Manager - Wastage Records");
+        lblHeader.setText("Consumer Manager - Disposal Records");
 
         btnBack.setBackground(new java.awt.Color(191, 149, 155));
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -106,18 +105,20 @@ public class ConsumerWorkerViewWastageInventoryJPanel extends javax.swing.JPanel
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(446, 446, 446)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBack)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
+                        .addGap(446, 446, 446)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBack)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
                                 .addComponent(lblQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblQuantityVal, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(lblQuantityVal, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(414, 414, 414)
+                        .addComponent(lblHeader)))
                 .addContainerGap(502, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

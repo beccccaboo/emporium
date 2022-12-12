@@ -162,7 +162,7 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblRole.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblRole.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblRole.setForeground(new java.awt.Color(204, 204, 204));
         lblRole.setText("Role");
 
@@ -175,19 +175,18 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblUserName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblUserName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblUserName.setForeground(new java.awt.Color(204, 204, 204));
         lblUserName.setText("User Name");
 
-        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         lblHeader.setForeground(new java.awt.Color(204, 204, 204));
         lblHeader.setText("Consumer Adminstrative Work Area - Manage Users");
 
         txtUserName.setBackground(new java.awt.Color(191, 149, 155));
         txtUserName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        tblUsers.setBackground(new java.awt.Color(87, 92, 123));
-        tblUsers.setForeground(new java.awt.Color(255, 255, 255));
+        tblUsers.setBackground(new java.awt.Color(204, 204, 204));
         tblUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -213,13 +212,12 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
         });
         jScrollPane.setViewportView(tblUsers);
 
-        lblPassword.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblPassword.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(204, 204, 204));
         lblPassword.setText("Password");
 
         btnBack.setBackground(new java.awt.Color(191, 149, 155));
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -227,13 +225,12 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblOrganization.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblOrganization.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblOrganization.setForeground(new java.awt.Color(204, 204, 204));
         lblOrganization.setText("Organization");
 
         btnSave.setBackground(new java.awt.Color(191, 149, 155));
-        btnSave.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,7 +247,7 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblEmployee.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEmployee.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblEmployee.setForeground(new java.awt.Color(204, 204, 204));
         lblEmployee.setText("Employee");
 
@@ -262,7 +259,7 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblEmail.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEmail.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblEmail.setForeground(new java.awt.Color(204, 204, 204));
         lblEmail.setText("Email");
 
@@ -272,13 +269,12 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
         txtMobileNo.setBackground(new java.awt.Color(191, 149, 155));
         txtMobileNo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        lblMobileNo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblMobileNo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblMobileNo.setForeground(new java.awt.Color(204, 204, 204));
         lblMobileNo.setText("Phone Number");
 
         btnBrowse.setBackground(new java.awt.Color(191, 149, 155));
-        btnBrowse.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBrowse.setForeground(new java.awt.Color(255, 255, 255));
+        btnBrowse.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBrowse.setText("Browse");
         btnBrowse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -286,15 +282,14 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblPassword1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblPassword1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblPassword1.setForeground(new java.awt.Color(204, 204, 204));
         lblPassword1.setText("Profile Image:");
 
         lblImage.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
 
         btnNew.setBackground(new java.awt.Color(191, 149, 155));
-        btnNew.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnNew.setForeground(new java.awt.Color(255, 255, 255));
+        btnNew.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnNew.setText("New");
         btnNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -303,8 +298,7 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
         });
 
         btnView.setBackground(new java.awt.Color(191, 149, 155));
-        btnView.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnView.setForeground(new java.awt.Color(255, 255, 255));
+        btnView.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnView.setText("View");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -313,8 +307,7 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
         });
 
         btnUpdate.setBackground(new java.awt.Color(191, 149, 155));
-        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -323,8 +316,7 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
         });
 
         btnCancel.setBackground(new java.awt.Color(191, 149, 155));
-        btnCancel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnCancel.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -333,8 +325,7 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
         });
 
         btnSnapshot.setBackground(new java.awt.Color(191, 149, 155));
-        btnSnapshot.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSnapshot.setForeground(new java.awt.Color(255, 255, 255));
+        btnSnapshot.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnSnapshot.setText("Snapshot");
         btnSnapshot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -415,7 +406,7 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(232, 232, 232)
                                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 836, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 100, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 

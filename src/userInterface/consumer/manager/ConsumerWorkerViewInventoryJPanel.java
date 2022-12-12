@@ -59,15 +59,14 @@ public class ConsumerWorkerViewInventoryJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(6, 36, 50));
         setMinimumSize(new java.awt.Dimension(1400, 1000));
 
-        tblInventory.setBackground(new java.awt.Color(87, 92, 123));
+        tblInventory.setBackground(new java.awt.Color(204, 204, 204));
         tblInventory.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        tblInventory.setForeground(new java.awt.Color(255, 255, 255));
         tblInventory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Item", "Quantity", "Hours to perish"
+                "Item ", "Quantity", "Days Before Disposal"
             }
         ) {
             boolean[] canEdit = new boolean [] {

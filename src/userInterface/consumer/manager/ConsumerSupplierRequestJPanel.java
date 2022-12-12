@@ -75,15 +75,14 @@ public class ConsumerSupplierRequestJPanel extends javax.swing.JPanel {
         setForeground(new java.awt.Color(204, 204, 204));
         setMinimumSize(new java.awt.Dimension(1400, 1000));
 
-        tblSupplierRequests.setBackground(new java.awt.Color(87, 92, 123));
+        tblSupplierRequests.setBackground(new java.awt.Color(204, 204, 204));
         tblSupplierRequests.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        tblSupplierRequests.setForeground(new java.awt.Color(255, 255, 255));
         tblSupplierRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Restaurant Name", "Recieved Date", "Message", "Status"
+                "Supplier Name", "Recieved Date", "Message", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -104,7 +103,8 @@ public class ConsumerSupplierRequestJPanel extends javax.swing.JPanel {
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblHeader.setForeground(new java.awt.Color(204, 204, 204));
-        lblHeader.setText("Consumer Manager- Restaurant Requests");
+        lblHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHeader.setText("Consumer Manager- Supplier Requests");
 
         btnView.setBackground(new java.awt.Color(191, 149, 155));
         btnView.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -247,11 +247,6 @@ public class ConsumerSupplierRequestJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(405, 405, 405)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(401, 401, 401)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -260,8 +255,12 @@ public class ConsumerSupplierRequestJPanel extends javax.swing.JPanel {
                                         .addGap(18, 18, 18)
                                         .addComponent(jPanelAssignToEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(481, 481, 481)
-                                .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(405, 405, 405)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 410, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(145, 145, 145)
@@ -271,9 +270,9 @@ public class ConsumerSupplierRequestJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(51, 51, 51)
                 .addComponent(lblHeader)
-                .addGap(50, 50, 50)
+                .addGap(45, 45, 45)
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(btnView)
@@ -287,6 +286,8 @@ public class ConsumerSupplierRequestJPanel extends javax.swing.JPanel {
                 .addComponent(btnBack)
                 .addContainerGap(381, Short.MAX_VALUE))
         );
+
+        jPanelRedirectToConsumer.getAccessibleContext().setAccessibleDescription("");
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed

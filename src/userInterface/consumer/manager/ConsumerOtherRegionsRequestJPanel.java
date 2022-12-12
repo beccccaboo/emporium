@@ -82,9 +82,8 @@ public class ConsumerOtherRegionsRequestJPanel extends javax.swing.JPanel {
         lblHeader.setForeground(new java.awt.Color(204, 204, 204));
         lblHeader.setText("Consumer Manager - Redirect Request");
 
-        tblShortage.setBackground(new java.awt.Color(87, 92, 123));
+        tblShortage.setBackground(new java.awt.Color(204, 204, 204));
         tblShortage.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        tblShortage.setForeground(new java.awt.Color(255, 255, 255));
         tblShortage.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -135,7 +134,7 @@ public class ConsumerOtherRegionsRequestJPanel extends javax.swing.JPanel {
         lblQuantity.setBackground(new java.awt.Color(204, 204, 204));
         lblQuantity.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblQuantity.setForeground(new java.awt.Color(204, 204, 204));
-        lblQuantity.setText("Item Quantity:");
+        lblQuantity.setText("Food Quantity:");
 
         lblRequestStatusVal.setBackground(new java.awt.Color(204, 204, 204));
         lblRequestStatusVal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -167,15 +166,14 @@ public class ConsumerOtherRegionsRequestJPanel extends javax.swing.JPanel {
         lblRequestFrom.setForeground(new java.awt.Color(204, 204, 204));
         lblRequestFrom.setText("Request from:");
 
-        tblRequestDetails.setBackground(new java.awt.Color(87, 92, 123));
+        tblRequestDetails.setBackground(new java.awt.Color(204, 204, 204));
         tblRequestDetails.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        tblRequestDetails.setForeground(new java.awt.Color(255, 255, 255));
         tblRequestDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Quantity", "Type", "Hours to perish"
+                "Quantity", "Type", "Days Before Disposal"
             }
         ) {
             boolean[] canEdit = new boolean [] {

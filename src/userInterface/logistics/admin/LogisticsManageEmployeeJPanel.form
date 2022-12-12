@@ -77,14 +77,13 @@
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Component id="btnBack" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnBack" min="-2" pref="116" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="btnCreateEmployee" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jSeparator" pref="1423" max="32767" attributes="0"/>
+                  <Component id="jSeparator" pref="1429" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -119,7 +118,7 @@
                           <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnCreateEmployee" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnBack" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnBack" alignment="3" min="-2" pref="62" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>

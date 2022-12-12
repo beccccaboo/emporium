@@ -62,9 +62,8 @@ public class ConsumerViewShortageRequestJPanel extends javax.swing.JPanel {
             }
         });
 
-        tblShortage.setBackground(new java.awt.Color(87, 92, 123));
+        tblShortage.setBackground(new java.awt.Color(204, 204, 204));
         tblShortage.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        tblShortage.setForeground(new java.awt.Color(255, 255, 255));
         tblShortage.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
