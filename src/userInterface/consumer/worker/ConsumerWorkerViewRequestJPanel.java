@@ -8,6 +8,8 @@ package userInterface.consumer.worker;
 import business.util.request.RequestItem;
 import business.workQueue.CollectionWorkRequest;
 import java.awt.CardLayout;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -29,6 +31,7 @@ public class ConsumerWorkerViewRequestJPanel extends javax.swing.JPanel {
         this.request = request;
         populateTable();
         populateData();
+        populateImage();
     }
 
     /**
@@ -54,6 +57,8 @@ public class ConsumerWorkerViewRequestJPanel extends javax.swing.JPanel {
         lblQuantity = new javax.swing.JLabel();
         lblRequestStatus = new javax.swing.JLabel();
         lblRequestFrom = new javax.swing.JLabel();
+        lblImg = new javax.swing.JLabel();
+        lblImage = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(6, 36, 50));
         setMinimumSize(new java.awt.Dimension(1400, 1000));
@@ -133,18 +138,30 @@ public class ConsumerWorkerViewRequestJPanel extends javax.swing.JPanel {
         lblRequestFrom.setForeground(new java.awt.Color(204, 204, 204));
         lblRequestFrom.setText("Request from:");
 
+        lblImg.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        lblImg.setForeground(new java.awt.Color(204, 204, 204));
+        lblImg.setText("Delivery Image:");
+
+        lblImage.setBorder(new javax.swing.border.MatteBorder(null));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(439, 439, 439)
+                .addComponent(jLabel1)
+                .addContainerGap(471, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBack)
+                    .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGap(333, 333, 333)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblRequestFrom)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblCost)
-                        .addGap(47, 47, 47)
-                        .addComponent(lblCostVal))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,17 +178,17 @@ public class ConsumerWorkerViewRequestJPanel extends javax.swing.JPanel {
                             .addComponent(lblQuantityVal)
                             .addComponent(lblRequestDateVal)
                             .addComponent(lblRequestStatusVal)
-                            .addComponent(lblRequestFromVal))))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(439, 439, 439)
-                .addComponent(jLabel1)
-                .addContainerGap(463, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnBack)
-                    .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblRequestFromVal)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCost)
+                            .addComponent(lblImg))
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblCostVal))))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -200,10 +217,14 @@ public class ConsumerWorkerViewRequestJPanel extends javax.swing.JPanel {
                     .addComponent(lblCost)
                     .addComponent(lblCostVal))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblImg)
+                    .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(85, 85, 85)
                 .addComponent(btnBack)
-                .addContainerGap(463, Short.MAX_VALUE))
+                .addContainerGap(234, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -221,6 +242,8 @@ public class ConsumerWorkerViewRequestJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JLabel lblCost;
     private javax.swing.JLabel lblCostVal;
+    private javax.swing.JLabel lblImage;
+    private javax.swing.JLabel lblImg;
     private javax.swing.JLabel lblQuantity;
     private javax.swing.JLabel lblQuantityVal;
     private javax.swing.JLabel lblRequestDate;
@@ -258,5 +281,12 @@ public class ConsumerWorkerViewRequestJPanel extends javax.swing.JPanel {
 
         String cost = request.getDeliveryCost() == 0 ? "Undelivered" : "$" + request.getDeliveryCost();
         lblCostVal.setText(cost);
+    }
+    
+    private void populateImage(){
+        ImageIcon imgIcon = new ImageIcon(request.getImgPath());
+        System.out.println(request.getImgPath());
+        Image img =imgIcon.getImage().getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+        
     }
 }
