@@ -25,7 +25,7 @@ public class CollectionWorkRequest extends WorkRequest {
     private double deliveryCost;
     private boolean paid;
     private boolean invoiceGenerated;
-    private String imgPath;
+//    private String imgPath;
 
     public CollectionWorkRequest() {
         requestItems = new ArrayList();
@@ -119,13 +119,13 @@ public class CollectionWorkRequest extends WorkRequest {
         this.invoiceGenerated = invoiceGenerated;
     }
 
-    public String getImgPath() {
-        return imgPath;
-    }
-
-    public void setImgPath(String imgPath) {
-        this.imgPath = imgPath;
-    }
+//    public String getImgPath() {
+//        return imgPath;
+//    }
+//
+//    public void setImgPath(String imgPath) {
+//        this.imgPath = imgPath;
+//    }
     
     
 

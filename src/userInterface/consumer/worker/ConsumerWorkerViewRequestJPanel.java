@@ -29,10 +29,10 @@ public class ConsumerWorkerViewRequestJPanel extends javax.swing.JPanel {
         initComponents();
         this.mainPanel = mainPanel;
         this.request = request;
-        lblImage.setVisible(true);
+//        lblImage.setVisible(true);
         populateTable();
         populateData();
-        populateImage();
+//        populateImage();
     }
 
     /**
@@ -58,8 +58,6 @@ public class ConsumerWorkerViewRequestJPanel extends javax.swing.JPanel {
         lblQuantity = new javax.swing.JLabel();
         lblRequestStatus = new javax.swing.JLabel();
         lblRequestFrom = new javax.swing.JLabel();
-        lblImg = new javax.swing.JLabel();
-        lblImage = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(6, 36, 50));
         setMinimumSize(new java.awt.Dimension(1400, 1000));
@@ -139,12 +137,6 @@ public class ConsumerWorkerViewRequestJPanel extends javax.swing.JPanel {
         lblRequestFrom.setForeground(new java.awt.Color(204, 204, 204));
         lblRequestFrom.setText("Request from:");
 
-        lblImg.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        lblImg.setForeground(new java.awt.Color(204, 204, 204));
-        lblImg.setText("Delivery Image:");
-
-        lblImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -181,17 +173,10 @@ public class ConsumerWorkerViewRequestJPanel extends javax.swing.JPanel {
                             .addComponent(lblRequestStatusVal)
                             .addComponent(lblRequestFromVal)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCost)
-                            .addComponent(lblImg))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addComponent(lblCostVal))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 704, Short.MAX_VALUE))
+                        .addComponent(lblCost)
+                        .addGap(47, 47, 47)
+                        .addComponent(lblCostVal)))
+                .addGap(0, 825, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,14 +203,7 @@ public class ConsumerWorkerViewRequestJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCost)
                     .addComponent(lblCostVal))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblImg)
-                        .addGap(161, 161, 161))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGap(191, 191, 191)
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(85, 85, 85)
                 .addComponent(btnBack)
@@ -247,8 +225,6 @@ public class ConsumerWorkerViewRequestJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JLabel lblCost;
     private javax.swing.JLabel lblCostVal;
-    private javax.swing.JLabel lblImage;
-    private javax.swing.JLabel lblImg;
     private javax.swing.JLabel lblQuantity;
     private javax.swing.JLabel lblQuantityVal;
     private javax.swing.JLabel lblRequestDate;
@@ -288,11 +264,11 @@ public class ConsumerWorkerViewRequestJPanel extends javax.swing.JPanel {
         lblCostVal.setText(cost);
     }
     
-    private void populateImage(){
-        lblImage.setVisible(true);
-        ImageIcon imgIcon = new ImageIcon(request.getImgPath());
-        System.out.println(request.getImgPath()+""+lblImage.getWidth()+""+lblImage.getHeight());
-        Image img =imgIcon.getImage().getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
-        lblImage.setIcon(new ImageIcon(img));
-    }
+//    private void populateImage(){
+//        lblImage.setVisible(true);
+//        ImageIcon imgIcon = new ImageIcon(request.getImgPath());
+//        System.out.println(request.getImgPath()+""+lblImage.getWidth()+""+lblImage.getHeight());
+//        Image img =imgIcon.getImage().getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+//        lblImage.setIcon(new ImageIcon(img));
+//    }
 }
