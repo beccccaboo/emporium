@@ -54,12 +54,15 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        workAreaPanel.setBackground(new java.awt.Color(153, 153, 255));
+        workAreaPanel.setBackground(new java.awt.Color(102, 0, 102));
 
         lblNode.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        lblNode.setForeground(new java.awt.Color(255, 255, 255));
         lblNode.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNode.setText("Select");
+        lblNode.setText("Select to Manage");
 
+        btnManageEnterpriseAdmin.setBackground(new java.awt.Color(204, 102, 255));
+        btnManageEnterpriseAdmin.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnManageEnterpriseAdmin.setText("Manage Enterprise Admin");
         btnManageEnterpriseAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,6 +70,8 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnManageEnterprise.setBackground(new java.awt.Color(204, 102, 255));
+        btnManageEnterprise.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnManageEnterprise.setText("Manage Enterprise");
         btnManageEnterprise.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,6 +79,8 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnManageNetwork.setBackground(new java.awt.Color(204, 102, 255));
+        btnManageNetwork.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnManageNetwork.setText("Manage Network");
         btnManageNetwork.setOpaque(true);
         btnManageNetwork.addActionListener(new java.awt.event.ActionListener() {
@@ -87,46 +94,40 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         workAreaPanelLayout.setHorizontalGroup(
             workAreaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(workAreaPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnManageNetwork, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(workAreaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(workAreaPanelLayout.createSequentialGroup()
-                        .addComponent(lblNode, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(lblNodeValue))
-                    .addGroup(workAreaPanelLayout.createSequentialGroup()
-                        .addComponent(btnManageEnterprise, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(32, 32, 32)
-                        .addComponent(btnManageEnterpriseAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addGap(217, 217, 217)
+                .addGroup(workAreaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblNodeValue, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, workAreaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lblNode)
+                        .addGroup(workAreaPanelLayout.createSequentialGroup()
+                            .addComponent(btnManageNetwork, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGap(99, 99, 99)
+                            .addComponent(btnManageEnterprise, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addComponent(btnManageEnterpriseAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72))
         );
 
-        workAreaPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnManageEnterprise, btnManageEnterpriseAdmin, btnManageNetwork, lblNode});
+        workAreaPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnManageEnterprise, btnManageEnterpriseAdmin, btnManageNetwork});
 
         workAreaPanelLayout.setVerticalGroup(
             workAreaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(workAreaPanelLayout.createSequentialGroup()
-                .addGroup(workAreaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(workAreaPanelLayout.createSequentialGroup()
-                        .addGap(96, 96, 96)
-                        .addComponent(lblNodeValue))
-                    .addGroup(workAreaPanelLayout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(lblNode, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(115, 115, 115)
+                .addGap(63, 63, 63)
+                .addComponent(lblNode, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblNodeValue)
+                .addGap(292, 292, 292)
                 .addGroup(workAreaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnManageNetwork)
-                    .addComponent(btnManageEnterprise)
-                    .addComponent(btnManageEnterpriseAdmin))
-                .addGap(673, 673, 673))
+                    .addComponent(btnManageEnterpriseAdmin)
+                    .addComponent(btnManageEnterprise))
+                .addGap(107, 107, 107))
         );
 
         workAreaPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnManageEnterprise, btnManageEnterpriseAdmin, btnManageNetwork, lblNode});
 
-        add(workAreaPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 700, 430));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userInterface/systemAdminWorkArea/shubham-dhage-mjl0yIdSi18-unsplash (1).jpg"))); // NOI18N
+        add(workAreaPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1450, 1030));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1450, 1010));
     }// </editor-fold>//GEN-END:initComponents
 

@@ -58,11 +58,11 @@ public class ConsumerAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         lblHeading.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         lblHeading.setForeground(new java.awt.Color(204, 204, 204));
-        lblHeading.setText("NGO Adminstrative Work Area");
+        lblHeading.setText("Consumer Adminstrative Work Area");
 
         lblEnterprise.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         lblEnterprise.setForeground(new java.awt.Color(204, 204, 204));
-        lblEnterprise.setText("NGO:");
+        lblEnterprise.setText("Consumer :");
 
         lblValue.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         lblValue.setForeground(new java.awt.Color(204, 204, 204));
@@ -112,11 +112,12 @@ public class ConsumerAdminWorkAreaJPanel extends javax.swing.JPanel {
                         .addGap(113, 113, 113)
                         .addComponent(btnManageEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(86, 86, 86)
-                        .addComponent(btnManageUser, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(lblHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnManageUser, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(279, 279, 279))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(326, 326, 326)
+                .addComponent(lblHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnManageEmployee, btnManageOrganization, btnManageUser, lblEnterprise, lblValue});

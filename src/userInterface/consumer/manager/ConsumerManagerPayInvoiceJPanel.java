@@ -56,7 +56,7 @@ public class ConsumerManagerPayInvoiceJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(6, 36, 50));
         setMinimumSize(new java.awt.Dimension(1400, 1000));
 
-        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         lblHeader.setForeground(new java.awt.Color(204, 204, 204));
         lblHeader.setText("Consumer Manager - Pay Invoices");
 
@@ -88,8 +88,7 @@ public class ConsumerManagerPayInvoiceJPanel extends javax.swing.JPanel {
         }
 
         btnBack.setBackground(new java.awt.Color(191, 149, 155));
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,8 +97,7 @@ public class ConsumerManagerPayInvoiceJPanel extends javax.swing.JPanel {
         });
 
         btnPay.setBackground(new java.awt.Color(191, 149, 155));
-        btnPay.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnPay.setForeground(new java.awt.Color(255, 255, 255));
+        btnPay.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnPay.setText("Pay Invoice");
         btnPay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,20 +109,21 @@ public class ConsumerManagerPayInvoiceJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(265, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 910, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(466, 466, 466)
-                        .addComponent(btnPay)))
-                .addGap(242, 242, 242))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(463, 463, 463)
-                .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 910, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(125, 125, 125)
+                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(466, 466, 466)
+                                .addComponent(btnPay)))
+                        .addGap(242, 242, 242))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 656, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(370, 370, 370))))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnBack, btnPay});
@@ -132,15 +131,15 @@ public class ConsumerManagerPayInvoiceJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(147, 147, 147)
+                .addGap(143, 143, 143)
                 .addComponent(lblHeader)
-                .addGap(56, 56, 56)
+                .addGap(60, 60, 60)
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(69, 69, 69)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPay))
-                .addContainerGap(402, Short.MAX_VALUE))
+                .addContainerGap(387, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBack, btnPay});

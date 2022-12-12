@@ -101,14 +101,13 @@ public class ConsumerSupplierRequestJPanel extends javax.swing.JPanel {
             tblSupplierRequests.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         lblHeader.setForeground(new java.awt.Color(204, 204, 204));
         lblHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHeader.setText("Consumer Manager- Supplier Requests");
 
         btnView.setBackground(new java.awt.Color(191, 149, 155));
         btnView.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnView.setForeground(new java.awt.Color(204, 204, 204));
         btnView.setText("View Details");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,7 +117,6 @@ public class ConsumerSupplierRequestJPanel extends javax.swing.JPanel {
 
         btnBack.setBackground(new java.awt.Color(191, 149, 155));
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(204, 204, 204));
         btnBack.setText("<< BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,7 +144,6 @@ public class ConsumerSupplierRequestJPanel extends javax.swing.JPanel {
 
         btnApprove.setBackground(new java.awt.Color(191, 149, 155));
         btnApprove.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnApprove.setForeground(new java.awt.Color(204, 204, 204));
         btnApprove.setText("Assign");
         btnApprove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,7 +195,6 @@ public class ConsumerSupplierRequestJPanel extends javax.swing.JPanel {
 
         btnAssignConsumer.setBackground(new java.awt.Color(191, 149, 155));
         btnAssignConsumer.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAssignConsumer.setForeground(new java.awt.Color(204, 204, 204));
         btnAssignConsumer.setText("Redirect");
         btnAssignConsumer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -257,15 +253,19 @@ public class ConsumerSupplierRequestJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(405, 405, 405)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(6, 6, 6))
+                                    .addComponent(btnView, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 410, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(145, 145, 145)
                         .addComponent(jSeparator1)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(296, 296, 296)
+                .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,7 +284,7 @@ public class ConsumerSupplierRequestJPanel extends javax.swing.JPanel {
                     .addComponent(jPanelRedirectToConsumer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addComponent(btnBack)
-                .addContainerGap(381, Short.MAX_VALUE))
+                .addContainerGap(366, Short.MAX_VALUE))
         );
 
         jPanelRedirectToConsumer.getAccessibleContext().setAccessibleDescription("");

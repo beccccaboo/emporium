@@ -187,6 +187,9 @@ public class LogisticsManageEmployeeJPanel extends javax.swing.JPanel {
                         .addGap(2, 2, 2)))
                 .addComponent(jSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, 1429, Short.MAX_VALUE))
         );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnBack, btnCreateEmployee});
+
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -217,6 +220,8 @@ public class LogisticsManageEmployeeJPanel extends javax.swing.JPanel {
                             .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(415, Short.MAX_VALUE))
         );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBack, btnCreateEmployee});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

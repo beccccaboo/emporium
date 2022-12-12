@@ -104,9 +104,10 @@ public class SupervisionManagerViewChartJPanel extends javax.swing.JPanel {
         pnlChart.setLayout(new java.awt.BorderLayout());
 
         lblHeader.setBackground(new java.awt.Color(204, 204, 255));
-        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         lblHeader.setText("Mayor Work Area - Restaurant Wastage Avoided Chart");
 
+        btnBack1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnBack1.setText("<< Back");
         btnBack1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,18 +119,18 @@ public class SupervisionManagerViewChartJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1270, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(121, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(lblHeader))
                     .addComponent(pnlChart, javax.swing.GroupLayout.PREFERRED_SIZE, 735, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(270, 270, 270))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(111, 111, 111)
+                .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,8 +140,8 @@ public class SupervisionManagerViewChartJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(pnlChart, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
-                .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(392, Short.MAX_VALUE))
+                .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(363, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

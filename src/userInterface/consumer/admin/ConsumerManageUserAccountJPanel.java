@@ -40,7 +40,7 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
     Snapshot snapshot;
     String operation;
     UserAccount selectedPerson;
-    String selectedImagePath = File.separator+"Users"+File.separator+"rebeccabiju"+File.separator+"Downloads"+File.separator+"noImg.jpeg";
+    String selectedImagePath = "C:"+File.separator+"Users"+File.separator+"Arpit"+File.separator+"Desktop"+File.separator+"notfound.png";
     public ConsumerManageUserAccountJPanel(JPanel mainPanel, Enterprise enterprise, EcoSystem business) {
         initComponents();
         this.enterprise = enterprise;
@@ -338,10 +338,6 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(336, 336, 336)
-                .addComponent(lblHeader)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(43, 43, 43)
@@ -405,8 +401,10 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
                                 .addComponent(btnCancel))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(232, 232, 232)
-                                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 836, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblHeader)
+                                    .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 836, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 100, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -415,9 +413,9 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(33, 33, 33)
                 .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -574,6 +572,7 @@ public class ConsumerManageUserAccountJPanel extends javax.swing.JPanel {
         cmbEmployee.setEnabled(true);
         toggleCombo(false);
         toggleEditablePerson(false, Color.LIGHT_GRAY);
+        selectedImagePath = "C:"+File.separator+"Users"+File.separator+"Arpit"+File.separator+"Desktop"+File.separator+"notfound.png";
         
     }//GEN-LAST:event_btnSaveActionPerformed
 

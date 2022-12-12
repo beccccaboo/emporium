@@ -85,13 +85,12 @@ public class ConsumerWorkerViewInventoryJPanel extends javax.swing.JPanel {
             tblInventory.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         lblHeader.setForeground(new java.awt.Color(204, 204, 204));
         lblHeader.setText("Consumer Manager - View Inventory");
 
         btnBack.setBackground(new java.awt.Color(191, 149, 155));
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,17 +98,16 @@ public class ConsumerWorkerViewInventoryJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblQuantity.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblQuantity.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblQuantity.setForeground(new java.awt.Color(204, 204, 204));
         lblQuantity.setText("Total Quantity :");
 
-        lblQuantityVal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblQuantityVal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblQuantityVal.setForeground(new java.awt.Color(204, 204, 204));
         lblQuantityVal.setText("<quantity>");
 
         btnShortage.setBackground(new java.awt.Color(191, 149, 155));
-        btnShortage.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnShortage.setForeground(new java.awt.Color(255, 255, 255));
+        btnShortage.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnShortage.setText("Raise Shortage Request");
         btnShortage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,29 +120,32 @@ public class ConsumerWorkerViewInventoryJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(390, 390, 390)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(262, 262, 262)
-                        .addComponent(btnShortage))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
+                        .addGap(390, 390, 390)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblQuantityVal, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(440, Short.MAX_VALUE))
+                                .addGap(56, 56, 56)
+                                .addComponent(lblQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblQuantityVal, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnShortage))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(310, 310, 310)
+                        .addComponent(lblHeader)))
+                .addContainerGap(422, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(85, 85, 85)
+                .addGap(64, 64, 64)
                 .addComponent(lblHeader)
-                .addGap(53, 53, 53)
+                .addGap(74, 74, 74)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblQuantity)
                     .addComponent(lblQuantityVal))
@@ -154,7 +155,7 @@ public class ConsumerWorkerViewInventoryJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack)
                     .addComponent(btnShortage))
-                .addContainerGap(405, Short.MAX_VALUE))
+                .addContainerGap(380, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

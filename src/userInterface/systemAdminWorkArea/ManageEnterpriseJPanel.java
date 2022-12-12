@@ -80,6 +80,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         });
         jScrollPane.setViewportView(tblEnterprise);
 
+        lblNetwork.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblNetwork.setText("Network");
 
         cmbNetwork.addActionListener(new java.awt.event.ActionListener() {
@@ -88,6 +89,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblEnterpriseType.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblEnterpriseType.setText("Enterprise Type");
 
         cmbEnterprise.addActionListener(new java.awt.event.ActionListener() {
@@ -96,8 +98,10 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblEnterpriseName.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblEnterpriseName.setText("Name");
 
+        btnBack.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnBack.setText("<<BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,6 +109,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnAddEnterprise.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnAddEnterprise.setText("Submit");
         btnAddEnterprise.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,7 +123,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         lblNetworkList.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblNetworkList.setText("Enterprise list:");
 
-        lblCreateNetwork.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblCreateNetwork.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblCreateNetwork.setText("Create New Enterprise:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -151,14 +156,14 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                                 .addComponent(btnBack)
                                 .addGap(383, 383, 383)
                                 .addComponent(btnAddEnterprise))
-                            .addComponent(lblCreateNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblCreateNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(353, 353, 353)
                         .addComponent(lblHeader)))
                 .addContainerGap(380, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAddEnterprise, btnBack, cmbEnterprise, cmbNetwork, lblCreateNetwork, lblEnterpriseName, lblEnterpriseType, lblNetwork, txtEnterpriseName});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAddEnterprise, btnBack, cmbEnterprise, cmbNetwork, lblEnterpriseName, lblEnterpriseType, lblNetwork, txtEnterpriseName});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -77,8 +77,8 @@ public class SupervisionManageOrganizationJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 51, 51));
         setMinimumSize(new java.awt.Dimension(1400, 1000));
 
-        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblHeader.setText("Government Adminstrative Work Area - Manage Organization");
+        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 32)); // NOI18N
+        lblHeader.setText("Supervision Adminstrative Work Area - Manage Organization");
 
         tblOrganization.setBackground(new java.awt.Color(255, 153, 153));
         tblOrganization.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -117,8 +117,8 @@ public class SupervisionManageOrganizationJPanel extends javax.swing.JPanel {
         cmbOrganization.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
         btnBack.setBackground(new java.awt.Color(102, 102, 102));
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(204, 204, 204));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,8 +127,8 @@ public class SupervisionManageOrganizationJPanel extends javax.swing.JPanel {
         });
 
         btnAddOrganization.setBackground(new java.awt.Color(102, 102, 102));
-        btnAddOrganization.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAddOrganization.setForeground(new java.awt.Color(204, 204, 204));
+        btnAddOrganization.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnAddOrganization.setForeground(new java.awt.Color(255, 255, 255));
         btnAddOrganization.setText("Add Organization");
         btnAddOrganization.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,7 +162,7 @@ public class SupervisionManageOrganizationJPanel extends javax.swing.JPanel {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 746, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 1026, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(198, 198, 198))
         );
         layout.setVerticalGroup(
@@ -182,7 +182,7 @@ public class SupervisionManageOrganizationJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack)
                     .addComponent(btnAddOrganization))
-                .addContainerGap(389, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

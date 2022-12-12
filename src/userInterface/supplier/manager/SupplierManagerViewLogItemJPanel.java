@@ -61,7 +61,7 @@ public class SupplierManagerViewLogItemJPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 204, 153));
 
-        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         lblHeader.setText("Supplier Worker Work Area - Collection Request");
 
         tblItems.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -70,7 +70,7 @@ public class SupplierManagerViewLogItemJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Item Type", "Quantity"
+                "Item", "Quantity"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -106,7 +106,7 @@ public class SupplierManagerViewLogItemJPanel extends javax.swing.JPanel {
         lblRequestStatusVal.setText("<request_status>");
 
         lblQuantity.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblQuantity.setText("Item Quantity:");
+        lblQuantity.setText("Food Quantity:");
 
         lblQuantityVal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblQuantityVal.setText("<quantity>");
@@ -129,7 +129,7 @@ public class SupplierManagerViewLogItemJPanel extends javax.swing.JPanel {
         lblCostVal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblCostVal.setText("<cost>");
 
-        btnBack.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnBack.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,38 +142,42 @@ public class SupplierManagerViewLogItemJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(497, 497, 497)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 649, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(497, 497, 497)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblRequestDate)
-                            .addComponent(lblRequestFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblRequestStatus))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblRequestDateVal)
-                            .addComponent(lblRequestFromVal)
-                            .addComponent(lblRequestStatusVal)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblRequestDate)
+                                    .addComponent(lblRequestFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblRequestStatus))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblRequestDateVal)
+                                    .addComponent(lblRequestFromVal)
+                                    .addComponent(lblRequestStatusVal)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblCost)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblCostVal, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblNGO)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblNGOVal, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblLogistics)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblLogisticsVal, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblQuantity)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblQuantityVal))
+                            .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblCost)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblCostVal, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblNGO)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblNGOVal, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblLogistics)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblLogisticsVal, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblQuantity)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblQuantityVal))
-                    .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(737, 737, 737))
+                        .addGap(288, 288, 288)
+                        .addComponent(lblHeader)))
+                .addGap(721, 721, 721))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblCost, lblLogistics, lblNGO, lblQuantity, lblQuantityVal, lblRequestDate, lblRequestDateVal, lblRequestFrom, lblRequestFromVal, lblRequestStatus, lblRequestStatusVal});
@@ -181,9 +185,9 @@ public class SupplierManagerViewLogItemJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(42, 42, 42)
                 .addComponent(lblHeader)
-                .addGap(48, 48, 48)
+                .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRequestFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblRequestFromVal))
@@ -215,7 +219,7 @@ public class SupplierManagerViewLogItemJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(438, Short.MAX_VALUE))
+                .addContainerGap(423, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -46,7 +46,7 @@ public class SupervisionAdminWorkAreaJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 51, 51));
         setMinimumSize(new java.awt.Dimension(1400, 1000));
 
-        lblHeading.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblHeading.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         lblHeading.setText("Supervision Adminstrative Work Area");
 
         lblEnterprise.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -57,7 +57,7 @@ public class SupervisionAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         btnManageOrganization.setBackground(new java.awt.Color(102, 102, 102));
         btnManageOrganization.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnManageOrganization.setForeground(new java.awt.Color(204, 204, 204));
+        btnManageOrganization.setForeground(new java.awt.Color(255, 255, 255));
         btnManageOrganization.setText("Manage Organization");
         btnManageOrganization.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,7 +67,7 @@ public class SupervisionAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         btnManageEmployee.setBackground(new java.awt.Color(102, 102, 102));
         btnManageEmployee.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnManageEmployee.setForeground(new java.awt.Color(204, 204, 204));
+        btnManageEmployee.setForeground(new java.awt.Color(255, 255, 255));
         btnManageEmployee.setText("Manage Employee");
         btnManageEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,7 +77,7 @@ public class SupervisionAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         btnManageUser.setBackground(new java.awt.Color(102, 102, 102));
         btnManageUser.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnManageUser.setForeground(new java.awt.Color(204, 204, 204));
+        btnManageUser.setForeground(new java.awt.Color(255, 255, 255));
         btnManageUser.setText("Manage User");
         btnManageUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,42 +89,40 @@ public class SupervisionAdminWorkAreaJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(401, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
+                        .addGap(255, 255, 255)
+                        .addComponent(btnManageOrganization)
+                        .addGap(67, 67, 67)
+                        .addComponent(btnManageEmployee)
+                        .addGap(67, 67, 67)
+                        .addComponent(btnManageUser, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(307, 307, 307)
                         .addComponent(lblHeading))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(280, 280, 280)
                         .addComponent(lblEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblValue, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnManageEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnManageUser, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(348, 348, 348))
+                        .addComponent(lblValue, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(411, Short.MAX_VALUE))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnManageEmployee, btnManageOrganization, btnManageUser});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(287, 287, 287)
+                .addGap(181, 181, 181)
                 .addComponent(lblHeading)
-                .addGap(39, 39, 39)
+                .addGap(137, 137, 137)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblValue))
-                .addGap(27, 27, 27)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnManageEmployee)
                     .addComponent(btnManageUser))
-                .addContainerGap(507, Short.MAX_VALUE))
+                .addContainerGap(492, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnManageEmployee, btnManageOrganization, btnManageUser});

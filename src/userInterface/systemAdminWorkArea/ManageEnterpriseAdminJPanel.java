@@ -45,7 +45,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManagerEnterpriseAdminJPanel
      */
-    String selectedImagePath = File.separator+"Users"+File.separator+"rebeccabiju"+File.separator+"Downloads"+File.separator+"noImg.jpeg";
+    String selectedImagePath = "C:"+File.separator+"Users"+File.separator+"Arpit"+File.separator+"Desktop"+File.separator+"notfound.png";
     
     String operation;
     UserAccount selectedPerson;
@@ -176,7 +176,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 28)); // NOI18N
         lblHeader.setText("System Admin Work Area - Create Enterprise Admin");
 
         lblNetworkList.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -302,7 +302,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                                 .addComponent(lblMobileNo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtMobileNo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(175, 335, Short.MAX_VALUE))
+                                .addGap(175, 363, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblEmail)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -318,7 +318,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                                 .addComponent(btnBrowse)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnSnapshot)))
-                        .addContainerGap(157, Short.MAX_VALUE))))
+                        .addContainerGap(185, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -332,12 +332,13 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                         .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnBack))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblHeader)
-                            .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNetworkList, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGap(215, 215, 215)
+                            .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(72, 72, 72)
+                            .addComponent(lblNetworkList, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(73, 73, 73)
                         .addComponent(lblCreateNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -345,7 +346,10 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                         .addGap(200, 200, 200)
                         .addComponent(lblSearchString)
                         .addGap(18, 18, 18)
-                        .addComponent(txtSearchString, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtSearchString, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(lblHeader)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -402,7 +406,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                             .addComponent(lblPassword1)
                             .addComponent(btnBrowse)
                             .addComponent(btnSnapshot))
-                        .addGap(36, 36, 36)
+                        .addGap(18, 18, 18)
                         .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -413,7 +417,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                     .addComponent(btnUpdate)
                     .addComponent(btnDelete)
                     .addComponent(btnCancel))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBack, btnBrowse, btnCancel, btnDelete, btnNew, btnSave, btnSnapshot, btnUpdate, btnView, cmbEnterprise, cmbNetwork, lblEmail, lblEnterprise, lblMobileNo, lblName, lblNetwork, lblPassword, lblPassword1, lblUserName, txtEmail, txtMobileNo, txtName, txtPassword, txtUserName});
@@ -555,7 +559,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         cmbNetwork.setEnabled(true);
         txtUserName.setEnabled(true);
         toggleCombo(false);
-//        selectedImagePath = "";
+        selectedImagePath = "C:"+File.separator+"Users"+File.separator+"Arpit"+File.separator+"Desktop"+File.separator+"notfound.png";
         toggleEditablePerson(false, Color.LIGHT_GRAY);
 
     }//GEN-LAST:event_btnSaveActionPerformed

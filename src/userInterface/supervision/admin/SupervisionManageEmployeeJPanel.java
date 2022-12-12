@@ -88,8 +88,8 @@ public class SupervisionManageEmployeeJPanel extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(1400, 1000));
         setName(""); // NOI18N
 
-        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblHeader.setText("Government Adminstrative Work Area - Manage Employee");
+        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        lblHeader.setText("Supervision Adminstrative Work Area - Manage Employee");
 
         lblOrg.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblOrg.setText("Organization");
@@ -146,7 +146,7 @@ public class SupervisionManageEmployeeJPanel extends javax.swing.JPanel {
 
         btnBack.setBackground(new java.awt.Color(102, 102, 102));
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(204, 204, 204));
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,7 +156,7 @@ public class SupervisionManageEmployeeJPanel extends javax.swing.JPanel {
 
         btnCreateEmployee.setBackground(new java.awt.Color(102, 102, 102));
         btnCreateEmployee.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnCreateEmployee.setForeground(new java.awt.Color(204, 204, 204));
+        btnCreateEmployee.setForeground(new java.awt.Color(255, 255, 255));
         btnCreateEmployee.setText("Create Employee");
         btnCreateEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,45 +169,45 @@ public class SupervisionManageEmployeeJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(485, 485, 485)
-                                    .addComponent(lblOrg)
-                                    .addGap(48, 48, 48)
-                                    .addComponent(cmbOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(589, 589, 589)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblOrgCreate)
-                                        .addComponent(lblName))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(cmbOrgCreate, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGap(134, 134, 134))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(486, 486, 486)
-                            .addComponent(btnBack)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCreateEmployee)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(368, 368, 368)
-                        .addComponent(lblHeader)))
-                .addContainerGap(327, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(485, 485, 485)
+                                .addComponent(lblOrg)
+                                .addGap(48, 48, 48)
+                                .addComponent(cmbOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(589, 589, 589)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblOrgCreate)
+                                    .addComponent(lblName))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cmbOrgCreate, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(134, 134, 134))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(486, 486, 486)
+                        .addComponent(btnBack)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCreateEmployee)))
+                .addContainerGap(425, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(338, 338, 338)
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 773, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 1080, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(112, 112, 112))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(154, 154, 154)
+                .addGap(152, 152, 152)
                 .addComponent(lblHeader)
-                .addGap(54, 54, 54)
+                .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbOrg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblOrg))
@@ -225,7 +225,7 @@ public class SupervisionManageEmployeeJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCreateEmployee)
                     .addComponent(btnBack))
-                .addContainerGap(362, Short.MAX_VALUE))
+                .addContainerGap(347, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

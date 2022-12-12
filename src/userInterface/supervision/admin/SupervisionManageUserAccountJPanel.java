@@ -37,7 +37,7 @@ public class SupervisionManageUserAccountJPanel extends javax.swing.JPanel {
     Snapshot snapshot;
     String operation;
     UserAccount selectedPerson;
-    String selectedImagePath = File.separator+"Users"+File.separator+"rebeccabiju"+File.separator+"Downloads"+File.separator+"noImg.jpeg";
+    String selectedImagePath = "C:"+File.separator+"Users"+File.separator+"Arpit"+File.separator+"Desktop"+File.separator+"notfound.png";
     public SupervisionManageUserAccountJPanel(JPanel container, Enterprise enterprise) {
         initComponents();
         this.enterprise = enterprise;
@@ -141,12 +141,12 @@ public class SupervisionManageUserAccountJPanel extends javax.swing.JPanel {
         btnCancel = new javax.swing.JButton();
         btnSnapshot = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(255, 51, 51));
         setMinimumSize(new java.awt.Dimension(800, 800));
         setPreferredSize(new java.awt.Dimension(800, 800));
 
-        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblHeader.setText("Supervision Adminstrative Work Area - Manage Users");
+        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        lblHeader.setText("Supervision Adminstration - Manage Users");
 
         tblUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -195,6 +195,9 @@ public class SupervisionManageUserAccountJPanel extends javax.swing.JPanel {
 
         lblPassword.setText("Password");
 
+        btnBack.setBackground(new java.awt.Color(102, 102, 102));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,6 +205,9 @@ public class SupervisionManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnSave.setBackground(new java.awt.Color(102, 102, 102));
+        btnSave.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -215,6 +221,9 @@ public class SupervisionManageUserAccountJPanel extends javax.swing.JPanel {
 
         lblPassword1.setText("Profile Image:");
 
+        btnBrowse.setBackground(new java.awt.Color(102, 102, 102));
+        btnBrowse.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnBrowse.setForeground(new java.awt.Color(255, 255, 255));
         btnBrowse.setText("Browse");
         btnBrowse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,6 +231,9 @@ public class SupervisionManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnNew.setBackground(new java.awt.Color(102, 102, 102));
+        btnNew.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnNew.setForeground(new java.awt.Color(255, 255, 255));
         btnNew.setText("New");
         btnNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,6 +241,9 @@ public class SupervisionManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnView.setBackground(new java.awt.Color(102, 102, 102));
+        btnView.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnView.setForeground(new java.awt.Color(255, 255, 255));
         btnView.setText("View");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -236,6 +251,9 @@ public class SupervisionManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUpdate.setBackground(new java.awt.Color(102, 102, 102));
+        btnUpdate.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -243,6 +261,9 @@ public class SupervisionManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnCancel.setBackground(new java.awt.Color(102, 102, 102));
+        btnCancel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnCancel.setForeground(new java.awt.Color(255, 255, 255));
         btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,6 +271,9 @@ public class SupervisionManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnSnapshot.setBackground(new java.awt.Color(102, 102, 102));
+        btnSnapshot.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnSnapshot.setForeground(new java.awt.Color(255, 255, 255));
         btnSnapshot.setText("Snapshot");
         btnSnapshot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -264,8 +288,8 @@ public class SupervisionManageUserAccountJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21)
+                        .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 786, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -383,7 +407,7 @@ public class SupervisionManageUserAccountJPanel extends javax.swing.JPanel {
                         .addComponent(btnBrowse)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnSnapshot)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnView)
@@ -626,6 +650,8 @@ public class SupervisionManageUserAccountJPanel extends javax.swing.JPanel {
         toggleCombo(false);
         toggleEditablePerson(false, Color.LIGHT_GRAY);
         populateEmployeeComboBox(organization);
+        selectedImagePath = "C:"+File.separator+"Users"+File.separator+"Arpit"+File.separator+"Desktop"+File.separator+"notfound.png";
+        
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnSnapshotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSnapshotActionPerformed

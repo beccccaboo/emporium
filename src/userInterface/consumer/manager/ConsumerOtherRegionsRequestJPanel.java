@@ -78,7 +78,7 @@ public class ConsumerOtherRegionsRequestJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(6, 36, 50));
         setMinimumSize(new java.awt.Dimension(1400, 1000));
 
-        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         lblHeader.setForeground(new java.awt.Color(204, 204, 204));
         lblHeader.setText("Consumer Manager - Redirect Request");
 
@@ -110,8 +110,7 @@ public class ConsumerOtherRegionsRequestJPanel extends javax.swing.JPanel {
         }
 
         btnBack.setBackground(new java.awt.Color(191, 149, 155));
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,8 +121,7 @@ public class ConsumerOtherRegionsRequestJPanel extends javax.swing.JPanel {
         jSeparator.setBackground(new java.awt.Color(204, 204, 204));
 
         btnAssign.setBackground(new java.awt.Color(191, 149, 155));
-        btnAssign.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAssign.setForeground(new java.awt.Color(255, 255, 255));
+        btnAssign.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnAssign.setText("Assign");
         btnAssign.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,37 +130,37 @@ public class ConsumerOtherRegionsRequestJPanel extends javax.swing.JPanel {
         });
 
         lblQuantity.setBackground(new java.awt.Color(204, 204, 204));
-        lblQuantity.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblQuantity.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblQuantity.setForeground(new java.awt.Color(204, 204, 204));
-        lblQuantity.setText("Food Quantity:");
+        lblQuantity.setText("Item Quantity:");
 
         lblRequestStatusVal.setBackground(new java.awt.Color(204, 204, 204));
-        lblRequestStatusVal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblRequestStatusVal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblRequestStatusVal.setForeground(new java.awt.Color(204, 204, 204));
         lblRequestStatusVal.setText("<request_status>");
 
         lblRequestStatus.setBackground(new java.awt.Color(204, 204, 204));
-        lblRequestStatus.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblRequestStatus.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblRequestStatus.setForeground(new java.awt.Color(204, 204, 204));
         lblRequestStatus.setText("Request status:");
 
         lblRequestDateVal.setBackground(new java.awt.Color(204, 204, 204));
-        lblRequestDateVal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblRequestDateVal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblRequestDateVal.setForeground(new java.awt.Color(204, 204, 204));
         lblRequestDateVal.setText("<request_date>");
 
         lblRequestDate.setBackground(new java.awt.Color(204, 204, 204));
-        lblRequestDate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblRequestDate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblRequestDate.setForeground(new java.awt.Color(204, 204, 204));
         lblRequestDate.setText("Request Date:");
 
         lblRequestFromVal.setBackground(new java.awt.Color(204, 204, 204));
-        lblRequestFromVal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblRequestFromVal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblRequestFromVal.setForeground(new java.awt.Color(204, 204, 204));
         lblRequestFromVal.setText("<request_from>");
 
         lblRequestFrom.setBackground(new java.awt.Color(204, 204, 204));
-        lblRequestFrom.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblRequestFrom.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblRequestFrom.setForeground(new java.awt.Color(204, 204, 204));
         lblRequestFrom.setText("Request from:");
 
@@ -187,7 +185,7 @@ public class ConsumerOtherRegionsRequestJPanel extends javax.swing.JPanel {
         jScrollPaneRequestDetails.setViewportView(tblRequestDetails);
 
         lblQuantityVal.setBackground(new java.awt.Color(204, 204, 204));
-        lblQuantityVal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblQuantityVal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblQuantityVal.setForeground(new java.awt.Color(204, 204, 204));
         lblQuantityVal.setText("<quantity>");
 
@@ -199,45 +197,45 @@ public class ConsumerOtherRegionsRequestJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(288, 288, 288)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jSeparator)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(107, 107, 107)
-                                .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jSeparator)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(104, 104, 104)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lblRequestFrom)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                                .addComponent(lblRequestStatus)
-                                                                .addGap(26, 26, 26))
-                                                            .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(lblRequestDate)
-                                                                .addGap(35, 35, 35)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(104, 104, 104)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblRequestFrom)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                            .addComponent(lblQuantity)
-                                                            .addGap(33, 33, 33)))
-                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(lblQuantityVal)
-                                                        .addComponent(lblRequestDateVal)
-                                                        .addComponent(lblRequestStatusVal)
-                                                        .addComponent(lblRequestFromVal)))
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(btnBack)
-                                                    .addGap(422, 422, 422)
-                                                    .addComponent(btnAssign))))
-                                        .addComponent(jScrollPaneRequestDetails, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(92, 92, 92)))))
+                                                            .addComponent(lblRequestStatus)
+                                                            .addGap(26, 26, 26))
+                                                        .addGroup(layout.createSequentialGroup()
+                                                            .addComponent(lblRequestDate)
+                                                            .addGap(35, 35, 35)))
+                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                        .addComponent(lblQuantity)
+                                                        .addGap(33, 33, 33)))
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(lblQuantityVal)
+                                                    .addComponent(lblRequestDateVal)
+                                                    .addComponent(lblRequestStatusVal)
+                                                    .addComponent(lblRequestFromVal)))))
+                                    .addComponent(jScrollPaneRequestDetails, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(78, 78, 78)
+                                        .addComponent(btnBack)
+                                        .addGap(448, 448, 448)
+                                        .addComponent(btnAssign)))
+                                .addGap(92, 92, 92))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(337, 337, 337)
-                        .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(331, Short.MAX_VALUE))
+                        .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(277, 277, 277)
+                        .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 734, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(306, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,14 +264,11 @@ public class ConsumerOtherRegionsRequestJPanel extends javax.swing.JPanel {
                     .addComponent(lblQuantityVal))
                 .addGap(28, 28, 28)
                 .addComponent(jScrollPaneRequestDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(btnAssign))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBack)))
-                .addContainerGap(367, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAssign)
+                    .addComponent(btnBack))
+                .addContainerGap(327, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

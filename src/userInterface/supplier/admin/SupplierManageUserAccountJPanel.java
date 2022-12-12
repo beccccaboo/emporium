@@ -40,7 +40,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
     Snapshot snapshot;
     String operation;
     UserAccount selectedPerson;
-    String selectedImagePath = File.separator+"Users"+File.separator+"rebeccabiju"+File.separator+"Downloads"+File.separator+"noImg.jpeg";
+    String selectedImagePath = "C:"+File.separator+"Users"+File.separator+"Arpit"+File.separator+"Desktop"+File.separator+"notfound.png";
     public SupplierManageUserAccountJPanel(JPanel container, Enterprise enterprise, EcoSystem business) {
         initComponents();
         this.enterprise = enterprise;
@@ -155,7 +155,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(1400, 1000));
         setPreferredSize(new java.awt.Dimension(800, 800));
 
-        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         lblHeader.setText("Supplier Adminstrative Work Area - Manage Users");
 
         tblUsers.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -188,7 +188,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
             tblUsers.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        lblOrganization.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblOrganization.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblOrganization.setText("Organization");
 
         cmbOrganiztion.addActionListener(new java.awt.event.ActionListener() {
@@ -197,12 +197,12 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblEmployee.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEmployee.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblEmployee.setText("Employee");
 
         cmbEmployee.setToolTipText("");
 
-        lblRole.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblRole.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblRole.setText("Role");
 
         cmbRole.addActionListener(new java.awt.event.ActionListener() {
@@ -211,13 +211,13 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblUserName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblUserName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblUserName.setText("User Name");
 
-        lblPassword.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblPassword.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblPassword.setText("Password");
 
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -225,7 +225,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnSave.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSave.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -233,13 +233,13 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblEmail.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEmail.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblEmail.setText("Email");
 
-        lblMobileNo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblMobileNo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblMobileNo.setText("Phone Number");
 
-        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -247,7 +247,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnView.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnView.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnView.setText("View");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -255,7 +255,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnCancel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCancel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -263,7 +263,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnNew.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnNew.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnNew.setText("New");
         btnNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -271,6 +271,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnBrowse.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnBrowse.setText("Browse");
         btnBrowse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -280,9 +281,10 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
 
         lblImage.setBorder(new javax.swing.border.MatteBorder(null));
 
-        lblPassword1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblPassword1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblPassword1.setText("Profile Image:");
 
+        btnSnapshot.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnSnapshot.setText("Snapshot");
         btnSnapshot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -298,54 +300,6 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
                 .addGap(98, 98, 98)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(71, 71, 71)
-                                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(183, 183, 183)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblRole, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblOrganization, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(lblEmployee, javax.swing.GroupLayout.Alignment.TRAILING))
-                                        .addGap(18, 18, 18)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cmbOrganiztion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(cmbRole, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cmbEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                                    .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtUserName)
-                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(42, 42, 42)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblEmail)
-                                        .addGap(52, 52, 52)
-                                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblMobileNo)
-                                        .addGap(52, 52, 52)
-                                        .addComponent(txtMobileNo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(64, 64, 64)
-                                .addComponent(lblPassword1)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnSnapshot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnBrowse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(88, 88, 88)
-                                .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addComponent(btnBack)
                         .addGap(12, 12, 12)
@@ -360,7 +314,55 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
                         .addComponent(btnCancel)
                         .addGap(353, 353, 353))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jSeparator)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(71, 71, 71)
+                                        .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(183, 183, 183)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lblRole, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(lblOrganization, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(lblEmployee, javax.swing.GroupLayout.Alignment.TRAILING))
+                                                .addGap(18, 18, 18)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cmbOrganiztion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(cmbRole, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(cmbEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtUserName)
+                                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(42, 42, 42)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lblEmail)
+                                                .addGap(52, 52, 52)
+                                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lblMobileNo)
+                                                .addGap(52, 52, 52)
+                                                .addComponent(txtMobileNo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(64, 64, 64)
+                                        .addComponent(lblPassword1)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(btnSnapshot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btnBrowse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGap(88, 88, 88)
+                                        .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jSeparator))
                         .addContainerGap())))
             .addGroup(layout.createSequentialGroup()
                 .addGap(364, 364, 364)
@@ -404,7 +406,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(btnBrowse)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                                     .addComponent(btnSnapshot, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -523,6 +525,7 @@ public class SupplierManageUserAccountJPanel extends javax.swing.JPanel {
         cmbOrganiztion.setEnabled(true);
         cmbEmployee.setEnabled(true);
         toggleCombo(false);
+        selectedImagePath = "C:"+File.separator+"Users"+File.separator+"Arpit"+File.separator+"Desktop"+File.separator+"notfound.png";
         toggleEditablePerson(false, Color.LIGHT_GRAY);
         
     }//GEN-LAST:event_btnSaveActionPerformed

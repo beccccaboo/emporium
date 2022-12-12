@@ -44,13 +44,13 @@ public class SupervisionManagerWorkAreaJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(204, 204, 255));
         setMinimumSize(new java.awt.Dimension(1400, 1000));
 
-        lblHeading.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblHeading.setText("Mayor Work Area");
+        lblHeading.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        lblHeading.setText("Supervision Work Area");
 
-        lblValue.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblValue.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblValue.setText("Welcome, ");
 
-        btnWastageAvoided.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnWastageAvoided.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnWastageAvoided.setText("View Disposal Avoided by Supplier(Tabular)");
         btnWastageAvoided.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,7 +58,7 @@ public class SupervisionManagerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnPeopleFed.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnPeopleFed.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnPeopleFed.setText("View People Served by Consumers");
         btnPeopleFed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,7 +66,7 @@ public class SupervisionManagerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnWastageAvoidedChart.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnWastageAvoidedChart.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnWastageAvoidedChart.setText("View Disposal Avoided by Supplier(Chart)");
         btnWastageAvoidedChart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,21 +78,22 @@ public class SupervisionManagerWorkAreaJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(269, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(143, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblValue, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnWastageAvoided)
-                        .addGap(2, 2, 2)
-                        .addComponent(btnWastageAvoidedChart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnPeopleFed, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(407, 407, 407)))
-                .addGap(103, 103, 103))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblValue, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnWastageAvoided)
+                                .addGap(55, 55, 55)
+                                .addComponent(btnWastageAvoidedChart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(47, 47, 47)
+                                .addComponent(btnPeopleFed, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(103, 103, 103))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(396, 396, 396))))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnPeopleFed, btnWastageAvoidedChart});
@@ -100,16 +101,16 @@ public class SupervisionManagerWorkAreaJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(171, 171, 171)
-                .addComponent(lblHeading)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(65, 65, 65)
+                .addComponent(lblHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(91, 91, 91)
                 .addComponent(lblValue)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnWastageAvoided, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnWastageAvoidedChart, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPeopleFed, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(665, Short.MAX_VALUE))
+                .addContainerGap(660, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnPeopleFed, btnWastageAvoided, btnWastageAvoidedChart});

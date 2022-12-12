@@ -83,7 +83,7 @@
                               <Component id="lblMobileNo" linkSize="1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Component id="txtMobileNo" linkSize="1" min="-2" pref="136" max="-2" attributes="0"/>
-                              <EmptySpace min="175" pref="335" max="32767" attributes="0"/>
+                              <EmptySpace min="175" pref="363" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lblEmail" linkSize="1" min="-2" max="-2" attributes="0"/>
@@ -105,7 +105,7 @@
                               <Component id="btnSnapshot" linkSize="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="157" max="32767" attributes="0"/>
+                      <EmptySpace pref="185" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -123,12 +123,14 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnBack" linkSize="1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lblHeader" min="-2" max="-2" attributes="0"/>
-                          <Component id="jScrollPane" alignment="1" min="-2" pref="586" max="-2" attributes="0"/>
-                          <Component id="lblNetworkList" alignment="0" min="-2" pref="252" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="215" max="-2" attributes="0"/>
+                          <Component id="jScrollPane" min="-2" pref="586" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                          <Component id="lblNetworkList" min="-2" pref="252" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -140,6 +142,10 @@
                       <Component id="lblSearchString" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="txtSearchString" min="-2" pref="301" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="lblHeader" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -207,7 +213,7 @@
                           <Component id="btnBrowse" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnSnapshot" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="lblImage" min="-2" pref="179" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -221,7 +227,7 @@
                   <Component id="btnDelete" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnCancel" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="75" max="32767" attributes="0"/>
+              <EmptySpace pref="68" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -348,7 +354,7 @@
     <Component class="javax.swing.JLabel" name="lblHeader">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="24" style="1"/>
+          <Font name="Tahoma" size="28" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="System Admin Work Area - Create Enterprise Admin"/>
       </Properties>

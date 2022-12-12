@@ -63,7 +63,7 @@ public class ConsumerManagerRaiseShortageRequestJPanel extends javax.swing.JPane
 
         setBackground(new java.awt.Color(6, 36, 50));
 
-        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         lblHeader.setForeground(new java.awt.Color(204, 204, 204));
         lblHeader.setText("Consumer Manager - Shortage Request");
 
@@ -80,8 +80,7 @@ public class ConsumerManagerRaiseShortageRequestJPanel extends javax.swing.JPane
         jScrollPane.setViewportView(txtMessage);
 
         btnBack.setBackground(new java.awt.Color(191, 149, 155));
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBack.setText("<<BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,8 +93,7 @@ public class ConsumerManagerRaiseShortageRequestJPanel extends javax.swing.JPane
         cmbEmployee.setForeground(new java.awt.Color(255, 255, 255));
 
         btnRaise.setBackground(new java.awt.Color(191, 149, 155));
-        btnRaise.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnRaise.setForeground(new java.awt.Color(255, 255, 255));
+        btnRaise.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnRaise.setText("Raise Request");
         btnRaise.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,27 +106,29 @@ public class ConsumerManagerRaiseShortageRequestJPanel extends javax.swing.JPane
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(437, 437, 437)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(437, 437, 437)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(64, 64, 64)
-                                .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane)
-                            .addComponent(cmbEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(64, 64, 64)
+                                        .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane)
+                                    .addComponent(cmbEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(237, 237, 237)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnRaise)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(237, 237, 237)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRaise)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(lblHeader)))
-                .addContainerGap(442, Short.MAX_VALUE))
+                        .addGap(377, 377, 377)
+                        .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(318, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnBack, btnRaise});
@@ -150,7 +150,7 @@ public class ConsumerManagerRaiseShortageRequestJPanel extends javax.swing.JPane
                 .addComponent(btnRaise)
                 .addGap(44, 44, 44)
                 .addComponent(btnBack)
-                .addContainerGap(442, Short.MAX_VALUE))
+                .addContainerGap(427, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBack, btnRaise, cmbEmployee});

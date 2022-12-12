@@ -77,7 +77,7 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 204, 153));
 
-        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         lblHeader.setText("Supplier Worker Work Area - Collection Request");
 
         lblSubHeader.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -96,7 +96,7 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
 
         spnPerishTime.setModel(new javax.swing.SpinnerNumberModel(4, 4, null, 1));
 
-        btnAdd.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAdd.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,7 +128,7 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
             tblItems.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBack.setText("<< BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,7 +136,7 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnRaiseRequest.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnRaiseRequest.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnRaiseRequest.setText("Raise Request");
         btnRaiseRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,7 +147,7 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
         lbMessage.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lbMessage.setText("Message:");
 
-        btnRemove.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnRemove.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnRemove.setText("Remove");
         btnRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -201,8 +201,8 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
                                 .addComponent(btnRaiseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(btnRemove)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(308, 308, 308)
-                        .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(181, 181, 181)
+                        .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 931, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -211,9 +211,9 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
+                .addGap(45, 45, 45)
                 .addComponent(lblHeader)
-                .addGap(29, 29, 29)
+                .addGap(36, 36, 36)
                 .addComponent(lblSubHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -241,7 +241,7 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
                         .addComponent(btnRaiseRequest)))
                 .addGap(18, 18, 18)
                 .addComponent(btnBack)
-                .addContainerGap(330, Short.MAX_VALUE))
+                .addContainerGap(313, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBack, btnRaiseRequest, btnRemove, lbMessage, txtMessage});

@@ -58,7 +58,7 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(6, 36, 50));
         setMinimumSize(new java.awt.Dimension(1400, 1000));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("Consumer Manager Work Area");
 
@@ -73,8 +73,7 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
         lblName.setText("<<View Name>>");
 
         btnSupplierRequest.setBackground(new java.awt.Color(191, 149, 155));
-        btnSupplierRequest.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSupplierRequest.setForeground(new java.awt.Color(255, 255, 255));
+        btnSupplierRequest.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnSupplierRequest.setLabel("Supplier Requests");
         btnSupplierRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,8 +82,7 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         btnInventory.setBackground(new java.awt.Color(191, 149, 155));
-        btnInventory.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnInventory.setForeground(new java.awt.Color(255, 255, 255));
+        btnInventory.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnInventory.setText("View Inventory");
         btnInventory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,8 +91,7 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         btnInvoices.setBackground(new java.awt.Color(191, 149, 155));
-        btnInvoices.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnInvoices.setForeground(new java.awt.Color(255, 255, 255));
+        btnInvoices.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnInvoices.setText("Pay Invoices");
         btnInvoices.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,8 +100,7 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         btnWastageInventory.setBackground(new java.awt.Color(191, 149, 155));
-        btnWastageInventory.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnWastageInventory.setForeground(new java.awt.Color(255, 255, 255));
+        btnWastageInventory.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnWastageInventory.setText("View Disposal Inventory");
         btnWastageInventory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,25 +113,26 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(454, 454, 454)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jLabel2)
-                        .addGap(82, 82, 82)
-                        .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(360, 360, 360)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnSupplierRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnWastageInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(64, 64, 64)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnWastageInventory, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                            .addComponent(btnSupplierRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnInventory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnInvoices, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(btnInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnInvoices, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(487, Short.MAX_VALUE))
+                        .addGap(398, 398, 398)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(172, 172, 172)
+                                .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(382, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnInventory, btnInvoices, btnSupplierRequest, btnWastageInventory});
@@ -143,26 +140,26 @@ public class ConsumerManagerWorkAreaJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(170, 170, 170)
+                .addGap(53, 53, 53)
                 .addComponent(jLabel1)
+                .addGap(68, 68, 68)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblName))
+                .addGap(111, 111, 111)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnInventory)
+                    .addComponent(btnSupplierRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(lblName))
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(btnInventory)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnInvoices)
-                            .addComponent(btnWastageInventory)))
-                    .addComponent(btnSupplierRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(554, Short.MAX_VALUE))
+                    .addComponent(btnInvoices)
+                    .addComponent(btnWastageInventory))
+                .addContainerGap(511, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnInventory, btnInvoices, btnSupplierRequest, btnWastageInventory});
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel2, lblName});
 
     }// </editor-fold>//GEN-END:initComponents
 

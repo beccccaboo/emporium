@@ -38,7 +38,7 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
     String operation;
     Snapshot snapshot;
     UserAccount selectedPerson;
-    String selectedImagePath = File.separator+"Users"+File.separator+"rebeccabiju"+File.separator+"Downloads"+File.separator+"noImg.jpeg";
+    String selectedImagePath = "C:"+File.separator+"Users"+File.separator+"Arpit"+File.separator+"Desktop"+File.separator+"notfound.png";
     public LogisticsManageUserAccountJPanel(JPanel mainPanel, Enterprise enterprise) {
         initComponents();
         this.enterprise = enterprise;
@@ -529,6 +529,8 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
         cmbEmployee.setEnabled(true);
         toggleCombo(false);
         toggleEditablePerson(false, Color.LIGHT_GRAY);
+        selectedImagePath = "C:"+File.separator+"Users"+File.separator+"Arpit"+File.separator+"Desktop"+File.separator+"notfound.png";
+        
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void cmbOrganiztionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbOrganiztionActionPerformed

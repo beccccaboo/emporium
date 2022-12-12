@@ -50,20 +50,20 @@ public class ConfigureEcoSystem {
             if(e.getName().equals("NEU")){
                 emp = e.getEmployeeDirectory().addEmployee("neu");
                 String pwd = ua.encodePassword("neu");
-                e.getUserAccountDirectory().addUserAccount("neu", pwd, emp, (Role) new SupplierAdminRole(), "neu@gmail.com", 8576665434L, "../res/neu.jpeg");
+                e.getUserAccountDirectory().addUserAccount("neu", pwd, emp, (Role) new SupplierAdminRole(), "neu@gmail.com", 8576665434L, "E:/#Masters/Application Engineering and Development/AED/emporium/src/res/neu.jpeg");
             }
             else if(e.getName().equals("HuskyNGO")){
                 emp = e.getEmployeeDirectory().addEmployee("huskyngo");
                 String pwd = ua.encodePassword("huskyngo");
-                e.getUserAccountDirectory().addUserAccount("huskyngo", pwd, emp, (Role) new ConsumerAdminRole(), "huskyngo@gmail.com", 8576665434L, "../res/ngo.jpeg");
+                e.getUserAccountDirectory().addUserAccount("huskyngo", pwd, emp, (Role) new ConsumerAdminRole(), "huskyngo@gmail.com", 8576665434L, "E:/#Masters/Application Engineering and Development/AED/emporium/src/res/ngo.jpeg");
             } else if(e.getName().equals("FedEx")){
                 emp = e.getEmployeeDirectory().addEmployee("fedex");
                 String pwd = ua.encodePassword("fedex");
-                e.getUserAccountDirectory().addUserAccount("fedex", pwd, emp, (Role) new LogisticsAdminRole(), "fedex@gmail.com", 8576665434L, "../res/fedex.jpeg");
+                e.getUserAccountDirectory().addUserAccount("fedex", pwd, emp, (Role) new LogisticsAdminRole(), "fedex@gmail.com", 8576665434L, "E:/#Masters/Application Engineering and Development/AED/emporium/src/res/fedex.jpeg");
             } else if(e.getName().equals("Boston Mayor")){
                 emp = e.getEmployeeDirectory().addEmployee("bostonmayor");
                 String pwd = ua.encodePassword("bostonmayor");
-                e.getUserAccountDirectory().addUserAccount("bostonmayor", pwd, emp, (Role) new SupervisionAdminRole(), "bostonmayor@gmail.com", 8576665434L, "../res/supervision.jpeg");
+                e.getUserAccountDirectory().addUserAccount("bostonmayor", pwd, emp, (Role) new SupervisionAdminRole(), "bostonmayor@gmail.com", 8576665434L, "E:/#Masters/Application Engineering and Development/AED/emporium/src/res/supervision.jpeg");
             }
         }
         

@@ -78,13 +78,12 @@ public class ConsumerWorkerViewWastageInventoryJPanel extends javax.swing.JPanel
             tblInventory.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         lblHeader.setForeground(new java.awt.Color(204, 204, 204));
         lblHeader.setText("Consumer Manager - Disposal Records");
 
         btnBack.setBackground(new java.awt.Color(191, 149, 155));
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,11 +91,11 @@ public class ConsumerWorkerViewWastageInventoryJPanel extends javax.swing.JPanel
             }
         });
 
-        lblQuantity.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblQuantity.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblQuantity.setForeground(new java.awt.Color(204, 204, 204));
         lblQuantity.setText("Total Quantity :");
 
-        lblQuantityVal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblQuantityVal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblQuantityVal.setForeground(new java.awt.Color(204, 204, 204));
         lblQuantityVal.setText("<quantity>");
 
@@ -113,20 +112,20 @@ public class ConsumerWorkerViewWastageInventoryJPanel extends javax.swing.JPanel
                             .addComponent(btnBack)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(28, 28, 28)
-                                .addComponent(lblQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
                                 .addComponent(lblQuantityVal, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(414, 414, 414)
-                        .addComponent(lblHeader)))
-                .addContainerGap(502, Short.MAX_VALUE))
+                        .addGap(320, 320, 320)
+                        .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 724, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(356, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(127, 127, 127)
+                .addGap(57, 57, 57)
                 .addComponent(lblHeader)
-                .addGap(43, 43, 43)
+                .addGap(113, 113, 113)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblQuantity)
                     .addComponent(lblQuantityVal))
@@ -134,7 +133,7 @@ public class ConsumerWorkerViewWastageInventoryJPanel extends javax.swing.JPanel
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17)
                 .addComponent(btnBack)
-                .addContainerGap(386, Short.MAX_VALUE))
+                .addContainerGap(361, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
