@@ -26,8 +26,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.RowFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import userInterface.consumer.manager.ConsumerSupplierRequestViewJPanel;
 import userInterface.snapshot.Snapshot;
 
@@ -37,9 +39,9 @@ import userInterface.snapshot.Snapshot;
  */
 public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private EcoSystem business;
-    Snapshot snapshot;
+    Snapshot snapshot ;
     /**
      * Creates new form ManagerEnterpriseAdminJPanel
      */
@@ -49,11 +51,11 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
     UserAccount selectedPerson;
     
     
-    public ManageEnterpriseAdminJPanel(JPanel userProcessContainer, EcoSystem business) {
+    public ManageEnterpriseAdminJPanel(JPanel mainPanel, EcoSystem business) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.business = business;
-
+        snapshot=new Snapshot(mainPanel);
         populateTable();
         populateNetworkComboBox();
         
@@ -70,6 +72,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         toggleCombo(false);
         lblImage.setVisible(true);
         btnBrowse.setVisible(false);
+        btnSnapshot.setVisible(false);
         
         txtName.setVisible(false);
         lblName.setVisible(false);
@@ -115,6 +118,8 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         btnSnapshot = new javax.swing.JButton();
+        txtSearchString = new javax.swing.JTextField();
+        lblSearchString = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 204, 204));
         setMinimumSize(new java.awt.Dimension(800, 800));
@@ -237,6 +242,19 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             }
         });
 
+        txtSearchString.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchStringActionPerformed(evt);
+            }
+        });
+        txtSearchString.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearchStringKeyReleased(evt);
+            }
+        });
+
+        lblSearchString.setText("Search String:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -284,7 +302,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                                 .addComponent(lblMobileNo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtMobileNo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(175, 571, Short.MAX_VALUE))
+                                .addGap(175, 335, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblEmail)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -300,7 +318,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                                 .addComponent(btnBrowse)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnSnapshot)))
-                        .addContainerGap())))
+                        .addContainerGap(157, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -322,7 +340,12 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                             .addComponent(lblNetworkList, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(73, 73, 73)
-                        .addComponent(lblCreateNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblCreateNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(200, 200, 200)
+                        .addComponent(lblSearchString)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtSearchString, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -336,8 +359,12 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 .addGap(48, 48, 48)
                 .addComponent(lblNetworkList)
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSearchString)
+                    .addComponent(txtSearchString, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(117, 117, 117)
+                .addGap(65, 65, 65)
                 .addComponent(jSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblCreateNetwork)
@@ -352,9 +379,9 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblMobileNo)
                         .addComponent(txtMobileNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblEnterprise)
-                        .addComponent(cmbEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(cmbEnterprise, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblEnterprise)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
@@ -386,7 +413,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                     .addComponent(btnUpdate)
                     .addComponent(btnDelete)
                     .addComponent(btnCancel))
-                .addGap(109, 109, 109))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBack, btnBrowse, btnCancel, btnDelete, btnNew, btnSave, btnSnapshot, btnUpdate, btnView, cmbEnterprise, cmbNetwork, lblEmail, lblEnterprise, lblMobileNo, lblName, lblNetwork, lblPassword, lblPassword1, lblUserName, txtEmail, txtMobileNo, txtName, txtPassword, txtUserName});
@@ -403,13 +430,13 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_cmbNetworkActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        userProcessContainer.remove(this);
-        Component[] componentArray = userProcessContainer.getComponents();
+        mainPanel.remove(this);
+        Component[] componentArray = mainPanel.getComponents();
         Component component = componentArray[componentArray.length - 1];
         SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
 //        sysAdminwjp.populateTree();
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
@@ -443,7 +470,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         }
 
        long mobileNo = 0;
-        if (Validation.validateNumericalInput(txtMobileNo, 3)) {
+        if (Validation.validateNumericalInput(txtMobileNo, 3) && Validation.validatePhoneNumber(txtMobileNo)) {
             mobileNo = Long.parseLong(txtMobileNo.getText());
         } else {
             return;
@@ -459,13 +486,12 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             return;
         }
         
-        if(snapshot.getPath()!=null){
-            selectedImagePath = snapshot.getPath();
-        }
+        
         UserAccount account = new UserAccount();
 
         String password = account.encodePassword(String.valueOf(passChar));
-        
+        if(snapshot.getPath()!=null)
+            selectedImagePath = snapshot.getPath();
         if(operation.equals("Update")){
 
             selectedPerson.setPassword(password);
@@ -478,6 +504,8 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
              }
         
             if(operation.equals("New")){
+                
+        
                 if (business.checkIfUserNameIsUnique(userName)) {
                     JOptionPane.showMessageDialog(null, "User name already exists. Please select a different one.");
                     return;
@@ -522,6 +550,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         btnUpdate.setVisible(false);
         tblEnterprise.setEnabled(true);
         btnBrowse.setVisible(false);
+        btnSnapshot.setVisible(false);
         cmbEnterprise.setEnabled(true);
         cmbNetwork.setEnabled(true);
         txtUserName.setEnabled(true);
@@ -555,6 +584,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         btnNew.setVisible(false);
         btnView.setVisible(false);
         btnBrowse.setVisible(true);
+        btnSnapshot.setVisible(true);
         btnSave.setVisible(true);
         btnCancel.setVisible(true);
         cmbNetwork.setEnabled(true);
@@ -594,7 +624,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
         lblImage.setIcon(new ImageIcon(img));
         btnBrowse.setVisible(false);
-
+        btnSnapshot.setVisible(false);
         //        System.out.println(selectedPerson.getEmployee().getName());
         //        txtPassword.setText(selectedPerson.getPassword());
         //
@@ -626,6 +656,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         cmbEnterprise.setEnabled(false);
         btnSave.setVisible(true);
         btnBrowse.setVisible(true);
+        btnSnapshot.setVisible(true);
         btnCancel.setVisible(true);
         tblEnterprise.setEnabled(false);
     }//GEN-LAST:event_btnUpdateActionPerformed
@@ -664,6 +695,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         btnNew.setVisible(true);
         btnBrowse.setVisible(false);
+        btnSnapshot.setVisible(false);
         btnView.setVisible(true);
         btnSave.setVisible(false);
         btnUpdate.setVisible(false);
@@ -684,13 +716,24 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
     private void btnSnapshotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSnapshotActionPerformed
         // TODO add your handling code here:
-        snapshot = new Snapshot(userProcessContainer);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.add("snapshot", snapshot);
-        layout.next(userProcessContainer);
+
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        mainPanel.add("snapshot", snapshot);
+        layout.next(mainPanel);
+
 //        selectedImagePath = snapshot.getPath();
         System.out.println("Selected Image: "+ selectedImagePath);
     }//GEN-LAST:event_btnSnapshotActionPerformed
+
+    private void txtSearchStringActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchStringActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchStringActionPerformed
+
+    private void txtSearchStringKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchStringKeyReleased
+        // TODO add your handling code here:
+        String searchString = txtSearchString.getText();
+        search(searchString);
+    }//GEN-LAST:event_txtSearchStringKeyReleased
 
     private void populateTable() {
         DefaultTableModel dtm = (DefaultTableModel) tblEnterprise.getModel();
@@ -751,12 +794,14 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblNetworkList;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblPassword1;
+    private javax.swing.JLabel lblSearchString;
     private javax.swing.JLabel lblUserName;
     private javax.swing.JTable tblEnterprise;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtMobileNo;
     private javax.swing.JTextField txtName;
     private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtSearchString;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 
@@ -801,5 +846,13 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         cmbEnterprise.setEditable(b);
         cmbNetwork.setEditable(b);
         
+    }
+    
+    //For search box
+    private void search(String searchString){
+        DefaultTableModel model = (DefaultTableModel)tblEnterprise.getModel();
+        TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
+        tblEnterprise.setRowSorter(trs);
+        trs.setRowFilter(RowFilter.regexFilter(searchString));
     }
 }

@@ -24,11 +24,11 @@ public class ConsumerManageEmployeeJPanel extends javax.swing.JPanel {
      * Creates new form ConsumerManageEmployeeJPanel
      */
     private OrganizationDirectory organizationDirectory;
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
 
-    public ConsumerManageEmployeeJPanel(JPanel userProcessContainer, OrganizationDirectory organizationDirectory) {
+    public ConsumerManageEmployeeJPanel(JPanel mainPanel, OrganizationDirectory organizationDirectory) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.organizationDirectory = organizationDirectory;
 
         populateOrganizationComboBox();
@@ -88,16 +88,23 @@ public class ConsumerManageEmployeeJPanel extends javax.swing.JPanel {
         lblHeader = new javax.swing.JLabel();
         btnCreateEmployee = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 255, 204));
+        setBackground(new java.awt.Color(6, 36, 50));
 
+        lblOrg.setBackground(new java.awt.Color(6, 36, 50));
+        lblOrg.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblOrg.setForeground(new java.awt.Color(204, 204, 204));
         lblOrg.setText("Organization");
 
+        cmbOrg.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cmbOrg.setForeground(new java.awt.Color(204, 204, 204));
         cmbOrg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbOrgActionPerformed(evt);
             }
         });
 
+        tblOrganization.setBackground(new java.awt.Color(87, 92, 123));
+        tblOrganization.setForeground(new java.awt.Color(255, 255, 255));
         tblOrganization.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -123,10 +130,25 @@ public class ConsumerManageEmployeeJPanel extends javax.swing.JPanel {
         });
         jScrollPane.setViewportView(tblOrganization);
 
+        lblOrgCreate.setBackground(new java.awt.Color(6, 36, 50));
+        lblOrgCreate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblOrgCreate.setForeground(new java.awt.Color(204, 204, 204));
         lblOrgCreate.setText("Organization");
 
+        cmbOrgCreate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cmbOrgCreate.setForeground(new java.awt.Color(204, 204, 204));
+
+        lblName.setBackground(new java.awt.Color(6, 36, 50));
+        lblName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblName.setForeground(new java.awt.Color(204, 204, 204));
         lblName.setText("Name");
 
+        txtName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtName.setForeground(new java.awt.Color(204, 204, 204));
+
+        btnBack.setBackground(new java.awt.Color(204, 153, 255));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,8 +157,12 @@ public class ConsumerManageEmployeeJPanel extends javax.swing.JPanel {
         });
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblHeader.setText("NGO Adminstrative Work Area - Manage Employee");
+        lblHeader.setForeground(new java.awt.Color(204, 204, 204));
+        lblHeader.setText("Consumer Adminstrative Work Area - Manage Employee");
 
+        btnCreateEmployee.setBackground(new java.awt.Color(204, 153, 255));
+        btnCreateEmployee.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnCreateEmployee.setForeground(new java.awt.Color(255, 255, 255));
         btnCreateEmployee.setText("Create Employee");
         btnCreateEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,40 +174,43 @@ public class ConsumerManageEmployeeJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(361, 361, 361))
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(btnBack))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(530, 530, 530)
-                        .addComponent(lblOrg)
-                        .addGap(48, 48, 48)
-                        .addComponent(cmbOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(444, 444, 444)
-                        .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(530, 530, 530)
+                                .addComponent(lblOrg)
+                                .addGap(48, 48, 48)
+                                .addComponent(cmbOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(385, 385, 385)
+                                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 794, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 223, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(lblOrgCreate)
+                                .addGap(18, 18, 18)
+                                .addComponent(cmbOrgCreate, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(178, 178, 178)
+                                .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(309, 309, 309))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnBack)
+                                .addGap(302, 302, 302)
+                                .addComponent(btnCreateEmployee)
+                                .addGap(341, 341, 341))))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(363, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblOrgCreate)
-                        .addGap(18, 18, 18)
-                        .addComponent(cmbOrgCreate, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(178, 178, 178)
-                        .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(324, 324, 324))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnCreateEmployee)
-                        .addGap(565, 565, 565))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(313, 313, 313))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnBack, btnCreateEmployee, cmbOrg, cmbOrgCreate, txtName});
@@ -189,9 +218,9 @@ public class ConsumerManageEmployeeJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(92, 92, 92)
                 .addComponent(lblHeader)
-                .addGap(61, 61, 61)
+                .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblOrg))
@@ -205,11 +234,11 @@ public class ConsumerManageEmployeeJPanel extends javax.swing.JPanel {
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblOrgCreate)
                     .addComponent(cmbOrgCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(97, 97, 97)
-                .addComponent(btnCreateEmployee)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
-                .addComponent(btnBack)
-                .addGap(198, 198, 198))
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCreateEmployee)
+                    .addComponent(btnBack))
+                .addContainerGap(354, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBack, btnCreateEmployee, cmbOrg, cmbOrgCreate, lblName, lblOrg, lblOrgCreate, txtName});
@@ -225,9 +254,9 @@ public class ConsumerManageEmployeeJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
 
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnCreateEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateEmployeeActionPerformed

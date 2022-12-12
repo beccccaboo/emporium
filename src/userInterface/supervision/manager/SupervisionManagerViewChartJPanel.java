@@ -29,15 +29,15 @@ import org.jfree.data.category.DefaultCategoryDataset;
  */
 public class SupervisionManagerViewChartJPanel extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private Network network;
 
     /**
      * Creates new form SupplierManagerViewChart
      */
-    public SupervisionManagerViewChartJPanel(JPanel userProcessContainer, Network network) {
+    public SupervisionManagerViewChartJPanel(JPanel mainPanel, Network network) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.network = network;
         populateChart();
     }
@@ -61,15 +61,15 @@ public class SupervisionManagerViewChartJPanel extends javax.swing.JPanel {
                             }
                         }
                     }
-                    dataSet.setValue(wastageAvoided, "Wastage Avoided", name);
+                    dataSet.setValue(wastageAvoided, "Disposal Avoided", name);
                     wastageAvoided = 0;
                 }
             }
         }
 
-        JFreeChart chart = ChartFactory.createBarChart("Wastage Avoided by each Supplier",
+        JFreeChart chart = ChartFactory.createBarChart("Disposal Avoided by each Supplier",
                 "Supplier",
-                "Wastage Avoided (In Pounds)",
+                "Disposal Avoided (In Pounds)",
                 dataSet,
                 PlotOrientation.VERTICAL, true, true, false);
 
@@ -98,6 +98,7 @@ public class SupervisionManagerViewChartJPanel extends javax.swing.JPanel {
         btnBack1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
+        setMinimumSize(new java.awt.Dimension(1400, 1000));
 
         pnlChart.setBackground(new java.awt.Color(204, 204, 255));
         pnlChart.setLayout(new java.awt.BorderLayout());
@@ -118,34 +119,35 @@ public class SupervisionManagerViewChartJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1270, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pnlChart, javax.swing.GroupLayout.PREFERRED_SIZE, 735, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(lblHeader)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(22, 22, 22)
+                        .addComponent(lblHeader))
+                    .addComponent(pnlChart, javax.swing.GroupLayout.PREFERRED_SIZE, 735, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(270, 270, 270))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addGap(48, 48, 48)
                 .addComponent(lblHeader)
                 .addGap(18, 18, 18)
-                .addComponent(pnlChart, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(pnlChart, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(392, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.remove(this);
-        layout.previous(userProcessContainer);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        mainPanel.remove(this);
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBack1ActionPerformed
 
 

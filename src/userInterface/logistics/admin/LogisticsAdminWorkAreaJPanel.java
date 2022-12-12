@@ -18,12 +18,12 @@ public class LogisticsAdminWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form LogisticsAdminWorkAreaJPanel
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private Enterprise enterprise;
 
-    public LogisticsAdminWorkAreaJPanel(JPanel userProcessContainer, Enterprise enterprise) {
+    public LogisticsAdminWorkAreaJPanel(JPanel mainPanel, Enterprise enterprise) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.enterprise = enterprise;
         lblValue.setText(enterprise.getName());
     }
@@ -44,16 +44,21 @@ public class LogisticsAdminWorkAreaJPanel extends javax.swing.JPanel {
         btnManageEmployee = new javax.swing.JButton();
         btnManageUser = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 204));
+        setBackground(new java.awt.Color(204, 204, 255));
+        setMinimumSize(new java.awt.Dimension(1400, 1000));
 
         lblHeading.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblHeading.setText("Logistics Adminstrative Work Area");
 
         lblEnterprise.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblEnterprise.setText("Restaurant:");
+        lblEnterprise.setText("Supplier:");
 
+        lblValue.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblValue.setText("<value>");
 
+        btnManageOrganization.setBackground(new java.awt.Color(0, 0, 51));
+        btnManageOrganization.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnManageOrganization.setForeground(new java.awt.Color(204, 204, 204));
         btnManageOrganization.setText("Manage Organization");
         btnManageOrganization.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,6 +66,9 @@ public class LogisticsAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnManageEmployee.setBackground(new java.awt.Color(0, 0, 51));
+        btnManageEmployee.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnManageEmployee.setForeground(new java.awt.Color(204, 204, 204));
         btnManageEmployee.setText("Manage Employee");
         btnManageEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,6 +76,9 @@ public class LogisticsAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnManageUser.setBackground(new java.awt.Color(0, 0, 51));
+        btnManageUser.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnManageUser.setForeground(new java.awt.Color(204, 204, 204));
         btnManageUser.setText("Manage User");
         btnManageUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,67 +91,75 @@ public class LogisticsAdminWorkAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(331, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(288, 288, 288))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addComponent(lblEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblValue, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(248, 248, 248)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnManageEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnManageUser, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addComponent(lblHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(293, 293, 293))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addComponent(lblEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblValue, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnManageEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnManageUser, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(238, 238, 238))))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnManageEmployee, btnManageOrganization, btnManageUser});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(231, 231, 231)
                 .addComponent(lblHeading)
-                .addGap(49, 49, 49)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblValue))
-                .addGap(34, 34, 34)
-                .addComponent(btnManageOrganization)
-                .addGap(24, 24, 24)
-                .addComponent(btnManageEmployee)
-                .addGap(24, 24, 24)
-                .addComponent(btnManageUser)
-                .addContainerGap(345, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnManageEmployee)
+                    .addComponent(btnManageUser))
+                .addContainerGap(609, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnManageEmployee, btnManageOrganization, btnManageUser});
+
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageOrganizationActionPerformed
 
-        LogisticsManageOrganizationJPanel manageLogisticsOrganizationJPanel = new LogisticsManageOrganizationJPanel(userProcessContainer, enterprise.getOrganizationDirectory());
-        userProcessContainer.add("manageLogisticsOrganizationJPanel", manageLogisticsOrganizationJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        LogisticsManageOrganizationJPanel manageLogisticsOrganizationJPanel = new LogisticsManageOrganizationJPanel(mainPanel, enterprise.getOrganizationDirectory());
+        mainPanel.add("manageLogisticsOrganizationJPanel", manageLogisticsOrganizationJPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnManageOrganizationActionPerformed
 
     private void btnManageEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageEmployeeActionPerformed
 
-        LogisticsManageEmployeeJPanel manageLogisticsEmployeeJPanel = new LogisticsManageEmployeeJPanel(userProcessContainer, enterprise.getOrganizationDirectory());
-        userProcessContainer.add("manageLogisticsEmployeeJPanel", manageLogisticsEmployeeJPanel);
+        LogisticsManageEmployeeJPanel manageLogisticsEmployeeJPanel = new LogisticsManageEmployeeJPanel(mainPanel, enterprise.getOrganizationDirectory());
+        mainPanel.add("manageLogisticsEmployeeJPanel", manageLogisticsEmployeeJPanel);
 
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
 
     }//GEN-LAST:event_btnManageEmployeeActionPerformed
 
     private void btnManageUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageUserActionPerformed
         // TODO add your handling code here:
-        LogisticsManageUserAccountJPanel manageLogisticsUserAccountJPanel = new LogisticsManageUserAccountJPanel(userProcessContainer, enterprise);
-        userProcessContainer.add("manageLogisticsUserAccountJPanel", manageLogisticsUserAccountJPanel);
+        LogisticsManageUserAccountJPanel manageLogisticsUserAccountJPanel = new LogisticsManageUserAccountJPanel(mainPanel, enterprise);
+        mainPanel.add("manageLogisticsUserAccountJPanel", manageLogisticsUserAccountJPanel);
 
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnManageUserActionPerformed
 
 

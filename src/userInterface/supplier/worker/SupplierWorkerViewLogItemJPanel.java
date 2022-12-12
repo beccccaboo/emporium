@@ -17,15 +17,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class SupplierWorkerViewLogItemJPanel extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private CollectionWorkRequest collectionWorkRequest;
 
     /**
      * Creates new form SupplierWorkerViewLogItemJPanel
      */
-    public SupplierWorkerViewLogItemJPanel(JPanel userProcessContainer, CollectionWorkRequest collectionWorkRequest) {
+    public SupplierWorkerViewLogItemJPanel(JPanel mainPanel, CollectionWorkRequest collectionWorkRequest) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.collectionWorkRequest = collectionWorkRequest;
         populateItemTable();
         populateData();
@@ -56,6 +56,7 @@ public class SupplierWorkerViewLogItemJPanel extends javax.swing.JPanel {
         lblQuantity = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 204, 153));
+        setMinimumSize(new java.awt.Dimension(1400, 1000));
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblHeader.setText("Supplier Worker Work Area - Collection Request");
@@ -65,7 +66,7 @@ public class SupplierWorkerViewLogItemJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Food Type", "Quantity"
+                "Item Type", "Quantity"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -82,6 +83,7 @@ public class SupplierWorkerViewLogItemJPanel extends javax.swing.JPanel {
             tblItems.getColumnModel().getColumn(1).setResizable(false);
         }
 
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,53 +91,56 @@ public class SupplierWorkerViewLogItemJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblRequestStatus.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblRequestStatus.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblRequestStatus.setText("Request status:");
 
+        lblConsumerVal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblConsumerVal.setText("<ngo>");
 
+        lblQuantityVal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblQuantityVal.setText("<quantity>");
 
-        lblConsumer.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblConsumer.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblConsumer.setText("NGO delivered to:");
 
+        lblRequestStatusVal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblRequestStatusVal.setText("<request_status>");
 
-        lblLogistics.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblLogistics.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblLogistics.setText("Logistics");
 
+        lblRequestDateVal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblRequestDateVal.setText("<request_date>");
 
+        lblLogisticsVal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblLogisticsVal.setText("<logistics>");
 
-        lblRequestDate.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblRequestDate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblRequestDate.setText("Request Date:");
 
-        lblQuantity.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblQuantity.setText("Food Quantity:");
+        lblQuantity.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblQuantity.setText("Quantity:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(382, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 675, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(lblRequestStatus)
-                                    .addGap(26, 26, 26))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lblRequestDate)
-                                    .addGap(35, 35, 35)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lblQuantity)
-                                .addGap(33, 33, 33)))
+                                .addComponent(lblRequestStatus)
+                                .addGap(26, 26, 26))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblRequestDate)
+                                    .addComponent(lblQuantity))
+                                .addGap(35, 35, 35)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblQuantityVal)
                             .addComponent(lblRequestDateVal)
@@ -148,12 +153,12 @@ public class SupplierWorkerViewLogItemJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblLogisticsVal)
                             .addComponent(lblConsumerVal))))
-                .addGap(92, 92, 92))
+                .addGap(343, 343, 343))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(113, 113, 113)
                 .addComponent(lblHeader)
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -179,14 +184,14 @@ public class SupplierWorkerViewLogItemJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnBack)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(475, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.remove(this);
-        layout.previous(userProcessContainer);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        mainPanel.remove(this);
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     public void populateItemTable() {

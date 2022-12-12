@@ -28,7 +28,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private UserAccount account;
     private Network network;
     private String enterpriseName;
@@ -36,9 +36,9 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
     /**
      * Creates new form SupplierWorkerJPanel
      */
-    public SupplierWorkerRaiseRequestJPanel(JPanel userProcessContainer, UserAccount account, String enterpriseName, Network network) {
+    public SupplierWorkerRaiseRequestJPanel(JPanel mainPanel, UserAccount account, String enterpriseName, Network network) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.account = account;
         this.network = network;
         this.enterpriseName = enterpriseName;
@@ -73,7 +73,6 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
         lbMessage = new javax.swing.JLabel();
         txtMessage = new javax.swing.JTextField();
         cmbItem = new javax.swing.JComboBox<>();
-        lblWarning = new javax.swing.JLabel();
         btnRemove = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 204, 153));
@@ -82,10 +81,10 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
         lblHeader.setText("Supplier Worker Work Area - Collection Request");
 
         lblSubHeader.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblSubHeader.setText("Add Food Items :");
+        lblSubHeader.setText("Add Items :");
 
         lblFoodType.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblFoodType.setText("Food Type:");
+        lblFoodType.setText("Item Category");
 
         lblQuantity.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblQuantity.setText("Quantity:");
@@ -93,11 +92,11 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
         spnQuantity.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
 
         lblPerishTime.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblPerishTime.setText("Hours to perish*:");
+        lblPerishTime.setText("Days Before Disposal:");
 
         spnPerishTime.setModel(new javax.swing.SpinnerNumberModel(4, 4, null, 1));
 
-        btnAdd.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnAdd.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,7 +110,7 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Food Type", "Quantity", "Hours to perish"
+                "Item Category", "Quantity", "Days Before Disposal"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -129,7 +128,7 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
             tblItems.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        btnBack.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnBack.setText("<< BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,7 +136,7 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnRaiseRequest.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnRaiseRequest.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnRaiseRequest.setText("Raise Request");
         btnRaiseRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,10 +147,7 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
         lbMessage.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lbMessage.setText("Message:");
 
-        lblWarning.setForeground(new java.awt.Color(255, 0, 0));
-        lblWarning.setText("<HTML>* Considering the logsitics, we only accept food which would last for atleast 4 hours.</HTML>");
-
-        btnRemove.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnRemove.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnRemove.setText("Remove");
         btnRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,94 +160,91 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(273, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblQuantity)
+                        .addGap(7, 7, 7))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblPerishTime)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap(251, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblQuantity)
-                                    .addComponent(lblPerishTime)
-                                    .addComponent(lblFoodType)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lblSubHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(23, 23, 23)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(spnQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbItem, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(spnPerishTime, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(104, 104, 104)
-                                .addComponent(lblWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lbMessage)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btnRaiseRequest))
-                                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 605, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(118, 118, 118)))))
-                .addGap(269, 269, 269))
+                            .addComponent(lblSubHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblFoodType, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(66, 66, 66)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cmbItem, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spnPerishTime, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spnQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(648, 648, 648))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(303, 303, 303)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(btnBack))
+                        .addGap(328, 328, 328)
+                        .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 605, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(439, 439, 439)
-                        .addComponent(btnRemove)))
+                        .addGap(288, 288, 288)
+                        .addComponent(lbMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(60, 60, 60)
+                                .addComponent(btnRaiseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnRemove)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(308, 308, 308)
+                        .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAdd, btnBack, btnRaiseRequest, btnRemove, cmbItem, lblFoodType, lblPerishTime, lblQuantity, lblSubHeader, spnPerishTime, spnQuantity, txtMessage});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnRemove, cmbItem, lblPerishTime, lblQuantity, spnPerishTime, spnQuantity, txtMessage});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(52, 52, 52)
                 .addComponent(lblHeader)
-                .addGap(42, 42, 42)
-                .addComponent(lblSubHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(lblSubHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbItem, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblFoodType, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFoodType)
-                    .addComponent(cmbItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spnQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblQuantity)
-                    .addComponent(spnQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spnPerishTime, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPerishTime, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPerishTime)
-                    .addComponent(spnPerishTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8)))
-                .addGap(26, 26, 26)
-                .addComponent(btnAdd)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnRemove)
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbMessage)
-                    .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRaiseRequest))
-                .addGap(84, 84, 84)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRaiseRequest)))
+                .addGap(18, 18, 18)
                 .addComponent(btnBack)
-                .addGap(47, 47, 47))
+                .addContainerGap(330, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAdd, btnBack, btnRaiseRequest, btnRemove, cmbItem, lblFoodType, lblPerishTime, lblQuantity, lblSubHeader, spnPerishTime, spnQuantity, txtMessage});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBack, btnRaiseRequest, btnRemove, lbMessage, txtMessage});
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -268,13 +261,13 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
     }
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        String food = cmbItem.getSelectedItem().toString();
+        String item = cmbItem.getSelectedItem().toString();
         int quantity = (Integer) spnQuantity.getValue();
         int hours = (Integer) spnPerishTime.getValue();
 
         if (quantity < 1) {
             JOptionPane.showMessageDialog(null,
-                    "Quantity of food cannot be less than 1",
+                    "Quantity of item cannot be less than 1",
                     "Warning",
                     JOptionPane.WARNING_MESSAGE);
             return;
@@ -282,21 +275,21 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
 
         if (hours < 4) {
             JOptionPane.showMessageDialog(null,
-                    "Food items perishable under 4 hours not accepted!",
+                    "Item items perishable under 4 hours not accepted!",
                     "Warning",
                     JOptionPane.WARNING_MESSAGE);
             return;
         }
 
         Object row[] = new Object[3];
-        row[0] = food;
+        row[0] = item;
         row[1] = quantity;
         row[2] = hours;
 
         DefaultTableModel dtm = (DefaultTableModel) tblItems.getModel();
         dtm.addRow(row);
 
-//        JOptionPane.showMessageDialog(null, "Food Item Added");
+//        JOptionPane.showMessageDialog(null, "Item Item Added");
         cmbItem.setSelectedIndex(0);
         spnQuantity.setValue(1);
         spnPerishTime.setValue(4);
@@ -310,17 +303,17 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
         DefaultTableModel dtm = (DefaultTableModel) tblItems.getModel();
 
         if (dtm.getRowCount() == 0) {
-            JOptionPane.showMessageDialog(null, "No food items selected to be distributed");
+            JOptionPane.showMessageDialog(null, "No items selected to be distributed");
             return;
         }
 
         ArrayList<RequestItem> requestList = new ArrayList();
         for (int i = 0; i < dtm.getRowCount(); i++) {
-            String food = (String) dtm.getValueAt(i, 0);
+            String item = (String) dtm.getValueAt(i, 0);
             int quantity = (Integer) dtm.getValueAt(i, 1);
             int hours = (Integer) dtm.getValueAt(i, 2);
 
-            RequestItem ri = new RequestItem(food, quantity, hours);
+            RequestItem ri = new RequestItem(item, quantity, hours);
             requestList.add(ri);
             System.out.println("Request Item: "+requestList.get(i));
         }
@@ -357,9 +350,9 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnRaiseRequestActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.remove(this);
-        layout.previous(userProcessContainer);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        mainPanel.remove(this);
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
@@ -391,7 +384,6 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblPerishTime;
     private javax.swing.JLabel lblQuantity;
     private javax.swing.JLabel lblSubHeader;
-    private javax.swing.JLabel lblWarning;
     private javax.swing.JSpinner spnPerishTime;
     private javax.swing.JSpinner spnQuantity;
     private javax.swing.JTable tblItems;

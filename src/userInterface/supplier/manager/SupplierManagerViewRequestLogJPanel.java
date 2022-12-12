@@ -22,15 +22,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class SupplierManagerViewRequestLogJPanel extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private Enterprise enterprise;
 
     /**
      * Creates new form SupplierWorkerViewRequestLogJPanel
      */
-    public SupplierManagerViewRequestLogJPanel(JPanel userProcessContainer, Enterprise enterprise) {
+    public SupplierManagerViewRequestLogJPanel(JPanel mainPanel, Enterprise enterprise) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.enterprise = enterprise;
 
         populateTable();
@@ -82,7 +82,7 @@ public class SupplierManagerViewRequestLogJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 204, 153));
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblHeader.setText("Restaurant Worker Work Area - Request Log");
+        lblHeader.setText("Supplier Worker Work Area - Request Log");
 
         tblLog.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -111,6 +111,8 @@ public class SupplierManagerViewRequestLogJPanel extends javax.swing.JPanel {
             tblLog.getColumnModel().getColumn(6).setResizable(false);
         }
 
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(102, 102, 102));
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,6 +120,8 @@ public class SupplierManagerViewRequestLogJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnViewRequestItem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnViewRequestItem.setForeground(new java.awt.Color(102, 102, 102));
         btnViewRequestItem.setText("View Request Item");
         btnViewRequestItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,39 +134,40 @@ public class SupplierManagerViewRequestLogJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(231, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnViewRequestItem, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(671, 671, 671)
-                                .addComponent(btnViewRequestItem, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 951, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(171, 171, 171)
-                        .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(418, Short.MAX_VALUE))
+                        .addGap(5, 5, 5)
+                        .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 951, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(230, 230, 230))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(425, 425, 425)
+                .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addContainerGap(161, Short.MAX_VALUE)
                 .addComponent(lblHeader)
-                .addGap(50, 50, 50)
-                .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnBack, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
-                    .addComponent(btnViewRequestItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(btnViewRequestItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(229, 229, 229))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.remove(this);
-        layout.previous(userProcessContainer);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        mainPanel.remove(this);
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnViewRequestItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewRequestItemActionPerformed
@@ -176,10 +181,10 @@ public class SupplierManagerViewRequestLogJPanel extends javax.swing.JPanel {
         } else {
             CollectionWorkRequest cwr = (CollectionWorkRequest) tblLog.getValueAt(selectedRow, 2);
 
-            SupplierManagerViewLogItemJPanel restaurantWorkerViewLogItemJPanel = new SupplierManagerViewLogItemJPanel(userProcessContainer, cwr);
-            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            userProcessContainer.add("RestaurantWorkerViewLogItemJPanel", restaurantWorkerViewLogItemJPanel);
-            layout.next(userProcessContainer);
+            SupplierManagerViewLogItemJPanel restaurantWorkerViewLogItemJPanel = new SupplierManagerViewLogItemJPanel(mainPanel, cwr);
+            CardLayout layout = (CardLayout) mainPanel.getLayout();
+            mainPanel.add("RestaurantWorkerViewLogItemJPanel", restaurantWorkerViewLogItemJPanel);
+            layout.next(mainPanel);
         }
     }//GEN-LAST:event_btnViewRequestItemActionPerformed
 

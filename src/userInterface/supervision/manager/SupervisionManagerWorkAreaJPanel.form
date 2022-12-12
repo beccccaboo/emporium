@@ -5,6 +5,9 @@
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="ff" green="cc" red="cc" type="rgb"/>
     </Property>
+    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[1400, 1000]"/>
+    </Property>
   </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -21,42 +24,41 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="btnPeopleFed" alignment="1" min="-2" pref="340" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
-                          <Component id="lblValue" min="-2" pref="216" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="btnWastageAvoided" pref="340" max="32767" attributes="0"/>
-                              <Component id="btnWastageAvoidedChart" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="269" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblValue" min="-2" pref="216" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="btnWastageAvoided" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                      <Component id="btnWastageAvoidedChart" linkSize="1" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnPeopleFed" linkSize="1" min="-2" pref="340" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="lblHeading" alignment="1" min="-2" pref="380" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblHeading" min="-2" pref="218" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="407" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="177" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
               <Component id="lblHeading" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="lblValue" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-              <Component id="btnWastageAvoided" min="-2" pref="41" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnWastageAvoidedChart" min="-2" pref="41" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnPeopleFed" min="-2" pref="53" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnWastageAvoided" linkSize="2" alignment="3" min="-2" pref="85" max="-2" attributes="0"/>
+                  <Component id="btnWastageAvoidedChart" linkSize="2" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                  <Component id="btnPeopleFed" linkSize="2" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="665" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -72,12 +74,18 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblValue">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Welcome, "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnWastageAvoided">
       <Properties>
-        <Property name="text" type="java.lang.String" value="View Wastage Avoided by Restaurants(Tabular)"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="View Disposal Avoided by Supplier(Tabular)"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnWastageAvoidedActionPerformed"/>
@@ -85,7 +93,10 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnPeopleFed">
       <Properties>
-        <Property name="text" type="java.lang.String" value="View People Fed by NGOs"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="View People Served by Consumers"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPeopleFedActionPerformed"/>
@@ -93,7 +104,10 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnWastageAvoidedChart">
       <Properties>
-        <Property name="text" type="java.lang.String" value="View Wastage Avoided by Restaurant(Chart)"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="View Disposal Avoided by Supplier(Chart)"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnWastageAvoidedChartActionPerformed"/>

@@ -23,11 +23,11 @@ public class ConsumerManageOrganizationJPanel extends javax.swing.JPanel {
      * Creates new form ConsumerManageOrganization
      */
     private OrganizationDirectory organizationDirectory;
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
 
-    public ConsumerManageOrganizationJPanel(JPanel userProcessContainer, OrganizationDirectory organizationDirectory) {
+    public ConsumerManageOrganizationJPanel(JPanel mainPanel, OrganizationDirectory organizationDirectory) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.organizationDirectory = organizationDirectory;
         populateTable();
         populateCombo();
@@ -74,8 +74,11 @@ public class ConsumerManageOrganizationJPanel extends javax.swing.JPanel {
         cmbOrganization = new javax.swing.JComboBox();
         btnBack = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 255, 204));
+        setBackground(new java.awt.Color(6, 36, 50));
 
+        btnAddOrganization.setBackground(new java.awt.Color(191, 149, 155));
+        btnAddOrganization.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAddOrganization.setForeground(new java.awt.Color(255, 255, 255));
         btnAddOrganization.setText("Add Organization");
         btnAddOrganization.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,8 +87,12 @@ public class ConsumerManageOrganizationJPanel extends javax.swing.JPanel {
         });
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblHeader.setText("NGO Adminstrative Work Area - Manage Organization");
+        lblHeader.setForeground(new java.awt.Color(204, 204, 204));
+        lblHeader.setText("Consumer Adminstrative Work Area - Manage Organization");
 
+        tblOrganization.setBackground(new java.awt.Color(87, 92, 123));
+        tblOrganization.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tblOrganization.setForeground(new java.awt.Color(255, 255, 255));
         tblOrganization.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -111,14 +118,22 @@ public class ConsumerManageOrganizationJPanel extends javax.swing.JPanel {
         });
         jScrollPane.setViewportView(tblOrganization);
 
+        lblOrg.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblOrg.setForeground(new java.awt.Color(204, 204, 204));
         lblOrg.setText("Organization Type ");
 
+        cmbOrganization.setBackground(new java.awt.Color(191, 149, 155));
+        cmbOrganization.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cmbOrganization.setForeground(new java.awt.Color(255, 255, 255));
         cmbOrganization.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbOrganizationActionPerformed(evt);
             }
         });
 
+        btnBack.setBackground(new java.awt.Color(191, 149, 155));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,29 +145,33 @@ public class ConsumerManageOrganizationJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(395, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(372, 372, 372))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(lblHeader)
+                                .addGap(286, 286, 286))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(lblOrg)
+                                .addGap(18, 18, 18)
+                                .addComponent(cmbOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(470, 470, 470))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnBack)
                         .addGap(293, 293, 293)
                         .addComponent(btnAddOrganization)
-                        .addGap(321, 321, 321))))
+                        .addGap(316, 316, 316))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jSeparator)))
+                .addGap(35, 35, 35))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblHeader)
-                        .addGap(357, 357, 357))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblOrg)
-                        .addGap(18, 18, 18)
-                        .addComponent(cmbOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(457, 457, 457))))
+                .addGap(0, 333, Short.MAX_VALUE)
+                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 752, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(332, 332, 332))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAddOrganization, btnBack, cmbOrganization, lblOrg});
@@ -160,21 +179,21 @@ public class ConsumerManageOrganizationJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(41, 41, 41)
                 .addComponent(lblHeader)
-                .addGap(44, 44, 44)
+                .addGap(57, 57, 57)
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(106, 106, 106)
+                .addGap(93, 93, 93)
                 .addComponent(jSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblOrg))
-                .addGap(74, 74, 74)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddOrganization)
                     .addComponent(btnBack))
-                .addContainerGap())
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAddOrganization, btnBack, cmbOrganization, lblOrg});
@@ -198,9 +217,9 @@ public class ConsumerManageOrganizationJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
 
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void cmbOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbOrganizationActionPerformed

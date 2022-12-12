@@ -21,12 +21,12 @@ public class ConsumerViewShortageRequestJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ConsumerViewShortageRequestJPanel
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private Organization organization;
 
-    public ConsumerViewShortageRequestJPanel(JPanel userProcessContainer, Organization organization) {
+    public ConsumerViewShortageRequestJPanel(JPanel mainPanel, Organization organization) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.organization = organization;
         populateShortageTable();
     }
@@ -45,11 +45,16 @@ public class ConsumerViewShortageRequestJPanel extends javax.swing.JPanel {
         jScrollPane = new javax.swing.JScrollPane();
         tblShortage = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(204, 255, 204));
+        setBackground(new java.awt.Color(6, 36, 50));
+        setMinimumSize(new java.awt.Dimension(1400, 1000));
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblHeader.setText("NGO Worker - Shortage Requests");
+        lblHeader.setForeground(new java.awt.Color(204, 204, 204));
+        lblHeader.setText("Consumer Worker - Shortage Requests");
 
+        btnBack.setBackground(new java.awt.Color(191, 149, 155));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("<<BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,6 +62,9 @@ public class ConsumerViewShortageRequestJPanel extends javax.swing.JPanel {
             }
         });
 
+        tblShortage.setBackground(new java.awt.Color(87, 92, 123));
+        tblShortage.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tblShortage.setForeground(new java.awt.Color(255, 255, 255));
         tblShortage.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -79,27 +87,29 @@ public class ConsumerViewShortageRequestJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnBack)
-                    .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 738, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(51, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(178, 178, 178))
+                .addContainerGap(403, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(97, 97, 97))
+                    .addComponent(jScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 738, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(146, 146, 146)
+                        .addComponent(btnBack)
+                        .addGap(503, 503, 503)))
+                .addGap(259, 259, 259))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(166, 166, 166)
                 .addComponent(lblHeader)
-                .addGap(54, 54, 54)
-                .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
-                .addGap(29, 29, 29)
+                .addGap(42, 42, 42)
+                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
                 .addComponent(btnBack)
-                .addGap(35, 35, 35))
+                .addContainerGap(383, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -124,9 +134,9 @@ public class ConsumerViewShortageRequestJPanel extends javax.swing.JPanel {
     }
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
 

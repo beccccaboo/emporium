@@ -22,6 +22,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import userInterface.snapshot.Snapshot;
 
 /**
  *
@@ -32,15 +33,18 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
     /**
      * Creates new form LogisticsManageUserAccountJPanel
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private Enterprise enterprise;
     String operation;
+    Snapshot snapshot;
     UserAccount selectedPerson;
     String selectedImagePath = File.separator+"Users"+File.separator+"rebeccabiju"+File.separator+"Downloads"+File.separator+"noImg.jpeg";
-    public LogisticsManageUserAccountJPanel(JPanel userProcessContainer, Enterprise enterprise) {
+    public LogisticsManageUserAccountJPanel(JPanel mainPanel, Enterprise enterprise) {
         initComponents();
         this.enterprise = enterprise;
-        this.userProcessContainer = userProcessContainer;
+
+        this.mainPanel = mainPanel;
+        snapshot=new Snapshot(mainPanel);
 
         populateOrganizationComboBox();
         populateData();
@@ -53,11 +57,12 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
         toggleEditablePerson(false, Color.LIGHT_GRAY);
         clearDataPerson();
         btnCancel.setVisible(false);
-        btnDelete.setVisible(false);
+//        btnDelete.setVisible(false);
         
         toggleCombo(false);
         lblImage.setVisible(true);
         btnBrowse.setVisible(false);
+        btnSnapshot.setVisible(false);
     }
 
     public void populateOrganizationComboBox() {
@@ -137,19 +142,23 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
         btnNew = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
+        btnSnapshot = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 204));
-        setMinimumSize(new java.awt.Dimension(800, 800));
+        setBackground(new java.awt.Color(204, 204, 255));
+        setMinimumSize(new java.awt.Dimension(1400, 1000));
 
+        lblRole.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblRole.setText("Role");
 
+        lblUserName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblUserName.setText("User Name");
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblHeader.setText("Logistics Adminstrative Work Area - Manage Users");
 
+        tblUsers.setBackground(new java.awt.Color(204, 153, 255));
+        tblUsers.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tblUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -179,8 +188,12 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
             tblUsers.getColumnModel().getColumn(1).setResizable(false);
         }
 
+        lblPassword.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblPassword.setText("Password");
 
+        btnBack.setBackground(new java.awt.Color(0, 0, 51));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(204, 204, 204));
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,8 +201,12 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblOrganization.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblOrganization.setText("Organization");
 
+        btnSave.setBackground(new java.awt.Color(0, 0, 51));
+        btnSave.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(204, 204, 204));
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,6 +220,7 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblEmployee.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblEmployee.setText("Employee");
 
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
@@ -211,12 +229,20 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblEmail.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblEmail.setText("Email");
 
+        lblMobileNo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblMobileNo.setText("Phone Number");
 
+        lblImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+
+        lblPassword1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblPassword1.setText("Profile Image:");
 
+        btnBrowse.setBackground(new java.awt.Color(0, 0, 51));
+        btnBrowse.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBrowse.setForeground(new java.awt.Color(204, 204, 204));
         btnBrowse.setText("Browse");
         btnBrowse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -224,6 +250,9 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnNew.setBackground(new java.awt.Color(0, 0, 51));
+        btnNew.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnNew.setForeground(new java.awt.Color(204, 204, 204));
         btnNew.setText("New");
         btnNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -231,6 +260,9 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnView.setBackground(new java.awt.Color(0, 0, 51));
+        btnView.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnView.setForeground(new java.awt.Color(204, 204, 204));
         btnView.setText("View");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -238,6 +270,9 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUpdate.setBackground(new java.awt.Color(0, 0, 51));
+        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(204, 204, 204));
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -245,17 +280,23 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnDelete.setText("Delete");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
-
+        btnCancel.setBackground(new java.awt.Color(0, 0, 51));
+        btnCancel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCancel.setForeground(new java.awt.Color(204, 204, 204));
         btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelActionPerformed(evt);
+            }
+        });
+
+        btnSnapshot.setBackground(new java.awt.Color(0, 0, 51));
+        btnSnapshot.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSnapshot.setForeground(new java.awt.Color(204, 204, 204));
+        btnSnapshot.setText("Snapshot");
+        btnSnapshot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSnapshotActionPerformed(evt);
             }
         });
 
@@ -264,82 +305,79 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(362, 362, 362)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(73, 73, 73)
-                                .addComponent(lblHeader))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(186, 186, 186)
-                                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 120, Short.MAX_VALUE))
+                        .addGap(67, 67, 67)
+                        .addComponent(lblHeader)
+                        .addGap(0, 355, Short.MAX_VALUE))
+                    .addComponent(jSeparator)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(56, 56, 56)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(56, 56, 56)
+                                        .addComponent(lblPassword1)
+                                        .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(lblPassword1)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(btnBrowse)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(lblUserName)
-                                                    .addComponent(lblPassword))
-                                                .addGap(19, 19, 19)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(txtUserName)
-                                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(37, 37, 37)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(lblEmail, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(lblMobileNo, javax.swing.GroupLayout.Alignment.TRAILING))
-                                                .addGap(52, 52, 52)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(txtMobileNo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(10, 10, 10)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addGap(98, 98, 98)
-                                                        .addComponent(btnNew)
-                                                        .addGap(24, 24, 24)
-                                                        .addComponent(btnView)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(btnUpdate)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(btnDelete)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(btnCancel))
-                                                    .addComponent(btnBack))
-                                                .addGap(18, 18, 18)
-                                                .addComponent(btnSave))))
+                                            .addComponent(btnBrowse)
+                                            .addComponent(btnSnapshot))
+                                        .addGap(23, 23, 23)
+                                        .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(225, 225, 225)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblOrganization)
-                                            .addComponent(lblEmployee)
-                                            .addComponent(lblRole))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(lblUserName)
+                                            .addComponent(lblPassword))
+                                        .addGap(19, 19, 19)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(cmbRole, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(cmbEmployee, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(cmbOrganiztion, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                            .addComponent(txtUserName)
+                                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(37, 37, 37)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblEmail, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lblMobileNo, javax.swing.GroupLayout.Alignment.TRAILING))
+                                        .addGap(52, 52, 52)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtMobileNo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(98, 98, 98)
+                                                .addComponent(btnNew)
+                                                .addGap(24, 24, 24)
+                                                .addComponent(btnView)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(btnUpdate))
+                                            .addComponent(btnBack))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnSave)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnCancel))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(225, 225, 225)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblOrganization)
+                                    .addComponent(lblEmployee)
+                                    .addComponent(lblRole))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cmbRole, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cmbEmployee, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cmbOrganiztion, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 362, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(354, 354, 354)
+                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(21, 21, 21)
                 .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -379,25 +417,27 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblPassword1)
                     .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBrowse))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnBrowse)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSnapshot)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack)
                     .addComponent(btnView)
-                    .addComponent(btnDelete)
                     .addComponent(btnUpdate)
                     .addComponent(btnCancel)
                     .addComponent(btnNew)
                     .addComponent(btnSave))
-                .addGap(68, 68, 68))
+                .addGap(319, 319, 319))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
@@ -417,7 +457,7 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
         }
 
        long mobileNo = 0;
-        if (Validation.validateNumericalInput(txtMobileNo, 3)) {
+        if (Validation.validateNumericalInput(txtMobileNo, 3)&& Validation.validatePhoneNumber(txtMobileNo)) {
             mobileNo = Long.parseLong(txtMobileNo.getText());
         } else {
             return;
@@ -438,7 +478,8 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
 
         UserAccount ua = new UserAccount();
         String password = ua.encodePassword(String.valueOf(passChar));
-        
+        if(snapshot.getPath()!=null)
+            selectedImagePath = snapshot.getPath();
         if(operation.equals("Update")){
             selectedPerson.setPassword(password);
             selectedPerson.setMobileNo(mobileNo);
@@ -482,6 +523,7 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
         btnUpdate.setVisible(false);
         tblUsers.setEnabled(true);
         btnBrowse.setVisible(false);
+        btnSnapshot.setVisible(false);
         cmbRole.setEnabled(true);
         cmbOrganiztion.setEnabled(true);
         cmbEmployee.setEnabled(true);
@@ -525,6 +567,7 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
         btnNew.setVisible(false);
         btnView.setVisible(false);
         btnBrowse.setVisible(true);
+        btnSnapshot.setVisible(true);
         btnSave.setVisible(true);
         btnCancel.setVisible(true);
         cmbRole.setEnabled(true);
@@ -561,7 +604,7 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
 
         lblImage.setIcon(new ImageIcon(img));
         btnBrowse.setVisible(false);
-
+        btnSnapshot.setVisible(false);
         //        System.out.println(selectedPerson.getEmployee().getName());
         //        txtPassword.setText(selectedPerson.getPassword());
         //
@@ -593,48 +636,20 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
         cmbEmployee.setEnabled(false);
         btnSave.setVisible(true);
         btnBrowse.setVisible(true);
+        btnSnapshot.setVisible(true);
         btnCancel.setVisible(true);
         tblUsers.setEnabled(false);
     }//GEN-LAST:event_btnUpdateActionPerformed
-
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
-        //        int selectedRowIndex = tblPerson.getSelectedRow();
-        //        if(selectedRowIndex<0){
-            //            JOptionPane.showMessageDialog(this, "Please select a row to delete data");
-            //            return;
-            //        }
-        //
-        //        DefaultTableModel model = (DefaultTableModel)tblPerson.getModel();
-        //        selectedPerson = (Person) model.getValueAt(selectedRowIndex, 0);
-        //        String username = selectedPerson.getUsername();
-        //        User user = userDir.getUserByUsername(username);
-        //        if(user.getRole().equals("patient")){
-            //            Patient patient = patientDir.getPatientByUsername(username);
-            //            patientDir.deletePatient(patient);
-            //        }
-        //        if(user.getRole().equals("doctor")){
-            //            Doctor doctor = doctorDir.getDoctorByUsername(username);
-            //            doctorDir.deleteDoctor(doctor);
-            //        }
-        //
-        //        personDir.deletePerson(selectedPerson);
-        //        userDir.deleteUser(user);
-        //
-        //        JOptionPane.showMessageDialog(this, "Person data deleted");
-        //        //
-        //        populateTablePerson();
-        //        clearDataPerson();
-    }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
         btnNew.setVisible(true);
         btnBrowse.setVisible(false);
+        btnSnapshot.setVisible(false);
         btnView.setVisible(true);
         btnSave.setVisible(false);
         btnUpdate.setVisible(false);
-        btnDelete.setVisible(false);
+//        btnDelete.setVisible(false);
         btnCancel.setVisible(false);
         txtUserName.setEnabled(true);
         tblUsers.setEnabled(true);
@@ -649,14 +664,23 @@ public class LogisticsManageUserAccountJPanel extends javax.swing.JPanel {
         //        cmbOrganiztion.setSelectedIndex(0);
     }//GEN-LAST:event_btnCancelActionPerformed
 
+    private void btnSnapshotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSnapshotActionPerformed
+        // TODO add your handling code here:
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        mainPanel.add("snapshot", snapshot);
+        layout.next(mainPanel);
+        //        selectedImagePath = snapshot.getPath();
+        System.out.println("Selected Image: "+ selectedImagePath);
+    }//GEN-LAST:event_btnSnapshotActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBrowse;
     private javax.swing.JButton btnCancel;
-    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnNew;
     private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnSnapshot;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnView;
     private javax.swing.JComboBox cmbEmployee;

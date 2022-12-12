@@ -30,13 +30,13 @@ public class LogisticsManagerGenerateInvoicesJPanel extends javax.swing.JPanel {
     /**
      * Creates new form LogisticsManagerGenerateInvoices
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private UserAccount account;
     private Network network;
 
-    public LogisticsManagerGenerateInvoicesJPanel(JPanel userProcessContainer, UserAccount account, Network network) {
+    public LogisticsManagerGenerateInvoicesJPanel(JPanel mainPanel, UserAccount account, Network network) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.network = network;
         this.account = account;
         populateComboBox();
@@ -60,11 +60,14 @@ public class LogisticsManagerGenerateInvoicesJPanel extends javax.swing.JPanel {
         btnGenerateAll = new javax.swing.JButton();
         btnGenerateInovice = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 204));
+        setBackground(new java.awt.Color(204, 204, 255));
+        setMinimumSize(new java.awt.Dimension(1400, 1000));
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblHeader.setText("Logistics Manager Work Area - Generate Invoices");
 
+        tblDetails.setBackground(new java.awt.Color(204, 153, 255));
+        tblDetails.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tblDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -90,6 +93,9 @@ public class LogisticsManagerGenerateInvoicesJPanel extends javax.swing.JPanel {
             tblDetails.getColumnModel().getColumn(4).setResizable(false);
         }
 
+        btnBack.setBackground(new java.awt.Color(0, 0, 51));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(204, 204, 204));
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,7 +104,7 @@ public class LogisticsManagerGenerateInvoicesJPanel extends javax.swing.JPanel {
         });
 
         lblName.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblName.setText("NGO Name:");
+        lblName.setText("Consumer Name:");
 
         cmbConsumer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,6 +112,9 @@ public class LogisticsManagerGenerateInvoicesJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnGenerateAll.setBackground(new java.awt.Color(0, 0, 51));
+        btnGenerateAll.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnGenerateAll.setForeground(new java.awt.Color(204, 204, 204));
         btnGenerateAll.setText("Generate All Invoices");
         btnGenerateAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,6 +122,9 @@ public class LogisticsManagerGenerateInvoicesJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnGenerateInovice.setBackground(new java.awt.Color(0, 0, 51));
+        btnGenerateInovice.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnGenerateInovice.setForeground(new java.awt.Color(204, 204, 204));
         btnGenerateInovice.setText("Generate Invoice");
         btnGenerateInovice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,31 +137,34 @@ public class LogisticsManagerGenerateInvoicesJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addContainerGap(391, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblHeader)
+                        .addGap(383, 383, 383))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cmbConsumer, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbConsumer, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(543, 543, 543))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnBack)
                         .addGap(203, 203, 203)
                         .addComponent(btnGenerateAll)
                         .addGap(28, 28, 28)
-                        .addComponent(btnGenerateInovice, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnGenerateInovice)
+                        .addGap(369, 369, 369))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(lblHeader)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(58, 58, 58)
                 .addComponent(lblHeader)
-                .addGap(49, 49, 49)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblName)
                     .addComponent(cmbConsumer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -160,7 +175,7 @@ public class LogisticsManagerGenerateInvoicesJPanel extends javax.swing.JPanel {
                     .addComponent(btnBack)
                     .addComponent(btnGenerateInovice)
                     .addComponent(btnGenerateAll))
-                .addGap(49, 49, 49))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
     public void populateComboBox() {
@@ -175,9 +190,9 @@ public class LogisticsManagerGenerateInvoicesJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void cmbConsumerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbConsumerActionPerformed

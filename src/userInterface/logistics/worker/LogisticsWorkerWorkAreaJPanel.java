@@ -20,14 +20,14 @@ public class LogisticsWorkerWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form LogisticsWorkerJPanel
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private UserAccount account;
     private Enterprise enterprise;
     private Network network;
 
-    public LogisticsWorkerWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Enterprise enterprise, Network network) {
+    public LogisticsWorkerWorkAreaJPanel(JPanel mainPanel, UserAccount account, Enterprise enterprise, Network network) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.account = account;
         this.enterprise = enterprise;
         this.network = network;
@@ -49,13 +49,18 @@ public class LogisticsWorkerWorkAreaJPanel extends javax.swing.JPanel {
         btnPickup = new javax.swing.JButton();
         btnDelivery = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 204));
+        setBackground(new java.awt.Color(204, 204, 255));
+        setMinimumSize(new java.awt.Dimension(1400, 1000));
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblHeader.setText("Logistics Worker - Work Area");
 
+        lblSalutation.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblSalutation.setText("Welcome:");
 
+        btnPickup.setBackground(new java.awt.Color(0, 0, 51));
+        btnPickup.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnPickup.setForeground(new java.awt.Color(204, 204, 204));
         btnPickup.setText("Pickup Requests");
         btnPickup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,6 +68,9 @@ public class LogisticsWorkerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnDelivery.setBackground(new java.awt.Color(0, 0, 51));
+        btnDelivery.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnDelivery.setForeground(new java.awt.Color(204, 204, 204));
         btnDelivery.setText("Delivery Requests");
         btnDelivery.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,51 +82,61 @@ public class LogisticsWorkerWorkAreaJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(484, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(271, 271, 271)
+                        .addGap(47, 47, 47)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnPickup, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(73, 73, 73)
+                                .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(194, 194, 194)
-                        .addComponent(lblSalutation)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(169, 169, 169))
+                        .addComponent(btnPickup, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(btnDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(lblSalutation)))
+                .addGap(468, 468, 468))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnDelivery, btnPickup});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(232, 232, 232)
                 .addComponent(lblHeader)
-                .addGap(77, 77, 77)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSalutation)
-                    .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addComponent(btnPickup)
+                .addGap(28, 28, 28)
+                .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(lblSalutation)
                 .addGap(18, 18, 18)
-                .addComponent(btnDelivery)
-                .addGap(168, 168, 168))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnPickup, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDelivery))
+                .addContainerGap(612, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnDelivery, btnPickup});
+
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeliveryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeliveryActionPerformed
-        LogisticsWorkerDeliveryJPanel logsiticsWorkerDeliveryJPanel = new LogisticsWorkerDeliveryJPanel(userProcessContainer, account, enterprise, network);
-        userProcessContainer.add("LogsiticsWorkerDeliveryJPanel", logsiticsWorkerDeliveryJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        LogisticsWorkerDeliveryJPanel logsiticsWorkerDeliveryJPanel = new LogisticsWorkerDeliveryJPanel(mainPanel, account, enterprise, network);
+        mainPanel.add("LogsiticsWorkerDeliveryJPanel", logsiticsWorkerDeliveryJPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnDeliveryActionPerformed
 
     private void btnPickupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPickupActionPerformed
 
-        LogisticsWorkerPickUpJPanel logisticsWorkerPickUpJPanel = new LogisticsWorkerPickUpJPanel(userProcessContainer, account);
-        userProcessContainer.add("LogisticsWorkerPickUpJPanel", logisticsWorkerPickUpJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        LogisticsWorkerPickUpJPanel logisticsWorkerPickUpJPanel = new LogisticsWorkerPickUpJPanel(mainPanel, account);
+        mainPanel.add("LogisticsWorkerPickUpJPanel", logisticsWorkerPickUpJPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
 
     }//GEN-LAST:event_btnPickupActionPerformed
 

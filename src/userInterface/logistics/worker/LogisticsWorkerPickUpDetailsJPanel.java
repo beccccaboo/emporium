@@ -24,14 +24,14 @@ public class LogisticsWorkerPickUpDetailsJPanel extends javax.swing.JPanel {
     /**
      * Creates new form LogisticsWorkerPickUpDetailsJPanel
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private UserAccount account;
     private CollectionWorkRequest request;
     private Date date;
 
-    public LogisticsWorkerPickUpDetailsJPanel(JPanel userProcessContainer, UserAccount account, CollectionWorkRequest request) {
+    public LogisticsWorkerPickUpDetailsJPanel(JPanel mainPanel, UserAccount account, CollectionWorkRequest request) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.account = account;
         this.request = request;
         date = new Date();
@@ -54,7 +54,7 @@ public class LogisticsWorkerPickUpDetailsJPanel extends javax.swing.JPanel {
             Object row[] = new Object[3];
             row[0] = ri;
             row[1] = ri.getQuantity();
-            row[2] = ri.getDaysBeforeDonation();
+            row[2] = ri.getDaysBeforeDisposal();
 
             dtm.addRow(row);
         }
@@ -85,11 +85,15 @@ public class LogisticsWorkerPickUpDetailsJPanel extends javax.swing.JPanel {
         lblDate = new javax.swing.JLabel();
         lblDateValue = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 204));
+        setBackground(new java.awt.Color(204, 204, 255));
+        setMinimumSize(new java.awt.Dimension(1400, 1000));
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblHeader.setText("Logistics Worker - Pick Up ");
 
+        btnConfirm.setBackground(new java.awt.Color(0, 0, 51));
+        btnConfirm.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnConfirm.setForeground(new java.awt.Color(204, 204, 204));
         btnConfirm.setText("Confirm");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,6 +101,9 @@ public class LogisticsWorkerPickUpDetailsJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnBack.setBackground(new java.awt.Color(0, 0, 51));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(204, 204, 204));
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,28 +111,31 @@ public class LogisticsWorkerPickUpDetailsJPanel extends javax.swing.JPanel {
             }
         });
 
-        pnlDeliveryDetails.setBackground(new java.awt.Color(255, 255, 204));
-        pnlDeliveryDetails.setBorder(javax.swing.BorderFactory.createTitledBorder("Pickup Details"));
+        pnlDeliveryDetails.setBackground(new java.awt.Color(204, 204, 255));
+        pnlDeliveryDetails.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pickup Details", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
-        lblRequestedBy.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblRequestedBy.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblRequestedBy.setText("Requested By:");
 
+        lblRequestedByValue.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblRequestedByValue.setText("<requested_by>");
 
-        lblDeliveredTo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblDeliveredTo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblDeliveredTo.setText("Delivered To:");
 
+        lblDeliveredValue.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblDeliveredValue.setText("<delivered_to>");
 
-        lblPackage.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblPackage.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblPackage.setText("Package Details:");
 
+        tblDetails.setBackground(new java.awt.Color(204, 153, 255));
         tblDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Type", "Quantity", "Hours to perish"
+                "Type", "Quantity", "Days before Disposal"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -138,14 +148,16 @@ public class LogisticsWorkerPickUpDetailsJPanel extends javax.swing.JPanel {
         });
         jScrollPane.setViewportView(tblDetails);
 
-        lblWeight.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblWeight.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblWeight.setText("Package Weight: ");
 
+        lblWeightValue.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblWeightValue.setText("<package_weight>");
 
-        lblDate.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblDate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblDate.setText("Pickup Date:");
 
+        lblDateValue.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblDateValue.setText("<delivery_date>");
 
         javax.swing.GroupLayout pnlDeliveryDetailsLayout = new javax.swing.GroupLayout(pnlDeliveryDetails);
@@ -205,30 +217,32 @@ public class LogisticsWorkerPickUpDetailsJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(64, 64, 64)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(463, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(btnBack)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnConfirm))
-                        .addComponent(pnlDeliveryDetails, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(92, Short.MAX_VALUE))
+                        .addComponent(pnlDeliveryDetails, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(404, 404, 404))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(85, 85, 85)
                 .addComponent(lblHeader)
-                .addGap(50, 50, 50)
+                .addGap(32, 32, 32)
                 .addComponent(pnlDeliveryDetails, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack)
                     .addComponent(btnConfirm))
-                .addGap(85, 85, 85))
+                .addContainerGap(433, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -243,9 +257,9 @@ public class LogisticsWorkerPickUpDetailsJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
 

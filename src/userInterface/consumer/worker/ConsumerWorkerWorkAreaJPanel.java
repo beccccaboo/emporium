@@ -21,15 +21,15 @@ public class ConsumerWorkerWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form RegionWorkerJPanel
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private UserAccount account;
     private Organization organization;
     private Enterprise enterprise;
     private EcoSystem business;
 
-    public ConsumerWorkerWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
+    public ConsumerWorkerWorkAreaJPanel(JPanel mainPanel, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.business = business;
         this.account = account;
         this.organization = organization;
@@ -48,13 +48,19 @@ public class ConsumerWorkerWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         btnViewInventory = new javax.swing.JButton();
         btnUpdateInventory = new javax.swing.JButton();
-        btnDistributeFood = new javax.swing.JButton();
+        btnDistributeItem = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 255, 204));
+        setBackground(new java.awt.Color(6, 36, 50));
+        setMinimumSize(new java.awt.Dimension(1400, 1000));
+        setPreferredSize(new java.awt.Dimension(1400, 1000));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("NGO Worker WorkArea Panel");
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setText("Consumer Worker WorkArea Panel");
 
+        btnViewInventory.setBackground(new java.awt.Color(191, 149, 123));
+        btnViewInventory.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnViewInventory.setForeground(new java.awt.Color(255, 255, 255));
         btnViewInventory.setText("View Inventory");
         btnViewInventory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,6 +68,9 @@ public class ConsumerWorkerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUpdateInventory.setBackground(new java.awt.Color(191, 149, 123));
+        btnUpdateInventory.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnUpdateInventory.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdateInventory.setText("Pickup Delivery");
         btnUpdateInventory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,10 +78,13 @@ public class ConsumerWorkerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnDistributeFood.setText("Distribute Food");
-        btnDistributeFood.addActionListener(new java.awt.event.ActionListener() {
+        btnDistributeItem.setBackground(new java.awt.Color(191, 149, 123));
+        btnDistributeItem.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnDistributeItem.setForeground(new java.awt.Color(255, 255, 255));
+        btnDistributeItem.setText("Distribute Item");
+        btnDistributeItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDistributeFoodActionPerformed(evt);
+                btnDistributeItemActionPerformed(evt);
             }
         });
 
@@ -81,60 +93,60 @@ public class ConsumerWorkerWorkAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(356, 356, 356)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(264, 264, 264)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnUpdateInventory, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                            .addComponent(btnDistributeFood, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnViewInventory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btnUpdateInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(btnDistributeItem, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)
+                        .addComponent(btnViewInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(148, 148, 148)
+                        .addGap(87, 87, 87)
                         .addComponent(jLabel1)))
-                .addGap(173, 173, 173))
+                .addContainerGap(407, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(263, 263, 263)
                 .addComponent(jLabel1)
-                .addGap(54, 54, 54)
-                .addComponent(btnUpdateInventory)
-                .addGap(18, 18, 18)
-                .addComponent(btnDistributeFood)
-                .addGap(18, 18, 18)
-                .addComponent(btnViewInventory)
-                .addGap(160, 160, 160))
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnUpdateInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnViewInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDistributeItem, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(613, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnViewInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewInventoryActionPerformed
         // TODO add your handling code here:
-        ConsumerWorkerViewInventoryJPanel nGOWorkerInventoryUpdateJPanel = new ConsumerWorkerViewInventoryJPanel(userProcessContainer, enterprise);
-        userProcessContainer.add("NGOWorkerInventoryUpdateJPanel", nGOWorkerInventoryUpdateJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        ConsumerWorkerViewInventoryJPanel nGOWorkerInventoryUpdateJPanel = new ConsumerWorkerViewInventoryJPanel(mainPanel, enterprise);
+        mainPanel.add("NGOWorkerInventoryUpdateJPanel", nGOWorkerInventoryUpdateJPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnViewInventoryActionPerformed
 
     private void btnUpdateInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateInventoryActionPerformed
         // TODO add your handling code here:
-        ConsumerWorkerPickupDeliveryJPanel nGOWorkerInventoryUpdateJPanel = new ConsumerWorkerPickupDeliveryJPanel(userProcessContainer, account, enterprise);
-        userProcessContainer.add("NGOWorkerUpdateInventoryJPanel", nGOWorkerInventoryUpdateJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        ConsumerWorkerPickupDeliveryJPanel nGOWorkerInventoryUpdateJPanel = new ConsumerWorkerPickupDeliveryJPanel(mainPanel, account, enterprise);
+        mainPanel.add("NGOWorkerUpdateInventoryJPanel", nGOWorkerInventoryUpdateJPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnUpdateInventoryActionPerformed
 
-    private void btnDistributeFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDistributeFoodActionPerformed
+    private void btnDistributeItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDistributeItemActionPerformed
         // TODO add your handling code here:
-        ConsumerWorkerDistributeFoodJPanel distributeFoodJPanel = new ConsumerWorkerDistributeFoodJPanel(userProcessContainer, enterprise);
-        userProcessContainer.add("DistributeFoodJPanel", distributeFoodJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnDistributeFoodActionPerformed
+        ConsumerWorkerDistributeItemJPanel distributeItemJPanel = new ConsumerWorkerDistributeItemJPanel(mainPanel, enterprise);
+        mainPanel.add("DistributeItemJPanel", distributeItemJPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
+    }//GEN-LAST:event_btnDistributeItemActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDistributeFood;
+    private javax.swing.JButton btnDistributeItem;
     private javax.swing.JButton btnUpdateInventory;
     private javax.swing.JButton btnViewInventory;
     private javax.swing.JLabel jLabel1;

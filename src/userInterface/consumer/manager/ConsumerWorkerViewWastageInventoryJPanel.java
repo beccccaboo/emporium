@@ -23,12 +23,12 @@ public class ConsumerWorkerViewWastageInventoryJPanel extends javax.swing.JPanel
     /**
      * Creates new form ViewInventoryJPanel
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private ConsumerEnterprise enterprise;
 
-    public ConsumerWorkerViewWastageInventoryJPanel(JPanel userProcessContainer, Enterprise enterprise) {
+    public ConsumerWorkerViewWastageInventoryJPanel(JPanel mainPanel, Enterprise enterprise) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.enterprise = (ConsumerEnterprise) enterprise;
         populateTable();
     }
@@ -49,14 +49,18 @@ public class ConsumerWorkerViewWastageInventoryJPanel extends javax.swing.JPanel
         lblQuantity = new javax.swing.JLabel();
         lblQuantityVal = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(204, 255, 204));
+        setBackground(new java.awt.Color(6, 36, 50));
+        setMinimumSize(new java.awt.Dimension(1400, 1000));
 
+        tblInventory.setBackground(new java.awt.Color(87, 92, 123));
+        tblInventory.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tblInventory.setForeground(new java.awt.Color(204, 204, 204));
         tblInventory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Food", "Quantity", "Wastage Amount(In pounds)"
+                "Item", "Quantity", "Wastage Amount(In pounds)"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -76,8 +80,12 @@ public class ConsumerWorkerViewWastageInventoryJPanel extends javax.swing.JPanel
         }
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblHeader.setText("NGO Manager - Wastage Records");
+        lblHeader.setForeground(new java.awt.Color(204, 204, 204));
+        lblHeader.setText("Consumer Manager - Wastage Records");
 
+        btnBack.setBackground(new java.awt.Color(191, 149, 155));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,9 +93,12 @@ public class ConsumerWorkerViewWastageInventoryJPanel extends javax.swing.JPanel
             }
         });
 
-        lblQuantity.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblQuantity.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblQuantity.setForeground(new java.awt.Color(204, 204, 204));
         lblQuantity.setText("Total Quantity :");
 
+        lblQuantityVal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblQuantityVal.setForeground(new java.awt.Color(204, 204, 204));
         lblQuantityVal.setText("<quantity>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -95,26 +106,24 @@ public class ConsumerWorkerViewWastageInventoryJPanel extends javax.swing.JPanel
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(446, 446, 446)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBack)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBack)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
+                        .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblQuantityVal, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(40, 40, 40))
+                .addContainerGap(502, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(127, 127, 127)
                 .addComponent(lblHeader)
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -124,15 +133,15 @@ public class ConsumerWorkerViewWastageInventoryJPanel extends javax.swing.JPanel
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17)
                 .addComponent(btnBack)
-                .addContainerGap())
+                .addContainerGap(386, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
 

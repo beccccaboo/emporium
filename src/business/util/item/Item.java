@@ -16,6 +16,7 @@ public class Item {
 
     public static void initializeItem() {
         itemMap = new HashMap();
+        //Item and their respective weights in pounds
         itemMap.put("Chair", 1); 
         itemMap.put("Bedframe", 2);
         itemMap.put("Table Fan", 3);

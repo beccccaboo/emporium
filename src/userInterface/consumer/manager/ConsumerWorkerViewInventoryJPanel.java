@@ -25,14 +25,14 @@ public class ConsumerWorkerViewInventoryJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ViewInventoryJPanel
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private ConsumerEnterprise enterprise;
     private UserAccount account;
     private Network network;
 
-    public ConsumerWorkerViewInventoryJPanel(JPanel userProcessContainer, Enterprise enterprise, UserAccount account, Network network) {
+    public ConsumerWorkerViewInventoryJPanel(JPanel mainPanel, Enterprise enterprise, UserAccount account, Network network) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.enterprise = (ConsumerEnterprise) enterprise;;
         this.account = account;
         this.network = network;
@@ -56,14 +56,18 @@ public class ConsumerWorkerViewInventoryJPanel extends javax.swing.JPanel {
         lblQuantityVal = new javax.swing.JLabel();
         btnShortage = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 255, 204));
+        setBackground(new java.awt.Color(6, 36, 50));
+        setMinimumSize(new java.awt.Dimension(1400, 1000));
 
+        tblInventory.setBackground(new java.awt.Color(87, 92, 123));
+        tblInventory.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tblInventory.setForeground(new java.awt.Color(255, 255, 255));
         tblInventory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Food", "Quantity", "Hours to perish"
+                "Item", "Quantity", "Hours to perish"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -83,8 +87,12 @@ public class ConsumerWorkerViewInventoryJPanel extends javax.swing.JPanel {
         }
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblHeader.setText("NGO Manager - View Inventory");
+        lblHeader.setForeground(new java.awt.Color(204, 204, 204));
+        lblHeader.setText("Consumer Manager - View Inventory");
 
+        btnBack.setBackground(new java.awt.Color(191, 149, 155));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,11 +100,17 @@ public class ConsumerWorkerViewInventoryJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblQuantity.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblQuantity.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblQuantity.setForeground(new java.awt.Color(204, 204, 204));
         lblQuantity.setText("Total Quantity :");
 
+        lblQuantityVal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblQuantityVal.setForeground(new java.awt.Color(204, 204, 204));
         lblQuantityVal.setText("<quantity>");
 
+        btnShortage.setBackground(new java.awt.Color(191, 149, 155));
+        btnShortage.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnShortage.setForeground(new java.awt.Color(255, 255, 255));
         btnShortage.setText("Raise Shortage Request");
         btnShortage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,29 +123,27 @@ public class ConsumerWorkerViewInventoryJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(390, 390, 390)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(262, 262, 262)
-                                .addComponent(btnShortage))
-                            .addComponent(jScrollPane1)))
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(262, 262, 262)
+                        .addComponent(btnShortage))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(101, 101, 101)
+                        .addGap(56, 56, 56)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblQuantityVal, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(35, 35, 35))
+                .addContainerGap(440, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(85, 85, 85)
                 .addComponent(lblHeader)
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -143,22 +155,22 @@ public class ConsumerWorkerViewInventoryJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack)
                     .addComponent(btnShortage))
-                .addGap(11, 11, 11))
+                .addContainerGap(405, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnShortageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShortageActionPerformed
-        ConsumerManagerRaiseShortageRequestJPanel consumerRequestJPanel = new ConsumerManagerRaiseShortageRequestJPanel(userProcessContainer, account, enterprise, network);
-        userProcessContainer.add("ConsumerRequestJPanel", consumerRequestJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        ConsumerManagerRaiseShortageRequestJPanel consumerRequestJPanel = new ConsumerManagerRaiseShortageRequestJPanel(mainPanel, account, enterprise, network);
+        mainPanel.add("ConsumerRequestJPanel", consumerRequestJPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
     }//GEN-LAST:event_btnShortageActionPerformed
 
 
@@ -179,12 +191,12 @@ public class ConsumerWorkerViewInventoryJPanel extends javax.swing.JPanel {
         double amount = 0;
 
         for (RequestItem ri : enterprise.getInventory().getRequestItemList()) {
-            if (ri.getDaysBeforeDonation()> 0 && ri.getQuantity() > 0) {
+            if (ri.getDaysBeforeDisposal()> 0 && ri.getQuantity() > 0) {
                 Object row[] = new Object[3];
 
                 row[0] = ri;
                 row[1] = ri.getQuantity();
-                row[2] = ri.getDaysBeforeDonation();
+                row[2] = ri.getDaysBeforeDisposal();
                 dtm.addRow(row);
 
                 amount += ItemQuantity.getQuantity(ri.getItemName()) * ri.getQuantity();

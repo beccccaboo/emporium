@@ -26,13 +26,13 @@ public class ConsumerWorkerPickupDeliveryJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ConsumerWorkerPickupDeliveryJPanel
      */
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private UserAccount account;
     private ConsumerEnterprise enterprise;
 
-    public ConsumerWorkerPickupDeliveryJPanel(JPanel userProcessContainer, UserAccount account, Enterprise enterprise) {
+    public ConsumerWorkerPickupDeliveryJPanel(JPanel mainPanel, UserAccount account, Enterprise enterprise) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.account = account;
         this.enterprise = (ConsumerEnterprise) enterprise;
         populateTable();
@@ -54,8 +54,12 @@ public class ConsumerWorkerPickupDeliveryJPanel extends javax.swing.JPanel {
         btnView = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 255, 204));
+        setBackground(new java.awt.Color(6, 36, 50));
+        setMinimumSize(new java.awt.Dimension(1400, 750));
 
+        tblDetails.setBackground(new java.awt.Color(87, 92, 123));
+        tblDetails.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tblDetails.setForeground(new java.awt.Color(255, 255, 255));
         tblDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -75,8 +79,12 @@ public class ConsumerWorkerPickupDeliveryJPanel extends javax.swing.JPanel {
         jScrollPane.setViewportView(tblDetails);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("NGO Worker - Pickup Delivery");
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setText("Consumer Worker - Pickup Delivery");
 
+        btnCollect.setBackground(new java.awt.Color(191, 149, 155));
+        btnCollect.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCollect.setForeground(new java.awt.Color(255, 255, 255));
         btnCollect.setText("Collect");
         btnCollect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,6 +92,9 @@ public class ConsumerWorkerPickupDeliveryJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnView.setBackground(new java.awt.Color(191, 149, 155));
+        btnView.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnView.setForeground(new java.awt.Color(255, 255, 255));
         btnView.setText("View");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +102,9 @@ public class ConsumerWorkerPickupDeliveryJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnBack.setBackground(new java.awt.Color(191, 149, 155));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,33 +119,33 @@ public class ConsumerWorkerPickupDeliveryJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnBack)
-                                .addGap(230, 230, 230)
-                                .addComponent(btnCollect)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnView))
-                            .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(358, 358, 358)
+                        .addComponent(btnBack)
+                        .addGap(415, 415, 415)
+                        .addComponent(btnCollect)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnView))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
+                        .addGap(347, 347, 347)
+                        .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 685, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(477, 477, 477)
                         .addComponent(jLabel1)))
-                .addGap(33, 33, 33))
+                .addContainerGap(368, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(182, 182, 182)
                 .addComponent(jLabel1)
-                .addGap(48, 48, 48)
+                .addGap(30, 30, 30)
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCollect)
                     .addComponent(btnView)
                     .addComponent(btnBack))
-                .addGap(61, 61, 61))
+                .addContainerGap(269, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -177,18 +191,18 @@ public class ConsumerWorkerPickupDeliveryJPanel extends javax.swing.JPanel {
         } else {
             CollectionWorkRequest request = (CollectionWorkRequest) tblDetails.getValueAt(selectedRow, 1);
 
-            ConsumerWorkerViewRequestJPanel consumerWorkerViewRequestJPanel = new ConsumerWorkerViewRequestJPanel(userProcessContainer, request);
-            userProcessContainer.add("ConsumerWorkerViewRequestJPanel", consumerWorkerViewRequestJPanel);
-            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            layout.next(userProcessContainer);
+            ConsumerWorkerViewRequestJPanel consumerWorkerViewRequestJPanel = new ConsumerWorkerViewRequestJPanel(mainPanel, request);
+            mainPanel.add("ConsumerWorkerViewRequestJPanel", consumerWorkerViewRequestJPanel);
+            CardLayout layout = (CardLayout) mainPanel.getLayout();
+            layout.next(mainPanel);
         }
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
 

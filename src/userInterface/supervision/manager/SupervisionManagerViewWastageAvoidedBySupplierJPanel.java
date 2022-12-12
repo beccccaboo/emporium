@@ -38,15 +38,15 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  */
 public class SupervisionManagerViewWastageAvoidedBySupplierJPanel extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
+    private JPanel mainPanel;
     private Network network;
 
     /**
      * Creates new form SupervisionManagerViewWastageAvoidedByRestaurants
      */
-    public SupervisionManagerViewWastageAvoidedBySupplierJPanel(JPanel userProcessContainer, Network network) {
+    public SupervisionManagerViewWastageAvoidedBySupplierJPanel(JPanel mainPanel, Network network) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.mainPanel = mainPanel;
         this.network = network;
         populateSupplierCombo();
         populateData(null);
@@ -73,12 +73,15 @@ public class SupervisionManagerViewWastageAvoidedBySupplierJPanel extends javax.
         btnExport = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
+        setMinimumSize(new java.awt.Dimension(1400, 1000));
 
         lblHeading.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblHeading.setText("Mayor Work Area - View Restaurant Wastage Avoided");
+        lblHeading.setText("Supervision Work Area - View Supplier Disposal Avoided");
 
-        lblSupplier.setText("Restaurant :");
+        lblSupplier.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblSupplier.setText("Supplier");
 
+        cmbSupplier.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cmbSupplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbSupplierActionPerformed(evt);
@@ -90,7 +93,7 @@ public class SupervisionManagerViewWastageAvoidedBySupplierJPanel extends javax.
 
             },
             new String [] {
-                "Restaurant Name", "Wastage Avoided(in pounds)", "Status", "NGO delivered to"
+                "Supplier Name", "Disposal Avoided (in pounds)", "Status", "Consumer delivered to"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -109,6 +112,7 @@ public class SupervisionManagerViewWastageAvoidedBySupplierJPanel extends javax.
             tblWastageAvoided.getColumnModel().getColumn(3).setResizable(false);
         }
 
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,6 +120,7 @@ public class SupervisionManagerViewWastageAvoidedBySupplierJPanel extends javax.
             }
         });
 
+        btnDetails.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnDetails.setText("View Details");
         btnDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,10 +128,11 @@ public class SupervisionManagerViewWastageAvoidedBySupplierJPanel extends javax.
             }
         });
 
-        lblTotalWastage.setText("Total Wastage Avoided:");
+        lblTotalWastage.setText("Total Disposal Avoided:");
 
         lblWastageValue.setText("<wastage>");
 
+        btnExport.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnExport.setText("Export Data");
         btnExport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,14 +144,15 @@ public class SupervisionManagerViewWastageAvoidedBySupplierJPanel extends javax.
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(400, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
+                        .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGap(48, 48, 48)
                                 .addComponent(cmbSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 654, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -159,15 +166,13 @@ public class SupervisionManagerViewWastageAvoidedBySupplierJPanel extends javax.
                                 .addComponent(lblTotalWastage, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblWastageValue, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addComponent(lblHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(144, Short.MAX_VALUE))
+                    .addComponent(lblHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(319, 319, 319))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(163, 163, 163)
                 .addComponent(lblHeading)
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -184,7 +189,7 @@ public class SupervisionManagerViewWastageAvoidedBySupplierJPanel extends javax.
                     .addComponent(btnDetails)
                     .addComponent(btnBack)
                     .addComponent(btnExport))
-                .addGap(110, 110, 110))
+                .addContainerGap(348, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -199,9 +204,9 @@ public class SupervisionManagerViewWastageAvoidedBySupplierJPanel extends javax.
     }//GEN-LAST:event_cmbSupplierActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        mainPanel.remove(this);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.previous(mainPanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetailsActionPerformed
@@ -216,11 +221,11 @@ public class SupervisionManagerViewWastageAvoidedBySupplierJPanel extends javax.
         } else {
             CollectionWorkRequest request = (CollectionWorkRequest) tblWastageAvoided.getValueAt(selectedRow, 2);
 
-            SupervisionManagerViewRequestDetailsJPanel supervisionManagerViewRequestDetailsJPanel = new SupervisionManagerViewRequestDetailsJPanel(userProcessContainer, request);
-            userProcessContainer.add("supervisionManagerViewRequestDetailsJPanel", supervisionManagerViewRequestDetailsJPanel);
+            SupervisionManagerViewRequestDetailsJPanel supervisionManagerViewRequestDetailsJPanel = new SupervisionManagerViewRequestDetailsJPanel(mainPanel, request);
+            mainPanel.add("supervisionManagerViewRequestDetailsJPanel", supervisionManagerViewRequestDetailsJPanel);
 
-            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            layout.next(userProcessContainer);
+            CardLayout layout = (CardLayout) mainPanel.getLayout();
+            layout.next(mainPanel);
         }
     }//GEN-LAST:event_btnDetailsActionPerformed
 
