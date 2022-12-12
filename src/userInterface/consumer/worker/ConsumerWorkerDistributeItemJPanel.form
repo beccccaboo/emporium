@@ -36,9 +36,9 @@
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="btnRemove" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="lblPeopleFed" min="-2" pref="77" max="-2" attributes="0"/>
-                                          <Component id="lblWastageAvoided" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="lblWastageAvoided" max="32767" attributes="0"/>
+                                          <Component id="lblPeopleFed" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -160,9 +160,9 @@
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="3" rowCount="0">
-                <Column editable="false" title="Food Type" type="java.lang.Object"/>
+                <Column editable="false" title="Item Category" type="java.lang.Object"/>
                 <Column editable="false" title="Quantity" type="java.lang.Object"/>
-                <Column editable="false" title="Hours to Perish" type="java.lang.Object"/>
+                <Column editable="false" title="Days before Disposal" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -246,7 +246,7 @@
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="2" rowCount="0">
-                <Column editable="false" title="Food Type" type="java.lang.Object"/>
+                <Column editable="false" title="Item Category" type="java.lang.Object"/>
                 <Column editable="false" title="Quantity" type="java.lang.Object"/>
               </Table>
             </Property>
@@ -297,7 +297,7 @@
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="4"/>
-        <Property name="text" type="java.lang.String" value="People fed:"/>
+        <Property name="text" type="java.lang.String" value="People Served:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="spnPeopleFed">
@@ -315,7 +315,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Wastage Avoided:"/>
+        <Property name="text" type="java.lang.String" value="Disposal Avoided:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblWastageAvoidedValue">

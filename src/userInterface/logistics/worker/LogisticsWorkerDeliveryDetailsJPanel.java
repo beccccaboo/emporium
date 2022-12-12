@@ -417,6 +417,8 @@ public class LogisticsWorkerDeliveryDetailsJPanel extends javax.swing.JPanel {
 
     private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
         // TODO add your handling code here:
+        if(snapshot.getPath()!=null)
+            selectedImagePath = snapshot.getPath();
         ImageIcon imgIcon = new ImageIcon(selectedImagePath);
         System.out.println(selectedImagePath);
         Image img =imgIcon.getImage().getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);

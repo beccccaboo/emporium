@@ -21,17 +21,17 @@ import javax.swing.table.TableRowSorter;
  *
  * @author Arpit
  */
-public class ConsumerWorkerDistributeFoodJPanel extends javax.swing.JPanel {
+public class ConsumerWorkerDistributeItemJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ConsumerWorkerDistributeFoodJPanel
+     * Creates new form ConsumerWorkerDistributeItemJPanel
      */
     private JPanel mainPanel;
     private ConsumerEnterprise enterprise;
     private Distributed distributed;
     private Boolean isDistributed = false;
 
-    public ConsumerWorkerDistributeFoodJPanel(JPanel mainPanel, Enterprise enterprise) {
+    public ConsumerWorkerDistributeItemJPanel(JPanel mainPanel, Enterprise enterprise) {
         initComponents();
         this.mainPanel = mainPanel;
         this.enterprise = (ConsumerEnterprise) enterprise;
@@ -81,7 +81,7 @@ public class ConsumerWorkerDistributeFoodJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Food Type", "Quantity", "Hours to Perish"
+                "Item Category", "Quantity", "Days before Disposal"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -124,7 +124,7 @@ public class ConsumerWorkerDistributeFoodJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Food Type", "Quantity"
+                "Item Category", "Quantity"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -155,13 +155,13 @@ public class ConsumerWorkerDistributeFoodJPanel extends javax.swing.JPanel {
         lblPeopleFed.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblPeopleFed.setForeground(new java.awt.Color(204, 204, 204));
         lblPeopleFed.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblPeopleFed.setText("People fed:");
+        lblPeopleFed.setText("People Served:");
 
         spnPeopleFed.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
 
         lblWastageAvoided.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblWastageAvoided.setForeground(new java.awt.Color(204, 204, 204));
-        lblWastageAvoided.setText("Wastage Avoided:");
+        lblWastageAvoided.setText("Disposal Avoided:");
 
         lblWastageAvoidedValue.setForeground(new java.awt.Color(204, 204, 204));
         lblWastageAvoidedValue.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
@@ -204,9 +204,9 @@ public class ConsumerWorkerDistributeFoodJPanel extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(btnRemove)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(lblPeopleFed, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblWastageAvoided))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(lblWastageAvoided, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lblPeopleFed, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(spnPeopleFed, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -379,7 +379,7 @@ public class ConsumerWorkerDistributeFoodJPanel extends javax.swing.JPanel {
 
                 ri.setQuantity(newAvail);
 
-                //RequestItem requestItem = new RequestItem(ri.getFoodName(), quantity, 0);
+                //RequestItem requestItem = new RequestItem(ri.getItemName(), quantity, 0);
                 DistributedItems di = distributed.addDistributedItems();
                 di.setDistributedRequestItem(ri);
                 di.setQuantityDistributed(quantity);
@@ -405,7 +405,7 @@ public class ConsumerWorkerDistributeFoodJPanel extends javax.swing.JPanel {
         addBackToInventory(ri);
 
         JOptionPane.showMessageDialog(null,
-                "Selected food item removed and added back to inventory",
+                "Selected  item removed and added back to inventory",
                 "Information",
                 JOptionPane.INFORMATION_MESSAGE);
 
@@ -417,7 +417,7 @@ public class ConsumerWorkerDistributeFoodJPanel extends javax.swing.JPanel {
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         if (distributed.getDistributedItemList().isEmpty()) {
             JOptionPane.showMessageDialog(null,
-                    "No food items distributed",
+                    "No  items distributed",
                     "Warning",
                     JOptionPane.INFORMATION_MESSAGE);
             return;

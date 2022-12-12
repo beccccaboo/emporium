@@ -66,7 +66,7 @@ public class SupplierWorkerViewLogItemJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Food Type", "Quantity"
+                "Item Type", "Quantity"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -83,6 +83,7 @@ public class SupplierWorkerViewLogItemJPanel extends javax.swing.JPanel {
             tblItems.getColumnModel().getColumn(1).setResizable(false);
         }
 
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,7 +184,7 @@ public class SupplierWorkerViewLogItemJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnBack)
-                .addContainerGap(479, Short.MAX_VALUE))
+                .addContainerGap(475, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

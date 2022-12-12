@@ -73,7 +73,6 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
         lbMessage = new javax.swing.JLabel();
         txtMessage = new javax.swing.JTextField();
         cmbItem = new javax.swing.JComboBox<>();
-        lblWarning = new javax.swing.JLabel();
         btnRemove = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 204, 153));
@@ -82,10 +81,10 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
         lblHeader.setText("Supplier Worker Work Area - Collection Request");
 
         lblSubHeader.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblSubHeader.setText("Add Food Items :");
+        lblSubHeader.setText("Add Items :");
 
         lblFoodType.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblFoodType.setText("Food Type:");
+        lblFoodType.setText("Item Category");
 
         lblQuantity.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblQuantity.setText("Quantity:");
@@ -93,7 +92,7 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
         spnQuantity.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
 
         lblPerishTime.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblPerishTime.setText("Hours to perish*:");
+        lblPerishTime.setText("Days Before Disposal:");
 
         spnPerishTime.setModel(new javax.swing.SpinnerNumberModel(4, 4, null, 1));
 
@@ -111,7 +110,7 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Food Type", "Quantity", "Hours to perish"
+                "Item Category", "Quantity", "Days Before Disposal"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -148,9 +147,6 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
         lbMessage.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lbMessage.setText("Message:");
 
-        lblWarning.setForeground(new java.awt.Color(255, 0, 0));
-        lblWarning.setText("<HTML>* Considering the logsitics, we only accept food which would last for atleast 4 hours.</HTML>");
-
         btnRemove.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnRemove.setText("Remove");
         btnRemove.addActionListener(new java.awt.event.ActionListener() {
@@ -183,11 +179,8 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
                         .addGap(65, 65, 65)
                         .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(spnPerishTime, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(spnQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(87, 87, 87)
-                        .addComponent(lblWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(286, 286, 286))
+                    .addComponent(spnQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(648, 648, 648))
             .addGroup(layout.createSequentialGroup()
                 .addGap(303, 303, 303)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -229,8 +222,7 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(spnQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(spnPerishTime, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -249,7 +241,7 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
                         .addComponent(btnRaiseRequest)))
                 .addGap(18, 18, 18)
                 .addComponent(btnBack)
-                .addContainerGap(320, Short.MAX_VALUE))
+                .addContainerGap(330, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBack, btnRaiseRequest, btnRemove, lbMessage, txtMessage});
@@ -269,13 +261,13 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
     }
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        String food = cmbItem.getSelectedItem().toString();
+        String item = cmbItem.getSelectedItem().toString();
         int quantity = (Integer) spnQuantity.getValue();
         int hours = (Integer) spnPerishTime.getValue();
 
         if (quantity < 1) {
             JOptionPane.showMessageDialog(null,
-                    "Quantity of food cannot be less than 1",
+                    "Quantity of item cannot be less than 1",
                     "Warning",
                     JOptionPane.WARNING_MESSAGE);
             return;
@@ -283,21 +275,21 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
 
         if (hours < 4) {
             JOptionPane.showMessageDialog(null,
-                    "Food items perishable under 4 hours not accepted!",
+                    "Item items perishable under 4 hours not accepted!",
                     "Warning",
                     JOptionPane.WARNING_MESSAGE);
             return;
         }
 
         Object row[] = new Object[3];
-        row[0] = food;
+        row[0] = item;
         row[1] = quantity;
         row[2] = hours;
 
         DefaultTableModel dtm = (DefaultTableModel) tblItems.getModel();
         dtm.addRow(row);
 
-//        JOptionPane.showMessageDialog(null, "Food Item Added");
+//        JOptionPane.showMessageDialog(null, "Item Item Added");
         cmbItem.setSelectedIndex(0);
         spnQuantity.setValue(1);
         spnPerishTime.setValue(4);
@@ -311,17 +303,17 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
         DefaultTableModel dtm = (DefaultTableModel) tblItems.getModel();
 
         if (dtm.getRowCount() == 0) {
-            JOptionPane.showMessageDialog(null, "No food items selected to be distributed");
+            JOptionPane.showMessageDialog(null, "No items selected to be distributed");
             return;
         }
 
         ArrayList<RequestItem> requestList = new ArrayList();
         for (int i = 0; i < dtm.getRowCount(); i++) {
-            String food = (String) dtm.getValueAt(i, 0);
+            String item = (String) dtm.getValueAt(i, 0);
             int quantity = (Integer) dtm.getValueAt(i, 1);
             int hours = (Integer) dtm.getValueAt(i, 2);
 
-            RequestItem ri = new RequestItem(food, quantity, hours);
+            RequestItem ri = new RequestItem(item, quantity, hours);
             requestList.add(ri);
             System.out.println("Request Item: "+requestList.get(i));
         }
@@ -392,7 +384,6 @@ public class SupplierWorkerRaiseRequestJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblPerishTime;
     private javax.swing.JLabel lblQuantity;
     private javax.swing.JLabel lblSubHeader;
-    private javax.swing.JLabel lblWarning;
     private javax.swing.JSpinner spnPerishTime;
     private javax.swing.JSpinner spnQuantity;
     private javax.swing.JTable tblItems;

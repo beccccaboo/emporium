@@ -30,7 +30,7 @@ import userInterface.snapshot.Snapshot;
  */
 public class MainJFrame extends javax.swing.JFrame implements Runnable {
 
-    private final int MINUTES = 2;
+    private final int MINUTES = 1440;
     public EcoSystem system;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
 
@@ -409,19 +409,19 @@ public class MainJFrame extends javax.swing.JFrame implements Runnable {
     public void run() {
         while (true) {
             try {
-                System.out.println("********* INSIDE PERISHABLE UPDATE *********");
+                //Updates every day
                 Thread.sleep(1000 * 60 * MINUTES);
                 for (Network n : system.getNetworkList()) {
                     for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
 
-                        // Update perishable time for all the supplier worker's work queue
+                        // Update disposal time for all the supplier worker's work queue
                         if (e.getEnterpriseType().equals(Enterprise.EnterpriseType.Supplier)) {
                             for (Organization o : e.getOrganizationDirectory().getOrganizationList()) {
                                 if (o instanceof SupplierWorkerOrganization) {
                                     for (UserAccount ua : o.getUserAccountDirectory().getUserAccountList()) {
                                         for (WorkRequest wr : ua.getWorkQueue().getWorkRequestList()) {
                                             CollectionWorkRequest cwr = (CollectionWorkRequest) wr;
-                                            System.out.println("\n********** Updating Perishable **********");
+                                            System.out.println("\n********** Updating Disposal **********");
                                             cwr.updateDisposal();
                                             System.out.println("\n ********** Update Complete **********");
                                         }
@@ -430,7 +430,7 @@ public class MainJFrame extends javax.swing.JFrame implements Runnable {
                             }
                         }
 
-                        // Update NGO's inventory after perishable update
+                        // Update NGO's inventory after disposal update
                         if (e.getEnterpriseType().equals(Enterprise.EnterpriseType.Consumer)) {
                             ConsumerEnterprise enterprise = (ConsumerEnterprise) e;
                             System.out.println("\nConsumer name " + enterprise.getName());

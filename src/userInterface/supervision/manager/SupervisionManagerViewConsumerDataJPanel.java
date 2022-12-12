@@ -90,9 +90,9 @@ public class SupervisionManagerViewConsumerDataJPanel extends javax.swing.JPanel
                     }
                 }
 
-                dataSet.setValue(avoided, name, "Wastage Avoided (in pounds)");
-                dataSet.setValue(wastage, name, "Wastage in inventory (in pounds)");
-                dataSet.setValue(peopleFed, name, "People Fed");
+                dataSet.setValue(avoided, name, "Disposal Avoided (in pounds)");
+                dataSet.setValue(wastage, name, "Disposal in inventory (in pounds)");
+                dataSet.setValue(peopleFed, name, "People Served");
                 dataSet.setValue(amount, name, "Expenses Inccured (in $)");
 
                 peopleFed = 0;
@@ -181,7 +181,7 @@ public class SupervisionManagerViewConsumerDataJPanel extends javax.swing.JPanel
         setMinimumSize(new java.awt.Dimension(1400, 1000));
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblHeader.setText("Mayor Work Area - Poeple Fed By NGO Chart");
+        lblHeader.setText("Supervision Work Area - People Served By Consumer Chart");
 
         pnlChartFed.setLayout(new java.awt.BorderLayout());
 
@@ -200,19 +200,17 @@ public class SupervisionManagerViewConsumerDataJPanel extends javax.swing.JPanel
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(394, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlChartFed, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnlChartFed, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 737, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(248, 248, 248))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(76, 76, 76)
+                .addGap(77, 77, 77)
                 .addComponent(lblHeader)
-                .addGap(33, 33, 33)
+                .addGap(32, 32, 32)
                 .addComponent(pnlChartFed, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)

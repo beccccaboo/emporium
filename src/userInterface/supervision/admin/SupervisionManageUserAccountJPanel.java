@@ -146,7 +146,7 @@ public class SupervisionManageUserAccountJPanel extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(800, 800));
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblHeader.setText("Government Adminstrative Work Area - Manage Users");
+        lblHeader.setText("Supervision Adminstrative Work Area - Manage Users");
 
         tblUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

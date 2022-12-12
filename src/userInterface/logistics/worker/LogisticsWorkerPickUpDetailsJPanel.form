@@ -240,7 +240,7 @@
                   <Table columnCount="3" rowCount="0">
                     <Column editable="false" title="Type" type="java.lang.Object"/>
                     <Column editable="false" title="Quantity" type="java.lang.Object"/>
-                    <Column editable="false" title="Hours to perish" type="java.lang.Object"/>
+                    <Column editable="false" title="Days before Disposal" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

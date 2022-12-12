@@ -154,7 +154,7 @@ public class LogisticsManagerViewRequestDetailsJPanel extends javax.swing.JPanel
 
         lblQuantity.setBackground(new java.awt.Color(0, 0, 0));
         lblQuantity.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblQuantity.setText("Food Quantity:");
+        lblQuantity.setText("Item Quantity:");
 
         lblRequestStatus.setBackground(new java.awt.Color(0, 0, 0));
         lblRequestStatus.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N

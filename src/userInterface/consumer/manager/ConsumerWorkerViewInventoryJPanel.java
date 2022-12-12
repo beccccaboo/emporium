@@ -67,7 +67,7 @@ public class ConsumerWorkerViewInventoryJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Food", "Quantity", "Hours to perish"
+                "Item", "Quantity", "Hours to perish"
             }
         ) {
             boolean[] canEdit = new boolean [] {

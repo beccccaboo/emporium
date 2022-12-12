@@ -129,15 +129,15 @@ public class CollectionWorkRequest extends WorkRequest {
     
     
 
-    public void addRequestItem(String food, int quantity, int daysBeforeDisposal) {
-        RequestItem ri = new RequestItem(food, quantity, daysBeforeDisposal);
+    public void addRequestItem(String item, int quantity, int daysBeforeDisposal) {
+        RequestItem ri = new RequestItem(item, quantity, daysBeforeDisposal);
         requestItems.add(ri);
     }
 
     public void updateDisposal() {
         for (RequestItem ri : requestItems) {
             if (ri.getDaysBeforeDisposal()> 0 && ri.getQuantity() > 0) {
-                ri.setDaysBeforeDisposal(ri.getDaysBeforeDisposal()- 0.25);
+                ri.setDaysBeforeDisposal(ri.getDaysBeforeDisposal()- 1);
                 System.out.println(ri.getItemName() + " " + ri.getDaysBeforeDisposal());
             }
         }

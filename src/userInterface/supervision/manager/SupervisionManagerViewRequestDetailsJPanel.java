@@ -151,7 +151,7 @@ public class SupervisionManagerViewRequestDetailsJPanel extends javax.swing.JPan
         lblRequestDate.setText("Request Date:");
 
         lblQuantity.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        lblQuantity.setText("Food Quantity:");
+        lblQuantity.setText("Item Quantity:");
 
         lblRequestStatus.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         lblRequestStatus.setText("Request status:");

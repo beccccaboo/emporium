@@ -61,15 +61,15 @@ public class SupervisionManagerViewChartJPanel extends javax.swing.JPanel {
                             }
                         }
                     }
-                    dataSet.setValue(wastageAvoided, "Wastage Avoided", name);
+                    dataSet.setValue(wastageAvoided, "Disposal Avoided", name);
                     wastageAvoided = 0;
                 }
             }
         }
 
-        JFreeChart chart = ChartFactory.createBarChart("Wastage Avoided by each Supplier",
+        JFreeChart chart = ChartFactory.createBarChart("Disposal Avoided by each Supplier",
                 "Supplier",
-                "Wastage Avoided (In Pounds)",
+                "Disposal Avoided (In Pounds)",
                 dataSet,
                 PlotOrientation.VERTICAL, true, true, false);
 
@@ -107,7 +107,6 @@ public class SupervisionManagerViewChartJPanel extends javax.swing.JPanel {
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblHeader.setText("Mayor Work Area - Restaurant Wastage Avoided Chart");
 
-        btnBack1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnBack1.setText("<< Back");
         btnBack1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,28 +118,29 @@ public class SupervisionManagerViewChartJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1270, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(388, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(lblHeader))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(pnlChart, javax.swing.GroupLayout.PREFERRED_SIZE, 735, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(277, 277, 277))
+                .addGap(270, 270, 270))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(83, 83, 83)
+                .addGap(48, 48, 48)
                 .addComponent(lblHeader)
                 .addGap(18, 18, 18)
                 .addComponent(pnlChart, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
+                .addGap(54, 54, 54)
                 .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(353, Short.MAX_VALUE))
+                .addContainerGap(392, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

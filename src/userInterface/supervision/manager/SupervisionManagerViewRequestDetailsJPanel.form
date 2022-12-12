@@ -235,7 +235,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Calibri" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Food Quantity:"/>
+        <Property name="text" type="java.lang.String" value="Item Quantity:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblRequestStatus">

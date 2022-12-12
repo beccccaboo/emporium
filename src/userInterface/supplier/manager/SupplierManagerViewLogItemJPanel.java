@@ -42,7 +42,7 @@ public class SupplierManagerViewLogItemJPanel extends javax.swing.JPanel {
 
         lblHeader = new javax.swing.JLabel();
         jScrollPane = new javax.swing.JScrollPane();
-        tblFoodItems = new javax.swing.JTable();
+        tblItems = new javax.swing.JTable();
         lblRequestFrom = new javax.swing.JLabel();
         lblRequestFromVal = new javax.swing.JLabel();
         lblRequestDate = new javax.swing.JLabel();
@@ -64,13 +64,13 @@ public class SupplierManagerViewLogItemJPanel extends javax.swing.JPanel {
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblHeader.setText("Supplier Worker Work Area - Collection Request");
 
-        tblFoodItems.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        tblFoodItems.setModel(new javax.swing.table.DefaultTableModel(
+        tblItems.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tblItems.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Food Type", "Quantity"
+                "Item Type", "Quantity"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -81,10 +81,10 @@ public class SupplierManagerViewLogItemJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane.setViewportView(tblFoodItems);
-        if (tblFoodItems.getColumnModel().getColumnCount() > 0) {
-            tblFoodItems.getColumnModel().getColumn(0).setResizable(false);
-            tblFoodItems.getColumnModel().getColumn(1).setResizable(false);
+        jScrollPane.setViewportView(tblItems);
+        if (tblItems.getColumnModel().getColumnCount() > 0) {
+            tblItems.getColumnModel().getColumn(0).setResizable(false);
+            tblItems.getColumnModel().getColumn(1).setResizable(false);
         }
 
         lblRequestFrom.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -106,7 +106,7 @@ public class SupplierManagerViewLogItemJPanel extends javax.swing.JPanel {
         lblRequestStatusVal.setText("<request_status>");
 
         lblQuantity.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblQuantity.setText("Food Quantity:");
+        lblQuantity.setText("Item Quantity:");
 
         lblQuantityVal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblQuantityVal.setText("<quantity>");
@@ -226,7 +226,7 @@ public class SupplierManagerViewLogItemJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     public void populateItemTable() {
-        DefaultTableModel dtm = (DefaultTableModel) tblFoodItems.getModel();
+        DefaultTableModel dtm = (DefaultTableModel) tblItems.getModel();
         dtm.setRowCount(0);
 
         for (RequestItem ri : collectionWorkRequest.getRequestItems()) {
@@ -274,6 +274,6 @@ public class SupplierManagerViewLogItemJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblRequestFromVal;
     private javax.swing.JLabel lblRequestStatus;
     private javax.swing.JLabel lblRequestStatusVal;
-    private javax.swing.JTable tblFoodItems;
+    private javax.swing.JTable tblItems;
     // End of variables declaration//GEN-END:variables
 }

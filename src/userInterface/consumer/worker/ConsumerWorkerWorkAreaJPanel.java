@@ -48,7 +48,7 @@ public class ConsumerWorkerWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         btnViewInventory = new javax.swing.JButton();
         btnUpdateInventory = new javax.swing.JButton();
-        btnDistributeFood = new javax.swing.JButton();
+        btnDistributeItem = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(6, 36, 50));
         setMinimumSize(new java.awt.Dimension(1400, 1000));
@@ -78,13 +78,13 @@ public class ConsumerWorkerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnDistributeFood.setBackground(new java.awt.Color(191, 149, 123));
-        btnDistributeFood.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnDistributeFood.setForeground(new java.awt.Color(255, 255, 255));
-        btnDistributeFood.setText("Distribute Food");
-        btnDistributeFood.addActionListener(new java.awt.event.ActionListener() {
+        btnDistributeItem.setBackground(new java.awt.Color(191, 149, 123));
+        btnDistributeItem.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnDistributeItem.setForeground(new java.awt.Color(255, 255, 255));
+        btnDistributeItem.setText("Distribute Item");
+        btnDistributeItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDistributeFoodActionPerformed(evt);
+                btnDistributeItemActionPerformed(evt);
             }
         });
 
@@ -98,7 +98,7 @@ public class ConsumerWorkerWorkAreaJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnUpdateInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
-                        .addComponent(btnDistributeFood, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnDistributeItem, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(48, 48, 48)
                         .addComponent(btnViewInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -115,7 +115,7 @@ public class ConsumerWorkerWorkAreaJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdateInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnViewInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDistributeFood, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnDistributeItem, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(613, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -136,17 +136,17 @@ public class ConsumerWorkerWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(mainPanel);
     }//GEN-LAST:event_btnUpdateInventoryActionPerformed
 
-    private void btnDistributeFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDistributeFoodActionPerformed
+    private void btnDistributeItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDistributeItemActionPerformed
         // TODO add your handling code here:
-        ConsumerWorkerDistributeFoodJPanel distributeFoodJPanel = new ConsumerWorkerDistributeFoodJPanel(mainPanel, enterprise);
-        mainPanel.add("DistributeFoodJPanel", distributeFoodJPanel);
+        ConsumerWorkerDistributeItemJPanel distributeItemJPanel = new ConsumerWorkerDistributeItemJPanel(mainPanel, enterprise);
+        mainPanel.add("DistributeItemJPanel", distributeItemJPanel);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
-    }//GEN-LAST:event_btnDistributeFoodActionPerformed
+    }//GEN-LAST:event_btnDistributeItemActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDistributeFood;
+    private javax.swing.JButton btnDistributeItem;
     private javax.swing.JButton btnUpdateInventory;
     private javax.swing.JButton btnViewInventory;
     private javax.swing.JLabel jLabel1;

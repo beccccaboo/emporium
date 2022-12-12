@@ -135,7 +135,7 @@ public class LogisticsWorkerPickUpDetailsJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Type", "Quantity", "Hours to perish"
+                "Type", "Quantity", "Days before Disposal"
             }
         ) {
             boolean[] canEdit = new boolean [] {

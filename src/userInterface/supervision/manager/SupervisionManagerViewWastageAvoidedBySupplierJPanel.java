@@ -76,10 +76,10 @@ public class SupervisionManagerViewWastageAvoidedBySupplierJPanel extends javax.
         setMinimumSize(new java.awt.Dimension(1400, 1000));
 
         lblHeading.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblHeading.setText("Mayor Work Area - View Restaurant Wastage Avoided");
+        lblHeading.setText("Supervision Work Area - View Supplier Disposal Avoided");
 
         lblSupplier.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblSupplier.setText("Restaurant :");
+        lblSupplier.setText("Supplier");
 
         cmbSupplier.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cmbSupplier.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +93,7 @@ public class SupervisionManagerViewWastageAvoidedBySupplierJPanel extends javax.
 
             },
             new String [] {
-                "Restaurant Name", "Wastage Avoided(in pounds)", "Status", "NGO delivered to"
+                "Supplier Name", "Disposal Avoided (in pounds)", "Status", "Consumer delivered to"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -128,7 +128,7 @@ public class SupervisionManagerViewWastageAvoidedBySupplierJPanel extends javax.
             }
         });
 
-        lblTotalWastage.setText("Total Wastage Avoided:");
+        lblTotalWastage.setText("Total Disposal Avoided:");
 
         lblWastageValue.setText("<wastage>");
 
@@ -152,7 +152,7 @@ public class SupervisionManagerViewWastageAvoidedBySupplierJPanel extends javax.
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGap(48, 48, 48)
                                 .addComponent(cmbSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 654, javax.swing.GroupLayout.PREFERRED_SIZE)

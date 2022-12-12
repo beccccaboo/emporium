@@ -29,6 +29,7 @@ public class ConsumerWorkerViewRequestJPanel extends javax.swing.JPanel {
         initComponents();
         this.mainPanel = mainPanel;
         this.request = request;
+        lblImage.setVisible(true);
         populateTable();
         populateData();
         populateImage();
@@ -142,7 +143,7 @@ public class ConsumerWorkerViewRequestJPanel extends javax.swing.JPanel {
         lblImg.setForeground(new java.awt.Color(204, 204, 204));
         lblImg.setText("Delivery Image:");
 
-        lblImage.setBorder(new javax.swing.border.MatteBorder(null));
+        lblImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -183,13 +184,14 @@ public class ConsumerWorkerViewRequestJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblCost)
                             .addComponent(lblImg))
-                        .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblCostVal))))
-                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(25, 25, 25)
+                                .addComponent(lblCostVal))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(0, 704, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,13 +220,16 @@ public class ConsumerWorkerViewRequestJPanel extends javax.swing.JPanel {
                     .addComponent(lblCostVal))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblImg)
-                    .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblImg)
+                        .addGap(161, 161, 161))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(85, 85, 85)
                 .addComponent(btnBack)
-                .addContainerGap(234, Short.MAX_VALUE))
+                .addContainerGap(228, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -284,9 +289,10 @@ public class ConsumerWorkerViewRequestJPanel extends javax.swing.JPanel {
     }
     
     private void populateImage(){
+        lblImage.setVisible(true);
         ImageIcon imgIcon = new ImageIcon(request.getImgPath());
-        System.out.println(request.getImgPath());
+        System.out.println(request.getImgPath()+""+lblImage.getWidth()+""+lblImage.getHeight());
         Image img =imgIcon.getImage().getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
-        
+        lblImage.setIcon(new ImageIcon(img));
     }
 }

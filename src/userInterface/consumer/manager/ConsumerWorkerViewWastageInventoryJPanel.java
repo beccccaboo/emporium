@@ -60,7 +60,7 @@ public class ConsumerWorkerViewWastageInventoryJPanel extends javax.swing.JPanel
 
             },
             new String [] {
-                "Food", "Quantity", "Wastage Amount(In pounds)"
+                "Item", "Quantity", "Wastage Amount(In pounds)"
             }
         ) {
             boolean[] canEdit = new boolean [] {

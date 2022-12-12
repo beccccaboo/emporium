@@ -302,7 +302,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                                 .addComponent(lblMobileNo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtMobileNo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(157, 157, Short.MAX_VALUE))
+                                .addGap(175, 335, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblEmail)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -318,7 +318,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                                 .addComponent(btnBrowse)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnSnapshot)))
-                        .addContainerGap())))
+                        .addContainerGap(157, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -413,7 +413,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                     .addComponent(btnUpdate)
                     .addComponent(btnDelete)
                     .addComponent(btnCancel))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBack, btnBrowse, btnCancel, btnDelete, btnNew, btnSave, btnSnapshot, btnUpdate, btnView, cmbEnterprise, cmbNetwork, lblEmail, lblEnterprise, lblMobileNo, lblName, lblNetwork, lblPassword, lblPassword1, lblUserName, txtEmail, txtMobileNo, txtName, txtPassword, txtUserName});

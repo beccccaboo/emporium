@@ -51,7 +51,7 @@ public class SupervisionManagerWorkAreaJPanel extends javax.swing.JPanel {
         lblValue.setText("Welcome, ");
 
         btnWastageAvoided.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnWastageAvoided.setText("View Wastage Avoided by Restaurants(Tabular)");
+        btnWastageAvoided.setText("View Disposal Avoided by Supplier(Tabular)");
         btnWastageAvoided.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnWastageAvoidedActionPerformed(evt);
@@ -59,7 +59,7 @@ public class SupervisionManagerWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         btnPeopleFed.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnPeopleFed.setText("View People Fed by NGOs");
+        btnPeopleFed.setText("View People Served by Consumers");
         btnPeopleFed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPeopleFedActionPerformed(evt);
@@ -67,7 +67,7 @@ public class SupervisionManagerWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         btnWastageAvoidedChart.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnWastageAvoidedChart.setText("View Wastage Avoided by Restaurant(Chart)");
+        btnWastageAvoidedChart.setText("View Disposal Avoided by Supplier(Chart)");
         btnWastageAvoidedChart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnWastageAvoidedChartActionPerformed(evt);
@@ -79,7 +79,7 @@ public class SupervisionManagerWorkAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(241, Short.MAX_VALUE)
+                .addContainerGap(269, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblValue, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()

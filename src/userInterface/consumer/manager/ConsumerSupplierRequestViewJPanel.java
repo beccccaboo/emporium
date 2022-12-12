@@ -88,7 +88,7 @@ public class ConsumerSupplierRequestViewJPanel extends javax.swing.JPanel {
 
         lblQuantity.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblQuantity.setForeground(new java.awt.Color(204, 204, 204));
-        lblQuantity.setText("Food Quantity:");
+        lblQuantity.setText("Item Quantity:");
 
         lblQuantityVal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblQuantityVal.setForeground(new java.awt.Color(204, 204, 204));
